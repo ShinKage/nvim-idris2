@@ -1,0 +1,10 @@
+package nvim
+
+sourcedir = "src"
+
+modules = Plugin
+
+depends = idris2, contrib
+
+main = Plugin
+executable = plugin
