@@ -96,3 +96,27 @@ prim__write : OpaqueDict -> String -> PrimIO ()
 export
 write : HasIO io => OpaqueDict -> String -> io ()
 write client s = primIO $ prim__write client s
+
+%foreign "function() return vim.fn.expand('%:p') end"
+prim__filePath : PrimIO String
+
+export
+filePath : HasIO io => io String
+filePath = primIO prim__filePath
+
+-- FIXME: Lua global variable hack
+export %foreign "function(client) global_client=client end"
+setGlobalClient : OpaqueDict -> PrimIO ()
+
+export %foreign "function() return global_client end"
+getGlobalClient : PrimIO OpaqueDict
+
+export %foreign "idris.support.fastLines|support"
+fastLines : String -> List String
+
+%foreign "function() return vim.fn.expand('<cword>') end"
+prim__cursorWord : PrimIO String
+
+export
+cursorWord : IO String
+cursorWord = primIO prim__cursorWord
