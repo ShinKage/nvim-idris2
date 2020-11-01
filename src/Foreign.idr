@@ -23,8 +23,8 @@ newTCP = primIO prim__newTCP
 --        the same in the lua backend? Currently hacked to unsafe "pure"
 --        callbacks.
 -- TODO: leave schedule_wrap here or generalise even more?
-%foreign "function(cmd, opts, callback) return vim.loop.spawn(cmd, opts, vim.schedule_wrap(callback)) end"
-prim__spawn : String -> OpaqueDict -> (Int -> Int -> ()) -> PrimIO OpaqueDict
+%foreign "idris.support.spawn|support"
+prim__spawn : String -> OpaqueDict -> (Int -> Int -> PrimIO ()) -> PrimIO OpaqueDict
 
 -- FIXME: unsafePerformIO for the hack described in prim__spawn.
 export
@@ -33,13 +33,14 @@ spawn : HasIO io
      -> Dict [("args", Lua.List [String, String]), ("stdio", Lua.List [OpaqueDict, OpaqueDict, OpaqueDict])]
      -> (Int -> Int -> IO ())
      -> io (Dict [("handle", OpaqueDict), ("pid", Int)])
-spawn cmd (MkDict opts) f = MkDict <$> primIO (prim__spawn cmd opts (\x, y => unsafePerformIO $ f x y))
+spawn cmd (MkDict opts) f =
+  MkDict <$> primIO (prim__spawn cmd opts (\x, y => toPrim $ f x y))
 
 -- FIXME: Previous hacks plus (() -> ()) to pass the callback lazily, otherwise
 --        the unsafePerformIO would force evaluation before reaching the
 --        function.
-%foreign "function(stream, onok, onerr, onclose) stream:read_start(vim.schedule_wrap(function (err, chunk) if err then onerr(err) elseif chunk then onok(chunk) else onclose(nil) end end)) end"
-prim__readStart : OpaqueDict -> (String -> ()) -> (String -> ()) -> (() -> ()) -> PrimIO ()
+%foreign "idris.support.readStart|support"
+prim__readStart : OpaqueDict -> (String -> PrimIO ()) -> (String -> PrimIO ()) -> PrimIO () -> PrimIO ()
 
 export
 readStart : HasIO io => OpaqueDict
@@ -47,7 +48,10 @@ readStart : HasIO io => OpaqueDict
          -> (onerr : String -> IO ())
          -> (onclose : IO ())
          -> io ()
-readStart stream onok onerr onclose = primIO $ prim__readStart stream (\s => unsafePerformIO $ onok s) (\s => unsafePerformIO $ onerr s) (\_ => unsafePerformIO onclose)
+readStart stream onok onerr onclose =
+  primIO $ prim__readStart stream (\s => toPrim $ onok s)
+                                  (\s => toPrim $ onerr s)
+                                  (toPrim onclose)
 
 %foreign "function(stream) stream:read_stop() end"
 prim__readStop : OpaqueDict -> PrimIO ()
@@ -77,8 +81,8 @@ export
 close : HasIO io => OpaqueDict -> io ()
 close = primIO . prim__close
 
-%foreign "function(client, host, port, onok, onerr) client:connect(host, port, function (err) if err then onerr(err) else onok(nil) end end) end"
-prim__connect : OpaqueDict -> String -> Int -> (() -> ()) -> (String -> ()) -> PrimIO ()
+%foreign "idris.support.connect|support"
+prim__connect : OpaqueDict -> String -> Int -> PrimIO () -> (String -> PrimIO ()) -> PrimIO ()
 
 export
 connect : HasIO io
@@ -88,7 +92,7 @@ connect : HasIO io
        -> IO ()
        -> (String -> IO ())
        -> io ()
-connect client host port onok onerr = primIO $ prim__connect client host port (\_ => unsafePerformIO onok) (\s => unsafePerformIO $ onerr s)
+connect client host port onok onerr = primIO $ prim__connect client host port (toPrim onok) (\s => toPrim $ onerr s)
 
 %foreign "function(client, data) client:write(data) end"
 prim__write : OpaqueDict -> String -> PrimIO ()
@@ -118,5 +122,26 @@ fastLines : String -> List String
 prim__cursorWord : PrimIO String
 
 export
-cursorWord : IO String
+cursorWord : HasIO io => io String
 cursorWord = primIO prim__cursorWord
+
+%foreign "function() return vim.fn.expand('<cWORD>') end"
+prim__cursorWord' : PrimIO String
+
+export
+cursorWord' : HasIO io => io String
+cursorWord' = primIO prim__cursorWord'
+
+%foreign "function() return vim.fn.line('.') end"
+prim__cursorLine : PrimIO Int
+
+export
+cursorLine : HasIO io => io Int
+cursorLine = primIO prim__cursorLine
+
+%foreign "function() return vim.fn.col('.') end"
+prim__cursorColumn : PrimIO Int
+
+export
+cursorColumn : HasIO io => io Int
+cursorColumn = primIO prim__cursorColumn

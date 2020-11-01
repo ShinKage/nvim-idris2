@@ -3,6 +3,7 @@ module Plugin
 import Data.List
 import Data.Strings
 import Data.Ref
+import Language.Reflection
 
 import Parser.Lexer.Source
 import Parser.Support
@@ -12,6 +13,8 @@ import Utils.Hex
 
 import Foreign
 import Commands
+
+%language ElabReflection
 
 -- TODO: Move all temporary foreign declaration to vim api module
 
@@ -85,16 +88,15 @@ connectIdris2 host port = do
               let msgs = splitMessages recv []
               for_ msgs $ \msg => do
                 let head = substr 0 5 msg
-                if head /= "(:out"
-                   then do let Right sexp = parseSExp msg
-                             | Left err => primIO $ nvimCommand $ "echom 'invalid response: " ++ show err ++ "'"
-                           let Just res = getResult sexp
-                             | Nothing => primIO $ nvimCommand $ "echom 'invalid response: " ++ show sexp ++ "'"
-                           writeToBuffer (show res)
-                   else writeToBuffer "Syntax Highlightning")
+                let Right sexp = parseSExp msg
+                  | Left err => primIO $ nvimCommand $ "echom 'invalid response: " ++ show err ++ "'"
+                let Just res = getResult sexp
+                  | Nothing => primIO $ nvimCommand $ "echom 'invalid response: " ++ show sexp ++ "'"
+                writeToBuffer (show res))
           (\err => primIO $ nvimCommand $ "echom 'read err: " ++ err ++ "'")
           (pure ()))
     (\err => primIO $ nvimCommand $ "echom 'connect error: " ++ err ++ "'")
+  write client (buildCommand $ EnableSyntax False) -- Still not merged
   pure client
 
 quitServer : HasIO io
@@ -155,20 +157,26 @@ setBuftype : String -> PrimIO ()
 
 main : IO ()
 main = do
-  -- FIXME: Hack to guarantee that the compiler puts this function in the
-  --        compiled output
-  () <- if False then unsafeLoadCurrent else pure ()
-  () <- if False then unsafeTypeOf else pure ()
+  loadCommands
 
   -- serverRef <- newRef Server Nothing
   -- clientRef <- newRef Client Nothing
 
+  primIO $ nvimCommand "set maxfuncdepth=10000"
   primIO $ nvimCommand "echom 'starting idris2 plugin'"
   client <- connectIdris2 "127.0.0.1" 38398
   primIO $ setGlobalClient client
   -- spawnAndConnectIdris2 ("localhost", 38398) ("127.0.0.1", 38398)
-  primIO $ nnoremap "<Leader>L" ":lua idris['Commands.unsafeLoadCurrent']('%World')<CR>"
-  primIO $ nnoremap "<Leader>T" ":lua idris['Commands.unsafeTypeOf']('%World')<CR>"
+  primIO $ nnoremap "<Leader>r" $ commandBinding `{{loadCurrent}}
+  primIO $ nnoremap "<Leader>t" $ commandBinding `{{typeOf}}
+  primIO $ nnoremap "<Leader>d" $ commandBinding `{{docOverview}}
+  primIO $ nnoremap "<Leader>c" $ commandBinding `{{caseSplit}}
+  primIO $ nnoremap "<Leader>s" $ commandBinding `{{exprSearch}}
+  primIO $ nnoremap "<Leader>sn" $ commandBinding `{{exprSearchNext}}
+  primIO $ nnoremap "<Leader>d" $ commandBinding `{{generateDef}}
+  primIO $ nnoremap "<Leader>dn" $ commandBinding `{{generateDefNext}}
+  primIO $ nnoremap "<Leader>l" $ commandBinding `{{makeLemma}}
+  primIO $ nnoremap "<Leader>w" $ commandBinding `{{makeWith}}
   primIO $ nvimCommand "vertical rightbelow split"
   primIO $ nvimCommand "badd idris-response"
   primIO $ nvimCommand "b idris-response"

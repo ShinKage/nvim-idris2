@@ -5,6 +5,19 @@ import Data.List
 %default total
 
 export
+data External : Type where [external]
+
+%foreign "idris.support.world|support"
+world : External
+
+%foreign "function(w) end"
+prim__compile : List External -> PrimIO ()
+
+export
+compile : HasIO io => List External -> io ()
+compile externals = primIO (prim__compile externals)
+
+export
 data OpaqueDict : Type where [external]
 
 -- TODO: How we properly manage nil?
