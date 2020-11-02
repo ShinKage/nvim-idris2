@@ -1,8 +1,11 @@
 module Foreign
 
+import Idris.IDEMode.Commands
+
 import public System.FFI.Lua
 
 -- TODO: Build safe wrappers for sockets and handlers `OpaqueDict`s
+-- TODO: PrimIO exposed foreigns are not finalised designs
 
 %foreign "function() return vim.loop.new_pipe(false) end"
 prim__newPipe : PrimIO OpaqueDict
@@ -18,15 +21,9 @@ export
 newTCP : HasIO io => io OpaqueDict
 newTCP = primIO prim__newTCP
 
--- FIXME: scheme backend properly manages PrimIO callbacks without having to
---        pass around the world token in the foreign implementation, can we do
---        the same in the lua backend? Currently hacked to unsafe "pure"
---        callbacks.
--- TODO: leave schedule_wrap here or generalise even more?
 %foreign "idris.support.spawn|support"
 prim__spawn : String -> OpaqueDict -> (Int -> Int -> PrimIO ()) -> PrimIO OpaqueDict
 
--- FIXME: unsafePerformIO for the hack described in prim__spawn.
 export
 spawn : HasIO io
      => String
@@ -36,9 +33,6 @@ spawn : HasIO io
 spawn cmd (MkDict opts) f =
   MkDict <$> primIO (prim__spawn cmd opts (\x, y => toPrim $ f x y))
 
--- FIXME: Previous hacks plus (() -> ()) to pass the callback lazily, otherwise
---        the unsafePerformIO would force evaluation before reaching the
---        function.
 %foreign "idris.support.readStart|support"
 prim__readStart : OpaqueDict -> (String -> PrimIO ()) -> (String -> PrimIO ()) -> PrimIO () -> PrimIO ()
 
@@ -115,6 +109,27 @@ setGlobalClient : OpaqueDict -> PrimIO ()
 export %foreign "function() return global_client end"
 getGlobalClient : PrimIO OpaqueDict
 
+export %foreign "idris.support.putCmdInHistory|support"
+putCmdInHistory : Int -> IDECommand -> PrimIO Int
+
+export %foreign "idris.support.putLastSearch|support"
+putLastSearch : String -> PrimIO Int
+
+export %foreign "idris.support.deleteCmdInHistory|support"
+deleteCmdInHistory : Int -> PrimIO ()
+
+export %foreign "idris.support.deleteLastSearch|support"
+deleteLastSearch : Int -> PrimIO ()
+
+export %foreign "idris.support.getCmdFromHistory|support"
+getCmdFromHistory : Int -> PrimIO (Maybe IDECommand)
+
+export %foreign "idris.support.getLastSearch|support"
+getLastSearch : PrimIO (Maybe String)
+
+export %foreign "idris.support.genHistoryIndex|support"
+genHistoryIndex : PrimIO Int
+
 export %foreign "idris.support.fastLines|support"
 fastLines : String -> List String
 
@@ -145,3 +160,50 @@ prim__cursorColumn : PrimIO Int
 export
 cursorColumn : HasIO io => io Int
 cursorColumn = primIO prim__cursorColumn
+
+%foreign "function(line, col) vim.fn.cursor(line, col) end"
+prim__setCursor : Int -> Int -> PrimIO ()
+
+export
+setCursor : HasIO io => Int -> Int -> io ()
+setCursor l c = primIO $ prim__setCursor l c
+
+%foreign "function(pat) return vim.fn.search(pat) end"
+prim__searchPattern : String -> PrimIO Int
+
+export
+searchPattern : HasIO io => String -> io Int
+searchPattern pat = primIO $ prim__searchPattern pat
+
+%foreign "idris.support.getSelection|support"
+prim__getSelection : PrimIO String
+
+export
+getSelection : HasIO io => io String
+getSelection = primIO prim__getSelection
+
+%foreign "function() vim.api.nvim_command('w') end"
+prim__saveBuffer : PrimIO ()
+
+export
+saveBuffer : HasIO io => io ()
+saveBuffer = primIO prim__saveBuffer
+
+%foreign "function() return vim.bo.modified end"
+prim__isBufferModified : PrimIO String
+
+export
+isBufferModified : HasIO io => io Bool
+isBufferModified = case !(primIO prim__isBufferModified) of
+                        "true" => pure True
+                        _ => pure False
+
+export %foreign "function(cmd) vim.api.nvim_command(cmd) end"
+nvimCommand : String -> PrimIO ()
+
+%foreign "function(key, cmd) vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true }) end"
+prim__nnoremap : String -> String -> PrimIO ()
+
+export
+nnoremap : HasIO io => String -> String -> io ()
+nnoremap k cmd = primIO $ prim__nnoremap k cmd
