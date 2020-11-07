@@ -7,14 +7,14 @@ import public System.FFI.Lua
 -- TODO: Build safe wrappers for sockets and handlers `OpaqueDict`s
 -- TODO: PrimIO exposed foreigns are not finalised designs
 
-%foreign "function() return vim.loop.new_pipe(false) end"
+%foreign "function(_) return vim.loop.new_pipe(false) end"
 prim__newPipe : PrimIO OpaqueDict
 
 export
 newPipe : HasIO io => io OpaqueDict
 newPipe = primIO prim__newPipe
 
-%foreign "function() return vim.loop.new_tcp() end"
+%foreign "function(_) return vim.loop.new_tcp() end"
 prim__newTCP : PrimIO OpaqueDict
 
 export
@@ -47,28 +47,28 @@ readStart stream onok onerr onclose =
                                   (\s => toPrim $ onerr s)
                                   (toPrim onclose)
 
-%foreign "function(stream) stream:read_stop() end"
+%foreign "function(stream) return function(_) stream:read_stop() end end"
 prim__readStop : OpaqueDict -> PrimIO ()
 
 export
 readStop : HasIO io => OpaqueDict -> io ()
 readStop = primIO . prim__readStop
 
-%foreign "function(handle) handle:kill(15) end"
+%foreign "function(handle) return function(_) handle:kill(15) end end"
 prim__sigtermHandle : OpaqueDict -> PrimIO ()
 
 export
 sigterm : HasIO io => OpaqueDict -> io ()
 sigterm = primIO . prim__sigtermHandle
 
-%foreign "function(client) client:shutdown() end"
+%foreign "function(client) return function(_) client:shutdown() end end"
 prim__shutdown : OpaqueDict -> PrimIO ()
 
 export
 shutdown : HasIO io => OpaqueDict -> io ()
 shutdown = primIO . prim__shutdown
 
-%foreign "function(client) client:close() end"
+%foreign "function(client) return function(_) client:close() end end"
 prim__close : OpaqueDict -> PrimIO ()
 
 export
@@ -88,14 +88,14 @@ connect : HasIO io
        -> io ()
 connect client host port onok onerr = primIO $ prim__connect client host port (toPrim onok) (\s => toPrim $ onerr s)
 
-%foreign "function(client, data) client:write(data) end"
+%foreign "function(client) return function(data) return function(_) client:write(data) end end end"
 prim__write : OpaqueDict -> String -> PrimIO ()
 
 export
 write : HasIO io => OpaqueDict -> String -> io ()
 write client s = primIO $ prim__write client s
 
-%foreign "function() return vim.fn.expand('%:p') end"
+%foreign "function(_) return vim.fn.expand('%:p') end"
 prim__filePath : PrimIO String
 
 export
@@ -103,10 +103,10 @@ filePath : HasIO io => io String
 filePath = primIO prim__filePath
 
 -- FIXME: Lua global variable hack
-export %foreign "function(client) global_client=client end"
+export %foreign "function(client) return function(_) global_client=client end end"
 setGlobalClient : OpaqueDict -> PrimIO ()
 
-export %foreign "function() return global_client end"
+export %foreign "function(_) return global_client end"
 getGlobalClient : PrimIO OpaqueDict
 
 export %foreign "idris.support.putCmdInHistory|support"
@@ -133,42 +133,42 @@ genHistoryIndex : PrimIO Int
 export %foreign "idris.support.fastLines|support"
 fastLines : String -> List String
 
-%foreign "function() return vim.fn.expand('<cword>') end"
+%foreign "function(_) return vim.fn.expand('<cword>') end"
 prim__cursorWord : PrimIO String
 
 export
 cursorWord : HasIO io => io String
 cursorWord = primIO prim__cursorWord
 
-%foreign "function() return vim.fn.expand('<cWORD>') end"
+%foreign "function(_) return vim.fn.expand('<cWORD>') end"
 prim__cursorWord' : PrimIO String
 
 export
 cursorWord' : HasIO io => io String
 cursorWord' = primIO prim__cursorWord'
 
-%foreign "function() return vim.fn.line('.') end"
+%foreign "function(_) return vim.fn.line('.') end"
 prim__cursorLine : PrimIO Int
 
 export
 cursorLine : HasIO io => io Int
 cursorLine = primIO prim__cursorLine
 
-%foreign "function() return vim.fn.col('.') end"
+%foreign "function(_) return vim.fn.col('.') end"
 prim__cursorColumn : PrimIO Int
 
 export
 cursorColumn : HasIO io => io Int
 cursorColumn = primIO prim__cursorColumn
 
-%foreign "function(line, col) vim.fn.cursor(line, col) end"
+%foreign "function(line) return function(col) return function(_) vim.fn.cursor(line, col) end end end"
 prim__setCursor : Int -> Int -> PrimIO ()
 
 export
 setCursor : HasIO io => Int -> Int -> io ()
 setCursor l c = primIO $ prim__setCursor l c
 
-%foreign "function(pat) return vim.fn.search(pat) end"
+%foreign "function(pat) return function(_) return vim.fn.search(pat) end end"
 prim__searchPattern : String -> PrimIO Int
 
 export
@@ -182,14 +182,14 @@ export
 getSelection : HasIO io => io String
 getSelection = primIO prim__getSelection
 
-%foreign "function() vim.api.nvim_command('w') end"
+%foreign "function(_) vim.api.nvim_command('w') end"
 prim__saveBuffer : PrimIO ()
 
 export
 saveBuffer : HasIO io => io ()
 saveBuffer = primIO prim__saveBuffer
 
-%foreign "function() return vim.bo.modified end"
+%foreign "function(_) return vim.bo.modified end"
 prim__isBufferModified : PrimIO String
 
 export
@@ -198,10 +198,10 @@ isBufferModified = case !(primIO prim__isBufferModified) of
                         "true" => pure True
                         _ => pure False
 
-export %foreign "function(cmd) vim.api.nvim_command(cmd) end"
+export %foreign "function(cmd) return function(_) vim.api.nvim_command(cmd) end end"
 nvimCommand : String -> PrimIO ()
 
-%foreign "function(key, cmd) vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true }) end"
+%foreign "function(key) return function(cmd) return function(_) vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true }) end end end"
 prim__nnoremap : String -> String -> PrimIO ()
 
 export

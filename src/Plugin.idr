@@ -21,7 +21,7 @@ import Foreign
 data Server : Type where
 data Client : Type where
 
-%foreign "function(s, h) return {args={'--ide-mode-socket', s}, stdio={nil, h, nil}} end"
+%foreign "function(s) return function(h) return {args={'--ide-mode-socket', s}, stdio={nil, h, nil}} end end"
 prim__spawnOpts : String -> OpaqueDict -> OpaqueDict
 
 spawnOpts : String
@@ -41,19 +41,19 @@ spawnIdris2 host port = do
                    (primIO $ nvimCommand  "echom 'Idris2 stdout closed'")
   pure (handle, stdout)
 
-%foreign "function() vim.fn.getcurpos() end"
+%foreign "function(_) return vim.fn.getcurpos() end"
 getCurPos : PrimIO OpaqueDict
 
-%foreign "function(pos) vim.fn.setpos('.', pos) end"
+%foreign "function(pos) return function(_) vim.fn.setpos('.', pos) end end"
 setCurPos : OpaqueDict -> PrimIO ()
 
-%foreign "function(l, s) vim.fn.append(l, vim.split(s, '\\n')) end"
+%foreign "function(l) return function(s) return function(_) vim.fn.append(l, vim.split(s, '\\n')) end end end"
 appendLines : Int -> String -> PrimIO ()
 
-%foreign "function(l) vim.fn.deletebufline('%', l) end"
+%foreign "function(l) return function(_) vim.fn.deletebufline('%', l) end end"
 deleteLine : Int -> PrimIO ()
 
-%foreign "function(s) return vim.fn.line(s) end"
+%foreign "function(s) return function(_) return vim.fn.line(s) end end"
 line : String -> PrimIO Int
 
 writeToBuffer : String -> IO ()
@@ -242,10 +242,10 @@ spawnAndConnectIdris2 (shost, sport) (chost, cport) = do
                    (do primIO $ nvimCommand "echom 'Idris2 stdout closed'"
                        quitServer)
 
-%foreign "function(name) return vim.fn.bufexists(name) end"
+%foreign "function(name) return function(_) return vim.fn.bufexists(name) end end"
 bufexists : String -> PrimIO Int
 
-%foreign "function(type) vim.bo.buftype = type end"
+%foreign "function(type) return function(_) vim.bo.buftype = type end end"
 setBuftype : String -> PrimIO ()
 
 main : IO ()

@@ -45,70 +45,104 @@ function module.fastLines(str)
     return list
 end
 
-function module.spawn(cmd, opts, callback)
-    return vim.loop.spawn(cmd, opts, vim.schedule_wrap(module.world(callback, 2)))
+function module.spawn(cmd)
+    return function(opts)
+        return function(callback)
+            return function(_)
+                return vim.loop.spawn(cmd, opts, vim.schedule_wrap(module.world(callback, 2)))
+            end
+        end
+    end
 end
 
-function module.readStart(stream, onok, onerr, onclose)
-    stream:read_start(vim.schedule_wrap(function (err, chunk)
-        if err then
-            module.world(onerr, 1)(err)
-        elseif chunk then
-            module.world(onok, 1)(chunk)
-        else
-            module.world(onclose, 0)
-        end
-    end))
+function module.readStart(stream)
+    return function(onok)
+       return function(onerr)
+           return function(onclose)
+               return function(_)
+                   stream:read_start(vim.schedule_wrap(function (err, chunk)
+                       if err then
+                           module.world(onerr, 1)(err)
+                       elseif chunk then
+                           module.world(onok, 1)(chunk)
+                       else
+                           module.world(onclose, 0)
+                       end
+                   end))
+               end
+           end
+       end
+    end
 end
 
-function module.connect(client, host, port, onok, onerr)
-    client:connect(host, port, vim.schedule_wrap(function (err)
-        if err then
-            module.world(onerr, 1)(err)
-        else
-            module.world(onok, 0)
+function module.connect(client)
+    return function(host)
+        return function(port)
+            return function(onok)
+                return function(onerr)
+                    return function(_)
+                        client:connect(host, port, vim.schedule_wrap(function (err)
+                            if err then
+                                module.world(onerr, 1)(err)
+                            else
+                                module.world(onok, 0)
+                            end
+                        end))
+                    end
+                end
+            end
         end
-    end))
+    end
 end
 
 module.cmd_history = {}
 module.cmd_index = 1
 module.cmd_last_search = nil
 
-function module.putCmdInHistory(idx, cmd)
-    module.cmd_history[idx] = cmd
+function module.putCmdInHistory(idx)
+    return function(cmd)
+        return function(_)
+            module.cmd_history[idx] = cmd
+        end
+    end
 end
 
 function module.putLastSearch(s)
-    module.cmd_last_search = s
+    return function(_)
+        module.cmd_last_search = s
+    end
 end
 
 function module.deleteCmdInHistory(idx)
-    module.cmd_history[idx] = nil
+    return function(_)
+        module.cmd_history[idx] = nil
+    end
 end
 
-function module.deleteLastSearch()
+function module.deleteLastSearch(_)
     module.cmd_last_search = nil
 end
 
-function module.genHistoryIndex()
+function module.genHistoryIndex(_)
     local idx = module.cmd_index
     module.cmd_index = module.cmd_index + 1
     return idx
 end
 
 function module.getCmdFromHistory(idx)
-    local cmd = {}
-    if module.cmd_history[idx] ~= nil then
-        cmd.tag = '1'
-        cmd.arg1 = module.cmd_history[idx]
-    else
-        cmd.tag = '0'
+    return function(_)
+        local cmd = {}
+        if module.cmd_history[idx] ~= nil then
+            cmd.tag = '1'
+            cmd.arg1 = module.cmd_history[idx]
+        else
+            cmd.tag = '0'
+        end
+        return cmd
     end
-    return cmd
 end
 
-function module.getLastSearch()
+function module.getLastSearch(_)
     local res = {}
     if module.cmd_last_search ~= nil then
         res.tag = '1'
@@ -119,11 +153,15 @@ function module.getLastSearch()
     return res
 end
 
-function module.updateCmdInHistory(idx, cmd)
-    if cmd.tag == '0' then
-        module.cmd_history[idx] = nil
-    else
-        module.cmd_history[idx] = cmd
+function module.updateCmdInHistory(idx)
+    return function(cmd)
+        return function(_)
+            if cmd.tag == '0' then
+                module.cmd_history[idx] = nil
+            else
+                module.cmd_history[idx] = cmd
+            end
+        end
     end
 end
 
