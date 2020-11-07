@@ -10,7 +10,7 @@ data External : Type where [external]
 %foreign "idris.support.world|support"
 world : External
 
-%foreign "function(w) end"
+%foreign "function(_) end"
 prim__compile : List External -> PrimIO ()
 
 export
@@ -30,7 +30,7 @@ public export
 data List : List Type -> Type where
   MkList : (n : Nat) -> OpaqueDict -> n = length ts => List ts
 
-%foreign "function() return {} end"
+%foreign "{}"
 prim__empty : OpaqueDict
 
 namespace Dict
@@ -39,10 +39,10 @@ namespace Dict
     First : FieldType n t ((n, t) :: ts)
     Later : FieldType n t ts -> FieldType n t (f :: ts)
 
-  %foreign "function(_, d, n) return d[n] end"
+  %foreign "function(_) return function(d) return function(n) return d[n] end end end"
   prim__getField : OpaqueDict -> (n : String) -> ty
 
-  %foreign "function(_, d, n, v) d[n] = v end"
+  %foreign "function(_) return function(d) return function(n) return function(v) return function(_) return d[n] = v end end end end end"
   prim__setField : OpaqueDict -> (n : String) -> ty -> PrimIO ()
 
   public export %inline
@@ -69,10 +69,10 @@ namespace List
     First : FieldType 1 t (t :: ts)
     Later : FieldType n t ts -> FieldType (S n) t (t' :: ts)
 
-  %foreign "function(_, l, n) return l[n] end"
+  %foreign "function(_) return function(d) return function(n) return d[n] end end end"
   prim__getField : OpaqueDict -> (n : Nat) -> ty
 
-  %foreign "function(_, l, n, v) d[n] = v end"
+  %foreign "function(_) return function(d) return function(n) return function(v) return function(_) return d[n] = v end end end end end"
   prim__setField : OpaqueDict -> (n : Nat) -> ty -> PrimIO ()
 
   public export %inline
@@ -100,7 +100,7 @@ namespace List
                                  rewrite lengthSuc ts t [] in
                                  rewrite appendNilRightNeutral ts in Refl})
 
-%foreign "function(v) return v == nil end"
+%foreign "function(v) return function(_) return v == nil end end"
 prim__isNil : OpaqueDict -> PrimIO Bool
 
 isNil : HasIO io => OpaqueDict -> io Bool

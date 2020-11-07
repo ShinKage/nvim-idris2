@@ -8,7 +8,7 @@ export
 data Stream : Type where
   MkStream : OpaqueDict -> Stream
 
-%foreign "function() return vim.loop.new_pipe(false) end"
+%foreign "function(_) return vim.loop.new_pipe(false) end"
 prim__newPipe : PrimIO OpaqueDict
 
 export
@@ -19,26 +19,33 @@ export
 data Socket : Type where
   MkSocket : OpaqueDict -> Socket
 
-%foreign "function() return vim.loop.new_tcp() end"
+%foreign "function(_) return vim.loop.new_tcp() end"
 prim__newTCP : PrimIO OpaqueDict
 
 export
 newTCP : HasIO io => io Socket
 newTCP = MkSocket <$> primIO prim__newTCP
 
--- FIXME: scheme backend properly manages PrimIO callbacks without having to
---        pass around the world token in the foreign implementation, can we do
---        the same in the lua backend? Currently hacked to unsafe "pure"
---        callbacks.
--- TODO: leave schedule_wrap here or generalise even more?
-%foreign "function(cmd, opts, callback) return vim.loop.spawn(cmd, opts, vim.schedule_wrap(callback)) end"
-prim__spawn : String -> OpaqueDict -> (Int -> Int -> ()) -> PrimIO OpaqueDict
+prim__spawn__ffi : String
+prim__spawn__ffi =
+    "function(cmd)"
+ ++ "    return function(opts)"
+ ++ "        return function (callback)"
+ ++ "           return function (_)"
+ ++ "               return vim.loop.spawn(cmd, opts, vim.schedule_wrap(idris.world(callback, 2)))"
+ ++ "           end"
+ ++ "        end"
+ ++ "    end"
+ ++ "end"
 
--- FIXME: unsafePerformIO for the hack described in prim__spawn.
+-- TODO: leave schedule_wrap here or generalise even more?
+%foreign prim__spawn__ffi
+prim__spawn : String -> OpaqueDict -> (Int -> Int -> PrimIO ()) -> PrimIO OpaqueDict
+
 export
 spawn : HasIO io
      => String
      -> Dict [("args", Lua.List [String, String]), ("stdio", Lua.List [OpaqueDict, OpaqueDict, OpaqueDict])]
      -> (Int -> Int -> IO ())
      -> io (Dict [("handle", OpaqueDict), ("pid", Int)])
-spawn cmd (MkDict opts) f = MkDict <$> primIO (prim__spawn cmd opts (\x, y => unsafePerformIO $ f x y))
+spawn cmd (MkDict opts) f = MkDict <$> primIO (prim__spawn cmd opts (\x, y => toPrim $ f x y))
