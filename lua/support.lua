@@ -182,6 +182,14 @@ function module.getGlobalStringVar(key)
     end
 end
 
+local function toIdrisBool(bool)
+    if bool then
+        return {tag = "0"}
+    else
+        return {tag = "1"}
+    end
+end
+
 function module.getGlobalBoolVar(key)
     -- TODO: add typing check
     return function(_)
@@ -191,7 +199,7 @@ function module.getGlobalBoolVar(key)
             res.tag = '0'
         else
             res.tag = '1'
-            res.arg1 = var
+            res.arg1 = toIdrisBool(var)
         end
         return res
     end
