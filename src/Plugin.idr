@@ -245,9 +245,6 @@ spawnAndConnectIdris2 (shost, sport) (chost, cport) = do
 %foreign "name, _ => vim.fn.bufexists(name)"
 bufexists : String -> PrimIO Int
 
-%foreign "type, _ => vim.bo.buftype"
-setBuftype : String -> PrimIO ()
-
 main : IO ()
 main = do
   loadCommands
@@ -311,5 +308,5 @@ main = do
     primIO $ nvimCommand "vertical rightbelow split"
     primIO $ nvimCommand "badd idris-response"
     primIO $ nvimCommand "b idris-response"
-    primIO $ setBuftype "nofile"
+    primIO $ nvimCommand "set buftype=nofile"
     primIO $ nvimCommand "wincmd h"
