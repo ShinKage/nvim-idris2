@@ -7,4 +7,4 @@ if exists('b:did_ftplugin')
 endif
 
 let b:did_ftplugin = 1
-lua idris["Plugin.main"](idris.W)
+lua require('idris')
