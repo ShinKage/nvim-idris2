@@ -1,5 +1,7 @@
 module Foreign
 
+import Data.Maybe
+
 import Idris.IDEMode.Commands
 
 import public System.FFI.Lua
@@ -7,14 +9,14 @@ import public System.FFI.Lua
 -- TODO: Build safe wrappers for sockets and handlers `OpaqueDict`s
 -- TODO: PrimIO exposed foreigns are not finalised designs
 
-%foreign "function(_) return vim.loop.new_pipe(false) end"
+%foreign "_ => vim.loop.new_pipe(false)"
 prim__newPipe : PrimIO OpaqueDict
 
 export
 newPipe : HasIO io => io OpaqueDict
 newPipe = primIO prim__newPipe
 
-%foreign "function(_) return vim.loop.new_tcp() end"
+%foreign "_ => vim.loop.new_tcp()"
 prim__newTCP : PrimIO OpaqueDict
 
 export
@@ -47,28 +49,28 @@ readStart stream onok onerr onclose =
                                   (\s => toPrim $ onerr s)
                                   (toPrim onclose)
 
-%foreign "function(stream) return function(_) stream:read_stop() end end"
+%foreign "stream, _ => stream:read_stop()"
 prim__readStop : OpaqueDict -> PrimIO ()
 
 export
 readStop : HasIO io => OpaqueDict -> io ()
 readStop = primIO . prim__readStop
 
-%foreign "function(handle) return function(_) handle:kill(15) end end"
+%foreign "handle, _ => handle:kill(15)"
 prim__sigtermHandle : OpaqueDict -> PrimIO ()
 
 export
 sigterm : HasIO io => OpaqueDict -> io ()
 sigterm = primIO . prim__sigtermHandle
 
-%foreign "function(client) return function(_) client:shutdown() end end"
+%foreign "client, _ => client:shutdown()"
 prim__shutdown : OpaqueDict -> PrimIO ()
 
 export
 shutdown : HasIO io => OpaqueDict -> io ()
 shutdown = primIO . prim__shutdown
 
-%foreign "function(client) return function(_) client:close() end end"
+%foreign "client, _ => client:close()"
 prim__close : OpaqueDict -> PrimIO ()
 
 export
@@ -88,14 +90,14 @@ connect : HasIO io
        -> io ()
 connect client host port onok onerr = primIO $ prim__connect client host port (toPrim onok) (\s => toPrim $ onerr s)
 
-%foreign "function(client) return function(data) return function(_) client:write(data) end end end"
+%foreign "client, data, _ => client:write(data)"
 prim__write : OpaqueDict -> String -> PrimIO ()
 
 export
 write : HasIO io => OpaqueDict -> String -> io ()
 write client s = primIO $ prim__write client s
 
-%foreign "function(_) return vim.fn.expand('%:p') end"
+%foreign "_ => vim.fn.expand('%:p')"
 prim__filePath : PrimIO String
 
 export
@@ -103,10 +105,10 @@ filePath : HasIO io => io String
 filePath = primIO prim__filePath
 
 -- FIXME: Lua global variable hack
-export %foreign "function(client) return function(_) global_client=client end end"
+export %foreign "client => function(_) global_client = client end"
 setGlobalClient : OpaqueDict -> PrimIO ()
 
-export %foreign "function(_) return global_client end"
+export %foreign "_ => global_client"
 getGlobalClient : PrimIO OpaqueDict
 
 export %foreign "idris.support.putCmdInHistory|support"
@@ -133,42 +135,42 @@ genHistoryIndex : PrimIO Int
 export %foreign "idris.support.fastLines|support"
 fastLines : String -> List String
 
-%foreign "function(_) return vim.fn.expand('<cword>') end"
+%foreign "_ => vim.fn.expand('<cword>')"
 prim__cursorWord : PrimIO String
 
 export
 cursorWord : HasIO io => io String
 cursorWord = primIO prim__cursorWord
 
-%foreign "function(_) return vim.fn.expand('<cWORD>') end"
+%foreign "_ => vim.fn.expand('<cWORD>')"
 prim__cursorWord' : PrimIO String
 
 export
 cursorWord' : HasIO io => io String
 cursorWord' = primIO prim__cursorWord'
 
-%foreign "function(_) return vim.fn.line('.') end"
+%foreign "_ => vim.fn.line('.')"
 prim__cursorLine : PrimIO Int
 
 export
 cursorLine : HasIO io => io Int
 cursorLine = primIO prim__cursorLine
 
-%foreign "function(_) return vim.fn.col('.') end"
+%foreign "_ => vim.fn.col('.')"
 prim__cursorColumn : PrimIO Int
 
 export
 cursorColumn : HasIO io => io Int
 cursorColumn = primIO prim__cursorColumn
 
-%foreign "function(line) return function(col) return function(_) vim.fn.cursor(line, col) end end end"
+%foreign "line, col, _ => vim.fn.cursor(line, col)"
 prim__setCursor : Int -> Int -> PrimIO ()
 
 export
 setCursor : HasIO io => Int -> Int -> io ()
 setCursor l c = primIO $ prim__setCursor l c
 
-%foreign "function(pat) return function(_) return vim.fn.search(pat) end end"
+%foreign "pat, _ => vim.fn.search(pat)"
 prim__searchPattern : String -> PrimIO Int
 
 export
@@ -182,14 +184,14 @@ export
 getSelection : HasIO io => io String
 getSelection = primIO prim__getSelection
 
-%foreign "function(_) vim.api.nvim_command('w') end"
+%foreign "_ => vim.api.nvim_command('w')"
 prim__saveBuffer : PrimIO ()
 
 export
 saveBuffer : HasIO io => io ()
 saveBuffer = primIO prim__saveBuffer
 
-%foreign "function(_) return vim.bo.modified end"
+%foreign "_ => vim.bo.modified"
 prim__isBufferModified : PrimIO String
 
 export
@@ -198,12 +200,51 @@ isBufferModified = case !(primIO prim__isBufferModified) of
                         "true" => pure True
                         _ => pure False
 
-export %foreign "function(cmd) return function(_) vim.api.nvim_command(cmd) end end"
+export %foreign "cmd, _ => vim.api.nvim_command(cmd)"
 nvimCommand : String -> PrimIO ()
 
-%foreign "function(key) return function(cmd) return function(_) vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true }) end end end"
+%foreign "key, cmd, _ => vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true })"
 prim__nnoremap : String -> String -> PrimIO ()
 
 export
 nnoremap : HasIO io => String -> String -> io ()
 nnoremap k cmd = primIO $ prim__nnoremap k cmd
+
+%foreign "idris.support.getGlobalStringVar|support"
+prim__getGlobalStringVar : String -> PrimIO (Maybe String)
+
+export
+getGlobalStringVar : HasIO io => String -> Lazy String -> io String
+getGlobalStringVar key def = do
+  val <- primIO $ prim__getGlobalStringVar key
+  pure $ fromMaybe def val
+
+export
+getGlobalStringVar' : HasIO io => String -> io (Maybe String)
+getGlobalStringVar' key = primIO $ prim__getGlobalStringVar key
+
+%foreign "idris.support.getGlobalBoolVar|support"
+prim__getGlobalBoolVar : String -> PrimIO (Maybe Bool)
+
+export
+getGlobalBoolVar : HasIO io => String -> Lazy Bool -> io Bool
+getGlobalBoolVar key def = do
+  val <- primIO $ prim__getGlobalBoolVar key
+  pure $ fromMaybe def val
+
+export
+getGlobalBoolVar' : HasIO io => String -> io (Maybe Bool)
+getGlobalBoolVar' key = primIO $ prim__getGlobalBoolVar key
+
+%foreign "idris.support.getGlobalIntVar|support"
+prim__getGlobalIntVar : String -> PrimIO (Maybe Int)
+
+export
+getGlobalIntVar : HasIO io => String -> Lazy Int -> io Int
+getGlobalIntVar key def = do
+  val <- primIO $ prim__getGlobalIntVar key
+  pure $ fromMaybe def val
+
+export
+getGlobalIntVar' : HasIO io => String -> io (Maybe Int)
+getGlobalIntVar' key = primIO $ prim__getGlobalIntVar key

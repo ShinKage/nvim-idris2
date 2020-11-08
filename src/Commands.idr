@@ -282,5 +282,5 @@ commandBinding b n = do
   [(name, _)] <- getType n
     | _ => fail $ show n ++ " is not unique in scope"
   if b
-     then pure $ ":lua idris['" ++ show name ++ "']('%MkWorld')<CR>"
-     else pure $ "lua idris['" ++ show name ++ "']('%MkWorld')"
+     then pure $ ":lua idris['" ++ show name ++ "'](W)<CR>"
+     else pure $ "lua idris['" ++ show name ++ "'](W)"

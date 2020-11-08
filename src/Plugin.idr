@@ -21,7 +21,7 @@ import Foreign
 data Server : Type where
 data Client : Type where
 
-%foreign "function(s) return function(h) return {args={'--ide-mode-socket', s}, stdio={nil, h, nil}} end end"
+%foreign "s, h => {args={'--ide-mode-socket', s}, stdio={nil, h, nil}}"
 prim__spawnOpts : String -> OpaqueDict -> OpaqueDict
 
 spawnOpts : String
@@ -41,19 +41,19 @@ spawnIdris2 host port = do
                    (primIO $ nvimCommand  "echom 'Idris2 stdout closed'")
   pure (handle, stdout)
 
-%foreign "function(_) return vim.fn.getcurpos() end"
+%foreign "_ => vim.fn.getcurpos()"
 getCurPos : PrimIO OpaqueDict
 
-%foreign "function(pos) return function(_) vim.fn.setpos('.', pos) end end"
+%foreign "pos, _ => vim.fn.setpos('.', pos)"
 setCurPos : OpaqueDict -> PrimIO ()
 
-%foreign "function(l) return function(s) return function(_) vim.fn.append(l, vim.split(s, '\\n')) end end end"
+%foreign "l, s, _ => vim.fn.append(l, vim.split(s, '\\n'))"
 appendLines : Int -> String -> PrimIO ()
 
-%foreign "function(l) return function(_) vim.fn.deletebufline('%', l) end end"
+%foreign "l, _ => vim.fn.deletebufline('%', l)"
 deleteLine : Int -> PrimIO ()
 
-%foreign "function(s) return function(_) return vim.fn.line(s) end end"
+%foreign "s, _ => vim.fn.line(s)"
 line : String -> PrimIO Int
 
 writeToBuffer : String -> IO ()
@@ -242,10 +242,10 @@ spawnAndConnectIdris2 (shost, sport) (chost, cport) = do
                    (do primIO $ nvimCommand "echom 'Idris2 stdout closed'"
                        quitServer)
 
-%foreign "function(name) return function(_) return vim.fn.bufexists(name) end end"
+%foreign "name, _ => vim.fn.bufexists(name)"
 bufexists : String -> PrimIO Int
 
-%foreign "function(type) return function(_) vim.bo.buftype = type end end"
+%foreign "type, _ => vim.bo.buftype"
 setBuftype : String -> PrimIO ()
 
 main : IO ()
@@ -255,39 +255,61 @@ main = do
   serverRef <- newRef Server $ the (Maybe OpaqueDict) Nothing
   clientRef <- newRef Client $ the (Maybe OpaqueDict) Nothing
 
-  primIO $ nvimCommand "set maxfuncdepth=10000"
-  primIO $ nvimCommand "echom 'starting idris2 ide mode plugin'"
-  -- NOTE: To use an external server, instead of spawning one, uncomment
-  --       the next two lines and comment spawnAndConnectIdris2.
-  --       It assumes the host for the server is localhost, the port can be
-  --       changed freely according to the server configuration.
-  -- client <- connectIdris2 "127.0.0.1" 38398
-  -- primIO $ setGlobalClient client
-  spawnAndConnectIdris2 ("localhost", 38398) ("127.0.0.1", 38398)
+  autostart <- getGlobalBoolVar "idris2_autostart" True
 
-  -- KEYBINDINGS
-  nnoremap "<Leader>r"  (commandBinding True `{{loadCurrent}})
-  nnoremap "<Leader>t"  (commandBinding True `{{typeOf}})
-  nnoremap "<Leader>d"  (commandBinding True `{{docOverview}})
-  nnoremap "<Leader>c"  (commandBinding True `{{caseSplit}})
-  nnoremap "<Leader>s"  (commandBinding True `{{exprSearch}})
-  nnoremap "<Leader>sn" (commandBinding True `{{exprSearchNext}})
-  nnoremap "<Leader>a"  (commandBinding True `{{addClause}})
-  nnoremap "<Leader>g"  (commandBinding True `{{generateDef}})
-  nnoremap "<Leader>gn" (commandBinding True `{{generateDefNext}})
-  nnoremap "<Leader>l"  (commandBinding True `{{makeLemma}})
-  nnoremap "<Leader>mc" (commandBinding True `{{makeCase}})
-  nnoremap "<Leader>w"  (commandBinding True `{{makeWith}})
-  nnoremap "<Leader>e"  (commandBinding True `{{interpret}}) -- evaluates selected code
+  when autostart $ do
+    primIO $ nvimCommand "set maxfuncdepth=10000"
+    primIO $ nvimCommand "echom 'starting idris2 ide mode plugin'"
 
-  -- AUTOCOMMANDS
-  primIO $ nvimCommand "augroup IdrisIDE"
-  primIO $ nvimCommand $ "autocmd BufNewFile,BufRead *.idr " ++ commandBinding False `{{loadCurrent}}
-  primIO $ nvimCommand "augroup end"
+    -- externalClientOpt <- getGlobalBoolVar "idris2_external_server" False
+    externalClientOpt <- getGlobalBoolVar "idris2_external_server" True
+    -- FIXME: some strange error in the non default case
+    if externalClientOpt
+       then do primIO $ nvimCommand "echom 'starting with external server'"
+               host <- getGlobalStringVar "idris2_external_host" "127.0.0.1"
+               port <- getGlobalIntVar "idris2_external_port" 38398
+               client <- connectIdris2 host port
+               primIO $ setGlobalClient client
+       else do primIO $ nvimCommand "echom 'starting server'"
+               port <- getGlobalIntVar "idris2_server_port" 38398
+               spawnAndConnectIdris2 ("localhost", port) ("127.0.0.1", port)
 
-  -- RESPONSE BUFFER
-  primIO $ nvimCommand "vertical rightbelow split"
-  primIO $ nvimCommand "badd idris-response"
-  primIO $ nvimCommand "b idris-response"
-  primIO $ setBuftype "nofile"
-  primIO $ nvimCommand "wincmd h"
+    -- KEYBINDINGS
+    nnoremap !(getGlobalStringVar "idris2_loadCurrent_key" "<Leader>r")
+              (commandBinding True `{{loadCurrent}})
+    nnoremap !(getGlobalStringVar "idris2_typeOf_key" "<Leader>t")
+              (commandBinding True `{{typeOf}})
+    nnoremap !(getGlobalStringVar "idris2_docOverview_key" "<Leader>d")
+              (commandBinding True `{{docOverview}})
+    nnoremap !(getGlobalStringVar "idris2_caseSplit_key" "<Leader>c")
+              (commandBinding True `{{caseSplit}})
+    nnoremap !(getGlobalStringVar "idris2_exprSearch_key" "<Leader>s")
+              (commandBinding True `{{exprSearch}})
+    nnoremap !(getGlobalStringVar "idris2_exprSearchNext_key" "<Leader>sn")
+              (commandBinding True `{{exprSearchNext}})
+    nnoremap !(getGlobalStringVar "idris2_addClause_key" "<Leader>a")
+              (commandBinding True `{{addClause}})
+    nnoremap !(getGlobalStringVar "idris2_generateDef_key" "<Leader>g")
+              (commandBinding True `{{generateDef}})
+    nnoremap !(getGlobalStringVar "idris2_generateDefNext_key" "<Leader>gn")
+              (commandBinding True `{{generateDefNext}})
+    nnoremap !(getGlobalStringVar "idris2_makeLemma_key" "<Leader>l")
+              (commandBinding True `{{makeLemma}})
+    nnoremap !(getGlobalStringVar "idris2_makeCase_key" "<Leader>mc")
+              (commandBinding True `{{makeCase}})
+    nnoremap !(getGlobalStringVar "idris2_makeWith_key" "<Leader>w")
+              (commandBinding True `{{makeWith}})
+    nnoremap !(getGlobalStringVar "idris2_interpret_key" "<Leader>e")
+              (commandBinding True `{{interpret}}) -- evaluates selected code
+
+    -- AUTOCOMMANDS
+    primIO $ nvimCommand "augroup IdrisIDE"
+    primIO $ nvimCommand $ "autocmd BufNewFile,BufRead *.idr " ++ commandBinding False `{{loadCurrent}}
+    primIO $ nvimCommand "augroup end"
+
+    -- RESPONSE BUFFER
+    primIO $ nvimCommand "vertical rightbelow split"
+    primIO $ nvimCommand "badd idris-response"
+    primIO $ nvimCommand "b idris-response"
+    primIO $ setBuftype "nofile"
+    primIO $ nvimCommand "wincmd h"
