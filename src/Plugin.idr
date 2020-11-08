@@ -262,7 +262,7 @@ main = do
     primIO $ nvimCommand "echom 'starting idris2 ide mode plugin'"
 
     -- externalClientOpt <- getGlobalBoolVar "idris2_external_server" False
-    externalClientOpt <- getGlobalBoolVar "idris2_external_server" True
+    externalClientOpt <- getGlobalBoolVar "idris2_external_server" False
     -- FIXME: some strange error in the non default case
     if externalClientOpt
        then do primIO $ nvimCommand "echom 'starting with external server'"
