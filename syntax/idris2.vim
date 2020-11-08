@@ -17,7 +17,7 @@ syn region idrisBlock matchgroup=idrisDelimiter start="{" end="}" contains=TOP,i
 syn keyword idrisModule module namespace
 syn keyword idrisImport import
 syn keyword idrisStructure data record interface implementation
-syn keywordidrisWhere where
+syn keyword idrisWhere where
 syn keyword idrisVisibility public abstract private export
 syn keyword idrisBlock parameters mutual using
 syn keyword idrisTotality total partial covering
