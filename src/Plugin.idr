@@ -183,11 +183,9 @@ process (OK idx res) = do
       writeToBuffer True (show res)
       primIO $ deleteCmdInHistory idx
     x => pure ()
-process (Warning idx (SExpList [StringAtom file, start, end, StringAtom msg, _])) = do
-  writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ msg
-  primIO $ deleteCmdInHistory idx
+process (Warning idx (SExpList [StringAtom file, start, end, StringAtom msg, _])) = pure () -- TODO: disabled until fix in compiler
 process (Error idx (SExpList ((StringAtom ls) :: _))) = do
-  writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
+  writeToBuffer False $ "-- Error " ++ !(primIO currenttime) ++ "\n" ++ ls
   primIO $ deleteCmdInHistory idx
 process (WriteString idx res) = do
   let msg = !(primIO currenttime) ++ "\nServer message: \"" ++ res ++ "\""
