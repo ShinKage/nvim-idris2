@@ -209,11 +209,14 @@ connectIdris2 host port = do
           (\recv => do
               let msgs = splitMessages recv []
               for_ msgs $ \msg => do
-                let Right sexp = parseSExp msg
-                  | Left err => primIO $ nvimCommand $ "echom 'invalid response: " ++ show err ++ "'"
-                let Just res = getResult sexp
-                  | Nothing => primIO $ nvimCommand $ "echom 'invalid response: " ++ show sexp ++ "'"
-                process res)
+                let head = substr 0 5 msg
+                if (head == "(:out")
+                   then primIO $ nvimCommand $ "echom 'skipped output'"
+                   else do let Right sexp = parseSExp msg
+                             | Left err => primIO $ nvimCommand $ "echom 'invalid response: " ++ show err ++ "'"
+                           let Just res = getResult sexp
+                             | Nothing => primIO $ nvimCommand $ "echom 'invalid response: " ++ show sexp ++ "'"
+                           process res)
           (\err => primIO $ nvimCommand $ "echom 'read err: " ++ err ++ "'")
           (pure ()))
     (\err => primIO $ nvimCommand $ "echom 'connect error: " ++ err ++ "'")

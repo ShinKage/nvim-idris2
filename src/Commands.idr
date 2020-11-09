@@ -98,17 +98,15 @@ interpret = do
 export
 loadCurrent : IO ()
 loadCurrent = do
+  saveBuffer
   client <- primIO getGlobalClient
   path <- filePath
   write client !(buildCommand $ LoadFile path Nothing)
 
-reload : IO ()
-reload = do saveBuffer; loadCurrent
-
 export
 typeOf : IO ()
 typeOf = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   name <- extractName <$> cursorWord
   write client !(buildCommand $ TypeOf name Nothing)
@@ -116,7 +114,7 @@ typeOf = do
 export
 docOverview : IO ()
 docOverview = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   name <- extractName <$> cursorWord
   write client !(buildCommand $ DocsFor name (Just Overview))
@@ -124,7 +122,7 @@ docOverview = do
 export
 docFull : IO ()
 docFull = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   name <- extractName <$> cursorWord
   write client !(buildCommand $ DocsFor name (Just Full))
@@ -132,7 +130,7 @@ docFull = do
 export
 caseSplit : IO ()
 caseSplit = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   line <- cast <$> cursorLine
   col <- cast <$> cursorColumn
@@ -142,7 +140,7 @@ caseSplit = do
 export
 addClause : IO ()
 addClause = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   line <- cast <$> cursorLine
   name <- extractName <$> cursorWord
@@ -153,7 +151,7 @@ addClause = do
 export
 exprSearch : IO ()
 exprSearch = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   line <- cast <$> cursorLine
   name <- extractName <$> cursorWord
@@ -163,7 +161,7 @@ exprSearch = do
 export
 exprSearchNext : IO ()
 exprSearchNext = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   -- TODO: add hints option
   write client !(buildCommand ExprSearchNext)
@@ -171,7 +169,7 @@ exprSearchNext = do
 export
 generateDef : IO ()
 generateDef = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   line <- cast <$> cursorLine
   name <- extractName <$> cursorWord
@@ -180,14 +178,14 @@ generateDef = do
 export
 generateDefNext : IO ()
 generateDefNext = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   write client !(buildCommand GenerateDefNext)
 
 export
 makeLemma : IO ()
 makeLemma = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   line <- cast <$> cursorLine
   name <- extractName <$> cursorWord
@@ -196,7 +194,7 @@ makeLemma = do
 export
 makeCase : IO ()
 makeCase = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   -- TODO: replace in code
   line <- cast <$> cursorLine
@@ -206,7 +204,7 @@ makeCase = do
 export
 makeWith : IO ()
 makeWith = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   -- TODO: replace in code
   line <- cast <$> cursorLine
@@ -219,7 +217,7 @@ makeWith = do
 export
 metavariables : IO ()
 metavariables = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   write client !(buildCommand $ Metavariables 1)
 
@@ -229,7 +227,7 @@ metavariables = do
 export
 browseNamespace : IO ()
 browseNamespace = do
-  when !isBufferModified reload
+  when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   name <- extractName <$> cursorWord'
   write client !(buildCommand $ BrowseNamespace name)
