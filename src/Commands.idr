@@ -66,6 +66,8 @@ getResult (SExpList [SymbolAtom "return", SExpList (SymbolAtom "ok" :: xs), Inte
   Just $ OK (cast idx) (SExpList xs)
 getResult (SExpList [SymbolAtom "return", SExpList (SymbolAtom "warning" :: xs), IntegerAtom idx]) =
   Just $ Warning (cast idx) (SExpList xs)
+getResult (SExpList [SymbolAtom "warning", xs, IntegerAtom idx]) =
+  Just $ Warning (cast idx) xs
 getResult (SExpList [SymbolAtom "return", SExpList (SymbolAtom "error" :: xs), IntegerAtom idx]) =
   Just $ Error (cast idx) (SExpList xs)
 getResult (SExpList [SymbolAtom "write-string", StringAtom xs, IntegerAtom idx]) =

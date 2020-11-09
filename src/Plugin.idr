@@ -48,7 +48,7 @@ getCurPos : PrimIO OpaqueDict
 setCurPos : OpaqueDict -> PrimIO ()
 
 %foreign "idris.support.appendToBuffer|support"
-appendLines : Bool -> Int -> String -> PrimIO ()
+appendLines : Bool -> Bool -> Int -> String -> PrimIO ()
 
 %foreign "l, _ => vim.fn.deletebufline('%', l)"
 deleteLine : Int -> PrimIO ()
@@ -69,7 +69,7 @@ writeToBuffer commented str = do
   rwid <- primIO $ bufwinnr "idris-response"
   primIO $ nvimCommand $ show rwid ++ "wincmd w"
   lastline <- primIO $ line "$"
-  primIO $ appendLines commented lastline str
+  primIO $ appendLines commented True lastline str
   primIO $ nvimCommand "normal! G"
   primIO $ nvimCommand $ show cwid ++ "wincmd w"
   -- cur <- primIO getCurPos
@@ -114,12 +114,12 @@ process (OK idx res) = do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to CaseSplit" ++ show res ++ "'"
       primIO $ deleteLine (cast line)
-      primIO $ appendLines False (cast line - 1) ls
+      primIO $ appendLines False False (cast line - 1) ls
       primIO $ deleteCmdInHistory idx
     Just (AddClause line name) => do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to AddClause" ++ show res ++ "'"
-      primIO $ appendLines False (cast line) ls
+      primIO $ appendLines False False (cast line) ls
       primIO $ deleteCmdInHistory idx
     Just (ExprSearch line name _ _) => do
       let SExpList [StringAtom ls] = res
@@ -136,7 +136,7 @@ process (OK idx res) = do
     Just (GenerateDef line name) => do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to GenerateDef" ++ show res ++ "'"
-      primIO $ appendLines False (cast line) ls
+      primIO $ appendLines False False (cast line) ls
       primIO $ deleteCmdInHistory idx
     Just GenerateDefNext => do
       -- TODO: How we rollback?
@@ -155,14 +155,14 @@ process (OK idx res) = do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to MakeCase" ++ show res ++ "'"
       primIO $ deleteLine (cast line)
-      primIO $ appendLines False (cast line - 1) ls
+      primIO $ appendLines False False (cast line - 1) ls
       primIO $ deleteCmdInHistory idx
     Just (MakeWith line name) => do
       -- TODO: Feels like a hack
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to MakeWith" ++ show res ++ "'"
       primIO $ deleteLine (cast line)
-      primIO $ appendLines False (cast line - 1) ls
+      primIO $ appendLines False False (cast line - 1) ls
       primIO $ deleteCmdInHistory idx
     Just (Metavariables _) => do
       -- let SExpList [StringAtom ls] = res
@@ -183,8 +183,8 @@ process (OK idx res) = do
       writeToBuffer True (show res)
       primIO $ deleteCmdInHistory idx
     x => pure ()
-process (Warning idx (SExpList ((StringAtom ls) :: _))) = do
-  writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
+process (Warning idx (SExpList [StringAtom file, start, end, StringAtom msg, _])) = do
+  writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ msg
   primIO $ deleteCmdInHistory idx
 process (Error idx (SExpList ((StringAtom ls) :: _))) = do
   writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
@@ -211,7 +211,7 @@ connectIdris2 host port = do
               for_ msgs $ \msg => do
                 let head = substr 0 5 msg
                 if (head == "(:out")
-                   then primIO $ nvimCommand $ "echom 'skipped output'"
+                   then primIO $ nvimCommand $ "echo 'skipped output'"
                    else do let Right sexp = parseSExp msg
                              | Left err => primIO $ nvimCommand $ "echom 'invalid response: " ++ show err ++ "'"
                            let Just res = getResult sexp
@@ -328,5 +328,4 @@ main = do
     primIO $ nvimCommand "badd idris-response"
     primIO $ nvimCommand "b idris-response"
     primIO $ nvimCommand "set buftype=nofile"
-    primIO $ nvimCommand "set syntax=idris2"
     primIO $ nvimCommand "wincmd h"

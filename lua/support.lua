@@ -223,15 +223,19 @@ function module.getGlobalIntVar(key)
 end
 
 function module.appendToBuffer(commented)
-    return function(line)
-        return function(str)
-            return function(_)
-                local ls = vim.split(str, '\n')
-                if commented == 0 then
-                    ls = vim.tbl_map(function(s) return '-- ' .. s end, ls)
+    return function(last)
+        return function(line)
+            return function(str)
+                return function(_)
+                    local ls = vim.split(str, '\n')
+                    if commented == 0 then
+                        ls = vim.tbl_map(function(s) return '-- ' .. s end, ls)
+                    end
+                    if last == 0 then
+                        table.insert(ls, '')
+                    end
+                    vim.fn.append(line, ls)
                 end
-                table.insert(ls, '')
-                vim.fn.append(line, ls)
             end
         end
     end
