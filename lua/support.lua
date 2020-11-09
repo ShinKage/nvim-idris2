@@ -182,18 +182,14 @@ end
 
 local function toIdrisBool(bool)
     if bool then
-        return {tag = "0"}
-    else
-        return {tag = "1"}
-    end
-end
-
-function module.isBufferModified(_)
-    if vim.bo.modified then
         return 0
     else
         return 1
     end
+end
+
+function module.isBufferModified(_)
+    return toIdrisBool(vim.bo.modified)
 end
 
 function module.getGlobalBoolVar(key)
