@@ -59,15 +59,26 @@ line : String -> PrimIO Int
 %foreign "_ => vim.fn.strftime('%T')"
 currenttime : PrimIO String
 
+%foreign "s, _ => vim.fn.bufwinnr(s)"
+bufwinnr : String -> PrimIO Int
+
 writeToBuffer : Bool -> String -> IO ()
 writeToBuffer commented str = do
-  cur <- primIO getCurPos
-  primIO $ nvimCommand "b idris-response"
+  -- TODO: ensure buffer is opened
+  cwid <- primIO $ bufwinnr "."
+  rwid <- primIO $ bufwinnr "idris-response"
+  primIO $ nvimCommand $ show rwid ++ "wincmd w"
   lastline <- primIO $ line "$"
   primIO $ appendLines commented lastline str
-  primIO $ nvimCommand "normal G"
-  primIO $ nvimCommand "b #"
-  primIO $ setCurPos cur
+  primIO $ nvimCommand "normal! G"
+  primIO $ nvimCommand $ show cwid ++ "wincmd w"
+  -- cur <- primIO getCurPos
+  -- primIO $ nvimCommand "b idris-response"
+  -- lastline <- primIO $ line "$"
+  -- primIO $ appendLines commented lastline str
+  -- primIO $ nvimCommand "normal! G"
+  -- primIO $ nvimCommand "b #"
+  -- primIO $ setCurPos cur
 
 splitMessages : String -> List String -> List String
 splitMessages recv acc =
@@ -198,7 +209,6 @@ connectIdris2 host port = do
           (\recv => do
               let msgs = splitMessages recv []
               for_ msgs $ \msg => do
-                let head = substr 0 5 msg
                 let Right sexp = parseSExp msg
                   | Left err => primIO $ nvimCommand $ "echom 'invalid response: " ++ show err ++ "'"
                 let Just res = getResult sexp
@@ -207,7 +217,7 @@ connectIdris2 host port = do
           (\err => primIO $ nvimCommand $ "echom 'read err: " ++ err ++ "'")
           (pure ()))
     (\err => primIO $ nvimCommand $ "echom 'connect error: " ++ err ++ "'")
-  write client !(buildCommand $ EnableSyntax False) -- Still not merged
+  -- write client !(buildCommand $ EnableSyntax False) -- Still not merged
   pure client
 
 quitServer : HasIO io
