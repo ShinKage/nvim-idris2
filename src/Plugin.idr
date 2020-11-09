@@ -47,8 +47,8 @@ getCurPos : PrimIO OpaqueDict
 %foreign "pos, _ => vim.fn.setpos('.', pos)"
 setCurPos : OpaqueDict -> PrimIO ()
 
-%foreign "l, s, _ => vim.fn.append(l, vim.split(s, '\\n'))"
-appendLines : Int -> String -> PrimIO ()
+%foreign "idris.support.appendToBuffer|support"
+appendLines : Bool -> Int -> String -> PrimIO ()
 
 %foreign "l, _ => vim.fn.deletebufline('%', l)"
 deleteLine : Int -> PrimIO ()
@@ -56,12 +56,16 @@ deleteLine : Int -> PrimIO ()
 %foreign "s, _ => vim.fn.line(s)"
 line : String -> PrimIO Int
 
-writeToBuffer : String -> IO ()
-writeToBuffer str = do
+%foreign "_ => vim.fn.strftime('%T')"
+currenttime : PrimIO String
+
+writeToBuffer : Bool -> String -> IO ()
+writeToBuffer commented str = do
   cur <- primIO getCurPos
   primIO $ nvimCommand "b idris-response"
   lastline <- primIO $ line "$"
-  primIO $ appendLines lastline str
+  primIO $ appendLines commented lastline str
+  primIO $ nvimCommand "normal G"
   primIO $ nvimCommand "b #"
   primIO $ setCurPos cur
 
@@ -80,31 +84,31 @@ process (OK idx res) = do
     Just (Interpret sel) => do
       let SExpList ((StringAtom ls) :: _) = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to Interpret" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (LoadFile path _) => do
-      writeToBuffer $ "Succesfully reloaded " ++ path
+      writeToBuffer True $ !(primIO currenttime) ++ "\nSuccesfully reloaded " ++ path
       primIO $ deleteCmdInHistory idx
     Just (TypeOf name _) => do
       let SExpList ((StringAtom ls) :: _) = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to TypeOf" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (DocsFor name _) => do
       let SExpList ((StringAtom ls) :: _) = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to DocsFor" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (CaseSplit line col name) => do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to CaseSplit" ++ show res ++ "'"
       primIO $ deleteLine (cast line)
-      primIO $ appendLines (cast line - 1) ls
+      primIO $ appendLines False (cast line - 1) ls
       primIO $ deleteCmdInHistory idx
     Just (AddClause line name) => do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to AddClause" ++ show res ++ "'"
-      primIO $ appendLines (cast line) ls
+      primIO $ appendLines False (cast line) ls
       primIO $ deleteCmdInHistory idx
     Just (ExprSearch line name _ _) => do
       let SExpList [StringAtom ls] = res
@@ -116,71 +120,73 @@ process (OK idx res) = do
       -- TODO: How we rollback?
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to ExprSearch" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer True $ "Inline substitution of next expression search is not available\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (GenerateDef line name) => do
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to GenerateDef" ++ show res ++ "'"
-      primIO $ appendLines (cast line) ls
+      primIO $ appendLines False (cast line) ls
       primIO $ deleteCmdInHistory idx
     Just GenerateDefNext => do
       -- TODO: How we rollback?
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to ExprSearch" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer True $ "Inline substitution of next definition is not available\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (MakeLemma line name) => do
-      -- TODO: How we find where to put the lemma?
+      -- TODO: How we find where to put the lemma? (Maybe, go to the previous paragraph and append there)
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to ExprSearch" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer False $ "Inline substitution of make lemma is not available\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (MakeCase line name) => do
       -- TODO: Feels like a hack
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to MakeCase" ++ show res ++ "'"
       primIO $ deleteLine (cast line)
-      primIO $ appendLines (cast line - 1) ls
+      primIO $ appendLines False (cast line - 1) ls
       primIO $ deleteCmdInHistory idx
     Just (MakeWith line name) => do
       -- TODO: Feels like a hack
       let SExpList [StringAtom ls] = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to MakeWith" ++ show res ++ "'"
       primIO $ deleteLine (cast line)
-      primIO $ appendLines (cast line - 1) ls
+      primIO $ appendLines False (cast line - 1) ls
       primIO $ deleteCmdInHistory idx
     Just (Metavariables _) => do
       -- let SExpList [StringAtom ls] = res
       --   | x => primIO $ nvimCommand $ "echom 'Invalid response to Metavariables" ++ show res ++ "'"
-      writeToBuffer (show res)
+      writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ (show res)
       primIO $ deleteCmdInHistory idx
     Just (BrowseNamespace name) => do
       let SExpList ((StringAtom ls) :: _) = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to BrowseNamespace" ++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (EnableSyntax _) => do
       let SExpList ((StringAtom ls) :: _) = res
         | x => primIO $ nvimCommand $ "echom 'Invalid response to EnableSyntax"++ show res ++ "'"
-      writeToBuffer ls
+      writeToBuffer True $ !(primIO currenttime) ++ "\nServer message: \"" ++ ls ++ "\""
       primIO $ deleteCmdInHistory idx
     Just GetOptions => do
-      writeToBuffer (show res)
+      writeToBuffer True (show res)
       primIO $ deleteCmdInHistory idx
     x => pure ()
-process (Warning idx res) = do
-  writeToBuffer (show res)
+process (Warning idx (SExpList ((StringAtom ls) :: _))) = do
+  writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
   primIO $ deleteCmdInHistory idx
-process (Error idx res) = do
-  writeToBuffer (show res)
+process (Error idx (SExpList ((StringAtom ls) :: _))) = do
+  writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
   primIO $ deleteCmdInHistory idx
 process (WriteString idx res) = do
-  writeToBuffer (show res)
+  let msg = !(primIO currenttime) ++ "\nServer message: \"" ++ res ++ "\""
+  writeToBuffer True msg
   primIO $ deleteCmdInHistory idx
-process (Output idx res) = do
-  writeToBuffer (show res)
-  primIO $ deleteCmdInHistory idx
-process (Version x) = writeToBuffer (show x)
+process (Output idx res) = primIO $ deleteCmdInHistory idx
+process (Version (SExpList [IntegerAtom major, IntegerAtom minor])) = do
+  let msg = !(primIO currenttime) ++ "\nIdris2 IDE Mode server version " ++ show major ++ "." ++ show minor
+  writeToBuffer True msg
+process _ = primIO $ nvimCommand $ "echom 'Invalid message from the server'"
 
 connectIdris2 : String -> Int -> IO OpaqueDict
 connectIdris2 host port = do
@@ -258,9 +264,7 @@ main = do
     primIO $ nvimCommand "set maxfuncdepth=10000"
     primIO $ nvimCommand "echom 'starting idris2 ide mode plugin'"
 
-    -- externalClientOpt <- getGlobalBoolVar "idris2_external_server" False
     externalClientOpt <- getGlobalBoolVar "idris2_external_server" False
-    -- FIXME: some strange error in the non default case
     if externalClientOpt
        then do primIO $ nvimCommand "echom 'starting with external server'"
                host <- getGlobalStringVar "idris2_external_host" "127.0.0.1"
@@ -272,41 +276,44 @@ main = do
                spawnAndConnectIdris2 ("localhost", port) ("127.0.0.1", port)
 
     -- KEYBINDINGS
-    nnoremap !(getGlobalStringVar "idris2_loadCurrent_key" "<Leader>r")
+    nnoremap !(getGlobalStringVar "idris2_loadCurrent_key" "<LocalLeader>r")
               (commandBinding True `{{loadCurrent}})
-    nnoremap !(getGlobalStringVar "idris2_typeOf_key" "<Leader>t")
+    nnoremap !(getGlobalStringVar "idris2_typeOf_key" "<LocalLeader>t")
               (commandBinding True `{{typeOf}})
-    nnoremap !(getGlobalStringVar "idris2_docOverview_key" "<Leader>d")
+    nnoremap !(getGlobalStringVar "idris2_docOverview_key" "<LocalLeader>d")
               (commandBinding True `{{docOverview}})
-    nnoremap !(getGlobalStringVar "idris2_caseSplit_key" "<Leader>c")
+    nnoremap !(getGlobalStringVar "idris2_caseSplit_key" "<LocalLeader>c")
               (commandBinding True `{{caseSplit}})
-    nnoremap !(getGlobalStringVar "idris2_exprSearch_key" "<Leader>s")
+    nnoremap !(getGlobalStringVar "idris2_exprSearch_key" "<LocalLeader>s")
               (commandBinding True `{{exprSearch}})
-    nnoremap !(getGlobalStringVar "idris2_exprSearchNext_key" "<Leader>sn")
+    nnoremap !(getGlobalStringVar "idris2_exprSearchNext_key" "<LocalLeader>sn")
               (commandBinding True `{{exprSearchNext}})
-    nnoremap !(getGlobalStringVar "idris2_addClause_key" "<Leader>a")
+    nnoremap !(getGlobalStringVar "idris2_addClause_key" "<LocalLeader>a")
               (commandBinding True `{{addClause}})
-    nnoremap !(getGlobalStringVar "idris2_generateDef_key" "<Leader>g")
+    nnoremap !(getGlobalStringVar "idris2_generateDef_key" "<LocalLeader>g")
               (commandBinding True `{{generateDef}})
-    nnoremap !(getGlobalStringVar "idris2_generateDefNext_key" "<Leader>gn")
+    nnoremap !(getGlobalStringVar "idris2_generateDefNext_key" "<LocalLeader>gn")
               (commandBinding True `{{generateDefNext}})
-    nnoremap !(getGlobalStringVar "idris2_makeLemma_key" "<Leader>l")
+    nnoremap !(getGlobalStringVar "idris2_makeLemma_key" "<LocalLeader>l")
               (commandBinding True `{{makeLemma}})
-    nnoremap !(getGlobalStringVar "idris2_makeCase_key" "<Leader>mc")
+    nnoremap !(getGlobalStringVar "idris2_makeCase_key" "<LocalLeader>mc")
               (commandBinding True `{{makeCase}})
-    nnoremap !(getGlobalStringVar "idris2_makeWith_key" "<Leader>w")
+    nnoremap !(getGlobalStringVar "idris2_makeWith_key" "<LocalLeader>w")
               (commandBinding True `{{makeWith}})
-    nnoremap !(getGlobalStringVar "idris2_interpret_key" "<Leader>e")
+    vnoremap !(getGlobalStringVar "idris2_interpret_key" "<LocalLeader>e")
               (commandBinding True `{{interpret}}) -- evaluates selected code
 
     -- AUTOCOMMANDS
-    primIO $ nvimCommand "augroup IdrisIDE"
-    primIO $ nvimCommand $ "autocmd BufNewFile,BufRead *.idr " ++ commandBinding False `{{loadCurrent}}
-    primIO $ nvimCommand "augroup end"
+    loadOnStart <- getGlobalBoolVar "idris2_load_on_start" True
+    when loadOnStart $ do
+      primIO $ nvimCommand "augroup IdrisIDE"
+      primIO $ nvimCommand $ "autocmd BufNewFile,BufRead *.idr " ++ commandBinding False `{{loadCurrent}}
+      primIO $ nvimCommand "augroup end"
 
     -- RESPONSE BUFFER
     primIO $ nvimCommand "vertical rightbelow split"
     primIO $ nvimCommand "badd idris-response"
     primIO $ nvimCommand "b idris-response"
     primIO $ nvimCommand "set buftype=nofile"
+    primIO $ nvimCommand "set syntax=idris2"
     primIO $ nvimCommand "wincmd h"

@@ -191,14 +191,12 @@ export
 saveBuffer : HasIO io => io ()
 saveBuffer = primIO prim__saveBuffer
 
-%foreign "_ => vim.bo.modified"
-prim__isBufferModified : PrimIO String
+%foreign "idris.support.isBufferModified|support"
+prim__isBufferModified : PrimIO Bool
 
 export
 isBufferModified : HasIO io => io Bool
-isBufferModified = case !(primIO prim__isBufferModified) of
-                        "true" => pure True
-                        _ => pure False
+isBufferModified = primIO prim__isBufferModified
 
 export %foreign "cmd, _ => vim.api.nvim_command(cmd)"
 nvimCommand : String -> PrimIO ()
@@ -206,9 +204,16 @@ nvimCommand : String -> PrimIO ()
 %foreign "key, cmd, _ => vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true })"
 prim__nnoremap : String -> String -> PrimIO ()
 
+%foreign "key, cmd, _ => vim.api.nvim_set_keymap('v', key, cmd, { noremap = true, silent = true })"
+prim__vnoremap : String -> String -> PrimIO ()
+
 export
 nnoremap : HasIO io => String -> String -> io ()
 nnoremap k cmd = primIO $ prim__nnoremap k cmd
+
+export
+vnoremap : HasIO io => String -> String -> io ()
+vnoremap k cmd = primIO $ prim__vnoremap k cmd
 
 %foreign "idris.support.getGlobalStringVar|support"
 prim__getGlobalStringVar : String -> PrimIO (Maybe String)
