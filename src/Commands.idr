@@ -56,7 +56,7 @@ Show IDECommand where
   showPrec p (ElaborateTerm x) = showCon p "ElaborateTerm" $ showArg x
   showPrec p (PrintDefinition x) = showCon p "PrintDefinition" $ showArg x
   showPrec p (ReplCompletions x) = showCon p "ReplCompletions" $ showArg x
-  showPrec p (EnableSyntax x) = showCon p "EnableSyntax" $ showArg x
+  -- showPrec p (EnableSyntax x) = showCon p "EnableSyntax" $ showArg x
   showPrec p Version = "Version"
   showPrec p GetOptions = "GetOptions"
 
@@ -241,11 +241,11 @@ browseNamespace = do
 -- NOT IMPLEMENTED YET: printDefinition : IO ()
 -- NOT IMPLEMENTED YET: replCompletions : IO ()
 
-export
-enableSyntax : Bool -> IO ()
-enableSyntax b = do
-  client <- primIO getGlobalClient
-  write client !(buildCommand $ EnableSyntax b)
+-- export
+-- enableSyntax : Bool -> IO ()
+-- enableSyntax b = do
+--   client <- primIO getGlobalClient
+--   write client !(buildCommand $ EnableSyntax b)
 
 export
 getOptions : IO ()
@@ -272,7 +272,7 @@ loadCommands = do
   () <- if False then makeWith else pure ()
   () <- if False then metavariables else pure ()
   () <- if False then browseNamespace else pure ()
-  () <- if False then enableSyntax True else pure ()
+  -- () <- if False then enableSyntax True else pure ()
   () <- if False then getOptions else pure ()
   pure ()
 

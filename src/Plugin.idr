@@ -174,11 +174,11 @@ process (OK idx res) = do
         | x => primIO $ nvimCommand $ "echom 'Invalid response to BrowseNamespace" ++ show res ++ "'"
       writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
       primIO $ deleteCmdInHistory idx
-    Just (EnableSyntax _) => do
-      let SExpList ((StringAtom ls) :: _) = res
-        | x => primIO $ nvimCommand $ "echom 'Invalid response to EnableSyntax"++ show res ++ "'"
-      writeToBuffer True $ !(primIO currenttime) ++ "\nServer message: \"" ++ ls ++ "\""
-      primIO $ deleteCmdInHistory idx
+--     Just (EnableSyntax _) => do
+--       let SExpList ((StringAtom ls) :: _) = res
+--         | x => primIO $ nvimCommand $ "echom 'Invalid response to EnableSyntax"++ show res ++ "'"
+--       writeToBuffer True $ !(primIO currenttime) ++ "\nServer message: \"" ++ ls ++ "\""
+--       primIO $ deleteCmdInHistory idx
     Just GetOptions => do
       writeToBuffer True (show res)
       primIO $ deleteCmdInHistory idx
