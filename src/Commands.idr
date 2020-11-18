@@ -57,6 +57,7 @@ Show IDECommand where
   showPrec p (PrintDefinition x) = showCon p "PrintDefinition" $ showArg x
   showPrec p (ReplCompletions x) = showCon p "ReplCompletions" $ showArg x
   -- showPrec p (EnableSyntax x) = showCon p "EnableSyntax" $ showArg x
+  showPrec p (NameAt name _) = showCon p "NameAt" $ showArg name
   showPrec p Version = "Version"
   showPrec p GetOptions = "GetOptions"
 
@@ -89,12 +90,20 @@ buildCommand cmd = do
 extractName : String -> String
 extractName name = case strM name of
                         StrCons '?' name' => name'
-                        _ => name
+                        _ =>
+                          case name of
+                            "="    => "Equal"
+                            "()"   => "MkUnit"
+                            "(,)"  => "MkPair"
+                            "(**)" => "MkDPair"
+                            "**"   => "MkDPair"
+                            "[]"   => "Nil"
+                            _      => name
 export
 interpret : IO ()
 interpret = do
   client <- primIO getGlobalClient
-  sel <- getSelection
+  sel <- extractName <$> getSelection
   write client !(buildCommand $ Interpret sel)
 
 export
@@ -112,6 +121,46 @@ typeOf = do
   client <- primIO getGlobalClient
   name <- extractName <$> cursorWord
   write client !(buildCommand $ TypeOf name Nothing)
+
+export
+typeOfPrompt : IO ()
+typeOfPrompt = do
+  when !isBufferModified loadCurrent
+  client <- primIO getGlobalClient
+  name <- extractName <$> nvimEval "input('> ')"
+  write client !(buildCommand $ TypeOf name Nothing)
+
+export
+typeOfSel : IO ()
+typeOfSel = do
+  when !isBufferModified loadCurrent
+  client <- primIO getGlobalClient
+  sel <- extractName <$> getSelection
+  write client !(buildCommand $ TypeOf sel Nothing)
+
+export
+nameAt : IO ()
+nameAt = do
+  when !isBufferModified loadCurrent
+  client <- primIO getGlobalClient
+  name <- extractName <$> cursorWord
+  write client !(buildCommand $ NameAt name Nothing)
+
+export
+nameAtPrompt : IO ()
+nameAtPrompt = do
+  when !isBufferModified loadCurrent
+  client <- primIO getGlobalClient
+  name <- extractName <$> nvimEval "input('> ')"
+  write client !(buildCommand $ NameAt name Nothing)
+
+export
+nameAtSel : IO ()
+nameAtSel = do
+  when !isBufferModified loadCurrent
+  client <- primIO getGlobalClient
+  sel <- extractName <$> getSelection
+  write client !(buildCommand $ NameAt sel Nothing)
 
 export
 docOverview : IO ()
@@ -259,6 +308,11 @@ loadCommands = do
   () <- if False then interpret else pure ()
   () <- if False then loadCurrent else pure ()
   () <- if False then typeOf else pure ()
+  () <- if False then typeOfPrompt else pure ()
+  () <- if False then typeOfSel else pure ()
+  () <- if False then nameAt else pure ()
+  () <- if False then nameAtPrompt else pure ()
+  () <- if False then nameAtSel else pure ()
   () <- if False then docOverview else pure ()
   () <- if False then docFull else pure ()
   () <- if False then caseSplit else pure ()

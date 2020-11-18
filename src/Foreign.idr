@@ -187,6 +187,16 @@ getSelection = primIO prim__getSelection
 %foreign "_ => vim.api.nvim_command('w')"
 prim__saveBuffer : PrimIO ()
 
+%foreign "name, _ => vim.fn.bufexists(name)"
+prim__bufexists : String -> PrimIO Int
+
+export
+bufexists : HasIO io => String -> io Bool
+bufexists bufName = do
+  case !(primIO $ prim__bufexists bufName) of
+    0 => pure False
+    _ => pure True
+
 export
 saveBuffer : HasIO io => io ()
 saveBuffer = primIO prim__saveBuffer
@@ -198,8 +208,19 @@ export
 isBufferModified : HasIO io => io Bool
 isBufferModified = primIO prim__isBufferModified
 
-export %foreign "cmd, _ => vim.api.nvim_command(cmd)"
-nvimCommand : String -> PrimIO ()
+%foreign "cmd, _ => vim.api.nvim_command(cmd)"
+prim__nvimCommand : String -> PrimIO ()
+
+%foreign "expr, _ => vim.api.nvim_eval(expr)"
+prim__nvimEval : String -> PrimIO ty
+
+export
+nvimCommand : HasIO io => String -> io ()
+nvimCommand = primIO . prim__nvimCommand
+
+export
+nvimEval : HasIO io => String -> io ty
+nvimEval = primIO . prim__nvimEval
 
 %foreign "key, cmd, _ => vim.api.nvim_set_keymap('n', key, cmd, { noremap = true, silent = true })"
 prim__nnoremap : String -> String -> PrimIO ()
