@@ -4,12 +4,40 @@ function module.world(f, i)
     local perform
     perform = function(f, i)
         if i == 0 then
-            return f("%MkWorld")
+            return f(idris.W)
         else
             return function(x) return perform(f(x), i - 1) end
         end
     end
     return perform(f, i)
+end
+
+-- Converts an Idris List into a Lua array
+-- (Basically it flatterns the provided table)
+function module.listToArray(list)
+    local function rec(list, table, i)
+        if list.tag == "0" then
+            return table
+        else
+            table[i] = list.arg1
+            return rec(list.arg2, table, i + 1)
+        end
+    end
+
+    return rec(list, {}, 1)
+end
+
+-- The opposite process
+function module.arrayToList(array)
+    local function rec(list, array, i, size)
+       if i == 0 then
+         return list
+       else
+         return rec({tag = "1", arg1 = array[i], arg2 = list}, array, i - 1, size)
+       end
+    end
+    local size = #array
+    return rec({tag = "0"}, array, size, size)
 end
 
 function module.getSelection(_)
@@ -238,6 +266,36 @@ function module.appendToBuffer(commented)
                 end
             end
         end
+    end
+end
+
+-- Taken from https://github.com/junegunn/fzf/issues/1778#issuecomment-697208274
+function module.fzfWindowBottom(name) -- Don't know what the `name` is useful for
+    return function(source) -- A List (!) of string options to be shown to the user
+        return function(callback) -- A unary callback function
+                                  --   taking the selected string as an argument
+            return function(_ --[[ %World --]])
+                local fzf_run = vim.fn["fzf#run"]
+                local fzf_wrap = vim.fn["fzf#wrap"]
+
+                local wrapped = fzf_wrap(name, {
+                    source = module.listToArray(source),
+                    options = {},
+                    down = "~30%" -- We probably should have a more general function
+                                  -- with user-defined options as a table argument
+                    -- don't set `sink` or `sink*` here
+                })
+                wrapped["sink*"] = nil   -- this line is required if you want to use `sink` only
+                wrapped.sink = module.world(callback, 1)
+                fzf_run(wrapped)
+            end
+        end
+    end
+end
+
+function module.matchlist(str)
+    return function(pattern)
+        return module.arrayToList(vim.fn.matchlist(str, pattern))
     end
 end
 
