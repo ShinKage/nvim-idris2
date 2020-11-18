@@ -169,7 +169,6 @@ where
                      pure $ reverse got
                    else do
                      let line = trimNewLineAtEnd line
-                     nvimCommand $ "echom 'runFind: " ++ show line ++ "'"
                      rec f (line :: got)
 
 record NamePositionInfo where
