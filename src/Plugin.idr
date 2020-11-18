@@ -223,6 +223,7 @@ process (OK idx res) = do
       writeToBuffer False $ "-- " ++ !(primIO currenttime) ++ "\n" ++ ls
       primIO $ deleteCmdInHistory idx
     Just (NameAt name _) => do
+      primIO $ deleteCmdInHistory idx
       let SExpList [SExpList list] = res
         | x => nvimCommand $ "echom 'Invalid response to NameAt" ++ show res ++ "'"
       let Just validated@(first :: rest) = sequence $ map validateNameAtEntry list
@@ -230,10 +231,10 @@ process (OK idx res) = do
                          ++ "Could not find anything on " ++ name
         | Nothing => nvimCommand $ "echom 'Invalid response to NameAt" ++ show res ++ "'"
       case rest of
-        [] => do -- exactly one name return by the IDE
-          [fullPath] <- runFind params.sourceDir first.filename -- one candidate found
+        [] => do -- exactly one name returned by the IDE
+          [fullPath] <- runFind params.sourceDir first.filename -- one candidate found by the finder
             | multiple@(_ :: _) => do
-                let relative = filter isRelative multiple
+                let relative = filter isRelative multiple --keep only relative paths
                 case relative of
                   [] => nvimCommand "echoe \"Can't handle multiple absolute candidates\""
                   [singlePath] =>
@@ -272,7 +273,6 @@ process (OK idx res) = do
                     [singlePath] =>
                       jumpToDef singlePath entry.startRow entry.startColumn
                     _ => nvimCommand "echoe \"Can't handle multiple relative candidates\""
-              primIO $ deleteCmdInHistory idx
     Just (DocsFor name _) => do
       let SExpList ((StringAtom ls) :: _) = res
         | x => nvimCommand $ "echom 'Invalid response to DocsFor" ++ show res ++ "'"
