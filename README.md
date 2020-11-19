@@ -19,6 +19,9 @@ Keybindings can be customized by setting global options:
 | ------ | ----------- | --------------- |
 | `idris2_loadCurrent_key` | Reload the current file | `<LocalLeader>r` |
 | `idris2_typeOf_key` | Type of the name under cursor | `<LocalLeader>t` |
+| `idris2_typeOfPrompt_key` | Type of the name entered from a prompt window | `<LocalLeader>T` |
+| `idris2_jumpTo_key` | Jump-to-definition by the name under the cursor | `<LocalLeader>j` |
+| `idris2_jumpToPrompt_key` | Jump-to-definition by the name entered from a prompt window | `<LocalLeader>J` |
 | `idris2_docOverview` | Documentation overview of the name under cursor | `<LocalLeader>d` |
 | `idris2_caseSplit_key` | Try case-split on argument under cursor | `<LocalLeader>c` |
 | `idris2_exprSearch_key` | Try expression search on hole under cursor | `<LocalLeader>s` |
