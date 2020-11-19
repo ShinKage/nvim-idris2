@@ -3,11 +3,18 @@
 WARNING: Plugin is still in experimental phase and requires nightly releases.
 
 ### Requirements
+- This plugin requires some compiler features not yet merged in the master release,
+  manually merge [PR #740](https://github.com/idris-lang/Idris2/pull/740) before compiling the Idris2 compiler and API.
 - [Neovim 0.5](https://github.com/neovim/neovim/releases) (currently nightly)
 - [Idris2-Lua](https://github.com/Russoul/idris2-lua)
+- (Optional) For the go-to-definition command, the [fd](https://github.com/sharkdp/fd) and
+  [fzf](https://github.com/junegunn/fzf.vim) utilities are required. Also you have to create
+  a new folder inside your `.idris2` directory: `idris2-0.2.1-src` and copy source code from prelude,
+  `base`, `contrib`, `network`, `idris2`, etc., i.e. any package you use, into that folder.
+  The plugin will then be able to access the source and open the source files on the fly.
 
 ### Install
-You can install with any plugin manager with the repository url and a post-hook
+You can install with any plugin manager with the repository url and a post-hook. Example for vim-plug:
 ```
 Plug 'ShinKage/nvim-idris2', {'do': 'make build'}
 ```
