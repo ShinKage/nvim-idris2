@@ -1,0 +1,78 @@
+name: macOS
+on:
+  push:
+    branches:
+      - '*'
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - master
+env:
+  SCHEME: chez
+  IDRIS2_TESTS_CG: chez
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          brew install chezscheme
+          brew install coreutils
+          brew install luarocks
+          brew install lua@5.1
+          brew install fzf
+          brew install fd
+          luarocks install luautf8 --lua-version=5.1 --local
+          luarocks install bigint --lua-version=5.1 --local
+          luarocks install luafilesystem --lua-version=5.1 --local
+          luarocks install vstruct --lua-version=5.1 --local
+          luarocks install bit32 --lua-version=5.1 --local
+          luarocks install inspect --lua-version=5.1 --local
+          echo "$HOME/.idris2/bin" >> $GITHUB_PATH
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: main
+      - name: Checkout Idris 2
+        uses: actions/checkout@v2
+        with:
+          repository : Russoul/Idris2
+          ref: name-at
+          path: compiler
+      - name: Install Idris 2
+        run: |
+          cd compiler
+          make bootstrap-build && make install
+          make clean && make all && make install && make install-api
+          cd ..
+      - name: Checkout Idris2-Lua
+        uses: actions/checkout@v2
+        with:
+          repository: Russoul/Idris2-Lua
+          path: backend
+      - name: Install Idris2-Lua
+        run: |
+          cd backend
+          eval $(luarocks path --lua-version=5.1) && LuaVersion=5.1 LuaExe=lua5.1 make all INTERACTIVE='' && LuaVersion=5.1 LuaExe=lua5.1 make install
+          cd ..
+        shell: bash
+      - name: Setup Neovim
+        uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
+          version: nightly
+      - name: Build and test the plugin
+        run: |
+          cd main
+          make build
+          # mkdir -p $HOME/.local/share/nvim/site/pack/idris2/plugin/idris2
+          # cp -r . $HOME/.local/share/nvim/site/pack/idris2/plugin/idris2
+          # OUTPUT=$(nvim --headless -c "lua local status, _ = pcall(require, 'idris'); if not status then print('ERROR') end; vim.api.nvim_command('exit')" 2>&1 > /dev/null)
+          OUTPUT=$(nvim --headless -u <(cat << EOF
+          set rtp+=.
+          EOF) -c "lua local status, _ = pcall(require, 'idris-lua'); if not status then print('ERROR') end; vim.api.nvim_command('exit')" 2>&1 > /dev/null)
+          if [[ $OUTPUT == *"ERROR"* ]]; then
+            exit 1
+          fi
