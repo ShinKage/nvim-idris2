@@ -14,5 +14,3 @@
 .vscode/*
 
 /build
-
-/lua/idris.lua

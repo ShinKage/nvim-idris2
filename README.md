@@ -7,6 +7,8 @@ WARNING: Plugin is still in experimental phase and requires nightly releases.
   manually merge [PR #740](https://github.com/idris-lang/Idris2/pull/740) before compiling the Idris2 compiler and API.
 - [Neovim 0.5](https://github.com/neovim/neovim/releases) (currently nightly)
 - [Idris2-Lua](https://github.com/Russoul/idris2-lua)
+- Add luarocks packages to the path by running `eval $(luarocks path --lua-version=5.1)`
+  or adding it to your shell configuration script (`.bashrc`, `.zshrc`,...) to persist it across sessions.
 - (Optional) For the go-to-definition command, the [fd](https://github.com/sharkdp/fd) and
   [fzf](https://github.com/junegunn/fzf.vim) utilities are required. Also you have to create
   a new folder inside your `.idris2` directory: `idris2-0.2.1-src` and copy source code from prelude,
@@ -14,10 +16,13 @@ WARNING: Plugin is still in experimental phase and requires nightly releases.
   The plugin will then be able to access the source and open the source files on the fly.
 
 ### Install
-You can install with any plugin manager with the repository url and a post-hook. Example for vim-plug:
+You can install it with any plugin manager with the repository url. Example for vim-plug:
 ```
-Plug 'ShinKage/nvim-idris2', {'do': 'make build'}
+Plug 'ShinKage/nvim-idris2'
 ```
+
+The plugin is pulled pre-compiled, if you want to compile it manually you can just execute a
+`make build` in the compiler directory.
 
 ### Configuration
 Keybindings can be customized by setting global options:
