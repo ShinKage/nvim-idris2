@@ -3,8 +3,6 @@
 WARNING: Plugin is still in experimental phase and requires nightly releases.
 
 ### Requirements
-- This plugin requires some compiler features not yet merged in the master release,
-  manually merge [PR #740](https://github.com/idris-lang/Idris2/pull/740) before compiling the Idris2 compiler and API.
 - [Neovim 0.5](https://github.com/neovim/neovim/releases) (currently nightly)
 - [Idris2-Lua](https://github.com/Russoul/idris2-lua)
 - Add luarocks packages to the path by running `eval $(luarocks path --lua-version=5.1)`
