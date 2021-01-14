@@ -56,7 +56,7 @@ Show IDECommand where
   showPrec p (ElaborateTerm x) = showCon p "ElaborateTerm" $ showArg x
   showPrec p (PrintDefinition x) = showCon p "PrintDefinition" $ showArg x
   showPrec p (ReplCompletions x) = showCon p "ReplCompletions" $ showArg x
-  -- showPrec p (EnableSyntax x) = showCon p "EnableSyntax" $ showArg x
+  showPrec p (EnableSyntax x) = showCon p "EnableSyntax" $ showArg x
   showPrec p (NameAt name _) = showCon p "NameAt" $ showArg name
   showPrec p Version = "Version"
   showPrec p GetOptions = "GetOptions"
