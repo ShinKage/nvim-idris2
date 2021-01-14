@@ -11,7 +11,7 @@ WARNING: Plugin is still in experimental phase and requires nightly releases.
   or adding it to your shell configuration script (`.bashrc`, `.zshrc`,...) to persist it across sessions.
 - (Optional) For the go-to-definition command, the [fd](https://github.com/sharkdp/fd) and
   [fzf](https://github.com/junegunn/fzf.vim) utilities are required. Also you have to create
-  a new folder inside your `.idris2` directory: `idris2-0.2.1-src` and copy source code from prelude,
+  a new folder inside your `.idris2` directory: `idris2-0.3.0-src` and copy source code from prelude,
   `base`, `contrib`, `network`, `idris2`, etc., i.e. any package you use, into that folder.
   The plugin will then be able to access the source and open the source files on the fly.
 
