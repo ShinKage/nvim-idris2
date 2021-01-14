@@ -50,7 +50,7 @@ idris["Plugin.matchlist"] = idris.support.matchlist
 idris["Plugin.prim__spawnOpts"] = function(s) return function(h) return {args={'-p', 'contrib', '--ide-mode-socket', s}, stdio={nil, h, nil}} end end
 idris["System.FFI.Lua.Dict.prim__getField"] = function(_) return function(_) return function(d) return function(n) return d[n] end end end end
 ---------- CTX DEFS ----------
-idris["Prelude.Show.case[5936]protectEsc"] = function(__arg0)
+idris["Prelude.Show.case[6364]protectEsc"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -84,7 +84,90 @@ idris["Prelude.Show.case[5936]protectEsc"] = function(__arg0)
         end
     end
 end
-idris["Commands.case[4945]extractName"] = function(__arg0)
+idris["Prelude.Types.case[5181]takeUntil"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return function(__arg4)
+                  return (function()
+                      local __frame1 = {
+                        nil,
+                        nil,
+                        nil,
+                        nil
+                      }
+                      __frame1[1] = __arg4
+                      __frame1[2] = {
+                        nil,
+                        nil
+                      }
+                      __frame1[2][0] = function()
+                        local __frame2 = {
+                          nil,
+                          nil
+                        }
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "0"
+                        __frame2[2] = {}
+                        __frame2[2]["tag"] = "1"
+                        __frame2[2]["arg1"] = __arg1
+                        __frame2[2]["arg2"] = __frame2[1]
+                        return __frame2[2]
+                      end
+                      __frame1[2][1] = function()
+                        local __frame2 = {
+                          nil
+                        }
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "1"
+                        __frame2[1]["arg1"] = __arg1
+                        __frame2[1]["arg2"] = idris["Prelude.Types.takeUntil"](nil)(__arg3)(__arg2())
+                        return __frame2[1]
+                      end
+                      __frame1[3] = __frame1[2][__frame1[1]]
+                      if __frame1[3] then
+                        __frame1[4] = __frame1[3]()
+                      else
+                        idris["error"]("Impossible else branch")
+                      end
+                      return __frame1[4]
+                    end)()
+                end
+            end
+        end
+    end
+end
+idris["Prelude.Types.case[4617]toLower"] = function(__arg0)
+  return function(__arg1)
+      return (function()
+          local __frame1 = {
+            nil,
+            nil,
+            nil,
+            nil
+          }
+          __frame1[1] = __arg1
+          __frame1[2] = {
+            nil,
+            nil
+          }
+          __frame1[2][0] = function()
+            return utf8.char(utf8.byte(__arg0) + 32)
+          end
+          __frame1[2][1] = function()
+            return __arg0
+          end
+          __frame1[3] = __frame1[2][__frame1[1]]
+          if __frame1[3] then
+            __frame1[4] = __frame1[3]()
+          else
+            idris["error"]("Impossible else branch")
+          end
+          return __frame1[4]
+        end)()
+    end
+end
+idris["Commands.case[4508]extractName"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -205,90 +288,7 @@ idris["Commands.case[4945]extractName"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.case[4755]takeUntil"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return function(__arg4)
-                  return (function()
-                      local __frame1 = {
-                        nil,
-                        nil,
-                        nil,
-                        nil
-                      }
-                      __frame1[1] = __arg4
-                      __frame1[2] = {
-                        nil,
-                        nil
-                      }
-                      __frame1[2][0] = function()
-                        local __frame2 = {
-                          nil,
-                          nil
-                        }
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "0"
-                        __frame2[2] = {}
-                        __frame2[2]["tag"] = "1"
-                        __frame2[2]["arg1"] = __arg1
-                        __frame2[2]["arg2"] = __frame2[1]
-                        return __frame2[2]
-                      end
-                      __frame1[2][1] = function()
-                        local __frame2 = {
-                          nil
-                        }
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "1"
-                        __frame2[1]["arg1"] = __arg1
-                        __frame2[1]["arg2"] = idris["Prelude.Types.takeUntil"](nil)(__arg3)(__arg2())
-                        return __frame2[1]
-                      end
-                      __frame1[3] = __frame1[2][__frame1[1]]
-                      if __frame1[3] then
-                        __frame1[4] = __frame1[3]()
-                      else
-                        idris["error"]("Impossible else branch")
-                      end
-                      return __frame1[4]
-                    end)()
-                end
-            end
-        end
-    end
-end
-idris["Prelude.Types.case[4191]toLower"] = function(__arg0)
-  return function(__arg1)
-      return (function()
-          local __frame1 = {
-            nil,
-            nil,
-            nil,
-            nil
-          }
-          __frame1[1] = __arg1
-          __frame1[2] = {
-            nil,
-            nil
-          }
-          __frame1[2][0] = function()
-            return utf8.char(utf8.byte(__arg0) + 32)
-          end
-          __frame1[2][1] = function()
-            return __arg0
-          end
-          __frame1[3] = __frame1[2][__frame1[1]]
-          if __frame1[3] then
-            __frame1[4] = __frame1[3]()
-          else
-            idris["error"]("Impossible else branch")
-          end
-          return __frame1[4]
-        end)()
-    end
-end
-idris["Prelude.Types.case[3999]substr"] = function(__arg0)
+idris["Prelude.Types.case[4425]substr"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -322,7 +322,7 @@ idris["Prelude.Types.case[3999]substr"] = function(__arg0)
         end
     end
 end
-idris["Utils.Path.case[3828]case block in isAbsolute'"] = function(__arg0)
+idris["Utils.Path.case[3942]case block in isAbsolute'"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -396,7 +396,7 @@ idris["Utils.Path.case[3828]case block in isAbsolute'"] = function(__arg0)
         end)()
     end
 end
-idris["Utils.Path.case[3821]isAbsolute'"] = function(__arg0)
+idris["Utils.Path.case[3935]isAbsolute'"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -431,7 +431,7 @@ idris["Utils.Path.case[3821]isAbsolute'"] = function(__arg0)
             else
               idris["error"]("Impossible else branch")
             end
-            return idris["Utils.Path.case[3828]case block in isAbsolute'"](__arg0)(__frame2[4])
+            return idris["Utils.Path.case[3942]case block in isAbsolute'"](__arg0)(__frame2[4])
           end
           __frame1[2][1] = function()
             local __frame2 = {
@@ -466,7 +466,7 @@ idris["Utils.Path.case[3821]isAbsolute'"] = function(__arg0)
         end)()
     end
 end
-idris["Utils.Path.case[3577]disk"] = function(__arg0)
+idris["Utils.Path.case[3691]disk"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -510,7 +510,7 @@ idris["Utils.Path.case[3577]disk"] = function(__arg0)
         end)()
     end
 end
-idris["Utils.Path.case[3292]lexPath"] = function(__arg0)
+idris["Utils.Path.case[3406]lexPath"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -577,7 +577,7 @@ idris["Utils.Path.case[3292]lexPath"] = function(__arg0)
         end)()
     end
 end
-idris["Parser.Rule.Source.case[2907]identPart"] = function(__arg0)
+idris["Parser.Rule.Source.case[3114]identPart"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -613,7 +613,55 @@ idris["Parser.Rule.Source.case[2907]identPart"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Parser.Core.case[2838]parse"] = function(__arg0)
+idris["Parser.Rule.Source.case[2992]case block in exactIdent"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return (function()
+                  local __frame1 = {
+                    nil,
+                    nil,
+                    nil,
+                    nil
+                  }
+                  __frame1[1] = __arg3
+                  __frame1[2] = {
+                    nil,
+                    nil
+                  }
+                  __frame1[2][0] = function()
+                    local __frame2 = {
+                      nil,
+                      nil
+                    }
+                    __frame2[1] = {}
+                    __frame2[1]["tag"] = "0"
+                    __frame2[2] = {}
+                    __frame2[2]["tag"] = "1"
+                    __frame2[2]["arg1"] = __frame2[1]
+                    return __frame2[2]
+                  end
+                  __frame1[2][1] = function()
+                    local __frame2 = {
+                      nil
+                    }
+                    __frame2[1] = {}
+                    __frame2[1]["tag"] = "0"
+                    return __frame2[1]
+                  end
+                  __frame1[3] = __frame1[2][__frame1[1]]
+                  if __frame1[3] then
+                    __frame1[4] = __frame1[3]()
+                  else
+                    idris["error"]("Impossible else branch")
+                  end
+                  return __frame1[4]
+                end)()
+            end
+        end
+    end
+end
+idris["Text.Parser.Core.case[2952]parse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -695,7 +743,7 @@ idris["Text.Parser.Core.case[2838]parse"] = function(__arg0)
         end
     end
 end
-idris["Parser.Rule.Source.case[2785]case block in exactIdent"] = function(__arg0)
+idris["Parser.Rule.Source.case[2891]case block in symbol"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -743,55 +791,7 @@ idris["Parser.Rule.Source.case[2785]case block in exactIdent"] = function(__arg0
         end
     end
 end
-idris["Parser.Rule.Source.case[2684]case block in symbol"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return (function()
-                  local __frame1 = {
-                    nil,
-                    nil,
-                    nil,
-                    nil
-                  }
-                  __frame1[1] = __arg3
-                  __frame1[2] = {
-                    nil,
-                    nil
-                  }
-                  __frame1[2][0] = function()
-                    local __frame2 = {
-                      nil,
-                      nil
-                    }
-                    __frame2[1] = {}
-                    __frame2[1]["tag"] = "0"
-                    __frame2[2] = {}
-                    __frame2[2]["tag"] = "1"
-                    __frame2[2]["arg1"] = __frame2[1]
-                    return __frame2[2]
-                  end
-                  __frame1[2][1] = function()
-                    local __frame2 = {
-                      nil
-                    }
-                    __frame2[1] = {}
-                    __frame2[1]["tag"] = "0"
-                    return __frame2[1]
-                  end
-                  __frame1[3] = __frame1[2][__frame1[1]]
-                  if __frame1[3] then
-                    __frame1[4] = __frame1[3]()
-                  else
-                    idris["error"]("Impossible else branch")
-                  end
-                  return __frame1[4]
-                end)()
-            end
-        end
-    end
-end
-idris["Parser.Rule.Source.case[2618]strLit"] = function(__arg0)
+idris["Parser.Rule.Source.case[2825]strLit"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -827,7 +827,7 @@ idris["Parser.Rule.Source.case[2618]strLit"] = function(__arg0)
         end)()
     end
 end
-idris["Parser.Rule.Source.case[2565]intLit"] = function(__arg0)
+idris["Parser.Rule.Source.case[2772]intLit"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -863,7 +863,7 @@ idris["Parser.Rule.Source.case[2565]intLit"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.case[2402]compare"] = function(__arg0)
+idris["Prelude.EqOrd.case[2410]compare"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -947,7 +947,7 @@ idris["Prelude.EqOrd.case[2402]compare"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.case[2277]max"] = function(__arg0)
+idris["Prelude.EqOrd.case[2285]max"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -987,7 +987,7 @@ idris["Prelude.EqOrd.case[2277]max"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.case[2235]min"] = function(__arg0)
+idris["Prelude.EqOrd.case[2243]min"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -1027,53 +1027,7 @@ idris["Prelude.EqOrd.case[2235]min"] = function(__arg0)
         end
     end
 end
-idris["Data.List.case[2103]case block in span"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return function(__arg4)
-                  return (function()
-                      local __frame1 = {
-                        nil,
-                        nil,
-                        nil,
-                        nil
-                      }
-                      __frame1[1] = __arg4
-                      __frame1[2] = {
-                        nil
-                      }
-                      __frame1[2]["0"] = function()
-                        local __frame2 = {
-                          nil,
-                          nil
-                        }
-                        local __e2 = __frame1[1]["arg1"]
-                        local __e3 = __frame1[1]["arg2"]
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "1"
-                        __frame2[1]["arg1"] = __arg3
-                        __frame2[1]["arg2"] = __e2
-                        __frame2[2] = {}
-                        __frame2[2]["tag"] = "0"
-                        __frame2[2]["arg1"] = __frame2[1]
-                        __frame2[2]["arg2"] = __e3
-                        return __frame2[2]
-                      end
-                      __frame1[3] = __frame1[2][__frame1[1]["tag"]]
-                      if __frame1[3] then
-                        __frame1[4] = __frame1[3]()
-                      else
-                        idris["error"]("Impossible else branch")
-                      end
-                      return __frame1[4]
-                    end)()
-                end
-            end
-        end
-    end
-end
-idris["Text.Parser.Core.case[2101]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2215]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -1121,58 +1075,7 @@ idris["Text.Parser.Core.case[2101]doParse"] = function(__arg0)
         end
     end
 end
-idris["Data.List.case[2083]span"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return function(__arg4)
-                  return (function()
-                      local __frame1 = {
-                        nil,
-                        nil,
-                        nil,
-                        nil
-                      }
-                      __frame1[1] = __arg4
-                      __frame1[2] = {
-                        nil,
-                        nil
-                      }
-                      __frame1[2][0] = function()
-                        return idris["Data.List.case[2103]case block in span"](nil)(__arg2)(__arg3)(__arg1)(idris["Data.List.span"](nil)(__arg3)(__arg2))
-                      end
-                      __frame1[2][1] = function()
-                        local __frame2 = {
-                          nil,
-                          nil,
-                          nil
-                        }
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "0"
-                        __frame2[2] = {}
-                        __frame2[2]["tag"] = "1"
-                        __frame2[2]["arg1"] = __arg1
-                        __frame2[2]["arg2"] = __arg2
-                        __frame2[3] = {}
-                        __frame2[3]["tag"] = "0"
-                        __frame2[3]["arg1"] = __frame2[1]
-                        __frame2[3]["arg2"] = __frame2[2]
-                        return __frame2[3]
-                      end
-                      __frame1[3] = __frame1[2][__frame1[1]]
-                      if __frame1[3] then
-                        __frame1[4] = __frame1[3]()
-                      else
-                        idris["error"]("Impossible else branch")
-                      end
-                      return __frame1[4]
-                    end)()
-                end
-            end
-        end
-    end
-end
-idris["Text.Parser.Core.case[2040]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2154]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -1220,7 +1123,104 @@ idris["Text.Parser.Core.case[2040]doParse"] = function(__arg0)
         end
     end
 end
-idris["Data.List.case[1851]deleteBy"] = function(__arg0)
+idris["Data.List.case[1641]case block in span"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return function(__arg4)
+                  return (function()
+                      local __frame1 = {
+                        nil,
+                        nil,
+                        nil,
+                        nil
+                      }
+                      __frame1[1] = __arg4
+                      __frame1[2] = {
+                        nil
+                      }
+                      __frame1[2]["0"] = function()
+                        local __frame2 = {
+                          nil,
+                          nil
+                        }
+                        local __e2 = __frame1[1]["arg1"]
+                        local __e3 = __frame1[1]["arg2"]
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "1"
+                        __frame2[1]["arg1"] = __arg3
+                        __frame2[1]["arg2"] = __e2
+                        __frame2[2] = {}
+                        __frame2[2]["tag"] = "0"
+                        __frame2[2]["arg1"] = __frame2[1]
+                        __frame2[2]["arg2"] = __e3
+                        return __frame2[2]
+                      end
+                      __frame1[3] = __frame1[2][__frame1[1]["tag"]]
+                      if __frame1[3] then
+                        __frame1[4] = __frame1[3]()
+                      else
+                        idris["error"]("Impossible else branch")
+                      end
+                      return __frame1[4]
+                    end)()
+                end
+            end
+        end
+    end
+end
+idris["Data.List.case[1621]span"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return function(__arg4)
+                  return (function()
+                      local __frame1 = {
+                        nil,
+                        nil,
+                        nil,
+                        nil
+                      }
+                      __frame1[1] = __arg4
+                      __frame1[2] = {
+                        nil,
+                        nil
+                      }
+                      __frame1[2][0] = function()
+                        return idris["Data.List.case[1641]case block in span"](nil)(__arg2)(__arg3)(__arg1)(idris["Data.List.span"](nil)(__arg3)(__arg2))
+                      end
+                      __frame1[2][1] = function()
+                        local __frame2 = {
+                          nil,
+                          nil,
+                          nil
+                        }
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "0"
+                        __frame2[2] = {}
+                        __frame2[2]["tag"] = "1"
+                        __frame2[2]["arg1"] = __arg1
+                        __frame2[2]["arg2"] = __arg2
+                        __frame2[3] = {}
+                        __frame2[3]["tag"] = "0"
+                        __frame2[3]["arg1"] = __frame2[1]
+                        __frame2[3]["arg2"] = __frame2[2]
+                        return __frame2[3]
+                      end
+                      __frame1[3] = __frame1[2][__frame1[1]]
+                      if __frame1[3] then
+                        __frame1[4] = __frame1[3]()
+                      else
+                        idris["error"]("Impossible else branch")
+                      end
+                      return __frame1[4]
+                    end)()
+                end
+            end
+        end
+    end
+end
+idris["Data.List.case[1389]deleteBy"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -1265,167 +1265,7 @@ idris["Data.List.case[1851]deleteBy"] = function(__arg0)
         end
     end
 end
-idris["Data.List.case[1578]find"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return function(__arg4)
-                  return (function()
-                      local __frame1 = {
-                        nil,
-                        nil,
-                        nil,
-                        nil
-                      }
-                      __frame1[1] = __arg4
-                      __frame1[2] = {
-                        nil,
-                        nil
-                      }
-                      __frame1[2][0] = function()
-                        local __frame2 = {
-                          nil
-                        }
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "1"
-                        __frame2[1]["arg1"] = __arg1
-                        return __frame2[1]
-                      end
-                      __frame1[2][1] = function()
-                        return idris["Data.List.find"](nil)(__arg3)(__arg2)
-                      end
-                      __frame1[3] = __frame1[2][__frame1[1]]
-                      if __frame1[3] then
-                        __frame1[4] = __frame1[3]()
-                      else
-                        idris["error"]("Impossible else branch")
-                      end
-                      return __frame1[4]
-                    end)()
-                end
-            end
-        end
-    end
-end
-idris["Data.List.case[1523]filter"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return function(__arg4)
-                  return (function()
-                      local __frame1 = {
-                        nil,
-                        nil,
-                        nil,
-                        nil
-                      }
-                      __frame1[1] = __arg4
-                      __frame1[2] = {
-                        nil,
-                        nil
-                      }
-                      __frame1[2][0] = function()
-                        local __frame2 = {
-                          nil
-                        }
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "1"
-                        __frame2[1]["arg1"] = __arg1
-                        __frame2[1]["arg2"] = idris["Data.List.filter"](nil)(__arg3)(__arg2)
-                        return __frame2[1]
-                      end
-                      __frame1[2][1] = function()
-                        return idris["Data.List.filter"](nil)(__arg3)(__arg2)
-                      end
-                      __frame1[3] = __frame1[2][__frame1[1]]
-                      if __frame1[3] then
-                        __frame1[4] = __frame1[3]()
-                      else
-                        idris["error"]("Impossible else branch")
-                      end
-                      return __frame1[4]
-                    end)()
-                end
-            end
-        end
-    end
-end
-idris["Data.List.case[1469]dropWhile"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return function(__arg3)
-              return function(__arg4)
-                  return (function()
-                      local __frame1 = {
-                        nil,
-                        nil,
-                        nil,
-                        nil
-                      }
-                      __frame1[1] = __arg4
-                      __frame1[2] = {
-                        nil,
-                        nil
-                      }
-                      __frame1[2][0] = function()
-                        return idris["Data.List.dropWhile"](nil)(__arg3)(__arg2)
-                      end
-                      __frame1[2][1] = function()
-                        local __frame2 = {
-                          nil
-                        }
-                        __frame2[1] = {}
-                        __frame2[1]["tag"] = "1"
-                        __frame2[1]["arg1"] = __arg1
-                        __frame2[1]["arg2"] = __arg2
-                        return __frame2[1]
-                      end
-                      __frame1[3] = __frame1[2][__frame1[1]]
-                      if __frame1[3] then
-                        __frame1[4] = __frame1[3]()
-                      else
-                        idris["error"]("Impossible else branch")
-                      end
-                      return __frame1[4]
-                    end)()
-                end
-            end
-        end
-    end
-end
-idris["Prelude.EqOrd.case[1301]case block in compare"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return (function()
-              local __frame1 = {
-                nil,
-                nil,
-                nil,
-                nil
-              }
-              __frame1[1] = __arg2
-              __frame1[2] = {
-                nil,
-                nil
-              }
-              __frame1[2][0] = function()
-                return 1
-              end
-              __frame1[2][1] = function()
-                return 2
-              end
-              __frame1[3] = __frame1[2][__frame1[1]]
-              if __frame1[3] then
-                __frame1[4] = __frame1[3]()
-              else
-                idris["error"]("Impossible else branch")
-              end
-              return __frame1[4]
-            end)()
-        end
-    end
-end
-idris["Text.Lexer.Core.case[1270]scan"] = function(__arg0)
+idris["Text.Lexer.Core.case[1384]scan"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -1482,7 +1322,7 @@ idris["Text.Lexer.Core.case[1270]scan"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.case[1187]case block in compare"] = function(__arg0)
+idris["Prelude.EqOrd.case[1309]case block in compare"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -1514,7 +1354,39 @@ idris["Prelude.EqOrd.case[1187]case block in compare"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.case[1153]max"] = function(__arg0)
+idris["Prelude.EqOrd.case[1195]case block in compare"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return (function()
+              local __frame1 = {
+                nil,
+                nil,
+                nil,
+                nil
+              }
+              __frame1[1] = __arg2
+              __frame1[2] = {
+                nil,
+                nil
+              }
+              __frame1[2][0] = function()
+                return 1
+              end
+              __frame1[2][1] = function()
+                return 2
+              end
+              __frame1[3] = __frame1[2][__frame1[1]]
+              if __frame1[3] then
+                __frame1[4] = __frame1[3]()
+              else
+                idris["error"]("Impossible else branch")
+              end
+              return __frame1[4]
+            end)()
+        end
+    end
+end
+idris["Prelude.EqOrd.case[1161]max"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -1546,7 +1418,7 @@ idris["Prelude.EqOrd.case[1153]max"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.case[1139]min"] = function(__arg0)
+idris["Prelude.EqOrd.case[1147]min"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -1578,7 +1450,7 @@ idris["Prelude.EqOrd.case[1139]min"] = function(__arg0)
         end
     end
 end
-idris["Text.Bounded.case[1020]case block in mergeBounds"] = function(__arg0)
+idris["Text.Bounded.case[1134]case block in mergeBounds"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -1645,7 +1517,135 @@ idris["Text.Bounded.case[1020]case block in mergeBounds"] = function(__arg0)
         end
     end
 end
-idris["System.File.case[450]modeStr"] = function(__arg0)
+idris["Data.List.case[1116]find"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return function(__arg4)
+                  return (function()
+                      local __frame1 = {
+                        nil,
+                        nil,
+                        nil,
+                        nil
+                      }
+                      __frame1[1] = __arg4
+                      __frame1[2] = {
+                        nil,
+                        nil
+                      }
+                      __frame1[2][0] = function()
+                        local __frame2 = {
+                          nil
+                        }
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "1"
+                        __frame2[1]["arg1"] = __arg1
+                        return __frame2[1]
+                      end
+                      __frame1[2][1] = function()
+                        return idris["Data.List.find"](nil)(__arg3)(__arg2)
+                      end
+                      __frame1[3] = __frame1[2][__frame1[1]]
+                      if __frame1[3] then
+                        __frame1[4] = __frame1[3]()
+                      else
+                        idris["error"]("Impossible else branch")
+                      end
+                      return __frame1[4]
+                    end)()
+                end
+            end
+        end
+    end
+end
+idris["Data.List.case[1061]filter"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return function(__arg4)
+                  return (function()
+                      local __frame1 = {
+                        nil,
+                        nil,
+                        nil,
+                        nil
+                      }
+                      __frame1[1] = __arg4
+                      __frame1[2] = {
+                        nil,
+                        nil
+                      }
+                      __frame1[2][0] = function()
+                        local __frame2 = {
+                          nil
+                        }
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "1"
+                        __frame2[1]["arg1"] = __arg1
+                        __frame2[1]["arg2"] = idris["Data.List.filter"](nil)(__arg3)(__arg2)
+                        return __frame2[1]
+                      end
+                      __frame1[2][1] = function()
+                        return idris["Data.List.filter"](nil)(__arg3)(__arg2)
+                      end
+                      __frame1[3] = __frame1[2][__frame1[1]]
+                      if __frame1[3] then
+                        __frame1[4] = __frame1[3]()
+                      else
+                        idris["error"]("Impossible else branch")
+                      end
+                      return __frame1[4]
+                    end)()
+                end
+            end
+        end
+    end
+end
+idris["Data.List.case[1007]dropWhile"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return function(__arg3)
+              return function(__arg4)
+                  return (function()
+                      local __frame1 = {
+                        nil,
+                        nil,
+                        nil,
+                        nil
+                      }
+                      __frame1[1] = __arg4
+                      __frame1[2] = {
+                        nil,
+                        nil
+                      }
+                      __frame1[2][0] = function()
+                        return idris["Data.List.dropWhile"](nil)(__arg3)(__arg2)
+                      end
+                      __frame1[2][1] = function()
+                        local __frame2 = {
+                          nil
+                        }
+                        __frame2[1] = {}
+                        __frame2[1]["tag"] = "1"
+                        __frame2[1]["arg1"] = __arg1
+                        __frame2[1]["arg2"] = __arg2
+                        return __frame2[1]
+                      end
+                      __frame1[3] = __frame1[2][__frame1[1]]
+                      if __frame1[3] then
+                        __frame1[4] = __frame1[3]()
+                      else
+                        idris["error"]("Impossible else branch")
+                      end
+                      return __frame1[4]
+                    end)()
+                end
+            end
+        end
+    end
+end
+idris["System.File.case[540]modeStr"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1673,7 +1673,7 @@ idris["System.File.case[450]modeStr"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["System.File.case[440]modeStr"] = function(__arg0)
+idris["System.File.case[530]modeStr"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1701,7 +1701,7 @@ idris["System.File.case[440]modeStr"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["System.File.case[430]modeStr"] = function(__arg0)
+idris["System.File.case[520]modeStr"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1729,7 +1729,7 @@ idris["System.File.case[430]modeStr"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["System.File.case[420]modeStr"] = function(__arg0)
+idris["System.File.case[510]modeStr"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1757,7 +1757,7 @@ idris["System.File.case[420]modeStr"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["System.File.case[410]modeStr"] = function(__arg0)
+idris["System.File.case[500]modeStr"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1785,7 +1785,7 @@ idris["System.File.case[410]modeStr"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["System.File.case[400]modeStr"] = function(__arg0)
+idris["System.File.case[490]modeStr"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1813,7 +1813,7 @@ idris["System.File.case[400]modeStr"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Idris.IDEMode.Parser.case[386]idelex,notComment"] = function(__arg0)
+idris["Idris.IDEMode.Parser.case[476]idelex,notComment"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -1841,7 +1841,7 @@ idris["Idris.IDEMode.Parser.case[386]idelex,notComment"] = function(__arg0)
         end
     end
 end
-idris["Idris.IDEMode.Parser.3567:381:notComment"] = function(__arg0)
+idris["Idris.IDEMode.Parser.3646:471:notComment"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -1864,11 +1864,11 @@ idris["Idris.IDEMode.Parser.3567:381:notComment"] = function(__arg0)
           else
             idris["error"]("Impossible else branch")
           end
-          return idris["Idris.IDEMode.Parser.case[386]idelex,notComment"](__arg0)(__arg1)(__frame1[4])
+          return idris["Idris.IDEMode.Parser.case[476]idelex,notComment"](__arg0)(__arg1)(__frame1[4])
         end)()
     end
 end
-idris["Parser.Rule.Source.4124:2355:isEOI"] = function(__arg0)
+idris["Parser.Rule.Source.4200:2562:isEOI"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1892,7 +1892,7 @@ idris["Parser.Rule.Source.4124:2355:isEOI"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.Types.4123:4203:hexChars"] = function(__arg0)
+idris["Prelude.Types.4479:4629:hexChars"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -1982,7 +1982,7 @@ idris["Prelude.Types.4123:4203:hexChars"] = function(__arg0)
       return __frame1[17]
     end)()
 end
-idris["Idris.IDEMode.Commands.3280:3034:getMode"] = function(__arg0)
+idris["Idris.IDEMode.Commands.3373:3139:getMode"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2030,7 +2030,7 @@ idris["Idris.IDEMode.Commands.3280:3034:getMode"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Show.1638:6006:getAt"] = function(__arg0)
+idris["Prelude.Show.1675:6434:getAt"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -2114,7 +2114,7 @@ idris["Prelude.Show.1638:6006:getAt"] = function(__arg0)
                 }
                 __frame1[4]["1"] = function()
                   local __e7 = __frame1[3]["arg2"]
-                  return idris["Prelude.Show.1638:6006:getAt"](__arg0)(__e1)(__e7)
+                  return idris["Prelude.Show.1675:6434:getAt"](__arg0)(__e1)(__e7)
                 end
                 __frame1[9] = __frame1[4][__frame1[3]["tag"]]
                 if __frame1[9] then
@@ -2147,7 +2147,7 @@ idris["Prelude.Show.1638:6006:getAt"] = function(__arg0)
         end
     end
 end
-idris["Idris.IDEMode.Commands.3729:3322:escapeChar"] = function(__arg0)
+idris["Idris.IDEMode.Commands.3833:3437:escapeChar"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -2213,7 +2213,7 @@ idris["Idris.IDEMode.Commands.3729:3322:escapeChar"] = function(__arg0)
       return __frame1[6]
     end)()
 end
-idris["Prelude.Show.1638:6005:asciiTab"] = function(__arg0)
+idris["Prelude.Show.1675:6433:asciiTab"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -2383,7 +2383,7 @@ idris["Prelude.Show.1638:6005:asciiTab"] = function(__arg0)
       return __frame1[33]
     end)()
 end
-idris["Prelude.Types.traverse_Traversable__List"] = function(__arg0)
+idris["Prelude.Types.traverse_Traversable_List"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2495,7 +2495,7 @@ idris["Prelude.Types.traverse_Traversable__List"] = function(__arg0)
                               else
                                 idris["error"]("Impossible else branch")
                               end
-                              return __e4(nil)(nil)(__frame3[4])(idris["Prelude.Types.traverse_Traversable__List"](nil)(nil)(nil)(__arg3)(__arg4)(__e3))
+                              return __e4(nil)(nil)(__frame3[4])(idris["Prelude.Types.traverse_Traversable_List"](nil)(nil)(nil)(__arg3)(__arg4)(__e3))
                             end
                             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                             if __frame2[3] then
@@ -2519,7 +2519,7 @@ idris["Prelude.Types.traverse_Traversable__List"] = function(__arg0)
         end
     end
 end
-idris["Utils.Path.tokValue_TokenKind__PathTokenKind"] = function(__arg0)
+idris["Utils.Path.tokValue_TokenKind_PathTokenKind"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -2554,7 +2554,7 @@ idris["Utils.Path.tokValue_TokenKind__PathTokenKind"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Show.show_Show__Bool"] = function(__arg0)
+idris["Prelude.Show.show_Show_Bool"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -2582,7 +2582,7 @@ idris["Prelude.Show.show_Show__Bool"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.Types.pure_Applicative__Maybe"] = function(__arg0)
+idris["Prelude.Types.pure_Applicative_Maybe"] = function(__arg0)
   return function(__ext0)
       return (function()
           local __frame1 = {
@@ -2595,7 +2595,7 @@ idris["Prelude.Types.pure_Applicative__Maybe"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Lexer.Core.case[1221]scan"] = function(__arg0)
+idris["Text.Lexer.Core.case[1335]scan"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2622,7 +2622,7 @@ idris["Text.Lexer.Core.case[1221]scan"] = function(__arg0)
                                 __frame2[1]["tag"] = "0"
                                 __frame2[1]["arg1"] = __arg4
                                 __frame2[1]["arg2"] = __arg3
-                                return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame2[1])
+                                return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame2[1])
                               end
                               __frame1[2][1] = function()
                                 local __frame2 = {
@@ -2647,7 +2647,41 @@ idris["Text.Lexer.Core.case[1221]scan"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.neutral_Monoid__(List $a)"] = function(__arg0)
+idris["Prelude.Types.null_Foldable_List"] = function(__arg0)
+  return function(__arg1)
+      return (function()
+          local __frame1 = {
+            nil,
+            nil,
+            nil,
+            nil
+          }
+          __frame1[1] = __arg1
+          __frame1[2] = {
+            nil,
+            nil
+          }
+          __frame1[2]["0"] = function()
+            return function()
+                return 0
+              end
+          end
+          __frame1[2]["1"] = function()
+            return function()
+                return 1
+              end
+          end
+          __frame1[3] = __frame1[2][__frame1[1]["tag"]]
+          if __frame1[3] then
+            __frame1[4] = __frame1[3]()
+          else
+            idris["error"]("Impossible else branch")
+          end
+          return __frame1[4]
+        end)()
+    end
+end
+idris["Prelude.Types.neutral_Monoid_(List $a)"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil
@@ -2657,12 +2691,12 @@ idris["Prelude.Types.neutral_Monoid__(List $a)"] = function(__arg0)
       return __frame1[1]
     end)()
 end
-idris["Prelude.Num.negate_Neg__Int"] = function(__arg0)
+idris["Prelude.Num.negate_Neg_Int"] = function(__arg0)
   return (function()
       return 0 - __arg0
     end)()
 end
-idris["Prelude.Num.case[408]abs"] = function(__arg0)
+idris["Prelude.Num.case[409]abs"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -2677,7 +2711,7 @@ idris["Prelude.Num.case[408]abs"] = function(__arg0)
             nil
           }
           __frame1[2][0] = function()
-            return idris["Prelude.Num.negate_Neg__Int"](__arg0)
+            return idris["Prelude.Num.negate_Neg_Int"](__arg0)
           end
           __frame1[2][1] = function()
             return __arg0
@@ -2692,7 +2726,7 @@ idris["Prelude.Num.case[408]abs"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Bounded.map_Functor__WithBounds"] = function(__arg0)
+idris["Text.Bounded.map_Functor_WithBounds"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2739,7 +2773,7 @@ idris["Text.Bounded.map_Functor__WithBounds"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.map_Functor__Maybe"] = function(__arg0)
+idris["Prelude.Types.map_Functor_Maybe"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2785,7 +2819,7 @@ idris["Prelude.Types.map_Functor__Maybe"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.map_Functor__List"] = function(__arg0)
+idris["Prelude.Types.map_Functor_List"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2818,7 +2852,7 @@ idris["Prelude.Types.map_Functor__List"] = function(__arg0)
                     __frame2[1] = {}
                     __frame2[1]["tag"] = "1"
                     __frame2[1]["arg1"] = __arg2(__e2)
-                    __frame2[1]["arg2"] = idris["Prelude.Types.map_Functor__List"](nil)(nil)(__arg2)(__e3)
+                    __frame2[1]["arg2"] = idris["Prelude.Types.map_Functor_List"](nil)(nil)(__arg2)(__e3)
                     return __frame2[1]
                   end
                   __frame1[3] = __frame1[2][__frame1[1]["tag"]]
@@ -2833,7 +2867,7 @@ idris["Prelude.Types.map_Functor__List"] = function(__arg0)
         end
     end
 end
-idris["Data.List1.map_Functor__List1"] = function(__arg0)
+idris["Data.List1.map_Functor_List1"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2857,7 +2891,7 @@ idris["Data.List1.map_Functor__List1"] = function(__arg0)
                     __frame2[1] = {}
                     __frame2[1]["tag"] = "0"
                     __frame2[1]["arg1"] = __arg2(__e1)
-                    __frame2[1]["arg2"] = idris["Prelude.Types.map_Functor__List"](nil)(nil)(__arg2)(__e2)
+                    __frame2[1]["arg2"] = idris["Prelude.Types.map_Functor_List"](nil)(nil)(__arg2)(__e2)
                     return __frame2[1]
                   end
                   __frame1[3] = __frame1[2][__frame1[1]["tag"]]
@@ -2872,7 +2906,7 @@ idris["Data.List1.map_Functor__List1"] = function(__arg0)
         end
     end
 end
-idris["Prelude.IO.map_Functor__IO"] = function(__arg0)
+idris["Prelude.IO.map_Functor_IO"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -2886,7 +2920,7 @@ idris["Prelude.IO.map_Functor__IO"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
+idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -3001,7 +3035,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                 local __e35 = __frame2[3]["arg1"]
                                 __frame3[1] = {}
                                 __frame3[1]["tag"] = "5"
-                                __frame3[1]["arg1"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e35)
+                                __frame3[1]["arg1"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e35)
                                 return __frame3[1]
                               end
                               __frame2[4]["7"] = function()
@@ -3011,7 +3045,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                 local __e39 = __frame2[3]["arg1"]
                                 __frame3[1] = {}
                                 __frame3[1]["tag"] = "7"
-                                __frame3[1]["arg1"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e39)
+                                __frame3[1]["arg1"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e39)
                                 return __frame3[1]
                               end
                               __frame2[25] = __frame2[4][__frame2[3]["tag"]]
@@ -3059,7 +3093,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                     __frame4[1]["tag"] = "1"
                                     __frame4[1]["arg1"] = __e25
                                     __frame4[1]["arg2"] = function(__eta0)
-                                      return idris["Prelude.Types.map_Functor__Maybe"](nil)(nil)(__arg4)(__e26(__eta0))
+                                      return idris["Prelude.Types.map_Functor_Maybe"](nil)(nil)(__arg4)(__e26(__eta0))
                                     end
                                     return __frame4[1]
                                   end
@@ -3083,9 +3117,9 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                       __frame4[1]["tag"] = "10"
                                       __frame4[1]["arg1"] = __e19
                                       __frame4[1]["arg2"] = __e20
-                                      __frame4[1]["arg3"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
+                                      __frame4[1]["arg3"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
                                       __frame4[1]["arg4"] = function()
-                                        return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
+                                        return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
                                       end
                                       return __frame4[1]
                                     end
@@ -3129,7 +3163,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                           __frame5[1]["arg2"] = __e15
                                           __frame5[1]["arg3"] = function()
                                             return function(val)
-                                                return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
+                                                return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
                                               end
                                           end
                                           return __frame5[1]
@@ -3157,7 +3191,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                             __frame5[1]["arg2"] = __e4
                                             __frame5[1]["arg3"] = __e5
                                             __frame5[1]["arg4"] = function(val)
-                                              return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                              return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                             end
                                             return __frame5[1]
                                           end
@@ -3249,7 +3283,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                           __frame4[1]["arg2"] = __e4
                                           __frame4[1]["arg3"] = __e5
                                           __frame4[1]["arg4"] = function(val)
-                                            return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                            return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                           end
                                           return __frame4[1]
                                         end
@@ -3342,9 +3376,9 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                     __frame3[1]["tag"] = "10"
                                     __frame3[1]["arg1"] = __e19
                                     __frame3[1]["arg2"] = __e20
-                                    __frame3[1]["arg3"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
+                                    __frame3[1]["arg3"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
                                     __frame3[1]["arg4"] = function()
-                                      return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
+                                      return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
                                     end
                                     return __frame3[1]
                                   end
@@ -3388,7 +3422,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                         __frame4[1]["arg2"] = __e15
                                         __frame4[1]["arg3"] = function()
                                           return function(val)
-                                              return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
+                                              return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
                                             end
                                         end
                                         return __frame4[1]
@@ -3416,7 +3450,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                           __frame4[1]["arg2"] = __e4
                                           __frame4[1]["arg3"] = __e5
                                           __frame4[1]["arg4"] = function(val)
-                                            return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                            return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                           end
                                           return __frame4[1]
                                         end
@@ -3508,7 +3542,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                         __frame3[1]["arg2"] = __e4
                                         __frame3[1]["arg3"] = __e5
                                         __frame3[1]["arg4"] = function(val)
-                                          return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                          return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                         end
                                         return __frame3[1]
                                       end
@@ -3614,7 +3648,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                               local __e35 = __frame1[3]["arg1"]
                               __frame2[1] = {}
                               __frame2[1]["tag"] = "5"
-                              __frame2[1]["arg1"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e35)
+                              __frame2[1]["arg1"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e35)
                               return __frame2[1]
                             end
                             __frame1[4]["7"] = function()
@@ -3624,7 +3658,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                               local __e39 = __frame1[3]["arg1"]
                               __frame2[1] = {}
                               __frame2[1]["tag"] = "7"
-                              __frame2[1]["arg1"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e39)
+                              __frame2[1]["arg1"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__arg4)(__e39)
                               return __frame2[1]
                             end
                             __frame1[25] = __frame1[4][__frame1[3]["tag"]]
@@ -3672,7 +3706,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                   __frame3[1]["tag"] = "1"
                                   __frame3[1]["arg1"] = __e25
                                   __frame3[1]["arg2"] = function(__eta0)
-                                    return idris["Prelude.Types.map_Functor__Maybe"](nil)(nil)(__arg4)(__e26(__eta0))
+                                    return idris["Prelude.Types.map_Functor_Maybe"](nil)(nil)(__arg4)(__e26(__eta0))
                                   end
                                   return __frame3[1]
                                 end
@@ -3696,9 +3730,9 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                     __frame3[1]["tag"] = "10"
                                     __frame3[1]["arg1"] = __e19
                                     __frame3[1]["arg2"] = __e20
-                                    __frame3[1]["arg3"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
+                                    __frame3[1]["arg3"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
                                     __frame3[1]["arg4"] = function()
-                                      return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
+                                      return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
                                     end
                                     return __frame3[1]
                                   end
@@ -3742,7 +3776,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                         __frame4[1]["arg2"] = __e15
                                         __frame4[1]["arg3"] = function()
                                           return function(val)
-                                              return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
+                                              return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
                                             end
                                         end
                                         return __frame4[1]
@@ -3770,7 +3804,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                           __frame4[1]["arg2"] = __e4
                                           __frame4[1]["arg3"] = __e5
                                           __frame4[1]["arg4"] = function(val)
-                                            return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                            return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                           end
                                           return __frame4[1]
                                         end
@@ -3862,7 +3896,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                         __frame3[1]["arg2"] = __e4
                                         __frame3[1]["arg3"] = __e5
                                         __frame3[1]["arg4"] = function(val)
-                                          return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                          return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                         end
                                         return __frame3[1]
                                       end
@@ -3955,9 +3989,9 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                   __frame2[1]["tag"] = "10"
                                   __frame2[1]["arg1"] = __e19
                                   __frame2[1]["arg2"] = __e20
-                                  __frame2[1]["arg3"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
+                                  __frame2[1]["arg3"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e19)(__arg4)(__e21)
                                   __frame2[1]["arg4"] = function()
-                                    return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
+                                    return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e20)(__arg4)(__e22())
                                   end
                                   return __frame2[1]
                                 end
@@ -4001,7 +4035,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                       __frame3[1]["arg2"] = __e15
                                       __frame3[1]["arg3"] = function()
                                         return function(val)
-                                            return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
+                                            return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e14)(__arg4)(__e16()(val))
                                           end
                                       end
                                       return __frame3[1]
@@ -4029,7 +4063,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                         __frame3[1]["arg2"] = __e4
                                         __frame3[1]["arg3"] = __e5
                                         __frame3[1]["arg4"] = function(val)
-                                          return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                          return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                         end
                                         return __frame3[1]
                                       end
@@ -4121,7 +4155,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
                                       __frame2[1]["arg2"] = __e4
                                       __frame2[1]["arg3"] = __e5
                                       __frame2[1]["arg4"] = function(val)
-                                        return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
+                                        return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__e4)(__arg4)(__e6(val))
                                       end
                                       return __frame2[1]
                                     end
@@ -4204,12 +4238,7 @@ idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.fromInteger_Num__Nat"] = function(__arg0)
-  return (function()
-      return __arg0
-    end)()
-end
-idris["Prelude.Types.foldr_Foldable__List"] = function(__arg0)
+idris["Prelude.Types.foldr_Foldable_List"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -4232,7 +4261,7 @@ idris["Prelude.Types.foldr_Foldable__List"] = function(__arg0)
                       __frame1[2]["1"] = function()
                         local __e2 = __frame1[1]["arg1"]
                         local __e3 = __frame1[1]["arg2"]
-                        return __arg2(__e2)(idris["Prelude.Types.foldr_Foldable__List"](nil)(nil)(__arg2)(__arg3)(__e3))
+                        return __arg2(__e2)(idris["Prelude.Types.foldr_Foldable_List"](nil)(nil)(__arg2)(__arg3)(__e3))
                       end
                       __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                       if __frame1[3] then
@@ -4247,7 +4276,7 @@ idris["Prelude.Types.foldr_Foldable__List"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.foldl_Foldable__List"] = function(__arg0)
+idris["Prelude.Types.foldl_Foldable_List"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -4270,7 +4299,7 @@ idris["Prelude.Types.foldl_Foldable__List"] = function(__arg0)
                       __frame1[2]["1"] = function()
                         local __e2 = __frame1[1]["arg1"]
                         local __e3 = __frame1[1]["arg2"]
-                        return idris["Prelude.Types.foldl_Foldable__List"](nil)(nil)(__arg2)(__arg2(__arg3)(__e2))(__e3)
+                        return idris["Prelude.Types.foldl_Foldable_List"](nil)(nil)(__arg2)(__arg2(__arg3)(__e2))(__e3)
                       end
                       __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                       if __frame1[3] then
@@ -4285,7 +4314,7 @@ idris["Prelude.Types.foldl_Foldable__List"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.compare_Ord__Nat"] = function(__arg0)
+idris["Prelude.Types.compare_Ord_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4341,7 +4370,7 @@ idris["Prelude.Types.compare_Ord__Nat"] = function(__arg0)
               __frame1[6] = __frame1[5]()
             else
               local __e2 = __arg1 - bigint:new("1")
-              __frame1[6] = idris["Prelude.Types.compare_Ord__Nat"](__e0)(__e2)
+              __frame1[6] = idris["Prelude.Types.compare_Ord_Nat"](__e0)(__e2)
             end
             __frame1[8] = __frame1[6]
           end
@@ -4349,7 +4378,7 @@ idris["Prelude.Types.compare_Ord__Nat"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.compare_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
+idris["Prelude.EqOrd.compare_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -4420,7 +4449,7 @@ idris["Prelude.EqOrd.compare_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) 
                               else
                                 idris["error"]("Impossible else branch")
                               end
-                              return idris["Prelude.EqOrd.case[2402]compare"](nil)(nil)(__arg2)(__arg3)(__e2)(__e3)(__e6)(__e7)(__frame3[8])
+                              return idris["Prelude.EqOrd.case[2410]compare"](nil)(nil)(__arg2)(__arg3)(__e2)(__e3)(__e6)(__e7)(__frame3[8])
                             end
                             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                             if __frame2[3] then
@@ -4444,37 +4473,37 @@ idris["Prelude.EqOrd.compare_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) 
         end
     end
 end
-idris["Prelude.Types.cast_Cast__String_Integer"] = function(__ext0)
+idris["Prelude.Types.cast_Cast_String_Integer"] = function(__ext0)
   return (function()
       return bigint:new(__ext0)
     end)()
 end
-idris["Prelude.Types.cast_Cast__String_Int"] = function(__ext0)
+idris["Prelude.Types.cast_Cast_String_Int"] = function(__ext0)
   return (function()
       return idris.strtointeger(__ext0)
     end)()
 end
-idris["Prelude.Types.cast_Cast__Nat_Int"] = function(__ext0)
+idris["Prelude.Types.cast_Cast_Nat_Int"] = function(__ext0)
   return (function()
       return bigint.tonumber(__ext0)
     end)()
 end
-idris["Prelude.Types.cast_Cast__Integer_Int"] = function(__ext0)
+idris["Prelude.Types.cast_Cast_Integer_Int"] = function(__ext0)
   return (function()
       return bigint.tonumber(__ext0)
     end)()
 end
-idris["Prelude.Types.cast_Cast__Int_Integer"] = function(__ext0)
+idris["Prelude.Types.cast_Cast_Int_Integer"] = function(__ext0)
   return (function()
       return bigint:new(__ext0)
     end)()
 end
-idris["Prelude.Types.cast_Cast__Int_Char"] = function(__ext0)
+idris["Prelude.Types.cast_Cast_Int_Char"] = function(__ext0)
   return (function()
       return utf8.char(__ext0)
     end)()
 end
-idris["Utils.Path.TokType_TokenKind__PathTokenKind"] = function(__arg0)
+idris["Utils.Path.TokType_TokenKind_PathTokenKind"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -4512,7 +4541,7 @@ idris["Utils.Path.TokType_TokenKind__PathTokenKind"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.EqOrd.>_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.>_Ord_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4544,14 +4573,14 @@ idris["Prelude.EqOrd.>_Ord__Int"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.max_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.max_Ord_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd.case[1153]max"](__arg1)(__arg0)(idris["Prelude.EqOrd.>_Ord__Int"](__arg0)(__arg1))
+          return idris["Prelude.EqOrd.case[1161]max"](__arg1)(__arg0)(idris["Prelude.EqOrd.>_Ord_Int"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Prelude.EqOrd.>_Ord__Char"] = function(__arg0)
+idris["Prelude.EqOrd.>_Ord_Char"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4583,7 +4612,7 @@ idris["Prelude.EqOrd.>_Ord__Char"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.>>=_Monad__Maybe"] = function(__arg0)
+idris["Prelude.Types.>>=_Monad_Maybe"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -4623,7 +4652,7 @@ idris["Prelude.Types.>>=_Monad__Maybe"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.>>=_Monad__(Either $e)"] = function(__arg0)
+idris["Prelude.Types.>>=_Monad_(Either $e)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -4667,7 +4696,7 @@ idris["Prelude.Types.>>=_Monad__(Either $e)"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.>=_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.>=_Ord_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4699,7 +4728,7 @@ idris["Prelude.EqOrd.>=_Ord__Int"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.>=_Ord__Char"] = function(__arg0)
+idris["Prelude.EqOrd.>=_Ord_Char"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4731,7 +4760,7 @@ idris["Prelude.EqOrd.>=_Ord__Char"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.==_Eq__String"] = function(__arg0)
+idris["Prelude.EqOrd.==_Eq_String"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4763,7 +4792,7 @@ idris["Prelude.EqOrd.==_Eq__String"] = function(__arg0)
         end)()
     end
 end
-idris["Parser.Rule.Source.case[2773]exactIdent"] = function(__arg0)
+idris["Parser.Rule.Source.case[2980]exactIdent"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -4780,7 +4809,7 @@ idris["Parser.Rule.Source.case[2773]exactIdent"] = function(__arg0)
               }
               __frame1[2]["5"] = function()
                 local __e0 = __frame1[1]["arg1"]
-                return idris["Parser.Rule.Source.case[2785]case block in exactIdent"](__arg0)(__arg1)(__e0)(idris["Prelude.EqOrd.==_Eq__String"](__e0)(__arg0))
+                return idris["Parser.Rule.Source.case[2992]case block in exactIdent"](__arg0)(__arg1)(__e0)(idris["Prelude.EqOrd.==_Eq_String"](__e0)(__arg0))
               end
               __frame1[4] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[4] then
@@ -4795,7 +4824,7 @@ idris["Parser.Rule.Source.case[2773]exactIdent"] = function(__arg0)
         end
     end
 end
-idris["Parser.Rule.Source.case[2672]symbol"] = function(__arg0)
+idris["Parser.Rule.Source.case[2879]symbol"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -4812,7 +4841,7 @@ idris["Parser.Rule.Source.case[2672]symbol"] = function(__arg0)
               }
               __frame1[2]["8"] = function()
                 local __e0 = __frame1[1]["arg1"]
-                return idris["Parser.Rule.Source.case[2684]case block in symbol"](__arg0)(__arg1)(__e0)(idris["Prelude.EqOrd.==_Eq__String"](__e0)(__arg0))
+                return idris["Parser.Rule.Source.case[2891]case block in symbol"](__arg0)(__arg1)(__e0)(idris["Prelude.EqOrd.==_Eq_String"](__e0)(__arg0))
               end
               __frame1[4] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[4] then
@@ -4827,7 +4856,7 @@ idris["Parser.Rule.Source.case[2672]symbol"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.==_Eq__Ordering"] = function(__arg0)
+idris["Prelude.EqOrd.==_Eq_Ordering"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -4918,21 +4947,21 @@ idris["Prelude.EqOrd.==_Eq__Ordering"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.>_Ord__Nat"] = function(__arg0)
+idris["Prelude.Types.>_Ord_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd.==_Eq__Ordering"](idris["Prelude.Types.compare_Ord__Nat"](__arg0)(__arg1))(2)
+          return idris["Prelude.EqOrd.==_Eq_Ordering"](idris["Prelude.Types.compare_Ord_Nat"](__arg0)(__arg1))(2)
         end)()
     end
 end
-idris["Prelude.EqOrd.>_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
+idris["Prelude.EqOrd.>_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
               return function(__arg4)
                   return function(__arg5)
                       return (function()
-                          return idris["Prelude.EqOrd.==_Eq__Ordering"](idris["Prelude.EqOrd.compare_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))(2)
+                          return idris["Prelude.EqOrd.==_Eq_Ordering"](idris["Prelude.EqOrd.compare_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))(2)
                         end)()
                     end
                 end
@@ -4940,14 +4969,14 @@ idris["Prelude.EqOrd.>_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"
         end
     end
 end
-idris["Prelude.EqOrd.max_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
+idris["Prelude.EqOrd.max_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
               return function(__arg4)
                   return function(__arg5)
                       return (function()
-                          return idris["Prelude.EqOrd.case[2277]max"](nil)(nil)(__arg2)(__arg3)(__arg5)(__arg4)(idris["Prelude.EqOrd.>_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))
+                          return idris["Prelude.EqOrd.case[2285]max"](nil)(nil)(__arg2)(__arg3)(__arg5)(__arg4)(idris["Prelude.EqOrd.>_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))
                         end)()
                     end
                 end
@@ -4955,7 +4984,7 @@ idris["Prelude.EqOrd.max_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|
         end
     end
 end
-idris["Prelude.Types.==_Eq__Nat"] = function(__arg0)
+idris["Prelude.Types.==_Eq_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5011,7 +5040,7 @@ idris["Prelude.Types.==_Eq__Nat"] = function(__arg0)
               __frame1[6] = __frame1[5]()
             else
               local __e1 = __arg1 - bigint:new("1")
-              __frame1[6] = idris["Prelude.Types.==_Eq__Nat"](__e0)(__e1)
+              __frame1[6] = idris["Prelude.Types.==_Eq_Nat"](__e0)(__e1)
             end
             __frame1[8] = __frame1[6]
           end
@@ -5019,7 +5048,7 @@ idris["Prelude.Types.==_Eq__Nat"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.==_Eq__Integer"] = function(__arg0)
+idris["Prelude.EqOrd.==_Eq_Integer"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5051,7 +5080,7 @@ idris["Prelude.EqOrd.==_Eq__Integer"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.case[1284]compare"] = function(__arg0)
+idris["Prelude.EqOrd.case[1292]compare"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -5070,7 +5099,7 @@ idris["Prelude.EqOrd.case[1284]compare"] = function(__arg0)
                 return 0
               end
               __frame1[2][1] = function()
-                return idris["Prelude.EqOrd.case[1301]case block in compare"](__arg0)(__arg1)(idris["Prelude.EqOrd.==_Eq__Integer"](__arg1)(__arg0))
+                return idris["Prelude.EqOrd.case[1309]case block in compare"](__arg0)(__arg1)(idris["Prelude.EqOrd.==_Eq_Integer"](__arg1)(__arg0))
               end
               __frame1[3] = __frame1[2][__frame1[1]]
               if __frame1[3] then
@@ -5083,7 +5112,7 @@ idris["Prelude.EqOrd.case[1284]compare"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.==_Eq__Int"] = function(__arg0)
+idris["Prelude.EqOrd.==_Eq_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5115,7 +5144,7 @@ idris["Prelude.EqOrd.==_Eq__Int"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.case[1170]compare"] = function(__arg0)
+idris["Prelude.EqOrd.case[1178]compare"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -5134,7 +5163,7 @@ idris["Prelude.EqOrd.case[1170]compare"] = function(__arg0)
                 return 0
               end
               __frame1[2][1] = function()
-                return idris["Prelude.EqOrd.case[1187]case block in compare"](__arg0)(__arg1)(idris["Prelude.EqOrd.==_Eq__Int"](__arg1)(__arg0))
+                return idris["Prelude.EqOrd.case[1195]case block in compare"](__arg0)(__arg1)(idris["Prelude.EqOrd.==_Eq_Int"](__arg1)(__arg0))
               end
               __frame1[3] = __frame1[2][__frame1[1]]
               if __frame1[3] then
@@ -5147,7 +5176,7 @@ idris["Prelude.EqOrd.case[1170]compare"] = function(__arg0)
         end
     end
 end
-idris["Prelude.EqOrd.==_Eq__Char"] = function(__arg0)
+idris["Prelude.EqOrd.==_Eq_Char"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5179,7 +5208,7 @@ idris["Prelude.EqOrd.==_Eq__Char"] = function(__arg0)
         end)()
     end
 end
-idris["Utils.Path.==_Eq__PathTokenKind"] = function(__arg0)
+idris["Utils.Path.==_Eq_PathTokenKind"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5229,7 +5258,7 @@ idris["Utils.Path.==_Eq__PathTokenKind"] = function(__arg0)
             }
             __frame2[2]["1"] = function()
               local __e1 = __frame2[1]["arg1"]
-              return idris["Prelude.EqOrd.==_Eq__Char"](__e0)(__e1)
+              return idris["Prelude.EqOrd.==_Eq_Char"](__e0)(__e1)
             end
             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
             if __frame2[3] then
@@ -5249,7 +5278,7 @@ idris["Utils.Path.==_Eq__PathTokenKind"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.==_Eq__Bool"] = function(__arg0)
+idris["Prelude.EqOrd.==_Eq_Bool"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5317,7 +5346,7 @@ idris["Prelude.EqOrd.==_Eq__Bool"] = function(__arg0)
         end)()
     end
 end
-idris["Utils.Path.==_Eq__Body"] = function(__arg0)
+idris["Utils.Path.==_Eq_Body"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5390,7 +5419,7 @@ idris["Utils.Path.==_Eq__Body"] = function(__arg0)
             }
             __frame2[2]["2"] = function()
               local __e1 = __frame2[1]["arg1"]
-              return idris["Prelude.EqOrd.==_Eq__String"](__e0)(__e1)
+              return idris["Prelude.EqOrd.==_Eq_String"](__e0)(__e1)
             end
             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
             if __frame2[3] then
@@ -5410,53 +5439,14 @@ idris["Utils.Path.==_Eq__Body"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.<_Ord__Nat"] = function(__arg0)
+idris["Prelude.Types.<_Ord_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd.==_Eq__Ordering"](idris["Prelude.Types.compare_Ord__Nat"](__arg0)(__arg1))(0)
+          return idris["Prelude.EqOrd.==_Eq_Ordering"](idris["Prelude.Types.compare_Ord_Nat"](__arg0)(__arg1))(0)
         end)()
     end
 end
-idris["Prelude.EqOrd.<_Ord__Integer"] = function(__arg0)
-  return function(__arg1)
-      return (function()
-          local __frame1 = {
-            nil,
-            nil,
-            nil,
-            nil,
-            nil
-          }
-          if __arg0 < __arg1 then
-            __frame1[1] = 1
-          else
-            __frame1[1] = 0
-          end
-          __frame1[2] = __frame1[1]
-          __frame1[3] = {
-            nil
-          }
-          __frame1[3][0] = function()
-            return 1
-          end
-          __frame1[4] = __frame1[3][__frame1[2]]
-          if __frame1[4] then
-            __frame1[5] = __frame1[4]()
-          else
-            __frame1[5] = 0
-          end
-          return __frame1[5]
-        end)()
-    end
-end
-idris["Prelude.EqOrd.compare_Ord__Integer"] = function(__arg0)
-  return function(__arg1)
-      return (function()
-          return idris["Prelude.EqOrd.case[1284]compare"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord__Integer"](__arg0)(__arg1))
-        end)()
-    end
-end
-idris["Prelude.EqOrd.<_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.<_Ord_Integer"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5488,33 +5478,72 @@ idris["Prelude.EqOrd.<_Ord__Int"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.min_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.compare_Ord_Integer"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd.case[1139]min"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord__Int"](__arg0)(__arg1))
+          return idris["Prelude.EqOrd.case[1292]compare"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord_Integer"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Prelude.EqOrd.compare_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.<_Ord_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd.case[1170]compare"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord__Int"](__arg0)(__arg1))
+          local __frame1 = {
+            nil,
+            nil,
+            nil,
+            nil,
+            nil
+          }
+          if __arg0 < __arg1 then
+            __frame1[1] = 1
+          else
+            __frame1[1] = 0
+          end
+          __frame1[2] = __frame1[1]
+          __frame1[3] = {
+            nil
+          }
+          __frame1[3][0] = function()
+            return 1
+          end
+          __frame1[4] = __frame1[3][__frame1[2]]
+          if __frame1[4] then
+            __frame1[5] = __frame1[4]()
+          else
+            __frame1[5] = 0
+          end
+          return __frame1[5]
         end)()
     end
 end
-idris["Prelude.Num.abs_Abs__Int"] = function(__arg0)
+idris["Prelude.EqOrd.min_Ord_Int"] = function(__arg0)
+  return function(__arg1)
+      return (function()
+          return idris["Prelude.EqOrd.case[1147]min"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord_Int"](__arg0)(__arg1))
+        end)()
+    end
+end
+idris["Prelude.EqOrd.compare_Ord_Int"] = function(__arg0)
+  return function(__arg1)
+      return (function()
+          return idris["Prelude.EqOrd.case[1178]compare"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord_Int"](__arg0)(__arg1))
+        end)()
+    end
+end
+idris["Prelude.Num.abs_Abs_Int"] = function(__arg0)
   return (function()
-      return idris["Prelude.Num.case[408]abs"](__arg0)(idris["Prelude.EqOrd.<_Ord__Int"](__arg0)(bigint.tonumber(bigint:new("0"))))
+      return idris["Prelude.Num.case[409]abs"](__arg0)(idris["Prelude.EqOrd.<_Ord_Int"](__arg0)(bigint.tonumber(bigint:new("0"))))
     end)()
 end
-idris["Prelude.EqOrd.<_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
+idris["Prelude.EqOrd.<_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
               return function(__arg4)
                   return function(__arg5)
                       return (function()
-                          return idris["Prelude.EqOrd.==_Eq__Ordering"](idris["Prelude.EqOrd.compare_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))(0)
+                          return idris["Prelude.EqOrd.==_Eq_Ordering"](idris["Prelude.EqOrd.compare_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))(0)
                         end)()
                     end
                 end
@@ -5522,14 +5551,14 @@ idris["Prelude.EqOrd.<_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"
         end
     end
 end
-idris["Prelude.EqOrd.min_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
+idris["Prelude.EqOrd.min_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
               return function(__arg4)
                   return function(__arg5)
                       return (function()
-                          return idris["Prelude.EqOrd.case[2235]min"](nil)(nil)(__arg2)(__arg3)(__arg5)(__arg4)(idris["Prelude.EqOrd.<_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))
+                          return idris["Prelude.EqOrd.case[2243]min"](nil)(nil)(__arg2)(__arg3)(__arg5)(__arg4)(idris["Prelude.EqOrd.<_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5))
                         end)()
                     end
                 end
@@ -5537,7 +5566,7 @@ idris["Prelude.EqOrd.min_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|
         end
     end
 end
-idris["Prelude.EqOrd.<=_Ord__Int"] = function(__arg0)
+idris["Prelude.EqOrd.<=_Ord_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5569,7 +5598,7 @@ idris["Prelude.EqOrd.<=_Ord__Int"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.EqOrd.<=_Ord__Char"] = function(__arg0)
+idris["Prelude.EqOrd.<=_Ord_Char"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5601,7 +5630,7 @@ idris["Prelude.EqOrd.<=_Ord__Char"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.<*>_Applicative__Maybe"] = function(__arg0)
+idris["Prelude.Types.<*>_Applicative_Maybe"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -5664,14 +5693,14 @@ idris["Prelude.Types.<*>_Applicative__Maybe"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Num.-_Neg__Int"] = function(__ext0)
+idris["Prelude.Num.-_Neg_Int"] = function(__ext0)
   return function(__ext1)
       return (function()
           return __ext0 - __ext1
         end)()
     end
 end
-idris["Prelude.Types.case[4177]toUpper"] = function(__arg0)
+idris["Prelude.Types.case[4603]toUpper"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -5686,7 +5715,7 @@ idris["Prelude.Types.case[4177]toUpper"] = function(__arg0)
             nil
           }
           __frame1[2][0] = function()
-            return utf8.char(idris["Prelude.Num.-_Neg__Int"](utf8.byte(__arg0))(32))
+            return utf8.char(idris["Prelude.Num.-_Neg_Int"](utf8.byte(__arg0))(32))
           end
           __frame1[2][1] = function()
             return __arg0
@@ -5701,7 +5730,7 @@ idris["Prelude.Types.case[4177]toUpper"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.case[4057]unpack,unpack'"] = function(__arg0)
+idris["Prelude.Types.case[4483]unpack,unpack'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -5729,7 +5758,7 @@ idris["Prelude.Types.case[4057]unpack,unpack'"] = function(__arg0)
                         __frame2[1]["tag"] = "1"
                         __frame2[1]["arg1"] = utf8.sub(__arg2, __arg3 + 1, __arg3 + 1)
                         __frame2[1]["arg2"] = __arg1
-                        return idris["Prelude.Types.3950:4045:unpack'"](__arg0)(idris["Prelude.Num.-_Neg__Int"](__arg3)(1))(__arg2)(__frame2[1])
+                        return idris["Prelude.Types.4306:4471:unpack'"](__arg0)(idris["Prelude.Num.-_Neg_Int"](__arg3)(1))(__arg2)(__frame2[1])
                       end
                       __frame1[3] = __frame1[2][__frame1[1]]
                       if __frame1[3] then
@@ -5744,25 +5773,25 @@ idris["Prelude.Types.case[4057]unpack,unpack'"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.3950:4045:unpack'"] = function(__arg0)
+idris["Prelude.Types.4306:4471:unpack'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
               return (function()
-                  return idris["Prelude.Types.case[4057]unpack,unpack'"](__arg0)(__arg3)(__arg2)(__arg1)(idris["Prelude.EqOrd.<_Ord__Int"](__arg1)(bigint.tonumber(bigint:new("0"))))
+                  return idris["Prelude.Types.case[4483]unpack,unpack'"](__arg0)(__arg3)(__arg2)(__arg1)(idris["Prelude.EqOrd.<_Ord_Int"](__arg1)(bigint.tonumber(bigint:new("0"))))
                 end)()
             end
         end
     end
 end
-idris["Prelude.Types.+_Num__Nat"] = function(__ext0)
+idris["Prelude.Types.+_Num_Nat"] = function(__ext0)
   return function(__ext1)
       return (function()
           return __ext0 + __ext1
         end)()
     end
 end
-idris["Prelude.Types.*_Num__Nat"] = function(__ext0)
+idris["Prelude.Types.*_Num_Nat"] = function(__ext0)
   return function(__ext1)
       return (function()
           return __ext0 * __ext1
@@ -6344,7 +6373,7 @@ idris["PrimIO.unsafeDestroyWorld"] = function(__arg0)
         end
     end
 end
-idris["PrimIO.case[442]unsafePerformIO"] = function(__arg0)
+idris["PrimIO.case[532]unsafePerformIO"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -6366,7 +6395,7 @@ idris["PrimIO.unsafePerformIO"] = function(__arg0)
   return function(__arg1)
       return (function()
           return idris["PrimIO.unsafeCreateWorld"](nil)(function(w)
-              return idris["PrimIO.case[442]unsafePerformIO"](nil)(nil)(nil)(__arg1(w))
+              return idris["PrimIO.case[532]unsafePerformIO"](nil)(__arg1)(nil)(__arg1(w))
             end)
         end)()
     end
@@ -6374,7 +6403,7 @@ end
 idris["Text.Lexer.toTokenMap"] = function(__arg0)
   return function(__ext0)
       return (function()
-          return idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(__lamc0)
+          return idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(__lamc0)
               local __frame2 = {
                 nil,
                 nil,
@@ -6521,7 +6550,7 @@ idris["Parser.Support.toGenericParsingError"] = function(__arg0)
               __frame3[12]["tag"] = "0"
               __frame3[12]["arg1"] = __e1
               __frame3[12]["arg2"] = __frame3[10]
-              __frame3[12]["arg3"] = idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(__eta0)
+              __frame3[12]["arg3"] = idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(__eta0)
                 local __frame4 = {
                   nil,
                   nil,
@@ -6581,7 +6610,7 @@ idris["Prelude.Types.takeUntil"] = function(__arg0)
               __frame1[2]["0"] = function()
                 local __e1 = __frame1[1]["arg1"]
                 local __e2 = __frame1[1]["arg2"]
-                return idris["Prelude.Types.case[4755]takeUntil"](nil)(__e1)(__e2)(__arg1)(__arg1(__e1))
+                return idris["Prelude.Types.case[5181]takeUntil"](nil)(__e1)(__e2)(__arg1)(__arg1(__e1))
               end
               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[3] then
@@ -6708,7 +6737,7 @@ idris["Parser.Rule.Source.strLit"] = (function()
     else
       idris["error"]("Impossible else branch")
     end
-    return idris["Parser.Rule.Source.case[2618]strLit"](x)(__frame2[4])
+    return idris["Parser.Rule.Source.case[2825]strLit"](x)(__frame2[4])
   end
   return __frame1[1]
 end)()
@@ -6803,7 +6832,7 @@ idris["Data.List.span"] = function(__arg0)
               __frame1[2]["1"] = function()
                 local __e2 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg2"]
-                return idris["Data.List.case[2083]span"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
+                return idris["Data.List.case[1621]span"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
               end
               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[3] then
@@ -6855,7 +6884,7 @@ idris["Builtin.snd"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.case[379]match"] = function(__arg0)
+idris["Text.Parser.case[473]match"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -7117,7 +7146,7 @@ idris["Text.Bounded.removeIrrelevance"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Parser.Core.case[2275]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2389]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -7240,6 +7269,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
         nil,
         nil,
         nil,
+        nil,
         nil
       }
       __frame1[2]["0"] = function()
@@ -7328,7 +7358,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
             nil,
             nil
           }
-          local __e42 = __frame2[1]["arg1"]
+          local __e43 = __frame2[1]["arg1"]
           __frame3[1] = {}
           __frame3[1]["tag"] = "4"
           __frame3[1]["arg1"] = "load-file"
@@ -7337,7 +7367,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
           __frame3[2]["arg1"] = __e1
           __frame3[3] = {}
           __frame3[3]["tag"] = "3"
-          __frame3[3]["arg1"] = __e42
+          __frame3[3]["arg1"] = __e43
           __frame3[4] = {}
           __frame3[4]["tag"] = "0"
           __frame3[5] = {}
@@ -7416,8 +7446,8 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
             nil,
             nil
           }
-          local __e45 = __frame2[1]["arg1"]
-          __frame3[1] = __e45
+          local __e46 = __frame2[1]["arg1"]
+          __frame3[1] = __e46
           __frame3[2] = {
             nil
           }
@@ -7434,8 +7464,8 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
               nil,
               nil
             }
-            local __e48 = __frame3[1]["arg1"]
-            local __e49 = __frame3[1]["arg2"]
+            local __e49 = __frame3[1]["arg1"]
+            local __e50 = __frame3[1]["arg2"]
             __frame4[1] = {}
             __frame4[1]["tag"] = "4"
             __frame4[1]["arg1"] = "type-of"
@@ -7444,10 +7474,10 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
             __frame4[2]["arg1"] = __e3
             __frame4[3] = {}
             __frame4[3]["tag"] = "3"
-            __frame4[3]["arg1"] = __e48
+            __frame4[3]["arg1"] = __e49
             __frame4[4] = {}
             __frame4[4]["tag"] = "3"
-            __frame4[4]["arg1"] = __e49
+            __frame4[4]["arg1"] = __e50
             __frame4[5] = {}
             __frame4[5]["tag"] = "0"
             __frame4[6] = {}
@@ -7538,8 +7568,8 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
             nil,
             nil
           }
-          local __e52 = __frame2[1]["arg1"]
-          __frame3[1] = __e52
+          local __e53 = __frame2[1]["arg1"]
+          __frame3[1] = __e53
           __frame3[2] = {
             nil
           }
@@ -7556,8 +7586,8 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
               nil,
               nil
             }
-            local __e55 = __frame3[1]["arg1"]
-            local __e56 = __frame3[1]["arg2"]
+            local __e56 = __frame3[1]["arg1"]
+            local __e57 = __frame3[1]["arg2"]
             __frame4[1] = {}
             __frame4[1]["tag"] = "4"
             __frame4[1]["arg1"] = "name-at"
@@ -7566,10 +7596,10 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
             __frame4[2]["arg1"] = __e5
             __frame4[3] = {}
             __frame4[3]["tag"] = "3"
-            __frame4[3]["arg1"] = __e55
+            __frame4[3]["arg1"] = __e56
             __frame4[4] = {}
             __frame4[4]["tag"] = "3"
-            __frame4[4]["arg1"] = __e56
+            __frame4[4]["arg1"] = __e57
             __frame4[5] = {}
             __frame4[5]["tag"] = "0"
             __frame4[6] = {}
@@ -7771,7 +7801,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
         __frame2[3]["arg1"] = __e15
         __frame2[4] = {}
         __frame2[4]["tag"] = "0"
-        __frame2[4]["arg1"] = idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(__eta0)
+        __frame2[4]["arg1"] = idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(__eta0)
           local __frame3 = {
             nil
           }
@@ -7784,7 +7814,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
         __frame2[5]["tag"] = "0"
         __frame2[6] = {}
         __frame2[6]["tag"] = "1"
-        __frame2[6]["arg1"] = idris["Idris.IDEMode.Commands.3280:3034:getMode"](__e17)(__e16)(__e15)(__e14)(__e17)
+        __frame2[6]["arg1"] = idris["Idris.IDEMode.Commands.3373:3139:getMode"](__e17)(__e16)(__e15)(__e14)(__e17)
         __frame2[6]["arg2"] = __frame2[5]
         __frame2[7] = {}
         __frame2[7]["tag"] = "1"
@@ -7813,7 +7843,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
         }
         __frame2[1] = {}
         __frame2[1]["tag"] = "4"
-        __frame2[1]["arg1"] = "proof-search--next"
+        __frame2[1]["arg1"] = "proof-search-next"
         return __frame2[1]
       end
       __frame1[2]["9"] = function()
@@ -8469,7 +8499,38 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
         __frame2[6]["arg1"] = __frame2[5]
         return __frame2[6]
       end
-      __frame1[2]["28"] = function()
+      __frame1[2]["27"] = function()
+        local __frame2 = {
+          nil,
+          nil,
+          nil,
+          nil,
+          nil,
+          nil
+        }
+        local __e40 = __frame1[1]["arg1"]
+        __frame2[1] = {}
+        __frame2[1]["tag"] = "4"
+        __frame2[1]["arg1"] = "enable-syntax"
+        __frame2[2] = {}
+        __frame2[2]["tag"] = "2"
+        __frame2[2]["arg1"] = __e40
+        __frame2[3] = {}
+        __frame2[3]["tag"] = "0"
+        __frame2[4] = {}
+        __frame2[4]["tag"] = "1"
+        __frame2[4]["arg1"] = __frame2[2]
+        __frame2[4]["arg2"] = __frame2[3]
+        __frame2[5] = {}
+        __frame2[5]["tag"] = "1"
+        __frame2[5]["arg1"] = __frame2[1]
+        __frame2[5]["arg2"] = __frame2[4]
+        __frame2[6] = {}
+        __frame2[6]["tag"] = "0"
+        __frame2[6]["arg1"] = __frame2[5]
+        return __frame2[6]
+      end
+      __frame1[2]["29"] = function()
         local __frame2 = {
           nil,
           nil,
@@ -8490,7 +8551,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
         __frame2[4]["arg1"] = __frame2[3]
         return __frame2[4]
       end
-      __frame1[2]["27"] = function()
+      __frame1[2]["28"] = function()
         local __frame2 = {
           nil
         }
@@ -8508,7 +8569,7 @@ idris["Idris.IDEMode.Commands.putIDECommand"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Idris.IDEMode.Commands.toSExp_SExpable__IDECommand"] = function(__ext0)
+idris["Idris.IDEMode.Commands.toSExp_SExpable_IDECommand"] = function(__ext0)
   return (function()
       return idris["Idris.IDEMode.Commands.putIDECommand"](__ext0)
     end)()
@@ -8717,7 +8778,7 @@ idris["Plugin.quitServer"] = function(__arg0)
                       }
                       __frame4[6]["0"] = function()
                         local __e6 = __frame4[5]["arg2"]
-                        return __e6(nil)(nil)(idris["Foreign.sigterm"](nil)(__arg1)(__e4))(function(___8040)
+                        return __e6(nil)(nil)(idris["Foreign.sigterm"](nil)(__arg1)(__e4))(function(___7827)
                             local __frame6 = {
                               nil,
                               nil,
@@ -9452,7 +9513,7 @@ idris["System.File.returnError"] = function(__arg0)
                         local __e5 = __frame3[11]["arg2"]
                         __frame4[1] = {}
                         __frame4[1]["tag"] = "0"
-                        __frame4[1]["arg1"] = idris["Prelude.Num.-_Neg__Int"](err)(5)
+                        __frame4[1]["arg1"] = idris["Prelude.Num.-_Neg_Int"](err)(5)
                         __frame4[2] = {}
                         __frame4[2]["tag"] = "0"
                         __frame4[2]["arg1"] = __frame4[1]
@@ -9480,7 +9541,7 @@ idris["System.File.returnError"] = function(__arg0)
         end
     end
 end
-idris["System.File.case[1262]popen"] = function(__arg0)
+idris["System.File.case[1352]popen"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -9639,7 +9700,7 @@ idris["Prelude.Show.precCon"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.Show.compare_Ord__Prec"] = function(__arg0)
+idris["Prelude.Show.compare_Ord_Prec"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -9666,13 +9727,13 @@ idris["Prelude.Show.compare_Ord__Prec"] = function(__arg0)
             }
             __frame2[2]["4"] = function()
               local __e1 = __frame2[1]["arg1"]
-              return idris["Prelude.Types.compare_Ord__Nat"](__e0)(__e1)
+              return idris["Prelude.Types.compare_Ord_Nat"](__e0)(__e1)
             end
             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
             if __frame2[3] then
               __frame2[4] = __frame2[3]()
             else
-              __frame2[4] = idris["Prelude.EqOrd.compare_Ord__Integer"](idris["Prelude.Show.precCon"](__arg0))(idris["Prelude.Show.precCon"](__arg1))
+              __frame2[4] = idris["Prelude.EqOrd.compare_Ord_Integer"](idris["Prelude.Show.precCon"](__arg0))(idris["Prelude.Show.precCon"](__arg1))
             end
             return __frame2[4]
           end
@@ -9680,7 +9741,7 @@ idris["Prelude.Show.compare_Ord__Prec"] = function(__arg0)
           if __frame1[3] then
             __frame1[4] = __frame1[3]()
           else
-            __frame1[4] = idris["Prelude.EqOrd.compare_Ord__Integer"](idris["Prelude.Show.precCon"](__arg0))(idris["Prelude.Show.precCon"](__arg1))
+            __frame1[4] = idris["Prelude.EqOrd.compare_Ord_Integer"](idris["Prelude.Show.precCon"](__arg0))(idris["Prelude.Show.precCon"](__arg1))
           end
           return __frame1[4]
         end)()
@@ -9878,7 +9939,7 @@ idris["Text.Parser.optional"] = function(__arg0)
                   }
                   __frame1[1] = {}
                   __frame1[1]["tag"] = "0"
-                  return idris["Text.Parser.option"](nil)(nil)(__arg2)(__frame1[1])(idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg2)(function(__eta0)
+                  return idris["Text.Parser.option"](nil)(nil)(__arg2)(__frame1[1])(idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg2)(function(__eta0)
                       local __frame2 = {
                         nil
                       }
@@ -9965,7 +10026,7 @@ idris["System.File.ok"] = function(__arg0)
         end
     end
 end
-idris["System.File.case[934]fGetLine"] = function(__arg0)
+idris["System.File.case[1024]fGetLine"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -10196,66 +10257,66 @@ idris["Prelude.Basics.not"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.EqOrd./=_Eq__String"] = function(__arg0)
+idris["Prelude.EqOrd./=_Eq_String"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq__String"](__arg0)(__arg1))
+          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq_String"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Utils.Path./=_Eq__PathTokenKind"] = function(__arg0)
+idris["Utils.Path./=_Eq_PathTokenKind"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Basics.not"](idris["Utils.Path.==_Eq__PathTokenKind"](__arg0)(__arg1))
+          return idris["Prelude.Basics.not"](idris["Utils.Path.==_Eq_PathTokenKind"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Prelude.EqOrd./=_Eq__Ordering"] = function(__arg0)
+idris["Prelude.EqOrd./=_Eq_Ordering"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq__Ordering"](__arg0)(__arg1))
+          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq_Ordering"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Prelude.Show.>=_Ord__Prec"] = function(__arg0)
+idris["Prelude.Show.>=_Ord_Prec"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd./=_Eq__Ordering"](idris["Prelude.Show.compare_Ord__Prec"](__arg0)(__arg1))(0)
+          return idris["Prelude.EqOrd./=_Eq_Ordering"](idris["Prelude.Show.compare_Ord_Prec"](__arg0)(__arg1))(0)
         end)()
     end
 end
-idris["Prelude.Types.>=_Ord__Nat"] = function(__arg0)
+idris["Prelude.Types.>=_Ord_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd./=_Eq__Ordering"](idris["Prelude.Types.compare_Ord__Nat"](__arg0)(__arg1))(0)
+          return idris["Prelude.EqOrd./=_Eq_Ordering"](idris["Prelude.Types.compare_Ord_Nat"](__arg0)(__arg1))(0)
         end)()
     end
 end
-idris["Prelude.Types.<=_Ord__Nat"] = function(__arg0)
+idris["Prelude.Types.<=_Ord_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.EqOrd./=_Eq__Ordering"](idris["Prelude.Types.compare_Ord__Nat"](__arg0)(__arg1))(2)
+          return idris["Prelude.EqOrd./=_Eq_Ordering"](idris["Prelude.Types.compare_Ord_Nat"](__arg0)(__arg1))(2)
         end)()
     end
 end
-idris["Prelude.EqOrd./=_Eq__Int"] = function(__arg0)
+idris["Prelude.EqOrd./=_Eq_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq__Int"](__arg0)(__arg1))
+          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq_Int"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Prelude.EqOrd./=_Eq__Char"] = function(__arg0)
+idris["Prelude.EqOrd./=_Eq_Char"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)(__arg1))
+          return idris["Prelude.Basics.not"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)(__arg1))
         end)()
     end
 end
-idris["Utils.Path./=_Eq__Body"] = function(__arg0)
+idris["Utils.Path./=_Eq_Body"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Basics.not"](idris["Utils.Path.==_Eq__Body"](__arg0)(__arg1))
+          return idris["Prelude.Basics.not"](idris["Utils.Path.==_Eq_Body"](__arg0)(__arg1))
         end)()
     end
 end
@@ -10755,7 +10816,7 @@ idris["Text.Parser.sepBy1"] = function(__arg0)
                           __frame1[2]["arg2"] = __arg3
                           __frame1[2]["arg3"] = __frame1[1]
                           __frame1[2]["arg4"] = function(f)
-                            return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(f)(__arg5)
+                            return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(f)(__arg5)
                           end
                           __frame1[3] = {}
                           __frame1[3]["tag"] = "9"
@@ -10772,15 +10833,15 @@ idris["Text.Parser.sepBy1"] = function(__arg0)
                             __frame2[1]["tag"] = "9"
                             __frame2[1]["arg1"] = 0
                             __frame2[1]["arg2"] = __arg3
-                            __frame2[1]["arg3"] = idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(0)(function(__eta0)
+                            __frame2[1]["arg3"] = idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(0)(function(__eta0)
                               return function(__eta1)
                                   return __eta1
                                 end
                             end)(__arg4)
                             __frame2[1]["arg4"] = function(__f0)
-                              return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__f0)(__arg5)
+                              return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(__arg3)(__f0)(__arg5)
                             end
-                            return idris["Text.Parser.Core.map_Functor__((Grammar $tok) $c)"](nil)(nil)(nil)(1)(f)(idris["Text.Parser.many"](nil)(nil)(__frame2[1]))
+                            return idris["Text.Parser.Core.map_Functor_((Grammar $tok) $c)"](nil)(nil)(nil)(1)(f)(idris["Text.Parser.many"](nil)(nil)(__frame2[1]))
                           end
                           return __frame1[3]
                         end)()
@@ -10809,35 +10870,6 @@ idris["Text.Parser.sepBy"] = function(__arg0)
             end
         end
     end
-end
-idris["Prelude.Types.Strings.length"] = function(__arg0)
-  return (function()
-      return idris["Prelude.Types.fromInteger_Num__Nat"](bigint:new(utf8.len(__arg0)))
-    end)()
-end
-idris["Prelude.Types.unpack"] = function(__arg0)
-  return (function()
-      local __frame1 = {
-        nil
-      }
-      __frame1[1] = {}
-      __frame1[1]["tag"] = "0"
-      return idris["Prelude.Types.3950:4045:unpack'"](__arg0)(idris["Prelude.Num.-_Neg__Int"](bigint.tonumber(idris["Prelude.Types.Strings.length"](__arg0)))(1))(__arg0)(__frame1[1])
-    end)()
-end
-idris["Prelude.Types.substr"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return (function()
-              return idris["Prelude.Types.case[3999]substr"](__arg2)(__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord__Integer"](__arg0)(idris["Prelude.Types.Strings.length"](__arg2)))
-            end)()
-        end
-    end
-end
-idris["Utils.String.stripQuotes"] = function(__arg0)
-  return (function()
-      return idris["Prelude.Types.substr"](bigint:new("1") + bigint:new("0"))(idris["Prelude.Types.minus"](idris["Prelude.Types.Strings.length"](__arg0))(bigint:new("1") + bigint:new("1") + bigint:new("0")))(__arg0)
-    end)()
 end
 idris["Prelude.Types.List.length"] = function(__arg0)
   return function(__arg1)
@@ -10870,7 +10902,7 @@ idris["Prelude.Types.List.length"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Lexer.Core.case[1449]tokenise,getCols"] = function(__arg0)
+idris["Text.Lexer.Core.case[1563]tokenise,getCols"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -10905,13 +10937,13 @@ idris["Text.Lexer.Core.case[1449]tokenise,getCols"] = function(__arg0)
                                               nil
                                             }
                                             __frame2[2]["0"] = function()
-                                              return __arg7 + idris["Prelude.Types.cast_Cast__Nat_Int"](idris["Prelude.Types.List.length"](nil)(__e2))
+                                              return __arg7 + idris["Prelude.Types.cast_Cast_Nat_Int"](idris["Prelude.Types.List.length"](nil)(__e2))
                                             end
                                             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                                             if __frame2[3] then
                                               __frame2[4] = __frame2[3]()
                                             else
-                                              __frame2[4] = idris["Prelude.Types.cast_Cast__Nat_Int"](idris["Prelude.Types.List.length"](nil)(__e2))
+                                              __frame2[4] = idris["Prelude.Types.cast_Cast_Nat_Int"](idris["Prelude.Types.List.length"](nil)(__e2))
                                             end
                                             return __frame2[4]
                                           end
@@ -10933,7 +10965,7 @@ idris["Text.Lexer.Core.case[1449]tokenise,getCols"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.Core.2895:1424:getCols"] = function(__arg0)
+idris["Text.Lexer.Core.2960:1538:getCols"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -10943,8 +10975,8 @@ idris["Text.Lexer.Core.2895:1424:getCols"] = function(__arg0)
                           return function(__arg7)
                               return function(__arg8)
                                   return (function()
-                                      return idris["Text.Lexer.Core.case[1449]tokenise,getCols"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg8)(__arg7)(idris["Data.List.span"](nil)(function(__arg9)
-                                          return idris["Prelude.EqOrd./=_Eq__Char"](__arg9)("\n")
+                                      return idris["Text.Lexer.Core.case[1563]tokenise,getCols"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg8)(__arg7)(idris["Data.List.span"](nil)(function(__arg9)
+                                          return idris["Prelude.EqOrd./=_Eq_Char"](__arg9)("\n")
                                         end)(idris["Data.List.reverse"](nil)(__arg7)))
                                     end)()
                                 end
@@ -10982,13 +11014,13 @@ idris["Data.Nat.isSucc"] = function(__arg0)
 end
 idris["Prelude.Types.isSpace"] = function(__arg0)
   return (function()
-      return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)(" "))(function()
-          return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)(utf8.char(idris.unpack({9})) --[[ \t--]]))(function()
-              return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)("\r"))(function()
-                  return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)("\n"))(function()
-                      return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)(utf8.char(idris.unpack({12})) --[[ \f--]]))(function()
-                          return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__Char"](__arg0)(utf8.char(idris.unpack({11})) --[[ \v--]]))(function()
-                              return idris["Prelude.EqOrd.==_Eq__Char"](__arg0)(utf8.char(idris.unpack({160})) --[[ \160--]])
+      return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)(" "))(function()
+          return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)(utf8.char(idris.unpack({9})) --[[ \t--]]))(function()
+              return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)("\r"))(function()
+                  return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)("\n"))(function()
+                      return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)(utf8.char(idris.unpack({12})) --[[ \f--]]))(function()
+                          return idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_Char"](__arg0)(utf8.char(idris.unpack({11})) --[[ \v--]]))(function()
+                              return idris["Prelude.EqOrd.==_Eq_Char"](__arg0)(utf8.char(idris.unpack({160})) --[[ \160--]])
                             end)
                         end)
                     end)
@@ -10997,7 +11029,7 @@ idris["Prelude.Types.isSpace"] = function(__arg0)
         end)
     end)()
 end
-idris["Data.Strings.case[1354]ltrim,ltrimChars"] = function(__arg0)
+idris["Data.Strings.case[1561]ltrim,ltrimChars"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -11014,7 +11046,7 @@ idris["Data.Strings.case[1354]ltrim,ltrimChars"] = function(__arg0)
                     nil
                   }
                   __frame1[2][0] = function()
-                    return idris["Data.Strings.2265:1344:ltrimChars"](__arg0)(__arg2)
+                    return idris["Data.Strings.2343:1551:ltrimChars"](__arg0)(__arg2)
                   end
                   __frame1[2][1] = function()
                     local __frame2 = {
@@ -11038,7 +11070,7 @@ idris["Data.Strings.case[1354]ltrim,ltrimChars"] = function(__arg0)
         end
     end
 end
-idris["Data.Strings.2265:1344:ltrimChars"] = function(__arg0)
+idris["Data.Strings.2343:1551:ltrimChars"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -11063,7 +11095,7 @@ idris["Data.Strings.2265:1344:ltrimChars"] = function(__arg0)
           __frame1[2]["1"] = function()
             local __e2 = __frame1[1]["arg1"]
             local __e3 = __frame1[1]["arg2"]
-            return idris["Data.Strings.case[1354]ltrim,ltrimChars"](__arg0)(__e2)(__e3)(idris["Prelude.Types.isSpace"](__e2))
+            return idris["Data.Strings.case[1561]ltrim,ltrimChars"](__arg0)(__e2)(__e3)(idris["Prelude.Types.isSpace"](__e2))
           end
           __frame1[3] = __frame1[2][__frame1[1]["tag"]]
           if __frame1[3] then
@@ -11080,16 +11112,6 @@ idris["Text.Lexer.space"] = (function()
       return idris["Prelude.Types.isSpace"](__eta0)
     end)
 end)()
-idris["Data.Strings.ltrim"] = function(__arg0)
-  return (function()
-      return idris["Prelude.Types.pack"](idris["Data.Strings.2265:1344:ltrimChars"](__arg0)(idris["Prelude.Types.unpack"](__arg0)))
-    end)()
-end
-idris["Data.Strings.trim"] = function(__ext0)
-  return (function()
-      return idris["Data.Strings.ltrim"](idris["Prelude.Types.reverse"](idris["Data.Strings.ltrim"](idris["Prelude.Types.reverse"](__ext0))))
-    end)()
-end
 idris["Data.Maybe.isJust"] = function(__arg0)
   return function(__arg1)
       return (function()
@@ -11150,7 +11172,7 @@ idris["Text.Lexer.Core.scan"] = function(__arg0)
                     __frame2[1]["tag"] = "0"
                     __frame2[1]["arg1"] = __arg2
                     __frame2[1]["arg2"] = __arg3
-                    return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame2[1])
+                    return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame2[1])
                   end
                   __frame1[2]["1"] = function()
                     local __frame2 = {
@@ -11163,7 +11185,7 @@ idris["Text.Lexer.Core.scan"] = function(__arg0)
                   __frame1[2]["2"] = function()
                     local __e2 = __frame1[1]["arg1"]
                     local __e3 = __frame1[1]["arg2"]
-                    return idris["Text.Lexer.Core.case[1221]scan"](nil)(__e3)(__e2)(__arg3)(__arg2)(nil)(idris["Prelude.EqOrd.==_Eq__Bool"](idris["Data.Maybe.isJust"](nil)(idris["Text.Lexer.Core.scan"](nil)(__e3)(__arg2)(__arg3)))(__e2))
+                    return idris["Text.Lexer.Core.case[1335]scan"](nil)(__e3)(__e2)(__arg3)(__arg2)(nil)(idris["Prelude.EqOrd.==_Eq_Bool"](idris["Data.Maybe.isJust"](nil)(idris["Text.Lexer.Core.scan"](nil)(__e3)(__arg2)(__arg3)))(__e2))
                   end
                   __frame1[2]["3"] = function()
                     local __frame2 = {
@@ -11189,7 +11211,7 @@ idris["Text.Lexer.Core.scan"] = function(__arg0)
                     __frame2[2]["1"] = function()
                       local __e21 = __frame2[1]["arg1"]
                       local __e22 = __frame2[1]["arg2"]
-                      return idris["Text.Lexer.Core.case[1270]scan"](__e4)(__e21)(__e22)(__arg2)(__e4(__e21))
+                      return idris["Text.Lexer.Core.case[1384]scan"](__e4)(__e21)(__e22)(__arg2)(__e4(__e21))
                     end
                     __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                     if __frame2[3] then
@@ -11202,7 +11224,7 @@ idris["Text.Lexer.Core.scan"] = function(__arg0)
                   __frame1[2]["4"] = function()
                     local __e6 = __frame1[1]["arg1"]
                     local __e7 = __frame1[1]["arg2"]
-                    return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Text.Lexer.Core.scan"](nil)(__e6)(__arg2)(__arg3))(function(___0)
+                    return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Text.Lexer.Core.scan"](nil)(__e6)(__arg2)(__arg3))(function(___0)
                         local __frame3 = {
                           nil,
                           nil,
@@ -11230,7 +11252,7 @@ idris["Text.Lexer.Core.scan"] = function(__arg0)
                   __frame1[2]["5"] = function()
                     local __e10 = __frame1[1]["arg1"]
                     local __e11 = __frame1[1]["arg2"]
-                    return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Text.Lexer.Core.scan"](nil)(__e10)(__arg2)(__arg3))(function(___0)
+                    return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Text.Lexer.Core.scan"](nil)(__e10)(__arg2)(__arg3))(function(___0)
                         local __frame3 = {
                           nil,
                           nil,
@@ -11258,7 +11280,7 @@ idris["Text.Lexer.Core.scan"] = function(__arg0)
                   __frame1[2]["6"] = function()
                     local __e13 = __frame1[1]["arg1"]
                     local __e14 = __frame1[1]["arg2"]
-                    return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Text.Lexer.Core.scan"](nil)(__e13)(__arg2)(__arg3))(function(___0)
+                    return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Text.Lexer.Core.scan"](nil)(__e13)(__arg2)(__arg3))(function(___0)
                         local __frame3 = {
                           nil,
                           nil,
@@ -11344,7 +11366,7 @@ end
 idris["Text.Lexer.is"] = function(__arg0)
   return (function()
       return idris["Text.Lexer.Core.pred"](function(__arg1)
-          return idris["Prelude.EqOrd.==_Eq__Char"](__arg1)(__arg0)
+          return idris["Prelude.EqOrd.==_Eq_Char"](__arg1)(__arg0)
         end)
     end)()
 end
@@ -11358,10 +11380,10 @@ idris["Text.Bounded.irrelevantBounds"] = function(__arg0)
           __frame1[1]["tag"] = "0"
           __frame1[1]["arg1"] = __arg1
           __frame1[1]["arg2"] = 0
-          __frame1[1]["arg3"] = idris["Prelude.Num.negate_Neg__Int"](bigint.tonumber(bigint:new("1")))
-          __frame1[1]["arg4"] = idris["Prelude.Num.negate_Neg__Int"](bigint.tonumber(bigint:new("1")))
-          __frame1[1]["arg5"] = idris["Prelude.Num.negate_Neg__Int"](bigint.tonumber(bigint:new("1")))
-          __frame1[1]["arg6"] = idris["Prelude.Num.negate_Neg__Int"](bigint.tonumber(bigint:new("1")))
+          __frame1[1]["arg3"] = idris["Prelude.Num.negate_Neg_Int"](bigint.tonumber(bigint:new("1")))
+          __frame1[1]["arg4"] = idris["Prelude.Num.negate_Neg_Int"](bigint.tonumber(bigint:new("1")))
+          __frame1[1]["arg5"] = idris["Prelude.Num.negate_Neg_Int"](bigint.tonumber(bigint:new("1")))
+          __frame1[1]["arg6"] = idris["Prelude.Num.negate_Neg_Int"](bigint.tonumber(bigint:new("1")))
           return __frame1[1]
         end)()
     end
@@ -11394,7 +11416,7 @@ idris["Parser.Rule.Source.intLit"] = (function()
     else
       idris["error"]("Impossible else branch")
     end
-    return idris["Parser.Rule.Source.case[2565]intLit"](x)(__frame2[4])
+    return idris["Parser.Rule.Source.case[2772]intLit"](x)(__frame2[4])
   end
   return __frame1[1]
 end)()
@@ -11408,7 +11430,7 @@ idris["Builtin.idris_crash"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Num.case[440]div"] = function(__arg0)
+idris["Prelude.Num.case[441]div"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -11436,14 +11458,14 @@ idris["Prelude.Num.case[440]div"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Num.div_Integral__Int"] = function(__arg0)
+idris["Prelude.Num.div_Integral_Int"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Num.case[440]div"](__arg1)(__arg0)(idris["Prelude.EqOrd.==_Eq__Int"](__arg1)(bigint.tonumber(bigint:new("0"))))
+          return idris["Prelude.Num.case[441]div"](__arg1)(__arg0)(idris["Prelude.EqOrd.==_Eq_Int"](__arg1)(bigint.tonumber(bigint:new("0"))))
         end)()
     end
 end
-idris["Data.Primitives.Views.IntV.case[429]divides"] = function(__arg0)
+idris["Data.Primitives.Views.IntV.case[519]divides"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -11459,10 +11481,10 @@ idris["Data.Primitives.Views.IntV.case[429]divides"] = function(__arg0)
                 nil
               }
               __frame1[2][0] = function()
-                return idris["Prelude.Num.negate_Neg__Int"](idris["Prelude.Num.div_Integral__Int"](__arg1)(idris["Prelude.Num.abs_Abs__Int"](__arg0)))
+                return idris["Prelude.Num.negate_Neg_Int"](idris["Prelude.Num.div_Integral_Int"](__arg1)(idris["Prelude.Num.abs_Abs_Int"](__arg0)))
               end
               __frame1[2][1] = function()
-                return idris["Prelude.Num.div_Integral__Int"](__arg1)(__arg0)
+                return idris["Prelude.Num.div_Integral_Int"](__arg1)(__arg0)
               end
               __frame1[3] = __frame1[2][__frame1[1]]
               if __frame1[3] then
@@ -11503,7 +11525,7 @@ idris["Parser.Rule.Source.identPart"] = (function()
     else
       idris["error"]("Impossible else branch")
     end
-    return idris["Parser.Rule.Source.case[2907]identPart"](x)(__frame2[4])
+    return idris["Parser.Rule.Source.case[3114]identPart"](x)(__frame2[4])
   end
   return __frame1[1]
 end)()
@@ -11981,7 +12003,7 @@ idris["Commands.getResult"] = function(__arg0)
                               __frame13[1]["arg1"] = __e11
                               __frame13[2] = {}
                               __frame13[2]["tag"] = "0"
-                              __frame13[2]["arg1"] = idris["Prelude.Types.cast_Cast__Integer_Int"](__e16)
+                              __frame13[2]["arg1"] = idris["Prelude.Types.cast_Cast_Integer_Int"](__e16)
                               __frame13[2]["arg2"] = __frame13[1]
                               __frame13[3] = {}
                               __frame13[3]["tag"] = "1"
@@ -12068,7 +12090,7 @@ idris["Commands.getResult"] = function(__arg0)
                               __frame13[1]["arg1"] = __e11
                               __frame13[2] = {}
                               __frame13[2]["tag"] = "1"
-                              __frame13[2]["arg1"] = idris["Prelude.Types.cast_Cast__Integer_Int"](__e21)
+                              __frame13[2]["arg1"] = idris["Prelude.Types.cast_Cast_Integer_Int"](__e21)
                               __frame13[2]["arg2"] = __frame13[1]
                               __frame13[3] = {}
                               __frame13[3]["tag"] = "1"
@@ -12155,7 +12177,7 @@ idris["Commands.getResult"] = function(__arg0)
                               __frame13[1]["arg1"] = __e11
                               __frame13[2] = {}
                               __frame13[2]["tag"] = "2"
-                              __frame13[2]["arg1"] = idris["Prelude.Types.cast_Cast__Integer_Int"](__e26)
+                              __frame13[2]["arg1"] = idris["Prelude.Types.cast_Cast_Integer_Int"](__e26)
                               __frame13[2]["arg2"] = __frame13[1]
                               __frame13[3] = {}
                               __frame13[3]["tag"] = "1"
@@ -12302,7 +12324,7 @@ idris["Commands.getResult"] = function(__arg0)
                       }
                       __frame9[1] = {}
                       __frame9[1]["tag"] = "1"
-                      __frame9[1]["arg1"] = idris["Prelude.Types.cast_Cast__Integer_Int"](__e34)
+                      __frame9[1]["arg1"] = idris["Prelude.Types.cast_Cast_Integer_Int"](__e34)
                       __frame9[1]["arg2"] = __e29
                       __frame9[2] = {}
                       __frame9[2]["tag"] = "1"
@@ -12422,7 +12444,7 @@ idris["Commands.getResult"] = function(__arg0)
                         }
                         __frame10[1] = {}
                         __frame10[1]["tag"] = "3"
-                        __frame10[1]["arg1"] = idris["Prelude.Types.cast_Cast__Integer_Int"](__e43)
+                        __frame10[1]["arg1"] = idris["Prelude.Types.cast_Cast_Integer_Int"](__e43)
                         __frame10[1]["arg2"] = __e39
                         __frame10[2] = {}
                         __frame10[2]["tag"] = "1"
@@ -12539,7 +12561,7 @@ idris["Commands.getResult"] = function(__arg0)
                       }
                       __frame9[1] = {}
                       __frame9[1]["tag"] = "4"
-                      __frame9[1]["arg1"] = idris["Prelude.Types.cast_Cast__Integer_Int"](__e51)
+                      __frame9[1]["arg1"] = idris["Prelude.Types.cast_Cast_Integer_Int"](__e51)
                       __frame9[1]["arg2"] = __e46
                       __frame9[2] = {}
                       __frame9[2]["tag"] = "1"
@@ -13171,7 +13193,7 @@ idris["Text.Parser.match"] = function(__arg0)
                 else
                   idris["error"]("Impossible else branch")
                 end
-                return idris["Text.Parser.case[379]match"](nil)(__arg1)(__arg2)(t)(__frame2[4])
+                return idris["Text.Parser.case[473]match"](nil)(__arg1)(__arg2)(t)(__frame2[4])
               end
               return __frame1[1]
             end)()
@@ -13190,22 +13212,22 @@ idris["Utils.Path.parseBody"] = (function()
   __frame1[1]["tag"] = "0"
   __frame1[1]["arg1"] = function(__arg2)
     return function(__arg3)
-        return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+        return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
       end
   end
   __frame1[1]["arg2"] = function(__arg4)
     return function(__arg5)
-        return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+        return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
       end
   end
   __frame1[2] = {}
   __frame1[2]["tag"] = "0"
-  __frame1[2]["arg1"] = function(__arg272)
-    return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+  __frame1[2]["arg1"] = function(__arg364)
+    return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
   end
   __frame1[2]["arg2"] = function(kind)
-    return function(__arg273)
-        return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+    return function(__arg365)
+        return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
       end
   end
   __frame1[3] = {}
@@ -13979,7 +14001,7 @@ idris["Data.List.find"] = function(__arg0)
               __frame1[2]["1"] = function()
                 local __e2 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg2"]
-                return idris["Data.List.case[1578]find"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
+                return idris["Data.List.case[1116]find"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
               end
               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[3] then
@@ -14018,7 +14040,7 @@ idris["Data.List.filter"] = function(__arg0)
               __frame1[2]["1"] = function()
                 local __e2 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg2"]
-                return idris["Data.List.case[1523]filter"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
+                return idris["Data.List.case[1061]filter"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
               end
               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[3] then
@@ -14031,7 +14053,7 @@ idris["Data.List.filter"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.Core.2895:1423:countNLs"] = function(__arg0)
+idris["Text.Lexer.Core.2960:1537:countNLs"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14041,7 +14063,7 @@ idris["Text.Lexer.Core.2895:1423:countNLs"] = function(__arg0)
                           return function(__arg7)
                               return (function()
                                   return idris["Prelude.Types.List.length"](nil)(idris["Data.List.filter"](nil)(function(__arg8)
-                                      return idris["Prelude.EqOrd.==_Eq__Char"](__arg8)("\n")
+                                      return idris["Prelude.EqOrd.==_Eq_Char"](__arg8)("\n")
                                     end)(__arg7))
                                 end)()
                             end
@@ -14081,7 +14103,7 @@ idris["Foreign.filePath"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Lexer.Core.case[1766]lex"] = function(__arg0)
+idris["Text.Lexer.Core.case[1880]lex"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14172,7 +14194,7 @@ idris["Text.Lexer.Core.case[1766]lex"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.Core.case[1529]tokenise,getFirstToken"] = function(__arg0)
+idris["Text.Lexer.Core.case[1643]tokenise,getFirstToken"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14218,8 +14240,8 @@ idris["Text.Lexer.Core.case[1529]tokenise,getFirstToken"] = function(__arg0)
                                                       }
                                                       local __e5 = __frame2[1]["arg1"]
                                                       local __e6 = __frame2[1]["arg2"]
-                                                      local line_prime_ = __arg5 + idris["Prelude.Types.cast_Cast__Nat_Int"](idris["Text.Lexer.Core.2895:1423:countNLs"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e5))
-                                                      local col_prime_ = idris["Text.Lexer.Core.2895:1424:getCols"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e5)(__arg4)
+                                                      local line_prime_ = __arg5 + idris["Prelude.Types.cast_Cast_Nat_Int"](idris["Text.Lexer.Core.2960:1537:countNLs"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e5))
+                                                      local col_prime_ = idris["Text.Lexer.Core.2960:1538:getCols"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e5)(__arg4)
                                                       __frame3[1] = {}
                                                       __frame3[1]["tag"] = "0"
                                                       __frame3[1]["arg1"] = __arg8(idris["Prelude.Types.fastPack"](idris["Data.List.reverse"](nil)(__e5)))
@@ -14254,7 +14276,7 @@ idris["Text.Lexer.Core.case[1529]tokenise,getFirstToken"] = function(__arg0)
                                                     return __frame2[4]
                                                   end
                                                   __frame1[2]["0"] = function()
-                                                    return idris["Text.Lexer.Core.2895:1425:getFirstToken"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg9)(__arg10)
+                                                    return idris["Text.Lexer.Core.2960:1539:getFirstToken"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg9)(__arg10)
                                                   end
                                                   __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                                                   if __frame1[3] then
@@ -14276,7 +14298,7 @@ idris["Text.Lexer.Core.case[1529]tokenise,getFirstToken"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.Core.2895:1425:getFirstToken"] = function(__arg0)
+idris["Text.Lexer.Core.2960:1539:getFirstToken"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14326,7 +14348,7 @@ idris["Text.Lexer.Core.2895:1425:getFirstToken"] = function(__arg0)
                                           local __e7 = __frame2[1]["arg2"]
                                           __frame3[1] = {}
                                           __frame3[1]["tag"] = "0"
-                                          return idris["Text.Lexer.Core.case[1529]tokenise,getFirstToken"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e6)(__e7)(__e3)(__arg8)(idris["Text.Lexer.Core.scan"](nil)(__e6)(__frame3[1])(__arg8))
+                                          return idris["Text.Lexer.Core.case[1643]tokenise,getFirstToken"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e6)(__e7)(__e3)(__arg8)(idris["Text.Lexer.Core.scan"](nil)(__e6)(__frame3[1])(__arg8))
                                         end
                                         __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                                         if __frame2[3] then
@@ -14353,7 +14375,7 @@ idris["Text.Lexer.Core.2895:1425:getFirstToken"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.Core.case[1648]case block in tokenise"] = function(__arg0)
+idris["Text.Lexer.Core.case[1762]case block in tokenise"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14430,7 +14452,7 @@ idris["Text.Lexer.Core.case[1648]case block in tokenise"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.Core.case[1615]tokenise"] = function(__arg0)
+idris["Text.Lexer.Core.case[1729]tokenise"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14491,7 +14513,7 @@ idris["Text.Lexer.Core.case[1615]tokenise"] = function(__arg0)
                                         __frame4[2]["0"] = function()
                                           local __e13 = __frame4[1]["arg1"]
                                           local __e14 = __frame4[1]["arg2"]
-                                          return idris["Text.Lexer.Core.case[1648]case block in tokenise"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e5)(__e9)(__e13)(__e14)(__arg6(__e5))
+                                          return idris["Text.Lexer.Core.case[1762]case block in tokenise"](nil)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__e5)(__e9)(__e13)(__e14)(__arg6(__e5))
                                         end
                                         __frame4[3] = __frame4[2][__frame4[1]["tag"]]
                                         if __frame4[3] then
@@ -14561,28 +14583,12 @@ idris["Text.Lexer.Core.tokenise"] = function(__arg0)
                   return function(__arg5)
                       return function(__arg6)
                           return (function()
-                              return idris["Text.Lexer.Core.case[1615]tokenise"](nil)(__arg6)(__arg5)(__arg4)(__arg3)(__arg2)(__arg1)(idris["Text.Lexer.Core.2895:1425:getFirstToken"](nil)(__arg6)(__arg5)(__arg4)(__arg3)(__arg2)(__arg1)(__arg5)(__arg6))
+                              return idris["Text.Lexer.Core.case[1729]tokenise"](nil)(__arg6)(__arg5)(__arg4)(__arg3)(__arg2)(__arg1)(idris["Text.Lexer.Core.2960:1539:getFirstToken"](nil)(__arg6)(__arg5)(__arg4)(__arg3)(__arg2)(__arg1)(__arg5)(__arg6))
                             end)()
                         end
                     end
                 end
             end
-        end
-    end
-end
-idris["Text.Lexer.Core.lex"] = function(__arg0)
-  return function(__arg1)
-      return function(__arg2)
-          return (function()
-              local __frame1 = {
-                nil
-              }
-              __frame1[1] = {}
-              __frame1[1]["tag"] = "0"
-              return idris["Text.Lexer.Core.case[1766]lex"](nil)(__arg2)(__arg1)(idris["Text.Lexer.Core.tokenise"](nil)(function(__eta0)
-                  return 1
-                end)(0)(0)(__frame1[1])(__arg1)(idris["Data.Strings.fastUnpack"](__arg2)))
-            end)()
         end
     end
 end
@@ -14657,14 +14663,14 @@ idris["Parser.Rule.Source.eoi"] = (function()
     else
       idris["error"]("Impossible else branch")
     end
-    return idris["Parser.Rule.Source.4124:2355:isEOI"](__frame2[4])
+    return idris["Parser.Rule.Source.4200:2562:isEOI"](__frame2[4])
   end
   __frame1[2] = {}
   __frame1[2]["tag"] = "9"
   __frame1[2]["arg1"] = 1
   __frame1[2]["arg2"] = 1
   __frame1[2]["arg3"] = __frame1[1]
-  __frame1[2]["arg4"] = function(___2376)
+  __frame1[2]["arg4"] = function(___2583)
     local __frame2 = {
       nil,
       nil
@@ -14728,7 +14734,7 @@ idris["Text.Bounded.end"] = function(__arg0)
         end)()
     end
 end
-idris["Text.Bounded.case[995]mergeBounds"] = function(__arg0)
+idris["Text.Bounded.case[1109]mergeBounds"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -14757,103 +14763,103 @@ idris["Text.Bounded.case[995]mergeBounds"] = function(__arg0)
                         __frame2[1]["tag"] = "0"
                         __frame2[1]["arg1"] = function(__arg5)
                           return function(__arg6)
-                              return idris["Prelude.EqOrd.==_Eq__Int"](__arg5)(__arg6)
+                              return idris["Prelude.EqOrd.==_Eq_Int"](__arg5)(__arg6)
                             end
                         end
                         __frame2[1]["arg2"] = function(__arg5)
                           return function(__arg6)
-                              return idris["Prelude.EqOrd./=_Eq__Int"](__arg5)(__arg6)
+                              return idris["Prelude.EqOrd./=_Eq_Int"](__arg5)(__arg6)
                             end
                         end
                         __frame2[2] = {}
                         __frame2[2]["tag"] = "0"
                         __frame2[2]["arg1"] = __frame2[1]
-                        __frame2[2]["arg2"] = function(__arg369)
-                          return function(__arg370)
-                              return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                            end
-                        end
-                        __frame2[2]["arg3"] = function(__arg371)
+                        __frame2[2]["arg2"] = function(__arg371)
                           return function(__arg372)
-                              return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                              return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                             end
                         end
-                        __frame2[2]["arg4"] = function(__arg373)
+                        __frame2[2]["arg3"] = function(__arg373)
                           return function(__arg374)
-                              return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                              return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                             end
                         end
-                        __frame2[2]["arg5"] = function(__arg375)
+                        __frame2[2]["arg4"] = function(__arg375)
                           return function(__arg376)
-                              return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                              return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                             end
                         end
-                        __frame2[2]["arg6"] = function(__arg377)
+                        __frame2[2]["arg5"] = function(__arg377)
                           return function(__arg378)
-                              return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                              return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                             end
                         end
-                        __frame2[2]["arg7"] = function(__arg379)
+                        __frame2[2]["arg6"] = function(__arg379)
                           return function(__arg380)
-                              return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                              return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                             end
                         end
-                        __frame2[2]["arg8"] = function(__arg381)
+                        __frame2[2]["arg7"] = function(__arg381)
                           return function(__arg382)
-                              return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                              return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
+                            end
+                        end
+                        __frame2[2]["arg8"] = function(__arg383)
+                          return function(__arg384)
+                              return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
                             end
                         end
                         __frame2[3] = {}
                         __frame2[3]["tag"] = "0"
                         __frame2[3]["arg1"] = function(__arg5)
                           return function(__arg6)
-                              return idris["Prelude.EqOrd.==_Eq__Int"](__arg5)(__arg6)
+                              return idris["Prelude.EqOrd.==_Eq_Int"](__arg5)(__arg6)
                             end
                         end
                         __frame2[3]["arg2"] = function(__arg5)
                           return function(__arg6)
-                              return idris["Prelude.EqOrd./=_Eq__Int"](__arg5)(__arg6)
+                              return idris["Prelude.EqOrd./=_Eq_Int"](__arg5)(__arg6)
                             end
                         end
                         __frame2[4] = {}
                         __frame2[4]["tag"] = "0"
                         __frame2[4]["arg1"] = __frame2[3]
-                        __frame2[4]["arg2"] = function(__arg369)
-                          return function(__arg370)
-                              return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                            end
-                        end
-                        __frame2[4]["arg3"] = function(__arg371)
+                        __frame2[4]["arg2"] = function(__arg371)
                           return function(__arg372)
-                              return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                              return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                             end
                         end
-                        __frame2[4]["arg4"] = function(__arg373)
+                        __frame2[4]["arg3"] = function(__arg373)
                           return function(__arg374)
-                              return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                              return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                             end
                         end
-                        __frame2[4]["arg5"] = function(__arg375)
+                        __frame2[4]["arg4"] = function(__arg375)
                           return function(__arg376)
-                              return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                              return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                             end
                         end
-                        __frame2[4]["arg6"] = function(__arg377)
+                        __frame2[4]["arg5"] = function(__arg377)
                           return function(__arg378)
-                              return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                              return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                             end
                         end
-                        __frame2[4]["arg7"] = function(__arg379)
+                        __frame2[4]["arg6"] = function(__arg379)
                           return function(__arg380)
-                              return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                              return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                             end
                         end
-                        __frame2[4]["arg8"] = function(__arg381)
+                        __frame2[4]["arg7"] = function(__arg381)
                           return function(__arg382)
-                              return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                              return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
                             end
                         end
-                        return idris["Text.Bounded.case[1020]case block in mergeBounds"](nil)(nil)(__arg2)(__arg3)(__e2)(__e3)(idris["Prelude.EqOrd.max_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame2[2])(__frame2[4])(idris["Text.Bounded.end"](nil)(__arg3))(idris["Text.Bounded.end"](nil)(__arg2)))
+                        __frame2[4]["arg8"] = function(__arg383)
+                          return function(__arg384)
+                              return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
+                            end
+                        end
+                        return idris["Text.Bounded.case[1134]case block in mergeBounds"](nil)(nil)(__arg2)(__arg3)(__e2)(__e3)(idris["Prelude.EqOrd.max_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame2[2])(__frame2[4])(idris["Text.Bounded.end"](nil)(__arg3))(idris["Text.Bounded.end"](nil)(__arg2)))
                       end
                       __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                       if __frame1[3] then
@@ -14886,7 +14892,7 @@ idris["Utils.Path.emptyPath"] = (function()
   __frame1[3]["arg4"] = 1
   return __frame1[3]
 end)()
-idris["Utils.Path.case[3801]parse"] = function(__arg0)
+idris["Utils.Path.case[3915]parse"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -14999,28 +15005,6 @@ idris["Prelude.Types.elem"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.oneOf"] = function(__arg0)
-  return (function()
-      return idris["Text.Lexer.Core.pred"](function(x)
-          local __frame2 = {
-            nil
-          }
-          __frame2[1] = {}
-          __frame2[1]["tag"] = "0"
-          __frame2[1]["arg1"] = function(__arg2)
-            return function(__arg3)
-                return idris["Prelude.EqOrd.==_Eq__Char"](__arg2)(__arg3)
-              end
-          end
-          __frame2[1]["arg2"] = function(__arg4)
-            return function(__arg5)
-                return idris["Prelude.EqOrd./=_Eq__Char"](__arg4)(__arg5)
-              end
-          end
-          return idris["Prelude.Types.elem"](nil)(__frame2[1])(x)(idris["Prelude.Types.unpack"](__arg0))
-        end)
-    end)()
-end
 idris["System.Info.isWindows"] = (function()
   local __frame1 = {
     nil,
@@ -15033,12 +15017,12 @@ idris["System.Info.isWindows"] = (function()
   __frame1[1]["tag"] = "0"
   __frame1[1]["arg1"] = function(__arg2)
     return function(__arg3)
-        return idris["Prelude.EqOrd.==_Eq__String"](__arg2)(__arg3)
+        return idris["Prelude.EqOrd.==_Eq_String"](__arg2)(__arg3)
       end
   end
   __frame1[1]["arg2"] = function(__arg4)
     return function(__arg5)
-        return idris["Prelude.EqOrd./=_Eq__String"](__arg4)(__arg5)
+        return idris["Prelude.EqOrd./=_Eq_String"](__arg4)(__arg5)
       end
   end
   __frame1[2] = {}
@@ -15075,22 +15059,22 @@ idris["System.File.modeStr"] = function(__arg0)
         nil
       }
       __frame1[2]["0"] = function()
-        return idris["System.File.case[400]modeStr"](idris["System.Info.isWindows"])
+        return idris["System.File.case[490]modeStr"](idris["System.Info.isWindows"])
       end
       __frame1[2]["1"] = function()
-        return idris["System.File.case[410]modeStr"](idris["System.Info.isWindows"])
+        return idris["System.File.case[500]modeStr"](idris["System.Info.isWindows"])
       end
       __frame1[2]["2"] = function()
-        return idris["System.File.case[420]modeStr"](idris["System.Info.isWindows"])
+        return idris["System.File.case[510]modeStr"](idris["System.Info.isWindows"])
       end
       __frame1[2]["3"] = function()
-        return idris["System.File.case[430]modeStr"](idris["System.Info.isWindows"])
+        return idris["System.File.case[520]modeStr"](idris["System.Info.isWindows"])
       end
       __frame1[2]["4"] = function()
-        return idris["System.File.case[440]modeStr"](idris["System.Info.isWindows"])
+        return idris["System.File.case[530]modeStr"](idris["System.Info.isWindows"])
       end
       __frame1[2]["5"] = function()
-        return idris["System.File.case[450]modeStr"](idris["System.Info.isWindows"])
+        return idris["System.File.case[540]modeStr"](idris["System.Info.isWindows"])
       end
       __frame1[3] = __frame1[2][__frame1[1]["tag"]]
       if __frame1[3] then
@@ -15159,7 +15143,7 @@ idris["System.File.popen"] = function(__arg0)
                       idris["error"]("Impossible else branch")
                     end
                     return __e2(nil)(nil)(__frame2[4])(function(ptr)
-                        return idris["System.File.case[1262]popen"](nil)(__arg1)(__arg3)(__arg2)(ptr)(idris["Prelude.EqOrd./=_Eq__Int"](idris["PrimIO.prim__nullAnyPtr"](ptr))(bigint.tonumber(bigint:new("0"))))
+                        return idris["System.File.case[1352]popen"](nil)(__arg1)(__arg3)(__arg2)(ptr)(idris["Prelude.EqOrd./=_Eq_Int"](idris["PrimIO.prim__nullAnyPtr"](ptr))(bigint.tonumber(bigint:new("0"))))
                       end)
                   end
                   __frame1[7] = __frame1[6][__frame1[5]["tag"]]
@@ -15176,7 +15160,7 @@ idris["System.File.popen"] = function(__arg0)
 end
 idris["Utils.Path.isAbsolute'"] = function(__arg0)
   return (function()
-      return idris["Utils.Path.case[3821]isAbsolute'"](__arg0)(idris["System.Info.isWindows"])
+      return idris["Utils.Path.case[3935]isAbsolute'"](__arg0)(idris["System.Info.isWindows"])
     end)()
 end
 idris["Prelude.Types.either"] = function(__arg0)
@@ -15278,7 +15262,7 @@ idris["Data.List.dropWhile"] = function(__arg0)
               __frame1[2]["1"] = function()
                 local __e2 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg2"]
-                return idris["Data.List.case[1469]dropWhile"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
+                return idris["Data.List.case[1007]dropWhile"](nil)(__e2)(__e3)(__arg1)(__arg1(__e2))
               end
               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
               if __frame1[3] then
@@ -15294,7 +15278,7 @@ end
 idris["Plugin.trimNewLineAtEnd"] = function(__arg0)
   return (function()
       return idris["Prelude.Types.fastPack"](idris["Data.List.reverse"](nil)(idris["Data.List.dropWhile"](nil)(function(__arg1)
-          return idris["Prelude.EqOrd.==_Eq__Char"](__arg1)("\n")
+          return idris["Prelude.EqOrd.==_Eq_Char"](__arg1)("\n")
         end)(idris["Data.List.reverse"](nil)(idris["Data.Strings.fastUnpack"](__arg0)))))
     end)()
 end
@@ -15325,7 +15309,7 @@ idris["Data.List.deleteBy"] = function(__arg0)
                   __frame1[2]["1"] = function()
                     local __e2 = __frame1[1]["arg1"]
                     local __e3 = __frame1[1]["arg2"]
-                    return idris["Data.List.case[1851]deleteBy"](nil)(__arg2)(__e2)(__e3)(__arg1)(__arg1(__arg2)(__e2))
+                    return idris["Data.List.case[1389]deleteBy"](nil)(__arg2)(__e2)(__e3)(__arg1)(__arg1(__arg2)(__e2))
                   end
                   __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                   if __frame1[3] then
@@ -15508,7 +15492,7 @@ idris["Prelude.Types.countFrom"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.case[4988]case block in rangeFromTo"] = function(__arg0)
+idris["Prelude.Types.case[5414]case block in rangeFromTo"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -15525,7 +15509,7 @@ idris["Prelude.Types.case[4988]case block in rangeFromTo"] = function(__arg0)
               }
               __frame1[2][0] = function()
                 return idris["Prelude.Types.takeUntil"](nil)(function(__arg3)
-                    return idris["Prelude.Types.<=_Ord__Nat"](__arg3)(__arg0)
+                    return idris["Prelude.Types.<=_Ord_Nat"](__arg3)(__arg0)
                   end)(idris["Prelude.Types.countFrom"](nil)(__arg1)(function(n)
                     return idris["Prelude.Types.minus"](n)(bigint:new("1") + bigint:new("0"))
                   end))
@@ -15554,7 +15538,7 @@ idris["Prelude.Types.case[4988]case block in rangeFromTo"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.case[4960]rangeFromTo"] = function(__arg0)
+idris["Prelude.Types.case[5386]rangeFromTo"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -15571,13 +15555,13 @@ idris["Prelude.Types.case[4960]rangeFromTo"] = function(__arg0)
               }
               __frame1[2][0] = function()
                 return idris["Prelude.Types.takeUntil"](nil)(function(__arg3)
-                    return idris["Prelude.Types.>=_Ord__Nat"](__arg3)(__arg0)
+                    return idris["Prelude.Types.>=_Ord_Nat"](__arg3)(__arg0)
                   end)(idris["Prelude.Types.countFrom"](nil)(__arg1)(function(__eta0)
                     return bigint:new("1") + __eta0
                   end))
               end
               __frame1[2][1] = function()
-                return idris["Prelude.Types.case[4988]case block in rangeFromTo"](__arg0)(__arg1)(idris["Prelude.Types.>_Ord__Nat"](__arg1)(__arg0))
+                return idris["Prelude.Types.case[5414]case block in rangeFromTo"](__arg0)(__arg1)(idris["Prelude.Types.>_Ord_Nat"](__arg1)(__arg0))
               end
               __frame1[3] = __frame1[2][__frame1[1]]
               if __frame1[3] then
@@ -15590,17 +15574,17 @@ idris["Prelude.Types.case[4960]rangeFromTo"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Types.rangeFromTo_Range__Nat"] = function(__arg0)
+idris["Prelude.Types.rangeFromTo_Range_Nat"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Prelude.Types.case[4960]rangeFromTo"](__arg1)(__arg0)(idris["Prelude.Types.>_Ord__Nat"](__arg1)(__arg0))
+          return idris["Prelude.Types.case[5386]rangeFromTo"](__arg1)(__arg0)(idris["Prelude.Types.>_Ord_Nat"](__arg1)(__arg0))
         end)()
     end
 end
 idris["Plugin.zipWithIndex"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Data.List.zip"](nil)(nil)(__arg1)(idris["Prelude.Types.rangeFromTo_Range__Nat"](bigint:new("0"))(idris["Prelude.Types.minus"](idris["Prelude.Types.List.length"](nil)(__arg1))(bigint:new("1") + bigint:new("0"))))
+          return idris["Data.List.zip"](nil)(nil)(__arg1)(idris["Prelude.Types.rangeFromTo_Range_Nat"](bigint:new("0"))(idris["Prelude.Types.minus"](idris["Prelude.Types.List.length"](nil)(__arg1))(bigint:new("1") + bigint:new("0"))))
         end)()
     end
 end
@@ -15691,8 +15675,8 @@ idris["Prelude.Interfaces.concatMap"] = function(__arg0)
                               nil
                             }
                             __frame3[2]["0"] = function()
-                              local __e3 = __frame3[1]["arg2"]
-                              return __e3
+                              local __e4 = __frame3[1]["arg2"]
+                              return __e4
                             end
                             __frame3[3] = __frame3[2][__frame3[1]["tag"]]
                             if __frame3[3] then
@@ -15713,8 +15697,8 @@ idris["Prelude.Interfaces.concatMap"] = function(__arg0)
                                       nil
                                     }
                                     __frame5[2]["0"] = function()
-                                      local __e4 = __frame5[1]["arg1"]
-                                      return __e4(__arg4(__eta0))(__arg6)
+                                      local __e5 = __frame5[1]["arg1"]
+                                      return __e5(__arg4(__eta0))(__arg6)
                                     end
                                     __frame5[3] = __frame5[2][__frame5[1]["tag"]]
                                     if __frame5[3] then
@@ -15811,7 +15795,7 @@ idris["Text.Lexer.Core.concatMap"] = function(__arg0)
         end
     end
 end
-idris["Text.Lexer.case[484]exact"] = function(__arg0)
+idris["Text.Lexer.case[578]exact"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -15851,11 +15835,6 @@ idris["Text.Lexer.case[484]exact"] = function(__arg0)
           return __frame1[4]
         end)()
     end
-end
-idris["Text.Lexer.exact"] = function(__arg0)
-  return (function()
-      return idris["Text.Lexer.case[484]exact"](__arg0)(idris["Prelude.Types.unpack"](__arg0))
-    end)()
 end
 idris["Prelude.Types.chr"] = function(__ext0)
   return (function()
@@ -16073,7 +16052,7 @@ idris["Data.List.break"] = function(__arg0)
         end
     end
 end
-idris["Data.List.case[2177]split"] = function(__arg0)
+idris["Data.List.case[1715]split"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -16133,18 +16112,9 @@ idris["Data.List.split"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
-              return idris["Data.List.case[2177]split"](nil)(__arg2)(__arg1)(idris["Data.List.break"](nil)(__arg1)(__arg2))
+              return idris["Data.List.case[1715]split"](nil)(__arg2)(__arg1)(idris["Data.List.break"](nil)(__arg1)(__arg2))
             end)()
         end
-    end
-end
-idris["Data.Strings.split"] = function(__arg0)
-  return function(__arg1)
-      return (function()
-          return idris["Data.List1.map_Functor__List1"](nil)(nil)(function(__eta0)
-              return idris["Prelude.Types.pack"](__eta0)
-            end)(idris["Data.List.split"](nil)(__arg0)(idris["Prelude.Types.unpack"](__arg1)))
-        end)()
     end
 end
 idris["Utils.Path.bodySeparator"] = (function()
@@ -16159,22 +16129,22 @@ idris["Utils.Path.bodySeparator"] = (function()
   __frame1[1]["tag"] = "0"
   __frame1[1]["arg1"] = function(__arg2)
     return function(__arg3)
-        return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+        return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
       end
   end
   __frame1[1]["arg2"] = function(__arg4)
     return function(__arg5)
-        return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+        return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
       end
   end
   __frame1[2] = {}
   __frame1[2]["tag"] = "0"
-  __frame1[2]["arg1"] = function(__arg272)
-    return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+  __frame1[2]["arg1"] = function(__arg364)
+    return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
   end
   __frame1[2]["arg2"] = function(kind)
-    return function(__arg273)
-        return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+    return function(__arg365)
+        return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
       end
   end
   __frame1[3] = {}
@@ -16200,22 +16170,22 @@ idris["Utils.Path.bodySeparator"] = (function()
     __frame2[1]["tag"] = "0"
     __frame2[1]["arg1"] = function(__arg2)
       return function(__arg3)
-          return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+          return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
         end
     end
     __frame2[1]["arg2"] = function(__arg4)
       return function(__arg5)
-          return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+          return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
         end
     end
     __frame2[2] = {}
     __frame2[2]["tag"] = "0"
-    __frame2[2]["arg1"] = function(__arg272)
-      return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+    __frame2[2]["arg1"] = function(__arg364)
+      return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
     end
     __frame2[2]["arg2"] = function(kind)
-      return function(__arg273)
-          return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+      return function(__arg365)
+          return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
         end
     end
     __frame2[3] = {}
@@ -16256,6 +16226,36 @@ idris["Builtin.believe_me"] = function(__arg0)
         end
     end
 end
+idris["Prelude.Types.case[627]prim__integerToNat"] = function(__arg0)
+  return function(__arg1)
+      return (function()
+          local __frame1 = {
+            nil,
+            nil,
+            nil,
+            nil
+          }
+          __frame1[1] = __arg1
+          __frame1[2] = {
+            nil,
+            nil
+          }
+          __frame1[2][0] = function()
+            return idris["Builtin.believe_me"](nil)(nil)(__arg0)
+          end
+          __frame1[2][1] = function()
+            return bigint:new("0")
+          end
+          __frame1[3] = __frame1[2][__frame1[1]]
+          if __frame1[3] then
+            __frame1[4] = __frame1[3]()
+          else
+            idris["error"]("Impossible else branch")
+          end
+          return __frame1[4]
+        end)()
+    end
+end
 idris["Data.Strings.strM"] = function(__arg0)
   return (function()
       local __frame1 = {
@@ -16290,11 +16290,132 @@ idris["Data.Strings.strM"] = function(__arg0)
       return __frame1[5]
     end)()
 end
+idris["Prelude.Types.prim__integerToNat"] = function(__arg0)
+  return (function()
+      local __frame1 = {
+        nil,
+        nil,
+        nil,
+        nil,
+        nil
+      }
+      if bigint:new("0") <= __arg0 then
+        __frame1[1] = 1
+      else
+        __frame1[1] = 0
+      end
+      __frame1[2] = __frame1[1]
+      __frame1[3] = {
+        nil
+      }
+      __frame1[3][0] = function()
+        return 1
+      end
+      __frame1[4] = __frame1[3][__frame1[2]]
+      if __frame1[4] then
+        __frame1[5] = __frame1[4]()
+      else
+        __frame1[5] = 0
+      end
+      return idris["Prelude.Types.case[627]prim__integerToNat"](__arg0)(__frame1[5])
+    end)()
+end
+idris["Prelude.Types.fromInteger_Num_Nat"] = function(__arg0)
+  return (function()
+      return idris["Prelude.Types.prim__integerToNat"](__arg0)
+    end)()
+end
 idris["PrimIO.prim__forgetPtr"] = function(__arg0)
   return function(__ext0)
       return (function()
           return idris["Builtin.believe_me"](nil)(nil)(__ext0)
         end)()
+    end
+end
+idris["Prelude.Types.Strings.length"] = function(__arg0)
+  return (function()
+      return idris["Prelude.Types.fromInteger_Num_Nat"](bigint:new(utf8.len(__arg0)))
+    end)()
+end
+idris["Prelude.Types.unpack"] = function(__arg0)
+  return (function()
+      local __frame1 = {
+        nil
+      }
+      __frame1[1] = {}
+      __frame1[1]["tag"] = "0"
+      return idris["Prelude.Types.4306:4471:unpack'"](__arg0)(idris["Prelude.Num.-_Neg_Int"](bigint.tonumber(idris["Prelude.Types.Strings.length"](__arg0)))(1))(__arg0)(__frame1[1])
+    end)()
+end
+idris["Prelude.Types.substr"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return (function()
+              return idris["Prelude.Types.case[4425]substr"](__arg2)(__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord_Integer"](__arg0)(idris["Prelude.Types.Strings.length"](__arg2)))
+            end)()
+        end
+    end
+end
+idris["Utils.String.stripQuotes"] = function(__arg0)
+  return (function()
+      return idris["Prelude.Types.substr"](bigint:new("1") + bigint:new("0"))(idris["Prelude.Types.minus"](idris["Prelude.Types.Strings.length"](__arg0))(bigint:new("1") + bigint:new("1") + bigint:new("0")))(__arg0)
+    end)()
+end
+idris["Data.Strings.split"] = function(__arg0)
+  return function(__arg1)
+      return (function()
+          return idris["Data.List1.map_Functor_List1"](nil)(nil)(function(__eta0)
+              return idris["Prelude.Types.pack"](__eta0)
+            end)(idris["Data.List.split"](nil)(__arg0)(idris["Prelude.Types.unpack"](__arg1)))
+        end)()
+    end
+end
+idris["Text.Lexer.oneOf"] = function(__arg0)
+  return (function()
+      return idris["Text.Lexer.Core.pred"](function(x)
+          local __frame2 = {
+            nil
+          }
+          __frame2[1] = {}
+          __frame2[1]["tag"] = "0"
+          __frame2[1]["arg1"] = function(__arg2)
+            return function(__arg3)
+                return idris["Prelude.EqOrd.==_Eq_Char"](__arg2)(__arg3)
+              end
+          end
+          __frame2[1]["arg2"] = function(__arg4)
+            return function(__arg5)
+                return idris["Prelude.EqOrd./=_Eq_Char"](__arg4)(__arg5)
+              end
+          end
+          return idris["Prelude.Types.elem"](nil)(__frame2[1])(x)(idris["Prelude.Types.unpack"](__arg0))
+        end)
+    end)()
+end
+idris["Data.Strings.ltrim"] = function(__arg0)
+  return (function()
+      return idris["Prelude.Types.pack"](idris["Data.Strings.2343:1551:ltrimChars"](__arg0)(idris["Prelude.Types.unpack"](__arg0)))
+    end)()
+end
+idris["Data.Strings.trim"] = function(__ext0)
+  return (function()
+      return idris["Data.Strings.ltrim"](idris["Prelude.Types.reverse"](idris["Data.Strings.ltrim"](idris["Prelude.Types.reverse"](__ext0))))
+    end)()
+end
+idris["Text.Lexer.Core.lex"] = function(__arg0)
+  return function(__arg1)
+      return function(__arg2)
+          return (function()
+              local __frame1 = {
+                nil
+              }
+              __frame1[1] = {}
+              __frame1[1]["tag"] = "0"
+              return idris["Text.Lexer.Core.case[1880]lex"](nil)(__arg2)(__arg1)(idris["Text.Lexer.Core.tokenise"](nil)(function(__eta0)
+                  return 1
+                end)(0)(0)(__frame1[1])(__arg1)(idris["Prelude.Types.unpack"](__arg2)))
+            end)()
+        end
     end
 end
 idris["System.File.fGetLine"] = function(__arg0)
@@ -16354,7 +16475,7 @@ idris["System.File.fGetLine"] = function(__arg0)
                   idris["error"]("Impossible else branch")
                 end
                 return __e2(nil)(nil)(__frame2[4])(function(res)
-                    return idris["System.File.case[934]fGetLine"](nil)(__arg1)(__arg2)(res)(idris["Prelude.EqOrd./=_Eq__Int"](idris["PrimIO.prim__nullAnyPtr"](idris["PrimIO.prim__forgetPtr"](nil)(res)))(bigint.tonumber(bigint:new("0"))))
+                    return idris["System.File.case[1024]fGetLine"](nil)(__arg1)(__arg2)(res)(idris["Prelude.EqOrd./=_Eq_Int"](idris["PrimIO.prim__nullAnyPtr"](idris["PrimIO.prim__forgetPtr"](nil)(res)))(bigint.tonumber(bigint:new("0"))))
                   end)
               end
               __frame1[7] = __frame1[6][__frame1[5]["tag"]]
@@ -16370,7 +16491,7 @@ idris["System.File.fGetLine"] = function(__arg0)
 end
 idris["Commands.extractName"] = function(__arg0)
   return (function()
-      return idris["Commands.case[4945]extractName"](__arg0)(idris["Data.Strings.strM"](__arg0))
+      return idris["Commands.case[4508]extractName"](__arg0)(idris["Data.Strings.strM"](__arg0))
     end)()
 end
 idris["System.exitWith"] = function(__arg0)
@@ -16471,6 +16592,11 @@ idris["System.exitFailure"] = function(__arg0)
         end
     end
 end
+idris["Text.Lexer.exact"] = function(__arg0)
+  return (function()
+      return idris["Text.Lexer.case[578]exact"](__arg0)(idris["Prelude.Types.unpack"](__arg0))
+    end)()
+end
 idris["Data.Primitives.Views.IntV.divides"] = function(__arg0)
   return function(__arg1)
       return (function()
@@ -16498,8 +16624,8 @@ idris["Data.Primitives.Views.IntV.divides"] = function(__arg0)
           if __frame1[5] then
             __frame1[6] = __frame1[5]()
           else
-            local dividend = idris["Data.Primitives.Views.IntV.case[429]divides"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord__Int"](__arg1)(bigint.tonumber(bigint:new("0"))))
-            local remainder = idris["Prelude.Num.abs_Abs__Int"](idris["Prelude.Num.-_Neg__Int"](__arg0)(dividend * __arg1))
+            local dividend = idris["Data.Primitives.Views.IntV.case[519]divides"](__arg1)(__arg0)(idris["Prelude.EqOrd.<_Ord_Int"](__arg1)(bigint.tonumber(bigint:new("0"))))
+            local remainder = idris["Prelude.Num.abs_Abs_Int"](idris["Prelude.Num.-_Neg_Int"](__arg0)(dividend * __arg1))
             __frame1[3] = {}
             __frame1[3]["tag"] = "0"
             __frame1[4] = {}
@@ -16513,7 +16639,7 @@ idris["Data.Primitives.Views.IntV.divides"] = function(__arg0)
         end)()
     end
 end
-idris["Utils.Hex.with[577]asHex,asHex'"] = function(__arg0)
+idris["Utils.Hex.with[667]asHex,asHex'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -16538,7 +16664,7 @@ idris["Utils.Hex.with[577]asHex,asHex'"] = function(__arg0)
                     __frame2[1]["tag"] = "1"
                     __frame2[1]["arg1"] = idris["Utils.Hex.hexDigit"](__e2)
                     __frame2[1]["arg2"] = __arg3
-                    return idris["Utils.Hex.2041:568:asHex'"](__arg0)(__e1)(__frame2[1])
+                    return idris["Utils.Hex.2103:658:asHex'"](__arg0)(__e1)(__frame2[1])
                   end
                   __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                   if __frame1[3] then
@@ -16552,7 +16678,7 @@ idris["Utils.Hex.with[577]asHex,asHex'"] = function(__arg0)
         end
     end
 end
-idris["Utils.Hex.2041:568:asHex'"] = function(__arg0)
+idris["Utils.Hex.2103:658:asHex'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -16573,14 +16699,14 @@ idris["Utils.Hex.2041:568:asHex'"] = function(__arg0)
               if __frame1[3] then
                 __frame1[4] = __frame1[3]()
               else
-                __frame1[4] = idris["Utils.Hex.with[577]asHex,asHex'"](__arg1)(__arg1)(idris["Data.Primitives.Views.IntV.divides"](__arg1)(16))(__arg2)
+                __frame1[4] = idris["Utils.Hex.with[667]asHex,asHex'"](__arg1)(__arg1)(idris["Data.Primitives.Views.IntV.divides"](__arg1)(16))(__arg2)
               end
               return __frame1[4]
             end)()
         end
     end
 end
-idris["Utils.Hex.case[606]asHex"] = function(__arg0)
+idris["Utils.Hex.case[696]asHex"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -16600,7 +16726,7 @@ idris["Utils.Hex.case[606]asHex"] = function(__arg0)
             }
             __frame2[1] = {}
             __frame2[1]["tag"] = "0"
-            return idris["Prelude.Types.pack"](idris["Utils.Hex.2041:568:asHex'"](__arg0)(__arg0)(__frame2[1]))
+            return idris["Prelude.Types.pack"](idris["Utils.Hex.2103:658:asHex'"](__arg0)(__arg0)(__frame2[1]))
           end
           __frame1[2][1] = function()
             return "0"
@@ -16898,22 +17024,22 @@ idris["Utils.Path.verbatim"] = (function()
   __frame1[1]["tag"] = "0"
   __frame1[1]["arg1"] = function(__arg2)
     return function(__arg3)
-        return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+        return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
       end
   end
   __frame1[1]["arg2"] = function(__arg4)
     return function(__arg5)
-        return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+        return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
       end
   end
   __frame1[2] = {}
   __frame1[2]["tag"] = "0"
-  __frame1[2]["arg1"] = function(__arg272)
-    return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+  __frame1[2]["arg1"] = function(__arg364)
+    return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
   end
   __frame1[2]["arg2"] = function(kind)
-    return function(__arg273)
-        return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+    return function(__arg365)
+        return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
       end
   end
   __frame1[3] = {}
@@ -16928,7 +17054,7 @@ idris["Utils.Path.verbatim"] = (function()
   __frame1[5]["arg1"] = 0
   __frame1[5]["arg2"] = idris["Text.Parser.count"](nil)(nil)(idris["Text.Quantity.exactly"](bigint:new("1") + bigint:new("1") + bigint:new("0")))(idris["Text.Parser.match"](nil)(__frame1[3])(__frame1[4]))
   __frame1[5]["arg3"] = function()
-    return function(___3341)
+    return function(___3455)
         local __frame3 = {
           nil,
           nil,
@@ -16940,22 +17066,22 @@ idris["Utils.Path.verbatim"] = (function()
         __frame3[1]["tag"] = "0"
         __frame3[1]["arg1"] = function(__arg2)
           return function(__arg3)
-              return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+              return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
             end
         end
         __frame3[1]["arg2"] = function(__arg4)
           return function(__arg5)
-              return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+              return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
             end
         end
         __frame3[2] = {}
         __frame3[2]["tag"] = "0"
-        __frame3[2]["arg1"] = function(__arg272)
-          return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+        __frame3[2]["arg1"] = function(__arg364)
+          return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
         end
         __frame3[2]["arg2"] = function(kind)
-          return function(__arg273)
-              return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+          return function(__arg365)
+              return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
             end
         end
         __frame3[3] = {}
@@ -16970,7 +17096,7 @@ idris["Utils.Path.verbatim"] = (function()
         __frame3[5]["arg1"] = 0
         __frame3[5]["arg2"] = idris["Text.Parser.match"](nil)(__frame3[3])(__frame3[4])
         __frame3[5]["arg3"] = function()
-          return function(___3371)
+          return function(___3485)
               local __frame5 = {
                 nil,
                 nil,
@@ -16982,22 +17108,22 @@ idris["Utils.Path.verbatim"] = (function()
               __frame5[1]["tag"] = "0"
               __frame5[1]["arg1"] = function(__arg2)
                 return function(__arg3)
-                    return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+                    return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
                   end
               end
               __frame5[1]["arg2"] = function(__arg4)
                 return function(__arg5)
-                    return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+                    return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
                   end
               end
               __frame5[2] = {}
               __frame5[2]["tag"] = "0"
-              __frame5[2]["arg1"] = function(__arg272)
-                return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+              __frame5[2]["arg1"] = function(__arg364)
+                return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
               end
               __frame5[2]["arg2"] = function(kind)
-                return function(__arg273)
-                    return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+                return function(__arg365)
+                    return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
                   end
               end
               __frame5[3] = {}
@@ -17012,7 +17138,7 @@ idris["Utils.Path.verbatim"] = (function()
               __frame5[5]["arg1"] = 1
               __frame5[5]["arg2"] = idris["Text.Parser.match"](nil)(__frame5[3])(__frame5[4])
               __frame5[5]["arg3"] = function()
-                return function(___3389)
+                return function(___3503)
                     local __frame7 = {
                       nil,
                       nil
@@ -17042,7 +17168,7 @@ idris["Utils.Path.verbatimUnc"] = (function()
   __frame1[1]["arg1"] = 0
   __frame1[1]["arg2"] = idris["Utils.Path.verbatim"]
   __frame1[1]["arg3"] = function()
-    return function(___3473)
+    return function(___3587)
         local __frame3 = {
           nil,
           nil,
@@ -17054,22 +17180,22 @@ idris["Utils.Path.verbatimUnc"] = (function()
         __frame3[1]["tag"] = "0"
         __frame3[1]["arg1"] = function(__arg2)
           return function(__arg3)
-              return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+              return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
             end
         end
         __frame3[1]["arg2"] = function(__arg4)
           return function(__arg5)
-              return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+              return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
             end
         end
         __frame3[2] = {}
         __frame3[2]["tag"] = "0"
-        __frame3[2]["arg1"] = function(__arg272)
-          return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+        __frame3[2]["arg1"] = function(__arg364)
+          return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
         end
         __frame3[2]["arg2"] = function(kind)
-          return function(__arg273)
-              return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+          return function(__arg365)
+              return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
             end
         end
         __frame3[3] = {}
@@ -17092,7 +17218,7 @@ idris["Utils.Path.verbatimUnc"] = (function()
               __frame5[1]["arg1"] = 0
               __frame5[1]["arg2"] = idris["Utils.Path.bodySeparator"]
               __frame5[1]["arg3"] = function()
-                return function(___3501)
+                return function(___3615)
                     local __frame7 = {
                       nil,
                       nil,
@@ -17104,22 +17230,22 @@ idris["Utils.Path.verbatimUnc"] = (function()
                     __frame7[1]["tag"] = "0"
                     __frame7[1]["arg1"] = function(__arg2)
                       return function(__arg3)
-                          return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+                          return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
                         end
                     end
                     __frame7[1]["arg2"] = function(__arg4)
                       return function(__arg5)
-                          return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+                          return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
                         end
                     end
                     __frame7[2] = {}
                     __frame7[2]["tag"] = "0"
-                    __frame7[2]["arg1"] = function(__arg272)
-                      return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+                    __frame7[2]["arg1"] = function(__arg364)
+                      return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
                     end
                     __frame7[2]["arg2"] = function(kind)
-                      return function(__arg273)
-                          return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+                      return function(__arg365)
+                          return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
                         end
                     end
                     __frame7[3] = {}
@@ -17171,22 +17297,22 @@ idris["Utils.Path.unc"] = (function()
   __frame1[1]["tag"] = "0"
   __frame1[1]["arg1"] = function(__arg2)
     return function(__arg3)
-        return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+        return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
       end
   end
   __frame1[1]["arg2"] = function(__arg4)
     return function(__arg5)
-        return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+        return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
       end
   end
   __frame1[2] = {}
   __frame1[2]["tag"] = "0"
-  __frame1[2]["arg1"] = function(__arg272)
-    return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+  __frame1[2]["arg1"] = function(__arg364)
+    return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
   end
   __frame1[2]["arg2"] = function(kind)
-    return function(__arg273)
-        return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+    return function(__arg365)
+        return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
       end
   end
   __frame1[3] = {}
@@ -17201,7 +17327,7 @@ idris["Utils.Path.unc"] = (function()
   __frame1[5]["arg1"] = 0
   __frame1[5]["arg2"] = idris["Text.Parser.count"](nil)(nil)(idris["Text.Quantity.exactly"](bigint:new("1") + bigint:new("1") + bigint:new("0")))(idris["Text.Parser.match"](nil)(__frame1[3])(__frame1[4]))
   __frame1[5]["arg3"] = function()
-    return function(___3405)
+    return function(___3519)
         local __frame3 = {
           nil,
           nil,
@@ -17213,22 +17339,22 @@ idris["Utils.Path.unc"] = (function()
         __frame3[1]["tag"] = "0"
         __frame3[1]["arg1"] = function(__arg2)
           return function(__arg3)
-              return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+              return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
             end
         end
         __frame3[1]["arg2"] = function(__arg4)
           return function(__arg5)
-              return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+              return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
             end
         end
         __frame3[2] = {}
         __frame3[2]["tag"] = "0"
-        __frame3[2]["arg1"] = function(__arg272)
-          return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+        __frame3[2]["arg1"] = function(__arg364)
+          return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
         end
         __frame3[2]["arg2"] = function(kind)
-          return function(__arg273)
-              return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+          return function(__arg365)
+              return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
             end
         end
         __frame3[3] = {}
@@ -17251,7 +17377,7 @@ idris["Utils.Path.unc"] = (function()
               __frame5[1]["arg1"] = 0
               __frame5[1]["arg2"] = idris["Utils.Path.bodySeparator"]
               __frame5[1]["arg3"] = function()
-                return function(___3445)
+                return function(___3559)
                     local __frame7 = {
                       nil,
                       nil,
@@ -17263,22 +17389,22 @@ idris["Utils.Path.unc"] = (function()
                     __frame7[1]["tag"] = "0"
                     __frame7[1]["arg1"] = function(__arg2)
                       return function(__arg3)
-                          return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+                          return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
                         end
                     end
                     __frame7[1]["arg2"] = function(__arg4)
                       return function(__arg5)
-                          return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+                          return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
                         end
                     end
                     __frame7[2] = {}
                     __frame7[2]["tag"] = "0"
-                    __frame7[2]["arg1"] = function(__arg272)
-                      return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+                    __frame7[2]["arg1"] = function(__arg364)
+                      return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
                     end
                     __frame7[2]["arg2"] = function(kind)
-                      return function(__arg273)
-                          return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+                      return function(__arg365)
+                          return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
                         end
                     end
                     __frame7[3] = {}
@@ -17320,7 +17446,7 @@ idris["Utils.Path.unc"] = (function()
 end)()
 idris["Utils.Hex.asHex"] = function(__arg0)
   return (function()
-      return idris["Utils.Hex.case[606]asHex"](__arg0)(idris["Prelude.EqOrd.>_Ord__Int"](__arg0)(bigint.tonumber(bigint:new("0"))))
+      return idris["Utils.Hex.case[696]asHex"](__arg0)(idris["Prelude.EqOrd.>_Ord_Int"](__arg0)(bigint.tonumber(bigint:new("0"))))
     end)()
 end
 idris["Text.Lexer.any"] = (function()
@@ -17521,7 +17647,7 @@ idris["Text.Lexer.stringLit"] = (function()
 end)()
 idris["Utils.Path.lexPath"] = function(__arg0)
   return (function()
-      return idris["Utils.Path.case[3292]lexPath"](__arg0)(idris["Text.Lexer.Core.lex"](nil)(idris["Utils.Path.pathTokenMap"])(__arg0))
+      return idris["Utils.Path.case[3406]lexPath"](__arg0)(idris["Text.Lexer.Core.lex"](nil)(idris["Utils.Path.pathTokenMap"])(__arg0))
     end)()
 end
 idris["Prelude.Interfaces.<$>"] = function(__arg0)
@@ -17539,7 +17665,7 @@ idris["Prelude.Interfaces.<$>"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2776]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2890]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -17589,7 +17715,7 @@ idris["Text.Parser.Core.case[2776]doParse"] = function(__arg0)
                                       return function(__eta1)
                                           return function(__eta2)
                                               return function(__eta3)
-                                                  return idris["Text.Bounded.map_Functor__WithBounds"](nil)(nil)(__eta2)(__eta3)
+                                                  return idris["Text.Bounded.map_Functor_WithBounds"](nil)(nil)(__eta2)(__eta3)
                                                 end
                                             end
                                         end
@@ -17615,7 +17741,7 @@ idris["Text.Parser.Core.case[2776]doParse"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2164]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2278]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -17665,7 +17791,7 @@ idris["Text.Parser.Core.case[2164]doParse"] = function(__arg0)
                                           return function(__eta1)
                                               return function(__eta2)
                                                   return function(__eta3)
-                                                      return idris["Text.Bounded.map_Functor__WithBounds"](nil)(nil)(__eta2)(__eta3)
+                                                      return idris["Text.Bounded.map_Functor_WithBounds"](nil)(nil)(__eta2)(__eta3)
                                                     end
                                                 end
                                             end
@@ -17903,7 +18029,7 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
                               return function(a)
                                   return function(func)
                                       return function(__arg149)
-                                          return idris["Text.Bounded.map_Functor__WithBounds"](nil)(nil)(func)(__arg149)
+                                          return idris["Text.Bounded.map_Functor_WithBounds"](nil)(nil)(func)(__arg149)
                                         end
                                     end
                                 end
@@ -17919,103 +18045,103 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
                           __frame3[3]["tag"] = "0"
                           __frame3[3]["arg1"] = function(__arg4)
                             return function(__arg5)
-                                return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                                return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                               end
                           end
                           __frame3[3]["arg2"] = function(__arg4)
                             return function(__arg5)
-                                return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                                return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                               end
                           end
                           __frame3[4] = {}
                           __frame3[4]["tag"] = "0"
                           __frame3[4]["arg1"] = __frame3[3]
-                          __frame3[4]["arg2"] = function(__arg369)
-                            return function(__arg370)
-                                return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                              end
-                          end
-                          __frame3[4]["arg3"] = function(__arg371)
+                          __frame3[4]["arg2"] = function(__arg371)
                             return function(__arg372)
-                                return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                                return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                               end
                           end
-                          __frame3[4]["arg4"] = function(__arg373)
+                          __frame3[4]["arg3"] = function(__arg373)
                             return function(__arg374)
-                                return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                                return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                               end
                           end
-                          __frame3[4]["arg5"] = function(__arg375)
+                          __frame3[4]["arg4"] = function(__arg375)
                             return function(__arg376)
-                                return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                                return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                               end
                           end
-                          __frame3[4]["arg6"] = function(__arg377)
+                          __frame3[4]["arg5"] = function(__arg377)
                             return function(__arg378)
-                                return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                                return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                               end
                           end
-                          __frame3[4]["arg7"] = function(__arg379)
+                          __frame3[4]["arg6"] = function(__arg379)
                             return function(__arg380)
-                                return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                                return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                               end
                           end
-                          __frame3[4]["arg8"] = function(__arg381)
+                          __frame3[4]["arg7"] = function(__arg381)
                             return function(__arg382)
-                                return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                                return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
+                              end
+                          end
+                          __frame3[4]["arg8"] = function(__arg383)
+                            return function(__arg384)
+                                return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
                               end
                           end
                           __frame3[5] = {}
                           __frame3[5]["tag"] = "0"
                           __frame3[5]["arg1"] = function(__arg4)
                             return function(__arg5)
-                                return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                                return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                               end
                           end
                           __frame3[5]["arg2"] = function(__arg4)
                             return function(__arg5)
-                                return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                                return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                               end
                           end
                           __frame3[6] = {}
                           __frame3[6]["tag"] = "0"
                           __frame3[6]["arg1"] = __frame3[5]
-                          __frame3[6]["arg2"] = function(__arg369)
-                            return function(__arg370)
-                                return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                              end
-                          end
-                          __frame3[6]["arg3"] = function(__arg371)
+                          __frame3[6]["arg2"] = function(__arg371)
                             return function(__arg372)
-                                return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                                return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                               end
                           end
-                          __frame3[6]["arg4"] = function(__arg373)
+                          __frame3[6]["arg3"] = function(__arg373)
                             return function(__arg374)
-                                return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                                return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                               end
                           end
-                          __frame3[6]["arg5"] = function(__arg375)
+                          __frame3[6]["arg4"] = function(__arg375)
                             return function(__arg376)
-                                return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                                return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                               end
                           end
-                          __frame3[6]["arg6"] = function(__arg377)
+                          __frame3[6]["arg5"] = function(__arg377)
                             return function(__arg378)
-                                return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                                return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                               end
                           end
-                          __frame3[6]["arg7"] = function(__arg379)
+                          __frame3[6]["arg6"] = function(__arg379)
                             return function(__arg380)
-                                return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                                return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                               end
                           end
-                          __frame3[6]["arg8"] = function(__arg381)
+                          __frame3[6]["arg7"] = function(__arg381)
                             return function(__arg382)
-                                return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                                return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
                               end
                           end
-                          __frame3[8] = idris["Text.Bounded.case[995]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame3[4])(__frame3[6])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
+                          __frame3[6]["arg8"] = function(__arg383)
+                            return function(__arg384)
+                                return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
+                              end
+                          end
+                          __frame3[8] = idris["Text.Bounded.case[1109]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame3[4])(__frame3[6])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
                         end
                         return __frame3[8]
                       end
@@ -18027,103 +18153,103 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
                         __frame2[5]["tag"] = "0"
                         __frame2[5]["arg1"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[5]["arg2"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[6] = {}
                         __frame2[6]["tag"] = "0"
                         __frame2[6]["arg1"] = __frame2[5]
-                        __frame2[6]["arg2"] = function(__arg369)
-                          return function(__arg370)
-                              return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                            end
-                        end
-                        __frame2[6]["arg3"] = function(__arg371)
+                        __frame2[6]["arg2"] = function(__arg371)
                           return function(__arg372)
-                              return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                              return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                             end
                         end
-                        __frame2[6]["arg4"] = function(__arg373)
+                        __frame2[6]["arg3"] = function(__arg373)
                           return function(__arg374)
-                              return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                              return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                             end
                         end
-                        __frame2[6]["arg5"] = function(__arg375)
+                        __frame2[6]["arg4"] = function(__arg375)
                           return function(__arg376)
-                              return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                              return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                             end
                         end
-                        __frame2[6]["arg6"] = function(__arg377)
+                        __frame2[6]["arg5"] = function(__arg377)
                           return function(__arg378)
-                              return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                              return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                             end
                         end
-                        __frame2[6]["arg7"] = function(__arg379)
+                        __frame2[6]["arg6"] = function(__arg379)
                           return function(__arg380)
-                              return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                              return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                             end
                         end
-                        __frame2[6]["arg8"] = function(__arg381)
+                        __frame2[6]["arg7"] = function(__arg381)
                           return function(__arg382)
-                              return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                              return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
+                            end
+                        end
+                        __frame2[6]["arg8"] = function(__arg383)
+                          return function(__arg384)
+                              return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
                             end
                         end
                         __frame2[7] = {}
                         __frame2[7]["tag"] = "0"
                         __frame2[7]["arg1"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[7]["arg2"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[8] = {}
                         __frame2[8]["tag"] = "0"
                         __frame2[8]["arg1"] = __frame2[7]
-                        __frame2[8]["arg2"] = function(__arg369)
-                          return function(__arg370)
-                              return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                            end
-                        end
-                        __frame2[8]["arg3"] = function(__arg371)
+                        __frame2[8]["arg2"] = function(__arg371)
                           return function(__arg372)
-                              return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                              return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                             end
                         end
-                        __frame2[8]["arg4"] = function(__arg373)
+                        __frame2[8]["arg3"] = function(__arg373)
                           return function(__arg374)
-                              return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                              return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                             end
                         end
-                        __frame2[8]["arg5"] = function(__arg375)
+                        __frame2[8]["arg4"] = function(__arg375)
                           return function(__arg376)
-                              return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                              return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                             end
                         end
-                        __frame2[8]["arg6"] = function(__arg377)
+                        __frame2[8]["arg5"] = function(__arg377)
                           return function(__arg378)
-                              return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                              return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                             end
                         end
-                        __frame2[8]["arg7"] = function(__arg379)
+                        __frame2[8]["arg6"] = function(__arg379)
                           return function(__arg380)
-                              return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                              return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                             end
                         end
-                        __frame2[8]["arg8"] = function(__arg381)
+                        __frame2[8]["arg7"] = function(__arg381)
                           return function(__arg382)
-                              return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                              return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
                             end
                         end
-                        __frame2[10] = idris["Text.Bounded.case[995]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame2[6])(__frame2[8])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
+                        __frame2[8]["arg8"] = function(__arg383)
+                          return function(__arg384)
+                              return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
+                            end
+                        end
+                        __frame2[10] = idris["Text.Bounded.case[1109]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame2[6])(__frame2[8])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
                       end
                       __frame2[12] = __frame2[10]
                     end
@@ -18159,7 +18285,7 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
                             return function(a)
                                 return function(func)
                                     return function(__arg149)
-                                        return idris["Text.Bounded.map_Functor__WithBounds"](nil)(nil)(func)(__arg149)
+                                        return idris["Text.Bounded.map_Functor_WithBounds"](nil)(nil)(func)(__arg149)
                                       end
                                   end
                               end
@@ -18175,103 +18301,103 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
                         __frame2[3]["tag"] = "0"
                         __frame2[3]["arg1"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[3]["arg2"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[4] = {}
                         __frame2[4]["tag"] = "0"
                         __frame2[4]["arg1"] = __frame2[3]
-                        __frame2[4]["arg2"] = function(__arg369)
-                          return function(__arg370)
-                              return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                            end
-                        end
-                        __frame2[4]["arg3"] = function(__arg371)
+                        __frame2[4]["arg2"] = function(__arg371)
                           return function(__arg372)
-                              return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                              return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                             end
                         end
-                        __frame2[4]["arg4"] = function(__arg373)
+                        __frame2[4]["arg3"] = function(__arg373)
                           return function(__arg374)
-                              return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                              return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                             end
                         end
-                        __frame2[4]["arg5"] = function(__arg375)
+                        __frame2[4]["arg4"] = function(__arg375)
                           return function(__arg376)
-                              return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                              return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                             end
                         end
-                        __frame2[4]["arg6"] = function(__arg377)
+                        __frame2[4]["arg5"] = function(__arg377)
                           return function(__arg378)
-                              return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                              return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                             end
                         end
-                        __frame2[4]["arg7"] = function(__arg379)
+                        __frame2[4]["arg6"] = function(__arg379)
                           return function(__arg380)
-                              return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                              return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                             end
                         end
-                        __frame2[4]["arg8"] = function(__arg381)
+                        __frame2[4]["arg7"] = function(__arg381)
                           return function(__arg382)
-                              return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                              return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
+                            end
+                        end
+                        __frame2[4]["arg8"] = function(__arg383)
+                          return function(__arg384)
+                              return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
                             end
                         end
                         __frame2[5] = {}
                         __frame2[5]["tag"] = "0"
                         __frame2[5]["arg1"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[5]["arg2"] = function(__arg4)
                           return function(__arg5)
-                              return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                              return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                             end
                         end
                         __frame2[6] = {}
                         __frame2[6]["tag"] = "0"
                         __frame2[6]["arg1"] = __frame2[5]
-                        __frame2[6]["arg2"] = function(__arg369)
-                          return function(__arg370)
-                              return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                            end
-                        end
-                        __frame2[6]["arg3"] = function(__arg371)
+                        __frame2[6]["arg2"] = function(__arg371)
                           return function(__arg372)
-                              return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                              return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                             end
                         end
-                        __frame2[6]["arg4"] = function(__arg373)
+                        __frame2[6]["arg3"] = function(__arg373)
                           return function(__arg374)
-                              return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                              return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                             end
                         end
-                        __frame2[6]["arg5"] = function(__arg375)
+                        __frame2[6]["arg4"] = function(__arg375)
                           return function(__arg376)
-                              return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                              return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                             end
                         end
-                        __frame2[6]["arg6"] = function(__arg377)
+                        __frame2[6]["arg5"] = function(__arg377)
                           return function(__arg378)
-                              return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                              return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                             end
                         end
-                        __frame2[6]["arg7"] = function(__arg379)
+                        __frame2[6]["arg6"] = function(__arg379)
                           return function(__arg380)
-                              return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                              return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                             end
                         end
-                        __frame2[6]["arg8"] = function(__arg381)
+                        __frame2[6]["arg7"] = function(__arg381)
                           return function(__arg382)
-                              return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                              return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
                             end
                         end
-                        __frame2[8] = idris["Text.Bounded.case[995]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame2[4])(__frame2[6])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
+                        __frame2[6]["arg8"] = function(__arg383)
+                          return function(__arg384)
+                              return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
+                            end
+                        end
+                        __frame2[8] = idris["Text.Bounded.case[1109]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame2[4])(__frame2[6])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
                       end
                       return __frame2[8]
                     end
@@ -18283,103 +18409,103 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
                       __frame1[5]["tag"] = "0"
                       __frame1[5]["arg1"] = function(__arg4)
                         return function(__arg5)
-                            return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                            return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                           end
                       end
                       __frame1[5]["arg2"] = function(__arg4)
                         return function(__arg5)
-                            return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                            return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                           end
                       end
                       __frame1[6] = {}
                       __frame1[6]["tag"] = "0"
                       __frame1[6]["arg1"] = __frame1[5]
-                      __frame1[6]["arg2"] = function(__arg369)
-                        return function(__arg370)
-                            return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                          end
-                      end
-                      __frame1[6]["arg3"] = function(__arg371)
+                      __frame1[6]["arg2"] = function(__arg371)
                         return function(__arg372)
-                            return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                            return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                           end
                       end
-                      __frame1[6]["arg4"] = function(__arg373)
+                      __frame1[6]["arg3"] = function(__arg373)
                         return function(__arg374)
-                            return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                            return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                           end
                       end
-                      __frame1[6]["arg5"] = function(__arg375)
+                      __frame1[6]["arg4"] = function(__arg375)
                         return function(__arg376)
-                            return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                            return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                           end
                       end
-                      __frame1[6]["arg6"] = function(__arg377)
+                      __frame1[6]["arg5"] = function(__arg377)
                         return function(__arg378)
-                            return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                            return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                           end
                       end
-                      __frame1[6]["arg7"] = function(__arg379)
+                      __frame1[6]["arg6"] = function(__arg379)
                         return function(__arg380)
-                            return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                            return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                           end
                       end
-                      __frame1[6]["arg8"] = function(__arg381)
+                      __frame1[6]["arg7"] = function(__arg381)
                         return function(__arg382)
-                            return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                            return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
+                          end
+                      end
+                      __frame1[6]["arg8"] = function(__arg383)
+                        return function(__arg384)
+                            return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
                           end
                       end
                       __frame1[7] = {}
                       __frame1[7]["tag"] = "0"
                       __frame1[7]["arg1"] = function(__arg4)
                         return function(__arg5)
-                            return idris["Prelude.EqOrd.==_Eq__Int"](__arg4)(__arg5)
+                            return idris["Prelude.EqOrd.==_Eq_Int"](__arg4)(__arg5)
                           end
                       end
                       __frame1[7]["arg2"] = function(__arg4)
                         return function(__arg5)
-                            return idris["Prelude.EqOrd./=_Eq__Int"](__arg4)(__arg5)
+                            return idris["Prelude.EqOrd./=_Eq_Int"](__arg4)(__arg5)
                           end
                       end
                       __frame1[8] = {}
                       __frame1[8]["tag"] = "0"
                       __frame1[8]["arg1"] = __frame1[7]
-                      __frame1[8]["arg2"] = function(__arg369)
-                        return function(__arg370)
-                            return idris["Prelude.EqOrd.compare_Ord__Int"](__arg369)(__arg370)
-                          end
-                      end
-                      __frame1[8]["arg3"] = function(__arg371)
+                      __frame1[8]["arg2"] = function(__arg371)
                         return function(__arg372)
-                            return idris["Prelude.EqOrd.<_Ord__Int"](__arg371)(__arg372)
+                            return idris["Prelude.EqOrd.compare_Ord_Int"](__arg371)(__arg372)
                           end
                       end
-                      __frame1[8]["arg4"] = function(__arg373)
+                      __frame1[8]["arg3"] = function(__arg373)
                         return function(__arg374)
-                            return idris["Prelude.EqOrd.>_Ord__Int"](__arg373)(__arg374)
+                            return idris["Prelude.EqOrd.<_Ord_Int"](__arg373)(__arg374)
                           end
                       end
-                      __frame1[8]["arg5"] = function(__arg375)
+                      __frame1[8]["arg4"] = function(__arg375)
                         return function(__arg376)
-                            return idris["Prelude.EqOrd.<=_Ord__Int"](__arg375)(__arg376)
+                            return idris["Prelude.EqOrd.>_Ord_Int"](__arg375)(__arg376)
                           end
                       end
-                      __frame1[8]["arg6"] = function(__arg377)
+                      __frame1[8]["arg5"] = function(__arg377)
                         return function(__arg378)
-                            return idris["Prelude.EqOrd.>=_Ord__Int"](__arg377)(__arg378)
+                            return idris["Prelude.EqOrd.<=_Ord_Int"](__arg377)(__arg378)
                           end
                       end
-                      __frame1[8]["arg7"] = function(__arg379)
+                      __frame1[8]["arg6"] = function(__arg379)
                         return function(__arg380)
-                            return idris["Prelude.EqOrd.max_Ord__Int"](__arg379)(__arg380)
+                            return idris["Prelude.EqOrd.>=_Ord_Int"](__arg379)(__arg380)
                           end
                       end
-                      __frame1[8]["arg8"] = function(__arg381)
+                      __frame1[8]["arg7"] = function(__arg381)
                         return function(__arg382)
-                            return idris["Prelude.EqOrd.min_Ord__Int"](__arg381)(__arg382)
+                            return idris["Prelude.EqOrd.max_Ord_Int"](__arg381)(__arg382)
                           end
                       end
-                      __frame1[10] = idris["Text.Bounded.case[995]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame1[6])(__frame1[8])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
+                      __frame1[8]["arg8"] = function(__arg383)
+                        return function(__arg384)
+                            return idris["Prelude.EqOrd.min_Ord_Int"](__arg383)(__arg384)
+                          end
+                      end
+                      __frame1[10] = idris["Text.Bounded.case[1109]mergeBounds"](nil)(nil)(__arg3)(__arg2)(idris["Prelude.EqOrd.min_Ord_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame1[6])(__frame1[8])(idris["Text.Bounded.start"](nil)(__arg2))(idris["Text.Bounded.start"](nil)(__arg3)))
                     end
                     __frame1[12] = __frame1[10]
                   end
@@ -18389,7 +18515,7 @@ idris["Text.Bounded.mergeBounds"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2691]case block in doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2805]case block in doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -18465,7 +18591,7 @@ idris["Text.Parser.Core.case[2691]case block in doParse"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2537]case block in doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2651]case block in doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -18543,7 +18669,7 @@ idris["Text.Parser.Core.case[2537]case block in doParse"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2631]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2745]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -18605,7 +18731,7 @@ idris["Text.Parser.Core.case[2631]doParse"] = function(__arg0)
                                             else
                                               idris["error"]("Impossible else branch")
                                             end
-                                            return idris["Text.Parser.Core.case[2691]case block in doParse"](nil)(nil)(nil)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(nil)(__e10)(__e9)(__e8)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__e8)(__arg4()(__frame2[4]))(__e10))
+                                            return idris["Text.Parser.Core.case[2805]case block in doParse"](nil)(nil)(nil)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(nil)(__e10)(__e9)(__e8)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__e8)(__arg4()(__frame2[4]))(__e10))
                                           end
                                           __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                                           if __frame1[3] then
@@ -18625,7 +18751,7 @@ idris["Text.Parser.Core.case[2631]doParse"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2473]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2587]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -18688,7 +18814,7 @@ idris["Text.Parser.Core.case[2473]doParse"] = function(__arg0)
                                                 else
                                                   idris["error"]("Impossible else branch")
                                                 end
-                                                return idris["Text.Parser.Core.case[2537]case block in doParse"](nil)(nil)(nil)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(nil)(__e10)(__e9)(__e8)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__e8)(__arg5(__frame2[4]))(__e10))
+                                                return idris["Text.Parser.Core.case[2651]case block in doParse"](nil)(nil)(nil)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(nil)(__e10)(__e9)(__e8)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__e8)(__arg5(__frame2[4]))(__e10))
                                               end
                                               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                                               if __frame1[3] then
@@ -18709,7 +18835,7 @@ idris["Text.Parser.Core.case[2473]doParse"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2362]case block in doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2476]case block in doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -18772,7 +18898,7 @@ idris["Text.Parser.Core.case[2362]case block in doParse"] = function(__arg0)
         end
     end
 end
-idris["Text.Parser.Core.case[2338]doParse"] = function(__arg0)
+idris["Text.Parser.Core.case[2452]doParse"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -18799,7 +18925,7 @@ idris["Text.Parser.Core.case[2338]doParse"] = function(__arg0)
                                             local __e3 = __frame1[1]["arg2"]
                                             local __e4 = __frame1[1]["arg3"]
                                             local __e5 = __frame1[1]["arg4"]
-                                            return idris["Text.Parser.Core.case[2362]case block in doParse"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(nil)(__e5)(__e4)(__e3)(__e2)(idris["Prelude.Basics.||"](__e2)(function()
+                                            return idris["Text.Parser.Core.case[2476]case block in doParse"](nil)(nil)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(nil)(__e5)(__e4)(__e3)(__e2)(idris["Prelude.Basics.||"](__e2)(function()
                                                 return __e3
                                               end))
                                           end
@@ -18890,7 +19016,7 @@ idris["Text.Parser.Core.doParse"] = function(__arg0)
                           end
                           __frame1[2]["5"] = function()
                             local __e11 = __frame1[1]["arg1"]
-                            return idris["Text.Parser.Core.case[2040]doParse"](nil)(nil)(nil)(__e11)(__arg5)(__arg3)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e11)(__arg5))
+                            return idris["Text.Parser.Core.case[2154]doParse"](nil)(nil)(nil)(__e11)(__arg5)(__arg3)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e11)(__arg5))
                           end
                           __frame1[2]["6"] = function()
                             local __frame2 = {
@@ -18908,7 +19034,7 @@ idris["Text.Parser.Core.doParse"] = function(__arg0)
                           end
                           __frame1[2]["7"] = function()
                             local __e16 = __frame1[1]["arg1"]
-                            return idris["Text.Parser.Core.case[2101]doParse"](nil)(nil)(nil)(__e16)(__arg5)(__arg3)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e16)(__arg5))
+                            return idris["Text.Parser.Core.case[2215]doParse"](nil)(nil)(nil)(__e16)(__arg5)(__arg3)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e16)(__arg5))
                           end
                           __frame1[2]["1"] = function()
                             local __frame2 = {
@@ -18942,7 +19068,7 @@ idris["Text.Parser.Core.doParse"] = function(__arg0)
                             __frame2[2]["1"] = function()
                               local __e50 = __frame2[1]["arg1"]
                               local __e51 = __frame2[1]["arg2"]
-                              return idris["Text.Parser.Core.case[2164]doParse"](nil)(nil)(__e20)(__e19)(__e50)(__e51)(__arg3)(nil)(__e20(__e50))
+                              return idris["Text.Parser.Core.case[2278]doParse"](nil)(nil)(__e20)(__e19)(__e50)(__e51)(__arg3)(nil)(__e20(__e50))
                             end
                             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                             if __frame2[3] then
@@ -19040,7 +19166,7 @@ idris["Text.Parser.Core.doParse"] = function(__arg0)
                             __frame2[2]["1"] = function()
                               local __e58 = __frame2[1]["arg1"]
                               local __e59 = __frame2[1]["arg2"]
-                              return idris["Text.Parser.Core.case[2275]doParse"](nil)(__e24)(__e23)(__e58)(__e59)(__arg3)(nil)(nil)(__e24(__e58))
+                              return idris["Text.Parser.Core.case[2389]doParse"](nil)(__e24)(__e23)(__e58)(__e59)(__arg3)(nil)(nil)(__e24(__e58))
                             end
                             __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                             if __frame2[3] then
@@ -19055,24 +19181,24 @@ idris["Text.Parser.Core.doParse"] = function(__arg0)
                             local __e28 = __frame1[1]["arg2"]
                             local __e29 = __frame1[1]["arg3"]
                             local __e30 = __frame1[1]["arg4"]
-                            return idris["Text.Parser.Core.case[2338]doParse"](nil)(nil)(__e28)(__e30)(__e27)(__e29)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(1)(__e29)(__arg5))
+                            return idris["Text.Parser.Core.case[2452]doParse"](nil)(nil)(__e28)(__e30)(__e27)(__e29)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(1)(__e29)(__arg5))
                           end
                           __frame1[2]["9"] = function()
                             local __e34 = __frame1[1]["arg1"]
                             local __e35 = __frame1[1]["arg2"]
                             local __e36 = __frame1[1]["arg3"]
                             local __e37 = __frame1[1]["arg4"]
-                            return idris["Text.Parser.Core.case[2473]doParse"](nil)(nil)(nil)(__e34)(__e35)(__e37)(__e36)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e36)(__arg5))
+                            return idris["Text.Parser.Core.case[2587]doParse"](nil)(nil)(nil)(__e34)(__e35)(__e37)(__e36)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e36)(__arg5))
                           end
                           __frame1[2]["8"] = function()
                             local __e41 = __frame1[1]["arg1"]
                             local __e42 = __frame1[1]["arg2"]
                             local __e43 = __frame1[1]["arg3"]
-                            return idris["Text.Parser.Core.case[2631]doParse"](nil)(nil)(nil)(__e41)(__e43)(__e42)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e42)(__arg5))
+                            return idris["Text.Parser.Core.case[2745]doParse"](nil)(nil)(nil)(__e41)(__e43)(__e42)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e42)(__arg5))
                           end
                           __frame1[2]["11"] = function()
                             local __e47 = __frame1[1]["arg1"]
-                            return idris["Text.Parser.Core.case[2776]doParse"](nil)(nil)(nil)(__e47)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e47)(__arg5))
+                            return idris["Text.Parser.Core.case[2890]doParse"](nil)(nil)(nil)(__e47)(__arg5)(__arg3)(nil)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(__arg3)(__e47)(__arg5))
                           end
                           __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                           if __frame1[3] then
@@ -19094,7 +19220,7 @@ idris["Text.Parser.Core.parse"] = function(__arg0)
           return function(__arg3)
               return function(__arg4)
                   return (function()
-                      return idris["Text.Parser.Core.case[2838]parse"](nil)(nil)(__arg2)(__arg4)(__arg3)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(1)(__arg3)(__arg4))
+                      return idris["Text.Parser.Core.case[2952]parse"](nil)(nil)(__arg2)(__arg4)(__arg3)(idris["Text.Parser.Core.doParse"](nil)(nil)(nil)(1)(__arg3)(__arg4))
                     end)()
                 end
             end
@@ -19108,7 +19234,7 @@ idris["Prelude.Types.Strings.++"] = function(__arg0)
         end)()
     end
 end
-idris["Plugin.case[4657]case block in case block in getSourceDirectory"] = function(__arg0)
+idris["Plugin.case[4230]case block in case block in getSourceDirectory"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -19148,7 +19274,7 @@ idris["Plugin.case[4657]case block in case block in getSourceDirectory"] = funct
         end
     end
 end
-idris["Utils.Hex.case[625]leftPad"] = function(__arg0)
+idris["Utils.Hex.case[715]leftPad"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -19182,7 +19308,7 @@ idris["Utils.Hex.case[625]leftPad"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Show.2169:6499:show'"] = function(__arg0)
+idris["Prelude.Show.2206:6927:show'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -19260,7 +19386,7 @@ idris["Prelude.Show.2169:6499:show'"] = function(__arg0)
                           else
                             idris["error"]("Impossible else branch")
                           end
-                          __frame2[8] = idris["Prelude.Show.2169:6499:show'"](nil)(__arg1)(__arg2)(idris["Prelude.Types.Strings.++"](__arg3)(idris["Prelude.Types.Strings.++"](__frame2[6])(", ")))(__e3)
+                          __frame2[8] = idris["Prelude.Show.2206:6927:show'"](nil)(__arg1)(__arg2)(idris["Prelude.Types.Strings.++"](__arg3)(idris["Prelude.Types.Strings.++"](__frame2[6])(", ")))(__e3)
                         end
                         return __frame2[8]
                       end
@@ -19277,7 +19403,7 @@ idris["Prelude.Show.2169:6499:show'"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Show.show_Show__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
+idris["Prelude.Show.show_Show_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -19347,11 +19473,11 @@ idris["Prelude.Show.show_Show__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)
         end
     end
 end
-idris["Prelude.Show.show_Show__(List $a)"] = function(__arg0)
+idris["Prelude.Show.show_Show_(List $a)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
-              return idris["Prelude.Types.Strings.++"]("[")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.2169:6499:show'"](nil)(__arg1)(__arg2)("")(__arg2))("]"))
+              return idris["Prelude.Types.Strings.++"]("[")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.2206:6927:show'"](nil)(__arg1)(__arg2)("")(__arg2))("]"))
             end)()
         end
     end
@@ -19385,7 +19511,7 @@ idris["Parser.Rule.Source.symbol"] = function(__arg0)
         else
           idris["error"]("Impossible else branch")
         end
-        return idris["Parser.Rule.Source.case[2672]symbol"](__arg0)(x)(__frame2[4])
+        return idris["Parser.Rule.Source.case[2879]symbol"](__arg0)(x)(__frame2[4])
       end
       return __frame1[1]
     end)()
@@ -19441,7 +19567,7 @@ idris["Language.Reflection.TT.showSep"] = function(__arg0)
         end)()
     end
 end
-idris["Language.Reflection.TT.show_Show__Namespace"] = function(__arg0)
+idris["Language.Reflection.TT.show_Show_Namespace"] = function(__arg0)
   return (function()
       return idris["Language.Reflection.TT.showSep"](".")(idris["Data.List.reverse"](nil)(__arg0))
     end)()
@@ -19534,7 +19660,7 @@ idris["Core.Name.Namespace.showNSWithSep"] = function(__arg0)
         end)()
     end
 end
-idris["Core.Name.Namespace.show_Show__Namespace"] = function(__ext0)
+idris["Core.Name.Namespace.show_Show_Namespace"] = function(__ext0)
   return (function()
       return idris["Core.Name.Namespace.showNSWithSep"](".")(__ext0)
     end)()
@@ -19543,7 +19669,7 @@ idris["Prelude.Show.protectEsc"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
-              return idris["Prelude.Types.Strings.++"](__arg1)(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.case[5936]protectEsc"](__arg2)(__arg1)(__arg0)(idris["Prelude.Show.firstCharIs"](__arg0)(__arg2)))(__arg2))
+              return idris["Prelude.Types.Strings.++"](__arg1)(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.case[6364]protectEsc"](__arg2)(__arg1)(__arg0)(idris["Prelude.Show.firstCharIs"](__arg0)(__arg2)))(__arg2))
             end)()
         end
     end
@@ -19552,7 +19678,7 @@ idris["Utils.Hex.leftPad"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
-              return idris["Utils.Hex.case[625]leftPad"](__arg2)(__arg1)(__arg0)(idris["Prelude.Types.<_Ord__Nat"](idris["Prelude.Types.Strings.length"](__arg2))(__arg1))
+              return idris["Utils.Hex.case[715]leftPad"](__arg2)(__arg1)(__arg0)(idris["Prelude.Types.<_Ord_Nat"](idris["Prelude.Types.Strings.length"](__arg2))(__arg1))
             end)()
         end
     end
@@ -19586,7 +19712,7 @@ idris["Parser.Rule.Source.exactIdent"] = function(__arg0)
         else
           idris["error"]("Impossible else branch")
         end
-        return idris["Parser.Rule.Source.case[2773]exactIdent"](__arg0)(x)(__frame2[4])
+        return idris["Parser.Rule.Source.case[2980]exactIdent"](__arg0)(x)(__frame2[4])
       end
       return __frame1[1]
     end)()
@@ -19606,7 +19732,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -19659,8 +19785,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.bufexists"](nil)(__frame1[3])(idris["Plugin.responseBufferName"])(__ext0)
@@ -19671,7 +19797,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -19726,7 +19852,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -19779,8 +19905,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
               __frame3[3]["tag"] = "0"
               __frame3[3]["arg1"] = __frame3[2]
               __frame3[3]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act25 = idris["Foreign.nvimCommand"](nil)(__frame3[3])("let prevBuf = bufnr(@#)")(__eta0)
@@ -19791,7 +19917,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -19844,8 +19970,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
               __frame3[6]["tag"] = "0"
               __frame3[6]["arg1"] = __frame3[5]
               __frame3[6]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act26 = idris["Foreign.nvimCommand"](nil)(__frame3[6])(idris["Prelude.Types.Strings.++"]("badd ")(idris["Plugin.responseBufferName"]))(__eta0)
@@ -19856,7 +19982,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -19909,8 +20035,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
               __frame3[9]["tag"] = "0"
               __frame3[9]["arg1"] = __frame3[8]
               __frame3[9]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act27 = idris["Foreign.nvimCommand"](nil)(__frame3[9])(idris["Prelude.Types.Strings.++"]("b ")(idris["Plugin.responseBufferName"]))(__eta0)
@@ -19921,7 +20047,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -19974,8 +20100,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
               __frame3[12]["tag"] = "0"
               __frame3[12]["arg1"] = __frame3[11]
               __frame3[12]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act28 = idris["Foreign.nvimCommand"](nil)(__frame3[12])("set buftype=nofile")(__eta0)
@@ -19986,7 +20112,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -20039,8 +20165,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
               __frame3[15]["tag"] = "0"
               __frame3[15]["arg1"] = __frame3[14]
               __frame3[15]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act29 = idris["Foreign.nvimCommand"](nil)(__frame3[15])("b #")(__eta0)
@@ -20051,7 +20177,7 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -20104,8 +20230,8 @@ idris["Plugin.createResponseBuffer"] = function(__ext0)
               __frame3[18]["tag"] = "0"
               __frame3[18]["arg1"] = __frame3[17]
               __frame3[18]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               return idris["Foreign.nvimCommand"](nil)(__frame3[18])("let @# = prevBuf")(__eta0)
@@ -20154,7 +20280,7 @@ idris["Prelude.Types.List.++"] = function(__arg0)
         end
     end
 end
-idris["Idris.IDEMode.Parser.case[405]idelex"] = function(__arg0)
+idris["Idris.IDEMode.Parser.case[495]idelex"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -20236,7 +20362,7 @@ idris["Idris.IDEMode.Parser.case[405]idelex"] = function(__arg0)
                   __frame5[5] = {}
                   __frame5[5]["tag"] = "1"
                   __frame5[5]["arg1"] = idris["Prelude.Types.List.++"](nil)(idris["Data.List.filter"](nil)(function(__eta0)
-                    return idris["Idris.IDEMode.Parser.3567:381:notComment"](__arg0)(__eta0)
+                    return idris["Idris.IDEMode.Parser.3646:471:notComment"](__arg0)(__eta0)
                   end)(__e2))(__frame5[4])
                   return __frame5[5]
                 end
@@ -20283,7 +20409,7 @@ idris["Idris.IDEMode.Parser.case[405]idelex"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Types.<+>_Semigroup__(List $a)"] = function(__arg0)
+idris["Prelude.Types.<+>_Semigroup_(List $a)"] = function(__arg0)
   return function(__ext0)
       return function(__ext1)
           return (function()
@@ -20325,7 +20451,7 @@ idris["Idris.IDEMode.Commands.escape"] = function(__ext0)
             return function(func)
                 return function(init)
                     return function(input)
-                        return idris["Prelude.Types.foldr_Foldable__List"](nil)(nil)(func)(init)(input)
+                        return idris["Prelude.Types.foldr_Foldable_List"](nil)(nil)(func)(init)(input)
                       end
                   end
               end
@@ -20336,26 +20462,31 @@ idris["Idris.IDEMode.Commands.escape"] = function(__ext0)
             return function(func)
                 return function(init)
                     return function(input)
-                        return idris["Prelude.Types.foldl_Foldable__List"](nil)(nil)(func)(init)(input)
+                        return idris["Prelude.Types.foldl_Foldable_List"](nil)(nil)(func)(init)(input)
                       end
                   end
               end
+          end
+      end
+      __frame1[1]["arg3"] = function(elem)
+        return function(__arg821)
+            return idris["Prelude.Types.null_Foldable_List"](nil)(__arg821)
           end
       end
       __frame1[2] = {}
       __frame1[2]["tag"] = "0"
       __frame1[2]["arg1"] = function(__arg2)
         return function(__arg3)
-            return idris["Prelude.Types.<+>_Semigroup__(List $a)"](nil)(__arg2)(__arg3)
+            return idris["Prelude.Types.<+>_Semigroup_(List $a)"](nil)(__arg2)(__arg3)
           end
       end
-      __frame1[2]["arg2"] = idris["Prelude.Types.neutral_Monoid__(List $a)"](nil)
+      __frame1[2]["arg2"] = idris["Prelude.Types.neutral_Monoid_(List $a)"](nil)
       __frame1[3] = {}
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[1]
       __frame1[3]["arg2"] = __frame1[2]
       return idris["Prelude.Types.pack"](idris["Prelude.Interfaces.concatMap"](nil)(nil)(nil)(__frame1[3])(function(__eta0)
-          return idris["Idris.IDEMode.Commands.3729:3322:escapeChar"](__eta0)
+          return idris["Idris.IDEMode.Commands.3833:3437:escapeChar"](__eta0)
         end)(idris["Prelude.Types.unpack"](__ext0)))
     end)()
 end
@@ -20452,10 +20583,10 @@ idris["Prelude.Interfaces.traverse_"] = function(__arg0)
                                   local __frame4 = {
                                     nil
                                   }
-                                  local __e4 = __frame3[1]["arg2"]
+                                  local __e5 = __frame3[1]["arg2"]
                                   __frame4[1] = {}
                                   __frame4[1]["tag"] = "0"
-                                  return __e4(nil)(__frame4[1])
+                                  return __e5(nil)(__frame4[1])
                                 end
                                 __frame3[3] = __frame3[2][__frame3[1]["tag"]]
                                 if __frame3[3] then
@@ -20533,7 +20664,7 @@ idris["Prelude.Basics.&&"] = function(__arg0)
         end)()
     end
 end
-idris["Data.Strings.case[1514]parseNumWithoutSign"] = function(__arg0)
+idris["Data.Strings.case[1721]parseNumWithoutSign"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -20550,7 +20681,7 @@ idris["Data.Strings.case[1514]parseNumWithoutSign"] = function(__arg0)
                     nil
                   }
                   __frame1[2][0] = function()
-                    return idris["Data.Strings.parseNumWithoutSign"](__arg1)(__arg2 * bigint:new("10") + idris["Prelude.Types.cast_Cast__Int_Integer"](idris["Prelude.Num.-_Neg__Int"](idris["Prelude.Types.ord"](__arg0))(idris["Prelude.Types.ord"]("0"))))
+                    return idris["Data.Strings.parseNumWithoutSign"](__arg1)(__arg2 * bigint:new("10") + idris["Prelude.Types.cast_Cast_Int_Integer"](idris["Prelude.Num.-_Neg_Int"](idris["Prelude.Types.ord"](__arg0))(idris["Prelude.Types.ord"]("0"))))
                   end
                   __frame1[2][1] = function()
                     local __frame2 = {
@@ -20582,7 +20713,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
   __frame1[1]["arg1"] = 0
   __frame1[1]["arg2"] = idris["Parser.Rule.Source.symbol"](":")
   __frame1[1]["arg3"] = function()
-    return function(___565)
+    return function(___655)
         local __frame3 = {
           nil
         }
@@ -20591,7 +20722,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
         __frame3[1]["arg1"] = 1
         __frame3[1]["arg2"] = idris["Parser.Rule.Source.exactIdent"]("True")
         __frame3[1]["arg3"] = function()
-          return function(___581)
+          return function(___671)
               local __frame5 = {
                 nil,
                 nil
@@ -20641,7 +20772,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
     __frame2[1]["arg1"] = 0
     __frame2[1]["arg2"] = idris["Parser.Rule.Source.symbol"](":")
     __frame2[1]["arg3"] = function()
-      return function(___550)
+      return function(___640)
           local __frame4 = {
             nil
           }
@@ -20650,7 +20781,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
           __frame4[1]["arg1"] = 1
           __frame4[1]["arg2"] = idris["Parser.Rule.Source.exactIdent"]("False")
           __frame4[1]["arg3"] = function()
-            return function(___597)
+            return function(___687)
                 local __frame6 = {
                   nil,
                   nil
@@ -20770,7 +20901,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
           __frame5[1]["arg1"] = 0
           __frame5[1]["arg2"] = idris["Parser.Rule.Source.symbol"](":")
           __frame5[1]["arg3"] = function()
-            return function(___513)
+            return function(___603)
                 local __frame7 = {
                   nil
                 }
@@ -20814,7 +20945,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
             __frame6[1]["arg1"] = 0
             __frame6[1]["arg2"] = idris["Parser.Rule.Source.symbol"]("(")
             __frame6[1]["arg3"] = function()
-              return function(___485)
+              return function(___575)
                   local __frame8 = {
                     nil
                   }
@@ -20832,7 +20963,7 @@ idris["Idris.IDEMode.Parser.sexp"] = (function()
                     __frame9[1]["arg1"] = 1
                     __frame9[1]["arg2"] = idris["Parser.Rule.Source.symbol"](")")
                     __frame9[1]["arg3"] = function()
-                      return function(___632)
+                      return function(___722)
                           local __frame11 = {
                             nil,
                             nil
@@ -20874,9 +21005,9 @@ idris["Prelude.Show.primNumShow"] = function(__arg0)
                   local str = __arg1(__arg3)
                   __frame1[1] = {}
                   __frame1[1]["tag"] = "5"
-                  return idris["Prelude.Show.showParens"](idris["Prelude.Basics.&&"](idris["Prelude.Show.>=_Ord__Prec"](__arg2)(__frame1[1]))(function()
+                  return idris["Prelude.Show.showParens"](idris["Prelude.Basics.&&"](idris["Prelude.Show.>=_Ord_Prec"](__arg2)(__frame1[1]))(function()
                       return idris["Prelude.Show.firstCharIs"](function(__arg4)
-                          return idris["Prelude.EqOrd.==_Eq__Char"](__arg4)("-")
+                          return idris["Prelude.EqOrd.==_Eq_Char"](__arg4)("-")
                         end)(str)
                     end))(str)
                 end)()
@@ -20884,7 +21015,7 @@ idris["Prelude.Show.primNumShow"] = function(__arg0)
         end
     end
 end
-idris["Prelude.Show.showPrec_Show__Integer"] = function(__ext0)
+idris["Prelude.Show.showPrec_Show_Integer"] = function(__ext0)
   return function(__ext1)
       return (function()
           return idris["Prelude.Show.primNumShow"](nil)(function(__eta0)
@@ -20893,17 +21024,17 @@ idris["Prelude.Show.showPrec_Show__Integer"] = function(__ext0)
         end)()
     end
 end
-idris["Prelude.Show.show_Show__Integer"] = function(__arg0)
+idris["Prelude.Show.show_Show_Integer"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil
       }
       __frame1[1] = {}
       __frame1[1]["tag"] = "0"
-      return idris["Prelude.Show.showPrec_Show__Integer"](__frame1[1])(__arg0)
+      return idris["Prelude.Show.showPrec_Show_Integer"](__frame1[1])(__arg0)
     end)()
 end
-idris["Idris.IDEMode.Commands.show_Show__SExp"] = function(__arg0)
+idris["Idris.IDEMode.Commands.show_Show_SExp"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -20921,8 +21052,8 @@ idris["Idris.IDEMode.Commands.show_Show__SExp"] = function(__arg0)
       }
       __frame1[2]["0"] = function()
         local __e0 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"]("(")(idris["Prelude.Types.Strings.++"](idris["Core.Name.Namespace.showSep"](" ")(idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(__arg1)
-            return idris["Idris.IDEMode.Commands.show_Show__SExp"](__arg1)
+        return idris["Prelude.Types.Strings.++"]("(")(idris["Prelude.Types.Strings.++"](idris["Core.Name.Namespace.showSep"](" ")(idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(__arg1)
+            return idris["Idris.IDEMode.Commands.show_Show_SExp"](__arg1)
           end)(__e0)))(")"))
       end
       __frame1[2]["1"] = function()
@@ -20931,11 +21062,11 @@ idris["Idris.IDEMode.Commands.show_Show__SExp"] = function(__arg0)
       end
       __frame1[2]["2"] = function()
         local __e2 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"](":")(idris["Prelude.Show.show_Show__Bool"](__e2))
+        return idris["Prelude.Types.Strings.++"](":")(idris["Prelude.Show.show_Show_Bool"](__e2))
       end
       __frame1[2]["3"] = function()
         local __e3 = __frame1[1]["arg1"]
-        return idris["Prelude.Show.show_Show__Integer"](__e3)
+        return idris["Prelude.Show.show_Show_Integer"](__e3)
       end
       __frame1[2]["4"] = function()
         local __e4 = __frame1[1]["arg1"]
@@ -20950,12 +21081,12 @@ idris["Idris.IDEMode.Commands.show_Show__SExp"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.Show.show_Show__Nat"] = function(__arg0)
+idris["Prelude.Show.show_Show_Nat"] = function(__arg0)
   return (function()
-      return idris["Prelude.Show.show_Show__Integer"](__arg0)
+      return idris["Prelude.Show.show_Show_Integer"](__arg0)
     end)()
 end
-idris["Prelude.Show.showPrec_Show__Int"] = function(__ext0)
+idris["Prelude.Show.showPrec_Show_Int"] = function(__ext0)
   return function(__ext1)
       return (function()
           return idris["Prelude.Show.primNumShow"](nil)(function(__eta0)
@@ -20964,17 +21095,17 @@ idris["Prelude.Show.showPrec_Show__Int"] = function(__ext0)
         end)()
     end
 end
-idris["Prelude.Show.show_Show__Int"] = function(__arg0)
+idris["Prelude.Show.show_Show_Int"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil
       }
       __frame1[1] = {}
       __frame1[1]["tag"] = "0"
-      return idris["Prelude.Show.showPrec_Show__Int"](__frame1[1])(__arg0)
+      return idris["Prelude.Show.showPrec_Show_Int"](__frame1[1])(__arg0)
     end)()
 end
-idris["Language.Reflection.TT.show_Show__Name"] = function(__arg0)
+idris["Language.Reflection.TT.show_Show_Name"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -20993,7 +21124,7 @@ idris["Language.Reflection.TT.show_Show__Name"] = function(__arg0)
       __frame1[2]["2"] = function()
         local __e0 = __frame1[1]["arg1"]
         local __e1 = __frame1[1]["arg2"]
-        return idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Namespace"](__e0))(idris["Prelude.Types.Strings.++"](".")(idris["Language.Reflection.TT.show_Show__Name"](__e1)))
+        return idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Namespace"](__e0))(idris["Prelude.Types.Strings.++"](".")(idris["Language.Reflection.TT.show_Show_Name"](__e1)))
       end
       __frame1[2]["0"] = function()
         local __e2 = __frame1[1]["arg1"]
@@ -21002,7 +21133,7 @@ idris["Language.Reflection.TT.show_Show__Name"] = function(__arg0)
       __frame1[2]["1"] = function()
         local __e3 = __frame1[1]["arg1"]
         local __e4 = __frame1[1]["arg2"]
-        return idris["Prelude.Types.Strings.++"]("{")(idris["Prelude.Types.Strings.++"](__e3)(idris["Prelude.Types.Strings.++"](":")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Int"](__e4))("}"))))
+        return idris["Prelude.Types.Strings.++"]("{")(idris["Prelude.Types.Strings.++"](__e3)(idris["Prelude.Types.Strings.++"](":")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Int"](__e4))("}"))))
       end
       __frame1[2]["3"] = function()
         local __e5 = __frame1[1]["arg1"]
@@ -21021,7 +21152,7 @@ idris["Language.Reflection.TT.show_Show__Name"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["System.File.show_Show__FileError"] = function(__arg0)
+idris["System.File.show_Show_FileError"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -21040,7 +21171,7 @@ idris["System.File.show_Show__FileError"] = function(__arg0)
       }
       __frame1[2]["0"] = function()
         local __e0 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"]("File error: ")(idris["Prelude.Show.show_Show__Int"](__e0))
+        return idris["Prelude.Types.Strings.++"]("File error: ")(idris["Prelude.Show.show_Show_Int"](__e0))
       end
       __frame1[2]["1"] = function()
         return "File Read Error"
@@ -21066,7 +21197,7 @@ idris["System.File.show_Show__FileError"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Plugin.case[4990]case block in runFind,rec"] = function(__arg0)
+idris["Plugin.case[4601]case block in runFind,rec"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -21100,7 +21231,7 @@ idris["Plugin.case[4990]case block in runFind,rec"] = function(__arg0)
                                     __frame3[1]["tag"] = "1"
                                     __frame3[1]["arg1"] = line
                                     __frame3[1]["arg2"] = __arg2
-                                    return idris["Plugin.4914:4948:rec"](__arg0)(__arg1)(__arg3)(__frame3[1])(__eta0)
+                                    return idris["Plugin.5057:4557:rec"](__arg0)(__arg1)(__arg3)(__frame3[1])(__eta0)
                                   end
                               end
                               __frame1[3] = __frame1[2][__frame1[1]]
@@ -21118,7 +21249,7 @@ idris["Plugin.case[4990]case block in runFind,rec"] = function(__arg0)
         end
     end
 end
-idris["Plugin.4914:4948:rec"] = function(__arg0)
+idris["Plugin.5057:4557:rec"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -21140,7 +21271,7 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta0)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                       end
                                   end
                               end
@@ -21193,8 +21324,8 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                       __frame1[3]["tag"] = "0"
                       __frame1[3]["arg1"] = __frame1[2]
                       __frame1[3]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
                       local __act24 = idris["System.File.fGetLine"](nil)(__frame1[3])(__arg2)(__ext0)
@@ -21212,8 +21343,8 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                         __frame2[1]["tag"] = "1"
                         __frame2[1]["arg1"] = __e2
                         local ___0 = __frame2[1]
-                        return idris["Plugin.case[4990]case block in runFind,rec"](__arg0)(__arg1)(__arg3)(__arg2)(__e2)(___0)(idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq__String"](__e2)(""))(function()
-                            return idris["Prelude.EqOrd.==_Eq__String"](__e2)("\n")
+                        return idris["Plugin.case[4601]case block in runFind,rec"](__arg0)(__arg1)(__arg3)(__arg2)(__e2)(___0)(idris["Prelude.Basics.||"](idris["Prelude.EqOrd.==_Eq_String"](__e2)(""))(function()
+                            return idris["Prelude.EqOrd.==_Eq_String"](__e2)("\n")
                           end))(__ext0)
                       end
                       __frame1[5]["0"] = function()
@@ -21233,7 +21364,7 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta0)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                         end
                                     end
                                 end
@@ -21286,11 +21417,11 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                         __frame2[3]["tag"] = "0"
                         __frame2[3]["arg1"] = __frame2[2]
                         __frame2[3]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        local __act25 = idris["Prelude.IO.putStrLn"](nil)(__frame2[3])(idris["System.File.show_Show__FileError"](__e5))(__ext0)
+                        local __act25 = idris["Prelude.IO.putStrLn"](nil)(__frame2[3])(idris["System.File.show_Show_FileError"](__e5))(__ext0)
                         __frame2[4] = {}
                         __frame2[4]["tag"] = "0"
                         __frame2[4]["arg1"] = function(b)
@@ -21298,7 +21429,7 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta0)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                         end
                                     end
                                 end
@@ -21351,8 +21482,8 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
                         __frame2[6]["tag"] = "0"
                         __frame2[6]["arg1"] = __frame2[5]
                         __frame2[6]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
                         return idris["System.exitFailure"](nil)(nil)(__frame2[6])(__ext0)
@@ -21370,7 +21501,7 @@ idris["Plugin.4914:4948:rec"] = function(__arg0)
         end
     end
 end
-idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
+idris["Parser.Support.show_Show_(ParseError $tok)"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -21390,7 +21521,7 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
               __frame1[2]["0"] = function()
                 local __e1 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg3"]
-                return idris["Prelude.Types.Strings.++"]("Parse error: ")(idris["Prelude.Types.Strings.++"](__e1)(idris["Prelude.Types.Strings.++"](" (next tokens: ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__(List $a)"](nil)(__arg1)(idris["Data.List.take"](nil)(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(__e3)))(")"))))
+                return idris["Prelude.Types.Strings.++"]("Parse error: ")(idris["Prelude.Types.Strings.++"](__e1)(idris["Prelude.Types.Strings.++"](" (next tokens: ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_(List $a)"](nil)(__arg1)(idris["Data.List.take"](nil)(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(__e3)))(")"))))
               end
               __frame1[2]["1"] = function()
                 local __frame2 = {
@@ -21429,21 +21560,21 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
                     __frame4[1] = {}
                     __frame4[1]["tag"] = "0"
                     __frame4[1]["arg1"] = function(x)
-                      return idris["Prelude.Show.show_Show__Int"](x)
+                      return idris["Prelude.Show.show_Show_Int"](x)
                     end
                     __frame4[1]["arg2"] = function(d)
                       return function(x)
-                          return idris["Prelude.Show.showPrec_Show__Int"](d)(x)
+                          return idris["Prelude.Show.showPrec_Show_Int"](d)(x)
                         end
                     end
                     __frame4[2] = {}
                     __frame4[2]["tag"] = "0"
                     __frame4[2]["arg1"] = function(x)
-                      return idris["Prelude.Show.show_Show__Int"](x)
+                      return idris["Prelude.Show.show_Show_Int"](x)
                     end
                     __frame4[2]["arg2"] = function(d)
                       return function(x)
-                          return idris["Prelude.Show.showPrec_Show__Int"](d)(x)
+                          return idris["Prelude.Show.showPrec_Show_Int"](d)(x)
                         end
                     end
                     __frame4[3] = {}
@@ -21454,7 +21585,7 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
                     __frame4[4]["tag"] = "0"
                     __frame4[4]["arg1"] = __e12
                     __frame4[4]["arg2"] = __e16
-                    return idris["Prelude.Types.Strings.++"]("Lex error at ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame4[3])(__frame4[4]))(idris["Prelude.Types.Strings.++"](" input: ")(__e17)))
+                    return idris["Prelude.Types.Strings.++"]("Lex error at ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame4[3])(__frame4[4]))(idris["Prelude.Types.Strings.++"](" input: ")(__e17)))
                   end
                   __frame3[3] = __frame3[2][__frame3[1]["tag"]]
                   if __frame3[3] then
@@ -21474,7 +21605,7 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
               end
               __frame1[2]["2"] = function()
                 local __e7 = __frame1[1]["arg1"]
-                return idris["Prelude.Types.Strings.++"]("File error: ")(idris["System.File.show_Show__FileError"](__e7))
+                return idris["Prelude.Types.Strings.++"]("File error: ")(idris["System.File.show_Show_FileError"](__e7))
               end
               __frame1[2]["3"] = function()
                 local __frame2 = {
@@ -21501,21 +21632,21 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
                   __frame3[1] = {}
                   __frame3[1]["tag"] = "0"
                   __frame3[1]["arg1"] = function(x)
-                    return idris["Prelude.Show.show_Show__Int"](x)
+                    return idris["Prelude.Show.show_Show_Int"](x)
                   end
                   __frame3[1]["arg2"] = function(d)
                     return function(x)
-                        return idris["Prelude.Show.showPrec_Show__Int"](d)(x)
+                        return idris["Prelude.Show.showPrec_Show_Int"](d)(x)
                       end
                   end
                   __frame3[2] = {}
                   __frame3[2]["tag"] = "0"
                   __frame3[2]["arg1"] = function(x)
-                    return idris["Prelude.Show.show_Show__Int"](x)
+                    return idris["Prelude.Show.show_Show_Int"](x)
                   end
                   __frame3[2]["arg2"] = function(d)
                     return function(x)
-                        return idris["Prelude.Show.showPrec_Show__Int"](d)(x)
+                        return idris["Prelude.Show.showPrec_Show_Int"](d)(x)
                       end
                   end
                   __frame3[3] = {}
@@ -21526,7 +21657,7 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
                   __frame3[4]["tag"] = "0"
                   __frame3[4]["arg1"] = __e19
                   __frame3[4]["arg2"] = __e18
-                  return idris["Prelude.Types.Strings.++"]("Lit error(s) at ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame3[3])(__frame3[4]))(idris["Prelude.Types.Strings.++"](" input: ")(__e20)))
+                  return idris["Prelude.Types.Strings.++"]("Lit error(s) at ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_(|((Builtin.Pair $a) $b),((Builtin.MkPair $a) $b)|)"](nil)(nil)(__frame3[3])(__frame3[4]))(idris["Prelude.Types.Strings.++"](" input: ")(__e20)))
                 end
                 __frame2[3] = __frame2[2][__frame2[1]["tag"]]
                 if __frame2[3] then
@@ -21547,14 +21678,14 @@ idris["Parser.Support.show_Show__(ParseError $tok)"] = function(__arg0)
         end
     end
 end
-idris["System.File.showPrec_Show__FileError"] = function(__arg0)
+idris["System.File.showPrec_Show_FileError"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["System.File.show_Show__FileError"](__arg1)
+          return idris["System.File.show_Show_FileError"](__arg1)
         end)()
     end
 end
-idris["Prelude.Show.showPrec_Show__Double"] = function(__ext0)
+idris["Prelude.Show.showPrec_Show_Double"] = function(__ext0)
   return function(__ext1)
       return (function()
           return idris["Prelude.Show.primNumShow"](nil)(function(__eta0)
@@ -21563,14 +21694,14 @@ idris["Prelude.Show.showPrec_Show__Double"] = function(__ext0)
         end)()
     end
 end
-idris["Prelude.Show.show_Show__Double"] = function(__arg0)
+idris["Prelude.Show.show_Show_Double"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil
       }
       __frame1[1] = {}
       __frame1[1]["tag"] = "0"
-      return idris["Prelude.Show.showPrec_Show__Double"](__frame1[1])(__arg0)
+      return idris["Prelude.Show.showPrec_Show_Double"](__frame1[1])(__arg0)
     end)()
 end
 idris["Plugin.writeToBuffer"] = function(__arg0)
@@ -21590,7 +21721,7 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta0)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                               end
                           end
                       end
@@ -21616,7 +21747,7 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                       end
                   end
               end
-              return idris["Prelude.Interfaces.when"](nil)(__frame1[1])(idris["Prelude.EqOrd.>_Ord__Int"](__act26)(bigint.tonumber(bigint:new("0"))))(function()
+              return idris["Prelude.Interfaces.when"](nil)(__frame1[1])(idris["Prelude.EqOrd.>_Ord_Int"](__act26)(bigint.tonumber(bigint:new("0"))))(function()
                   return function(__eta0)
                       local __frame3 = {
                         nil,
@@ -21636,7 +21767,7 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -21689,11 +21820,11 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                       __frame3[3]["tag"] = "0"
                       __frame3[3]["arg1"] = __frame3[2]
                       __frame3[3]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      local __act27 = idris["Foreign.nvimCommand"](nil)(__frame3[3])(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Int"](__act26))("wincmd w"))(__eta0)
+                      local __act27 = idris["Foreign.nvimCommand"](nil)(__frame3[3])(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Int"](__act26))("wincmd w"))(__eta0)
                       local __act28 = idris["Plugin.line"]("$")(__eta0)
                       local __act29 = idris["Plugin.appendLines"](__arg0)(0)(__act28)(__arg1)(__eta0)
                       __frame3[4] = {}
@@ -21703,7 +21834,7 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -21756,8 +21887,8 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                       __frame3[6]["tag"] = "0"
                       __frame3[6]["arg1"] = __frame3[5]
                       __frame3[6]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
                       local __act30 = idris["Foreign.nvimCommand"](nil)(__frame3[6])("normal! G")(__eta0)
@@ -21768,7 +21899,7 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -21821,11 +21952,11 @@ idris["Plugin.writeToBuffer"] = function(__arg0)
                       __frame3[9]["tag"] = "0"
                       __frame3[9]["arg1"] = __frame3[8]
                       __frame3[9]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      return idris["Foreign.nvimCommand"](nil)(__frame3[9])(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Int"](__act25))("wincmd w"))(__eta0)
+                      return idris["Foreign.nvimCommand"](nil)(__frame3[9])(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Int"](__act25))("wincmd w"))(__eta0)
                     end
                 end)(__ext0)
             end)()
@@ -21854,7 +21985,7 @@ idris["Plugin.runFind"] = function(__arg0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -21907,8 +22038,8 @@ idris["Plugin.runFind"] = function(__arg0)
               __frame2[3]["tag"] = "0"
               __frame2[3]["arg1"] = __frame2[2]
               __frame2[3]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame2[4] = {}
@@ -21929,7 +22060,7 @@ idris["Plugin.runFind"] = function(__arg0)
                 local __e2 = __frame2[5]["arg1"]
                 __frame3[1] = {}
                 __frame3[1]["tag"] = "0"
-                local __act25 = idris["Plugin.4914:4948:rec"](__arg1)(__arg0)(__e2)(__frame3[1])(__eta0)
+                local __act25 = idris["Plugin.5057:4557:rec"](__arg1)(__arg0)(__e2)(__frame3[1])(__eta0)
                 __frame3[2] = {}
                 __frame3[2]["tag"] = "0"
                 __frame3[2]["arg1"] = function(b)
@@ -21937,7 +22068,7 @@ idris["Plugin.runFind"] = function(__arg0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -21990,8 +22121,8 @@ idris["Plugin.runFind"] = function(__arg0)
                 __frame3[4]["tag"] = "0"
                 __frame3[4]["arg1"] = __frame3[3]
                 __frame3[4]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 local __act26 = idris["System.File.pclose"](nil)(__frame3[4])(__e2)(__eta0)
@@ -22014,7 +22145,7 @@ idris["Plugin.runFind"] = function(__arg0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -22067,11 +22198,11 @@ idris["Plugin.runFind"] = function(__arg0)
                 __frame3[3]["tag"] = "0"
                 __frame3[3]["arg1"] = __frame3[2]
                 __frame3[3]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
-                local __act25 = idris["Prelude.IO.putStrLn"](nil)(__frame3[3])(idris["System.File.show_Show__FileError"](__e5))(__eta0)
+                local __act25 = idris["Prelude.IO.putStrLn"](nil)(__frame3[3])(idris["System.File.show_Show_FileError"](__e5))(__eta0)
                 __frame3[4] = {}
                 __frame3[4]["tag"] = "0"
                 __frame3[4]["arg1"] = function(b)
@@ -22079,7 +22210,7 @@ idris["Plugin.runFind"] = function(__arg0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -22132,8 +22263,8 @@ idris["Plugin.runFind"] = function(__arg0)
                 __frame3[6]["tag"] = "0"
                 __frame3[6]["arg1"] = __frame3[5]
                 __frame3[6]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 return idris["System.exitFailure"](nil)(nil)(__frame3[6])(__eta0)
@@ -22175,8 +22306,8 @@ idris["Data.Strings.parseNumWithoutSign"] = function(__arg0)
           __frame1[2]["1"] = function()
             local __e2 = __frame1[1]["arg1"]
             local __e3 = __frame1[1]["arg2"]
-            return idris["Data.Strings.case[1514]parseNumWithoutSign"](__e2)(__e3)(__arg1)(idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__e2)("0"))(function()
-                return idris["Prelude.EqOrd.<=_Ord__Char"](__e2)("9")
+            return idris["Data.Strings.case[1721]parseNumWithoutSign"](__e2)(__e3)(__arg1)(idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__e2)("0"))(function()
+                return idris["Prelude.EqOrd.<=_Ord_Char"](__e2)("9")
               end))
           end
           __frame1[3] = __frame1[2][__frame1[1]["tag"]]
@@ -22189,7 +22320,7 @@ idris["Data.Strings.parseNumWithoutSign"] = function(__arg0)
         end)()
     end
 end
-idris["Data.Strings.case[1581]with block in parsePositive,parsePosTrimmed"] = function(__arg0)
+idris["Data.Strings.case[1788]with block in parsePositive,parsePosTrimmed"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -22230,7 +22361,7 @@ idris["Data.Strings.case[1581]with block in parsePositive,parsePosTrimmed"] = fu
                             else
                               idris["error"]("Impossible else branch")
                             end
-                            return idris["Prelude.Types.map_Functor__Maybe"](nil)(nil)(__frame2[4])(idris["Data.Strings.parseNumWithoutSign"](idris["Prelude.Types.unpack"](__arg3))(idris["Prelude.Types.cast_Cast__Int_Integer"](idris["Prelude.Num.-_Neg__Int"](idris["Prelude.Types.ord"](__arg4))(idris["Prelude.Types.ord"]("0")))))
+                            return idris["Prelude.Types.map_Functor_Maybe"](nil)(nil)(__frame2[4])(idris["Data.Strings.parseNumWithoutSign"](idris["Prelude.Types.unpack"](__arg3))(idris["Prelude.Types.cast_Cast_Int_Integer"](idris["Prelude.Num.-_Neg_Int"](idris["Prelude.Types.ord"](__arg4))(idris["Prelude.Types.ord"]("0")))))
                           end
                           __frame1[2][1] = function()
                             local __frame2 = {
@@ -22254,7 +22385,7 @@ idris["Data.Strings.case[1581]with block in parsePositive,parsePosTrimmed"] = fu
         end
     end
 end
-idris["Data.Strings.with[1549]parsePositive,parsePosTrimmed"] = function(__arg0)
+idris["Data.Strings.with[1756]parsePositive,parsePosTrimmed"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -22341,14 +22472,14 @@ idris["Data.Strings.with[1549]parsePositive,parsePosTrimmed"] = function(__arg0)
                               else
                                 idris["error"]("Impossible else branch")
                               end
-                              return idris["Prelude.Types.map_Functor__Maybe"](nil)(nil)(__frame4[4])(idris["Data.Strings.parseNumWithoutSign"](idris["Prelude.Types.unpack"](__e1))(bigint:new("0")))
+                              return idris["Prelude.Types.map_Functor_Maybe"](nil)(nil)(__frame4[4])(idris["Data.Strings.parseNumWithoutSign"](idris["Prelude.Types.unpack"](__e1))(bigint:new("0")))
                             end
                             __frame3[3] = __frame3[2][__frame3[1]]
                             if __frame3[3] then
                               __frame3[4] = __frame3[3]()
                             else
-                              __frame3[4] = idris["Data.Strings.case[1581]with block in parsePositive,parsePosTrimmed"](nil)(__arg1)(__arg2)(__e1)(__e0)(idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__e0)("0"))(function()
-                                return idris["Prelude.EqOrd.<=_Ord__Char"](__e0)("9")
+                              __frame3[4] = idris["Data.Strings.case[1788]with block in parsePositive,parsePosTrimmed"](nil)(__arg1)(__arg2)(__e1)(__e0)(idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__e0)("0"))(function()
+                                return idris["Prelude.EqOrd.<=_Ord_Char"](__e0)("9")
                               end))
                             end
                             return __frame3[4]
@@ -22407,14 +22538,14 @@ idris["Data.Strings.with[1549]parsePositive,parsePosTrimmed"] = function(__arg0)
                             else
                               idris["error"]("Impossible else branch")
                             end
-                            return idris["Prelude.Types.map_Functor__Maybe"](nil)(nil)(__frame3[4])(idris["Data.Strings.parseNumWithoutSign"](idris["Prelude.Types.unpack"](__e1))(bigint:new("0")))
+                            return idris["Prelude.Types.map_Functor_Maybe"](nil)(nil)(__frame3[4])(idris["Data.Strings.parseNumWithoutSign"](idris["Prelude.Types.unpack"](__e1))(bigint:new("0")))
                           end
                           __frame2[3] = __frame2[2][__frame2[1]]
                           if __frame2[3] then
                             __frame2[4] = __frame2[3]()
                           else
-                            __frame2[4] = idris["Data.Strings.case[1581]with block in parsePositive,parsePosTrimmed"](nil)(__arg1)(__arg2)(__e1)(__e0)(idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__e0)("0"))(function()
-                              return idris["Prelude.EqOrd.<=_Ord__Char"](__e0)("9")
+                            __frame2[4] = idris["Data.Strings.case[1788]with block in parsePositive,parsePosTrimmed"](nil)(__arg1)(__arg2)(__e1)(__e0)(idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__e0)("0"))(function()
+                              return idris["Prelude.EqOrd.<=_Ord_Char"](__e0)("9")
                             end))
                           end
                           return __frame2[4]
@@ -22434,12 +22565,12 @@ idris["Data.Strings.with[1549]parsePositive,parsePosTrimmed"] = function(__arg0)
         end
     end
 end
-idris["Data.Strings.2452:1547:parsePosTrimmed"] = function(__arg0)
+idris["Data.Strings.2530:1754:parsePosTrimmed"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
               return (function()
-                  return idris["Data.Strings.with[1549]parsePositive,parsePosTrimmed"](nil)(__arg1)(__arg3)(__arg3)(idris["Data.Strings.strM"](__arg3))
+                  return idris["Data.Strings.with[1756]parsePositive,parsePosTrimmed"](nil)(__arg1)(__arg3)(__arg3)(idris["Data.Strings.strM"](__arg3))
                 end)()
             end
         end
@@ -22449,7 +22580,7 @@ idris["Data.Strings.parsePositive"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
-              return idris["Data.Strings.2452:1547:parsePosTrimmed"](nil)(__arg1)(__arg2)(idris["Data.Strings.trim"](__arg2))
+              return idris["Data.Strings.2530:1754:parsePosTrimmed"](nil)(__arg1)(__arg2)(idris["Data.Strings.trim"](__arg2))
             end)()
         end
     end
@@ -22480,7 +22611,7 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -22533,8 +22664,8 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                   __frame1[3]["tag"] = "0"
                   __frame1[3]["arg1"] = __frame1[2]
                   __frame1[3]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   local __act24 = idris["Foreign.nvimCommand"](nil)(__frame1[3])("write")(__ext0)
@@ -22545,7 +22676,7 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -22598,8 +22729,8 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                   __frame1[6]["tag"] = "0"
                   __frame1[6]["arg1"] = __frame1[5]
                   __frame1[6]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   local __act25 = idris["Foreign.nvimCommand"](nil)(__frame1[6])(idris["Prelude.Types.Strings.++"]("edit ")(__arg0))(__ext0)
@@ -22610,7 +22741,7 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -22663,11 +22794,11 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                   __frame1[9]["tag"] = "0"
                   __frame1[9]["arg1"] = __frame1[8]
                   __frame1[9]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
-                  local __act26 = idris["Foreign.nvimCommand"](nil)(__frame1[9])(idris["Prelude.Types.Strings.++"]("call setpos('.', [0, ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Integer"](__arg1 + bigint:new("1")))(idris["Prelude.Types.Strings.++"](", ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Integer"](__arg2 + bigint:new("1")))(", 0])")))))(__ext0)
+                  local __act26 = idris["Foreign.nvimCommand"](nil)(__frame1[9])(idris["Prelude.Types.Strings.++"]("call setpos('.', [0, ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Integer"](__arg1 + bigint:new("1")))(idris["Prelude.Types.Strings.++"](", ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Integer"](__arg2 + bigint:new("1")))(", 0])")))))(__ext0)
                   __frame1[10] = {}
                   __frame1[10]["tag"] = "0"
                   __frame1[10]["arg1"] = function(b)
@@ -22675,7 +22806,7 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -22728,8 +22859,8 @@ idris["Plugin.jumpToDef"] = function(__arg0)
                   __frame1[12]["tag"] = "0"
                   __frame1[12]["arg1"] = __frame1[11]
                   __frame1[12]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   return idris["Foreign.nvimCommand"](nil)(__frame1[12])("normal! zz")(__ext0)
@@ -22740,17 +22871,17 @@ idris["Plugin.jumpToDef"] = function(__arg0)
 end
 idris["Prelude.Types.isUpper"] = function(__arg0)
   return (function()
-      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__arg0)("A"))(function()
-          return idris["Prelude.EqOrd.<=_Ord__Char"](__arg0)("Z")
+      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__arg0)("A"))(function()
+          return idris["Prelude.EqOrd.<=_Ord_Char"](__arg0)("Z")
         end)
     end)()
 end
 idris["Prelude.Types.toLower"] = function(__arg0)
   return (function()
-      return idris["Prelude.Types.case[4191]toLower"](__arg0)(idris["Prelude.Types.isUpper"](__arg0))
+      return idris["Prelude.Types.case[4617]toLower"](__arg0)(idris["Prelude.Types.isUpper"](__arg0))
     end)()
 end
-idris["Parser.Support.5713:3246:toOct"] = function(__arg0)
+idris["Parser.Support.5790:3336:toOct"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -22777,9 +22908,9 @@ idris["Parser.Support.5713:3246:toOct"] = function(__arg0)
               __frame1[2]["1"] = function()
                 local __e2 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg2"]
-                return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.oct"](idris["Prelude.Types.toLower"](__e2)))(function(__bind0)
-                    return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.5713:3246:toOct"](__arg0)(__arg1 * 8)(__e3))(function(__bind1)
-                        return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__bind0 * __arg1 + __bind1)
+                return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.oct"](idris["Prelude.Types.toLower"](__e2)))(function(__bind0)
+                    return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.5790:3336:toOct"](__arg0)(__arg1 * 8)(__e3))(function(__bind1)
+                        return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__bind0 * __arg1 + __bind1)
                       end)
                   end)
               end
@@ -22794,7 +22925,7 @@ idris["Parser.Support.5713:3246:toOct"] = function(__arg0)
         end
     end
 end
-idris["Parser.Support.5713:3153:toHex"] = function(__arg0)
+idris["Parser.Support.5790:3243:toHex"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -22821,9 +22952,9 @@ idris["Parser.Support.5713:3153:toHex"] = function(__arg0)
               __frame1[2]["1"] = function()
                 local __e2 = __frame1[1]["arg1"]
                 local __e3 = __frame1[1]["arg2"]
-                return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.hex"](idris["Prelude.Types.toLower"](__e2)))(function(__bind0)
-                    return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.5713:3153:toHex"](__arg0)(__arg1 * 16)(__e3))(function(__bind1)
-                        return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__bind0 * __arg1 + __bind1)
+                return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.hex"](idris["Prelude.Types.toLower"](__e2)))(function(__bind0)
+                    return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.5790:3243:toHex"](__arg0)(__arg1 * 16)(__e3))(function(__bind1)
+                        return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__bind0 * __arg1 + __bind1)
                       end)
                   end)
               end
@@ -22838,7 +22969,7 @@ idris["Parser.Support.5713:3153:toHex"] = function(__arg0)
         end
     end
 end
-idris["Utils.Hex.2208:728:fromHexChars'"] = function(__arg0)
+idris["Utils.Hex.2270:818:fromHexChars'"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -22864,9 +22995,9 @@ idris["Utils.Hex.2208:728:fromHexChars'"] = function(__arg0)
           __frame1[2]["1"] = function()
             local __e2 = __frame1[1]["arg1"]
             local __e3 = __frame1[1]["arg2"]
-            return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Utils.Hex.fromHexDigit"](idris["Prelude.Types.toLower"](__e2)))(function(__bind0)
-                return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Utils.Hex.2208:728:fromHexChars'"](__arg0 * 16)(__e3))(function(__bind1)
-                    return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__bind0 * __arg0 + __bind1)
+            return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Utils.Hex.fromHexDigit"](idris["Prelude.Types.toLower"](__e2)))(function(__bind0)
+                return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Utils.Hex.2270:818:fromHexChars'"](__arg0 * 16)(__e3))(function(__bind1)
+                    return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__bind0 * __arg0 + __bind1)
                   end)
               end)
           end
@@ -22882,21 +23013,21 @@ idris["Utils.Hex.2208:728:fromHexChars'"] = function(__arg0)
 end
 idris["Prelude.Types.isOctDigit"] = function(__arg0)
   return (function()
-      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__arg0)("0"))(function()
-          return idris["Prelude.EqOrd.<=_Ord__Char"](__arg0)("7")
+      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__arg0)("0"))(function()
+          return idris["Prelude.EqOrd.<=_Ord_Char"](__arg0)("7")
         end)
     end)()
 end
 idris["Prelude.Types.isLower"] = function(__arg0)
   return (function()
-      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__arg0)("a"))(function()
-          return idris["Prelude.EqOrd.<=_Ord__Char"](__arg0)("z")
+      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__arg0)("a"))(function()
+          return idris["Prelude.EqOrd.<=_Ord_Char"](__arg0)("z")
         end)
     end)()
 end
 idris["Prelude.Types.toUpper"] = function(__arg0)
   return (function()
-      return idris["Prelude.Types.case[4177]toUpper"](__arg0)(idris["Prelude.Types.isLower"](__arg0))
+      return idris["Prelude.Types.case[4603]toUpper"](__arg0)(idris["Prelude.Types.isLower"](__arg0))
     end)()
 end
 idris["Prelude.Types.isHexDigit"] = function(__arg0)
@@ -22908,25 +23039,25 @@ idris["Prelude.Types.isHexDigit"] = function(__arg0)
       __frame1[1]["tag"] = "0"
       __frame1[1]["arg1"] = function(__arg2)
         return function(__arg3)
-            return idris["Prelude.EqOrd.==_Eq__Char"](__arg2)(__arg3)
+            return idris["Prelude.EqOrd.==_Eq_Char"](__arg2)(__arg3)
           end
       end
       __frame1[1]["arg2"] = function(__arg4)
         return function(__arg5)
-            return idris["Prelude.EqOrd./=_Eq__Char"](__arg4)(__arg5)
+            return idris["Prelude.EqOrd./=_Eq_Char"](__arg4)(__arg5)
           end
       end
-      return idris["Prelude.Types.elem"](nil)(__frame1[1])(idris["Prelude.Types.toUpper"](__arg0))(idris["Prelude.Types.4123:4203:hexChars"](__arg0))
+      return idris["Prelude.Types.elem"](nil)(__frame1[1])(idris["Prelude.Types.toUpper"](__arg0))(idris["Prelude.Types.4479:4629:hexChars"](__arg0))
     end)()
 end
 idris["Prelude.Types.isDigit"] = function(__arg0)
   return (function()
-      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord__Char"](__arg0)("0"))(function()
-          return idris["Prelude.EqOrd.<=_Ord__Char"](__arg0)("9")
+      return idris["Prelude.Basics.&&"](idris["Prelude.EqOrd.>=_Ord_Char"](__arg0)("0"))(function()
+          return idris["Prelude.EqOrd.<=_Ord_Char"](__arg0)("9")
         end)
     end)()
 end
-idris["Prelude.Show.case[6212]case block in showLitChar"] = function(__arg0)
+idris["Prelude.Show.case[6640]case block in showLitChar"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -22944,7 +23075,7 @@ idris["Prelude.Show.case[6212]case block in showLitChar"] = function(__arg0)
             return function(__eta0)
                 return idris["Prelude.Types.strCons"]("\\")(idris["Prelude.Show.protectEsc"](function(__eta1)
                     return idris["Prelude.Types.isDigit"](__eta1)
-                  end)(idris["Prelude.Show.show_Show__Int"](utf8.byte(__arg0)))(__eta0))
+                  end)(idris["Prelude.Show.show_Show_Int"](utf8.byte(__arg0)))(__eta0))
               end
           end
           __frame1[2][1] = function()
@@ -22962,7 +23093,7 @@ idris["Prelude.Show.case[6212]case block in showLitChar"] = function(__arg0)
         end)()
     end
 end
-idris["Prelude.Show.case[6189]showLitChar"] = function(__arg0)
+idris["Prelude.Show.case[6617]showLitChar"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -22983,7 +23114,7 @@ idris["Prelude.Show.case[6189]showLitChar"] = function(__arg0)
               end
           end
           __frame1[2]["0"] = function()
-            return idris["Prelude.Show.case[6212]case block in showLitChar"](__arg0)(idris["Prelude.EqOrd.>_Ord__Char"](__arg0)(utf8.char(idris.unpack({127})) --[[ \DEL--]]))
+            return idris["Prelude.Show.case[6640]case block in showLitChar"](__arg0)(idris["Prelude.EqOrd.>_Ord_Char"](__arg0)(utf8.char(idris.unpack({127})) --[[ \DEL--]]))
           end
           __frame1[3] = __frame1[2][__frame1[1]["tag"]]
           if __frame1[3] then
@@ -22995,7 +23126,7 @@ idris["Prelude.Show.case[6189]showLitChar"] = function(__arg0)
         end)()
     end
 end
-idris["Parser.Support.case[3491]case block in escape'"] = function(__arg0)
+idris["Parser.Support.case[3581]case block in escape'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -23044,7 +23175,7 @@ idris["Parser.Support.case[3491]case block in escape'"] = function(__arg0)
         end
     end
 end
-idris["Parser.Support.case[3423]case block in case block in escape'"] = function(__arg0)
+idris["Parser.Support.case[3513]case block in case block in escape'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -23071,7 +23202,7 @@ idris["Parser.Support.case[3423]case block in case block in escape'"] = function
                             __frame2[1]["tag"] = "1"
                             __frame2[1]["arg1"] = __arg3
                             __frame2[1]["arg2"] = __arg4
-                            return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__frame2[1]))(function(__bind0)
+                            return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__frame2[1]))(function(__bind0)
                                 local __frame3 = {
                                   nil,
                                   nil
@@ -23103,7 +23234,7 @@ idris["Parser.Support.case[3423]case block in case block in escape'"] = function
         end
     end
 end
-idris["Parser.Support.case[3373]case block in escape'"] = function(__arg0)
+idris["Parser.Support.case[3463]case block in escape'"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -23123,7 +23254,7 @@ idris["Parser.Support.case[3373]case block in escape'"] = function(__arg0)
                           }
                           __frame1[2]["1"] = function()
                             local __e1 = __frame1[1]["arg1"]
-                            return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__arg4))(function(__bind0)
+                            return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__arg4))(function(__bind0)
                                 local __frame3 = {
                                   nil,
                                   nil
@@ -23154,7 +23285,7 @@ idris["Parser.Support.case[3373]case block in escape'"] = function(__arg0)
                             __frame2[3]["tag"] = "1"
                             __frame2[3]["arg1"] = __arg1
                             __frame2[3]["arg2"] = __frame2[2]
-                            return idris["Parser.Support.case[3423]case block in case block in escape'"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(idris["Parser.Support.getEsc"](idris["Prelude.Types.fastPack"](__frame2[3])))
+                            return idris["Parser.Support.case[3513]case block in case block in escape'"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(idris["Parser.Support.getEsc"](idris["Prelude.Types.fastPack"](__frame2[3])))
                           end
                           __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                           if __frame1[3] then
@@ -23170,7 +23301,7 @@ idris["Parser.Support.case[3373]case block in escape'"] = function(__arg0)
         end
     end
 end
-idris["Parser.Support.case[3341]escape'"] = function(__arg0)
+idris["Parser.Support.case[3431]escape'"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -23257,7 +23388,7 @@ idris["Parser.Support.case[3341]escape'"] = function(__arg0)
                     __frame6[4]["tag"] = "1"
                     __frame6[4]["arg1"] = __e6
                     __frame6[4]["arg2"] = __frame6[3]
-                    return idris["Parser.Support.case[3373]case block in escape'"](__arg0)(__e6)(__e9)(__e12)(__e13)(idris["Parser.Support.getEsc"](idris["Prelude.Types.fastPack"](__frame6[4])))
+                    return idris["Parser.Support.case[3463]case block in escape'"](__arg0)(__e6)(__e9)(__e12)(__e13)(idris["Parser.Support.getEsc"](idris["Prelude.Types.fastPack"](__frame6[4])))
                   end
                   __frame5[2]["0"] = function()
                     local __frame6 = {
@@ -23275,7 +23406,7 @@ idris["Parser.Support.case[3341]escape'"] = function(__arg0)
                     __frame6[3]["tag"] = "1"
                     __frame6[3]["arg1"] = __e6
                     __frame6[3]["arg2"] = __frame6[2]
-                    return idris["Parser.Support.case[3491]case block in escape'"](__arg0)(__e6)(__e9)(idris["Parser.Support.getEsc"](idris["Prelude.Types.fastPack"](__frame6[3])))
+                    return idris["Parser.Support.case[3581]case block in escape'"](__arg0)(__e6)(__e9)(idris["Parser.Support.getEsc"](idris["Prelude.Types.fastPack"](__frame6[3])))
                   end
                   __frame5[3] = __frame5[2][__frame5[1]["tag"]]
                   if __frame5[3] then
@@ -23305,14 +23436,14 @@ idris["Parser.Support.case[3341]escape'"] = function(__arg0)
             if __frame2[3] then
               __frame2[4] = __frame2[3]()
             else
-              __frame2[4] = idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind0)
+              __frame2[4] = idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind0)
                 local __frame3 = {
                   nil,
                   nil
                 }
                 __frame3[1] = {}
                 __frame3[1]["tag"] = "1"
-                __frame3[1]["arg1"] = idris["Prelude.Types.cast_Cast__Int_Char"](idris["Prelude.Types.cast_Cast__String_Int"](idris["Prelude.Types.fastPack"](__e2)))
+                __frame3[1]["arg1"] = idris["Prelude.Types.cast_Cast_Int_Char"](idris["Prelude.Types.cast_Cast_String_Int"](idris["Prelude.Types.fastPack"](__e2)))
                 __frame3[1]["arg2"] = __bind0
                 __frame3[2] = {}
                 __frame3[2]["tag"] = "1"
@@ -23332,7 +23463,7 @@ idris["Parser.Support.case[3341]escape'"] = function(__arg0)
         end)()
     end
 end
-idris["Parser.Support.case[3289]escape'"] = function(__arg0)
+idris["Parser.Support.case[3379]escape'"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -23365,16 +23496,16 @@ idris["Parser.Support.case[3289]escape'"] = function(__arg0)
             if __frame2[3] then
               __frame2[4] = __frame2[3]()
             else
-              __frame2[4] = idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.5713:3246:toOct"](__arg0)(1)(idris["Data.List.reverse"](nil)(__e2)))(function(__bind0)
-                return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind1)
+              __frame2[4] = idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.5790:3336:toOct"](__arg0)(1)(idris["Data.List.reverse"](nil)(__e2)))(function(__bind0)
+                return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind1)
                     local __frame4 = {
                       nil
                     }
                     __frame4[1] = {}
                     __frame4[1]["tag"] = "1"
-                    __frame4[1]["arg1"] = idris["Prelude.Types.cast_Cast__Int_Char"](__bind0)
+                    __frame4[1]["arg1"] = idris["Prelude.Types.cast_Cast_Int_Char"](__bind0)
                     __frame4[1]["arg2"] = __bind1
-                    return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame4[1])
+                    return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame4[1])
                   end)
               end)
             end
@@ -23390,7 +23521,7 @@ idris["Parser.Support.case[3289]escape'"] = function(__arg0)
         end)()
     end
 end
-idris["Parser.Support.case[3196]escape'"] = function(__arg0)
+idris["Parser.Support.case[3286]escape'"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -23423,16 +23554,16 @@ idris["Parser.Support.case[3196]escape'"] = function(__arg0)
             if __frame2[3] then
               __frame2[4] = __frame2[3]()
             else
-              __frame2[4] = idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.5713:3153:toHex"](__arg0)(1)(idris["Data.List.reverse"](nil)(__e2)))(function(__bind0)
-                return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind1)
+              __frame2[4] = idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.5790:3243:toHex"](__arg0)(1)(idris["Data.List.reverse"](nil)(__e2)))(function(__bind0)
+                return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind1)
                     local __frame4 = {
                       nil
                     }
                     __frame4[1] = {}
                     __frame4[1]["tag"] = "1"
-                    __frame4[1]["arg1"] = idris["Prelude.Types.cast_Cast__Int_Char"](__bind0)
+                    __frame4[1]["arg1"] = idris["Prelude.Types.cast_Cast_Int_Char"](__bind0)
                     __frame4[1]["arg2"] = __bind1
-                    return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame4[1])
+                    return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame4[1])
                   end)
               end)
             end
@@ -23507,7 +23638,7 @@ idris["Prelude.Show.showLitChar"] = function(__arg0)
       __frame1[2][utf8.char(idris.unpack({14})) --[[ \SO--]]] = function()
         return function(__eta0)
             return idris["Prelude.Show.protectEsc"](function(__arg1)
-                return idris["Prelude.EqOrd.==_Eq__Char"](__arg1)("H")
+                return idris["Prelude.EqOrd.==_Eq_Char"](__arg1)("H")
               end)("\\SO")(__eta0)
           end
       end
@@ -23525,7 +23656,7 @@ idris["Prelude.Show.showLitChar"] = function(__arg0)
       if __frame1[3] then
         __frame1[4] = __frame1[3]()
       else
-        __frame1[4] = idris["Prelude.Show.case[6189]showLitChar"](__arg0)(idris["Prelude.Show.1638:6006:getAt"](__arg0)(idris["Prelude.Types.fromInteger_Num__Nat"](bigint:new(utf8.byte(__arg0))))(idris["Prelude.Show.1638:6005:asciiTab"](__arg0)))
+        __frame1[4] = idris["Prelude.Show.case[6617]showLitChar"](__arg0)(idris["Prelude.Show.1675:6434:getAt"](__arg0)(idris["Prelude.Types.fromInteger_Num_Nat"](bigint:new(utf8.byte(__arg0))))(idris["Prelude.Show.1675:6433:asciiTab"](__arg0)))
       end
       return __frame1[4]
     end)()
@@ -23585,12 +23716,12 @@ idris["Prelude.Show.showLitString"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Prelude.Show.show_Show__String"] = function(__arg0)
+idris["Prelude.Show.show_Show_String"] = function(__arg0)
   return (function()
       return idris["Prelude.Types.strCons"]("\"")(idris["Prelude.Show.showLitString"](idris["Prelude.Types.unpack"](__arg0))("\""))
     end)()
 end
-idris["Parser.Lexer.Source.show_Show__Token"] = function(__arg0)
+idris["Parser.Lexer.Source.show_Show_Token"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -23619,19 +23750,19 @@ idris["Parser.Lexer.Source.show_Show__Token"] = function(__arg0)
       }
       __frame1[2]["0"] = function()
         local __e0 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"]("character ")(idris["Prelude.Show.show_Show__String"](__e0))
+        return idris["Prelude.Types.Strings.++"]("character ")(idris["Prelude.Show.show_Show_String"](__e0))
       end
       __frame1[2]["1"] = function()
         local __e1 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"]("double ")(idris["Prelude.Show.show_Show__Double"](__e1))
+        return idris["Prelude.Types.Strings.++"]("double ")(idris["Prelude.Show.show_Show_Double"](__e1))
       end
       __frame1[2]["2"] = function()
         local __e2 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"]("literal ")(idris["Prelude.Show.show_Show__Integer"](__e2))
+        return idris["Prelude.Types.Strings.++"]("literal ")(idris["Prelude.Show.show_Show_Integer"](__e2))
       end
       __frame1[2]["3"] = function()
         local __e3 = __frame1[1]["arg1"]
-        return idris["Prelude.Types.Strings.++"]("string ")(idris["Prelude.Show.show_Show__String"](__e3))
+        return idris["Prelude.Types.Strings.++"]("string ")(idris["Prelude.Show.show_Show_String"](__e3))
       end
       __frame1[2]["4"] = function()
         local __e4 = __frame1[1]["arg1"]
@@ -23644,7 +23775,7 @@ idris["Parser.Lexer.Source.show_Show__Token"] = function(__arg0)
       __frame1[2]["6"] = function()
         local __e6 = __frame1[1]["arg1"]
         local __e7 = __frame1[1]["arg2"]
-        return idris["Prelude.Types.Strings.++"]("namespaced identifier ")(idris["Prelude.Types.Strings.++"](idris["Core.Name.Namespace.show_Show__Namespace"](__e6))(idris["Prelude.Types.Strings.++"](".")(idris["Prelude.Show.show_Show__String"](__e7))))
+        return idris["Prelude.Types.Strings.++"]("namespaced identifier ")(idris["Prelude.Types.Strings.++"](idris["Core.Name.Namespace.show_Show_Namespace"](__e6))(idris["Prelude.Types.Strings.++"](".")(idris["Prelude.Show.show_Show_String"](__e7))))
       end
       __frame1[2]["7"] = function()
         local __e8 = __frame1[1]["arg1"]
@@ -23689,10 +23820,10 @@ idris["Parser.Lexer.Source.show_Show__Token"] = function(__arg0)
       return __frame1[4]
     end)()
 end
-idris["Parser.Lexer.Source.showPrec_Show__Token"] = function(__arg0)
+idris["Parser.Lexer.Source.showPrec_Show_Token"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Parser.Lexer.Source.show_Show__Token"](__arg1)
+          return idris["Parser.Lexer.Source.show_Show_Token"](__arg1)
         end)()
     end
 end
@@ -23733,7 +23864,7 @@ idris["Parser.Lexer.Common.isIdentStart"] = function(__arg0)
             }
             __frame1[4]["1"] = function()
               return idris["Prelude.Basics.||"](idris["Prelude.Types.isUpper"](__arg1))(function()
-                  return idris["Prelude.EqOrd.>_Ord__Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
+                  return idris["Prelude.EqOrd.>_Ord_Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
                 end)
             end
             __frame1[5] = __frame1[4][__frame1[3]["tag"]]
@@ -23741,7 +23872,7 @@ idris["Parser.Lexer.Common.isIdentStart"] = function(__arg0)
               __frame1[6] = __frame1[5]()
             else
               __frame1[6] = idris["Prelude.Basics.||"](idris["Prelude.Types.isAlpha"](__arg1))(function()
-                return idris["Prelude.EqOrd.>_Ord__Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
+                return idris["Prelude.EqOrd.>_Ord_Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
               end)
             end
             __frame1[8] = __frame1[6]
@@ -23812,7 +23943,7 @@ idris["Parser.Lexer.Common.isIdentTrailing"] = function(__arg0)
                 __frame2[6] = __frame2[5]()
               else
                 __frame2[6] = idris["Prelude.Basics.||"](idris["Prelude.Types.isAlphaNum"](__arg1))(function()
-                  return idris["Prelude.EqOrd.>_Ord__Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
+                  return idris["Prelude.EqOrd.>_Ord_Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
                 end)
               end
               __frame2[8] = __frame2[6]
@@ -23839,7 +23970,7 @@ idris["Parser.Lexer.Common.isIdentTrailing"] = function(__arg0)
               __frame1[6] = __frame1[5]()
             else
               __frame1[6] = idris["Prelude.Basics.||"](idris["Prelude.Types.isAlphaNum"](__arg1))(function()
-                return idris["Prelude.EqOrd.>_Ord__Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
+                return idris["Prelude.EqOrd.>_Ord_Char"](__arg1)(idris["Prelude.Types.chr"](bigint.tonumber(bigint:new("160"))))
               end)
             end
             __frame1[8] = __frame1[6]
@@ -23894,7 +24025,7 @@ idris["Plugin.getSourceDirectory"] = (function()
             return function(func)
                 return function(__arg149)
                     return function(__eta1)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                       end
                   end
               end
@@ -23947,8 +24078,8 @@ idris["Plugin.getSourceDirectory"] = (function()
       __frame2[3]["tag"] = "0"
       __frame2[3]["arg1"] = __frame2[2]
       __frame2[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       __frame2[4] = {}
@@ -23978,7 +24109,7 @@ idris["Plugin.getSourceDirectory"] = (function()
               return function(func)
                   return function(__arg149)
                       return function(__eta1)
-                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                         end
                     end
                 end
@@ -24031,8 +24162,8 @@ idris["Plugin.getSourceDirectory"] = (function()
         __frame3[3]["tag"] = "0"
         __frame3[3]["arg1"] = __frame3[2]
         __frame3[3]["arg2"] = function(a)
-          return function(__arg6794)
-              return __arg6794
+          return function(__arg7222)
+              return __arg7222
             end
         end
         local __act25 = idris["System.File.fGetLine"](nil)(__frame3[3])(__e2)(__eta0)
@@ -24060,7 +24191,7 @@ idris["Plugin.getSourceDirectory"] = (function()
                 return function(func)
                     return function(__arg149)
                         return function(__eta1)
-                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                           end
                       end
                   end
@@ -24113,8 +24244,8 @@ idris["Plugin.getSourceDirectory"] = (function()
           __frame4[3]["tag"] = "0"
           __frame4[3]["arg1"] = __frame4[2]
           __frame4[3]["arg2"] = function(a)
-            return function(__arg6794)
-                return __arg6794
+            return function(__arg7222)
+                return __arg7222
               end
           end
           local __act26 = idris["System.File.pclose"](nil)(__frame4[3])(__e2)(__eta0)
@@ -24122,8 +24253,8 @@ idris["Plugin.getSourceDirectory"] = (function()
           __frame4[4]["tag"] = "1"
           __frame4[4]["arg1"] = __e3
           local ___1 = __frame4[4]
-          return idris["Plugin.case[4657]case block in case block in getSourceDirectory"](cmd)(__e2)(___0)(__e3)(___1)(__act26)(idris["Data.Strings.split"](function(__arg0)
-              return idris["Prelude.EqOrd.==_Eq__Char"](__arg0)("\n")
+          return idris["Plugin.case[4230]case block in case block in getSourceDirectory"](cmd)(__e2)(___0)(__e3)(___1)(__act26)(idris["Data.Strings.split"](function(__arg0)
+              return idris["Prelude.EqOrd.==_Eq_Char"](__arg0)("\n")
             end)(__e3))(__eta0)
         end
         __frame3[6]["0"] = function()
@@ -24145,7 +24276,7 @@ idris["Plugin.getSourceDirectory"] = (function()
                 return function(func)
                     return function(__arg149)
                         return function(__eta1)
-                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                           end
                       end
                   end
@@ -24198,18 +24329,18 @@ idris["Plugin.getSourceDirectory"] = (function()
           __frame4[3]["tag"] = "0"
           __frame4[3]["arg1"] = __frame4[2]
           __frame4[3]["arg2"] = function(a)
-            return function(__arg6794)
-                return __arg6794
+            return function(__arg7222)
+                return __arg7222
               end
           end
           __frame4[4] = {}
           __frame4[4]["tag"] = "0"
           __frame4[4]["arg1"] = function(x)
-            return idris["System.File.show_Show__FileError"](x)
+            return idris["System.File.show_Show_FileError"](x)
           end
           __frame4[4]["arg2"] = function(d)
             return function(x)
-                return idris["System.File.showPrec_Show__FileError"](d)(x)
+                return idris["System.File.showPrec_Show_FileError"](d)(x)
               end
           end
           __frame4[5] = {}
@@ -24224,7 +24355,7 @@ idris["Plugin.getSourceDirectory"] = (function()
                 return function(func)
                     return function(__arg149)
                         return function(__eta1)
-                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                           end
                       end
                   end
@@ -24277,8 +24408,8 @@ idris["Plugin.getSourceDirectory"] = (function()
           __frame4[8]["tag"] = "0"
           __frame4[8]["arg1"] = __frame4[7]
           __frame4[8]["arg2"] = function(a)
-            return function(__arg6794)
-                return __arg6794
+            return function(__arg7222)
+                return __arg7222
               end
           end
           return idris["System.exitFailure"](nil)(nil)(__frame4[8])(__eta0)
@@ -24310,7 +24441,7 @@ idris["Plugin.getSourceDirectory"] = (function()
               return function(func)
                   return function(__arg149)
                       return function(__eta1)
-                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                         end
                     end
                 end
@@ -24363,18 +24494,18 @@ idris["Plugin.getSourceDirectory"] = (function()
         __frame3[3]["tag"] = "0"
         __frame3[3]["arg1"] = __frame3[2]
         __frame3[3]["arg2"] = function(a)
-          return function(__arg6794)
-              return __arg6794
+          return function(__arg7222)
+              return __arg7222
             end
         end
         __frame3[4] = {}
         __frame3[4]["tag"] = "0"
         __frame3[4]["arg1"] = function(x)
-          return idris["System.File.show_Show__FileError"](x)
+          return idris["System.File.show_Show_FileError"](x)
         end
         __frame3[4]["arg2"] = function(d)
           return function(x)
-              return idris["System.File.showPrec_Show__FileError"](d)(x)
+              return idris["System.File.showPrec_Show_FileError"](d)(x)
             end
         end
         __frame3[5] = {}
@@ -24389,7 +24520,7 @@ idris["Plugin.getSourceDirectory"] = (function()
               return function(func)
                   return function(__arg149)
                       return function(__eta1)
-                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                         end
                     end
                 end
@@ -24442,8 +24573,8 @@ idris["Plugin.getSourceDirectory"] = (function()
         __frame3[8]["tag"] = "0"
         __frame3[8]["arg1"] = __frame3[7]
         __frame3[8]["arg2"] = function(a)
-          return function(__arg6794)
-              return __arg6794
+          return function(__arg7222)
+              return __arg7222
             end
         end
         return idris["System.exitFailure"](nil)(nil)(__frame3[8])(__eta0)
@@ -24459,7 +24590,7 @@ idris["Plugin.getSourceDirectory"] = (function()
 end)()
 idris["Utils.Hex.fromHexChars"] = function(__ext0)
   return (function()
-      return idris["Utils.Hex.2208:728:fromHexChars'"](1)(__ext0)
+      return idris["Utils.Hex.2270:818:fromHexChars'"](1)(__ext0)
     end)()
 end
 idris["Utils.Hex.fromHex"] = function(__ext0)
@@ -24467,7 +24598,7 @@ idris["Utils.Hex.fromHex"] = function(__ext0)
       return idris["Utils.Hex.fromHexChars"](idris["Prelude.Types.unpack"](__ext0))
     end)()
 end
-idris["Plugin.case[4908]splitMessages"] = function(__arg0)
+idris["Plugin.case[4517]splitMessages"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -24501,8 +24632,8 @@ idris["Plugin.case[4908]splitMessages"] = function(__arg0)
                 if __frame2[3] then
                   __frame2[4] = __frame2[3]()
                 else
-                  local msg = idris["Prelude.Types.substr"](bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(idris["Prelude.Types.cast_Cast__Int_Integer"](__e1))(__arg1)
-                  local rest = idris["Prelude.Types.substr"](idris["Prelude.Types.cast_Cast__Int_Integer"](bigint.tonumber(bigint:new("6")) + __e1))(idris["Prelude.Types.Strings.length"](__arg1))(__arg1)
+                  local msg = idris["Prelude.Types.substr"](bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(idris["Prelude.Types.prim__integerToNat"](idris["Prelude.Types.cast_Cast_Int_Integer"](__e1)))(__arg1)
+                  local rest = idris["Prelude.Types.substr"](idris["Prelude.Types.prim__integerToNat"](idris["Prelude.Types.cast_Cast_Int_Integer"](bigint.tonumber(bigint:new("6")) + __e1)))(idris["Prelude.Types.Strings.length"](__arg1))(__arg1)
                   __frame2[4] = idris["Plugin.splitMessages"](rest)(idris["Data.List.snoc"](nil)(__arg0)(msg))
                 end
                 return __frame2[4]
@@ -24524,7 +24655,7 @@ end
 idris["Plugin.splitMessages"] = function(__arg0)
   return function(__arg1)
       return (function()
-          return idris["Plugin.case[4908]splitMessages"](__arg1)(__arg0)(idris["Utils.Hex.fromHex"](idris["Prelude.Types.reverse"](idris["Prelude.Types.substr"](bigint:new("0"))(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(__arg0))))
+          return idris["Plugin.case[4517]splitMessages"](__arg1)(__arg0)(idris["Utils.Hex.fromHex"](idris["Prelude.Types.reverse"](idris["Prelude.Types.substr"](bigint:new("0"))(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(__arg0))))
         end)()
     end
 end
@@ -24547,7 +24678,7 @@ idris["Parser.Support.escape'"] = function(__arg0)
         }
         __frame2[1] = {}
         __frame2[1]["tag"] = "0"
-        return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame2[1])
+        return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame2[1])
       end
       __frame1[2]["1"] = function()
         local __frame2 = {
@@ -24599,7 +24730,7 @@ idris["Parser.Support.escape'"] = function(__arg0)
               nil
             }
             __frame4[2]["\\"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24607,16 +24738,16 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = "\\"
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["&"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__bind0)
                 end)
             end
             __frame4[2]["a"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24624,11 +24755,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = utf8.char(idris.unpack({7})) --[[ \a--]]
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["b"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24636,11 +24767,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = utf8.char(idris.unpack({8})) --[[ \b--]]
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["f"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24648,11 +24779,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = utf8.char(idris.unpack({12})) --[[ \f--]]
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["n"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24660,11 +24791,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = "\n"
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["r"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24672,11 +24803,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = "\r"
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["t"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24684,11 +24815,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = utf8.char(idris.unpack({9})) --[[ \t--]]
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["v"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24696,11 +24827,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = utf8.char(idris.unpack({11})) --[[ \v--]]
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["'"] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24708,11 +24839,11 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = "'"
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["\""] = function()
-              return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
+              return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e6))(function(__bind0)
                   local __frame6 = {
                     nil
                   }
@@ -24720,16 +24851,16 @@ idris["Parser.Support.escape'"] = function(__arg0)
                   __frame6[1]["tag"] = "1"
                   __frame6[1]["arg1"] = "\""
                   __frame6[1]["arg2"] = __bind0
-                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__frame6[1])
+                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__frame6[1])
                 end)
             end
             __frame4[2]["x"] = function()
-              return idris["Parser.Support.case[3196]escape'"](__e6)(idris["Data.List.span"](nil)(function(__eta0)
+              return idris["Parser.Support.case[3286]escape'"](__e6)(idris["Data.List.span"](nil)(function(__eta0)
                   return idris["Prelude.Types.isHexDigit"](__eta0)
                 end)(__e6))
             end
             __frame4[2]["o"] = function()
-              return idris["Parser.Support.case[3289]escape'"](__e6)(idris["Data.List.span"](nil)(function(__eta0)
+              return idris["Parser.Support.case[3379]escape'"](__e6)(idris["Data.List.span"](nil)(function(__eta0)
                   return idris["Prelude.Types.isOctDigit"](__eta0)
                 end)(__e6))
             end
@@ -24737,7 +24868,7 @@ idris["Parser.Support.escape'"] = function(__arg0)
             if __frame4[3] then
               __frame4[4] = __frame4[3]()
             else
-              __frame4[4] = idris["Parser.Support.case[3341]escape'"](__e3)(idris["Data.List.span"](nil)(function(__eta0)
+              __frame4[4] = idris["Parser.Support.case[3431]escape'"](__e3)(idris["Data.List.span"](nil)(function(__eta0)
                 return idris["Prelude.Types.isDigit"](__eta0)
               end)(__e3))
             end
@@ -24747,7 +24878,7 @@ idris["Parser.Support.escape'"] = function(__arg0)
           if __frame3[3] then
             __frame3[4] = __frame3[3]()
           else
-            __frame3[4] = idris["Parser.Support.case[3341]escape'"](__e3)(idris["Data.List.span"](nil)(function(__eta0)
+            __frame3[4] = idris["Parser.Support.case[3431]escape'"](__e3)(idris["Data.List.span"](nil)(function(__eta0)
               return idris["Prelude.Types.isDigit"](__eta0)
             end)(__e3))
           end
@@ -24757,7 +24888,7 @@ idris["Parser.Support.escape'"] = function(__arg0)
         if __frame2[3] then
           __frame2[4] = __frame2[3]()
         else
-          __frame2[4] = idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind0)
+          __frame2[4] = idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](__e3))(function(__bind0)
             local __frame3 = {
               nil,
               nil
@@ -24785,8 +24916,8 @@ idris["Parser.Support.escape'"] = function(__arg0)
 end
 idris["Parser.Support.escape"] = function(__arg0)
   return (function()
-      return idris["Prelude.Types.>>=_Monad__Maybe"](nil)(nil)(idris["Parser.Support.escape'"](idris["Prelude.Types.unpack"](__arg0)))(function(__bind0)
-          return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(idris["Prelude.Types.fastPack"](__bind0))
+      return idris["Prelude.Types.>>=_Monad_Maybe"](nil)(nil)(idris["Parser.Support.escape'"](idris["Prelude.Types.unpack"](__arg0)))(function(__bind0)
+          return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(idris["Prelude.Types.fastPack"](__bind0))
         end)
     end)()
 end
@@ -24802,22 +24933,22 @@ idris["Utils.Path.disk"] = (function()
   __frame1[1]["tag"] = "0"
   __frame1[1]["arg1"] = function(__arg2)
     return function(__arg3)
-        return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+        return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
       end
   end
   __frame1[1]["arg2"] = function(__arg4)
     return function(__arg5)
-        return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+        return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
       end
   end
   __frame1[2] = {}
   __frame1[2]["tag"] = "0"
-  __frame1[2]["arg1"] = function(__arg272)
-    return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+  __frame1[2]["arg1"] = function(__arg364)
+    return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
   end
   __frame1[2]["arg2"] = function(kind)
-    return function(__arg273)
-        return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+    return function(__arg365)
+        return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
       end
   end
   __frame1[3] = {}
@@ -24839,7 +24970,7 @@ idris["Utils.Path.disk"] = (function()
         __frame3[1]["tag"] = "9"
         __frame3[1]["arg1"] = 1
         __frame3[1]["arg2"] = 0
-        __frame3[1]["arg3"] = idris["Utils.Path.case[3577]disk"](text)(idris["Prelude.Types.unpack"](text))
+        __frame3[1]["arg3"] = idris["Utils.Path.case[3691]disk"](text)(idris["Prelude.Types.unpack"](text))
         __frame3[1]["arg4"] = function(disk)
           local __frame4 = {
             nil,
@@ -24852,22 +24983,22 @@ idris["Utils.Path.disk"] = (function()
           __frame4[1]["tag"] = "0"
           __frame4[1]["arg1"] = function(__arg2)
             return function(__arg3)
-                return idris["Utils.Path.==_Eq__PathTokenKind"](__arg2)(__arg3)
+                return idris["Utils.Path.==_Eq_PathTokenKind"](__arg2)(__arg3)
               end
           end
           __frame4[1]["arg2"] = function(__arg4)
             return function(__arg5)
-                return idris["Utils.Path./=_Eq__PathTokenKind"](__arg4)(__arg5)
+                return idris["Utils.Path./=_Eq_PathTokenKind"](__arg4)(__arg5)
               end
           end
           __frame4[2] = {}
           __frame4[2]["tag"] = "0"
-          __frame4[2]["arg1"] = function(__arg272)
-            return idris["Utils.Path.TokType_TokenKind__PathTokenKind"](__arg272)
+          __frame4[2]["arg1"] = function(__arg364)
+            return idris["Utils.Path.TokType_TokenKind_PathTokenKind"](__arg364)
           end
           __frame4[2]["arg2"] = function(kind)
-            return function(__arg273)
-                return idris["Utils.Path.tokValue_TokenKind__PathTokenKind"](kind)(__arg273)
+            return function(__arg365)
+                return idris["Utils.Path.tokValue_TokenKind_PathTokenKind"](kind)(__arg365)
               end
           end
           __frame4[3] = {}
@@ -24882,7 +25013,7 @@ idris["Utils.Path.disk"] = (function()
           __frame4[5]["arg1"] = 1
           __frame4[5]["arg2"] = idris["Text.Parser.match"](nil)(__frame4[3])(__frame4[4])
           __frame4[5]["arg3"] = function()
-            return function(___3566)
+            return function(___3680)
                 local __frame6 = {
                   nil,
                   nil
@@ -24912,7 +25043,7 @@ idris["Utils.Path.verbatimDisk"] = (function()
   __frame1[1]["arg1"] = 0
   __frame1[1]["arg2"] = idris["Utils.Path.verbatim"]
   __frame1[1]["arg3"] = function()
-    return function(___3602)
+    return function(___3716)
         local __frame3 = {
           nil
         }
@@ -25030,7 +25161,7 @@ idris["Utils.Path.parsePath"] = (function()
             }
             __frame6[2]["2"] = function()
               local __e0 = __frame6[1]["arg1"]
-              return idris["Prelude.EqOrd./=_Eq__String"](idris["Data.Strings.ltrim"](__e0))("")
+              return idris["Prelude.EqOrd./=_Eq_String"](idris["Data.Strings.ltrim"](__e0))("")
             end
             __frame6[3] = __frame6[2][__frame6[1]["tag"]]
             if __frame6[3] then
@@ -25065,12 +25196,12 @@ idris["Utils.Path.parsePath"] = (function()
             __frame6[1]["tag"] = "0"
             __frame6[1]["arg1"] = function(__arg2)
               return function(__arg3)
-                  return idris["Utils.Path.==_Eq__Body"](__arg2)(__arg3)
+                  return idris["Utils.Path.==_Eq_Body"](__arg2)(__arg3)
                 end
             end
             __frame6[1]["arg2"] = function(__arg4)
               return function(__arg5)
-                  return idris["Utils.Path./=_Eq__Body"](__arg4)(__arg5)
+                  return idris["Utils.Path./=_Eq_Body"](__arg4)(__arg5)
                 end
             end
             __frame6[2] = {}
@@ -25109,7 +25240,7 @@ idris["Utils.Path.parsePath"] = (function()
 end)()
 idris["Utils.Path.parse"] = function(__arg0)
   return (function()
-      return idris["Utils.Path.case[3801]parse"](__arg0)(idris["Text.Parser.Core.parse"](nil)(nil)(1)(idris["Utils.Path.parsePath"])(idris["Utils.Path.lexPath"](__arg0)))
+      return idris["Utils.Path.case[3915]parse"](__arg0)(idris["Text.Parser.Core.parse"](nil)(nil)(1)(idris["Utils.Path.parsePath"])(idris["Utils.Path.lexPath"](__arg0)))
     end)()
 end
 idris["Utils.Path.isAbsolute"] = function(__arg0)
@@ -25122,7 +25253,7 @@ idris["Utils.Path.isRelative"] = function(__ext0)
       return idris["Prelude.Basics.not"](idris["Utils.Path.isAbsolute"](__ext0))
     end)()
 end
-idris["Plugin.case[6120]case block in case block in case block in case block in case block in case block in process"] = function(__arg0)
+idris["Plugin.case[5779]case block in case block in case block in case block in case block in case block in process"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -25206,7 +25337,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                     return function(func)
                                                                                                         return function(__arg149)
                                                                                                             return function(__eta1)
-                                                                                                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                               end
                                                                                                           end
                                                                                                       end
@@ -25259,8 +25390,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                               __frame4[3]["tag"] = "0"
                                                                                               __frame4[3]["arg1"] = __frame4[2]
                                                                                               __frame4[3]["arg2"] = function(a)
-                                                                                                return function(__arg6794)
-                                                                                                    return __arg6794
+                                                                                                return function(__arg7222)
+                                                                                                    return __arg7222
                                                                                                   end
                                                                                               end
                                                                                               __frame4[4] = __e4
@@ -25388,7 +25519,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                           return function(func)
                                                                                                               return function(__arg149)
                                                                                                                   return function(__eta1)
-                                                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                                     end
                                                                                                                 end
                                                                                                             end
@@ -25441,8 +25572,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                     __frame6[3]["tag"] = "0"
                                                                                                     __frame6[3]["arg1"] = __frame6[2]
                                                                                                     __frame6[3]["arg2"] = function(a)
-                                                                                                      return function(__arg6794)
-                                                                                                          return __arg6794
+                                                                                                      return function(__arg7222)
+                                                                                                          return __arg7222
                                                                                                         end
                                                                                                     end
                                                                                                     return idris["Foreign.nvimCommand"](nil)(__frame6[3])("echoe \"Can't handle multiple absolute candidates\"")(__eta0)
@@ -25515,7 +25646,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                             return function(func)
                                                                                                                 return function(__arg149)
                                                                                                                     return function(__eta1)
-                                                                                                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                                       end
                                                                                                                   end
                                                                                                               end
@@ -25568,8 +25699,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                       __frame6[5]["tag"] = "0"
                                                                                                       __frame6[5]["arg1"] = __frame6[4]
                                                                                                       __frame6[5]["arg2"] = function(a)
-                                                                                                        return function(__arg6794)
-                                                                                                            return __arg6794
+                                                                                                        return function(__arg7222)
+                                                                                                            return __arg7222
                                                                                                           end
                                                                                                       end
                                                                                                       __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])("echoe \"Can't handle multiple relative candidates\"")(__eta0)
@@ -25587,7 +25718,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                           return function(func)
                                                                                                               return function(__arg149)
                                                                                                                   return function(__eta1)
-                                                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                                     end
                                                                                                                 end
                                                                                                             end
@@ -25640,8 +25771,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                     __frame5[7]["tag"] = "0"
                                                                                                     __frame5[7]["arg1"] = __frame5[6]
                                                                                                     __frame5[7]["arg2"] = function(a)
-                                                                                                      return function(__arg6794)
-                                                                                                          return __arg6794
+                                                                                                      return function(__arg7222)
+                                                                                                          return __arg7222
                                                                                                         end
                                                                                                     end
                                                                                                     __frame5[9] = idris["Foreign.nvimCommand"](nil)(__frame5[7])("echoe \"Can't handle multiple relative candidates\"")(__eta0)
@@ -25675,7 +25806,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                         return function(func)
                                                                                                             return function(__arg149)
                                                                                                                 return function(__eta1)
-                                                                                                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                                   end
                                                                                                               end
                                                                                                           end
@@ -25728,8 +25859,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                   __frame5[3]["tag"] = "0"
                                                                                                   __frame5[3]["arg1"] = __frame5[2]
                                                                                                   __frame5[3]["arg2"] = function(a)
-                                                                                                    return function(__arg6794)
-                                                                                                        return __arg6794
+                                                                                                    return function(__arg7222)
+                                                                                                        return __arg7222
                                                                                                       end
                                                                                                   end
                                                                                                   return idris["Foreign.nvimCommand"](nil)(__frame5[3])("echoe \"Can't handle multiple absolute candidates\"")(__eta0)
@@ -25802,7 +25933,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                           return function(func)
                                                                                                               return function(__arg149)
                                                                                                                   return function(__eta1)
-                                                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                                     end
                                                                                                                 end
                                                                                                             end
@@ -25855,8 +25986,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                     __frame5[5]["tag"] = "0"
                                                                                                     __frame5[5]["arg1"] = __frame5[4]
                                                                                                     __frame5[5]["arg2"] = function(a)
-                                                                                                      return function(__arg6794)
-                                                                                                          return __arg6794
+                                                                                                      return function(__arg7222)
+                                                                                                          return __arg7222
                                                                                                         end
                                                                                                     end
                                                                                                     __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])("echoe \"Can't handle multiple relative candidates\"")(__eta0)
@@ -25874,7 +26005,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                         return function(func)
                                                                                                             return function(__arg149)
                                                                                                                 return function(__eta1)
-                                                                                                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                                   end
                                                                                                               end
                                                                                                           end
@@ -25927,8 +26058,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                   __frame4[18]["tag"] = "0"
                                                                                                   __frame4[18]["arg1"] = __frame4[17]
                                                                                                   __frame4[18]["arg2"] = function(a)
-                                                                                                    return function(__arg6794)
-                                                                                                        return __arg6794
+                                                                                                    return function(__arg7222)
+                                                                                                        return __arg7222
                                                                                                       end
                                                                                                   end
                                                                                                   __frame4[20] = idris["Foreign.nvimCommand"](nil)(__frame4[18])("echoe \"Can't handle multiple relative candidates\"")(__eta0)
@@ -25949,7 +26080,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                                 return function(func)
                                                                                                     return function(__arg149)
                                                                                                         return function(__eta0)
-                                                                                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                                                           end
                                                                                                       end
                                                                                                   end
@@ -26002,8 +26133,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                           __frame2[5]["tag"] = "0"
                                                                                           __frame2[5]["arg1"] = __frame2[4]
                                                                                           __frame2[5]["arg2"] = function(a)
-                                                                                            return function(__arg6794)
-                                                                                                return __arg6794
+                                                                                            return function(__arg7222)
+                                                                                                return __arg7222
                                                                                               end
                                                                                           end
                                                                                           __frame2[7] = idris["Foreign.nvimCommand"](nil)(__frame2[5])("echoe 'Bad match while processing name-at'")
@@ -26021,7 +26152,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                               return function(func)
                                                                                                   return function(__arg149)
                                                                                                       return function(__eta0)
-                                                                                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                                                         end
                                                                                                     end
                                                                                                 end
@@ -26074,8 +26205,8 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
                                                                                         __frame1[5]["tag"] = "0"
                                                                                         __frame1[5]["arg1"] = __frame1[4]
                                                                                         __frame1[5]["arg2"] = function(a)
-                                                                                          return function(__arg6794)
-                                                                                              return __arg6794
+                                                                                          return function(__arg7222)
+                                                                                              return __arg7222
                                                                                             end
                                                                                         end
                                                                                         __frame1[7] = idris["Foreign.nvimCommand"](nil)(__frame1[5])("echoe 'Bad match while processing name-at'")
@@ -26103,7 +26234,7 @@ idris["Plugin.case[6120]case block in case block in case block in case block in 
         end
     end
 end
-idris["Plugin.case[6016]case block in case block in case block in case block in case block in process"] = function(__arg0)
+idris["Plugin.case[5675]case block in case block in case block in case block in case block in process"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -26139,7 +26270,7 @@ idris["Plugin.case[6016]case block in case block in case block in case block in 
                                                                                   }
                                                                                   __frame1[2]["1"] = function()
                                                                                     local __e1 = __frame1[1]["arg1"]
-                                                                                    return idris["Plugin.case[6120]case block in case block in case block in case block in case block in case block in process"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(__arg10)(__arg11)(__arg12)(__arg13)(__arg14)(__arg15)(__arg16)(__arg17)(__arg18)(__e1)(idris["Data.List.find"](nil)(function(__lamc0)
+                                                                                    return idris["Plugin.case[5779]case block in case block in case block in case block in case block in case block in process"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(__arg10)(__arg11)(__arg12)(__arg13)(__arg14)(__arg15)(__arg16)(__arg17)(__arg18)(__e1)(idris["Data.List.find"](nil)(function(__lamc0)
                                                                                         local __frame3 = {
                                                                                           nil,
                                                                                           nil,
@@ -26152,7 +26283,7 @@ idris["Plugin.case[6016]case block in case block in case block in case block in 
                                                                                         }
                                                                                         __frame3[2]["0"] = function()
                                                                                           local __e3 = __frame3[1]["arg2"]
-                                                                                          return idris["Prelude.Types.==_Eq__Nat"](__e1)(__e3)
+                                                                                          return idris["Prelude.Types.==_Eq_Nat"](__e1)(__e3)
                                                                                         end
                                                                                         __frame3[3] = __frame3[2][__frame3[1]["tag"]]
                                                                                         if __frame3[3] then
@@ -26174,7 +26305,7 @@ idris["Plugin.case[6016]case block in case block in case block in case block in 
                                                                                           return function(func)
                                                                                               return function(__arg149)
                                                                                                   return function(__eta0)
-                                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                                                     end
                                                                                                 end
                                                                                             end
@@ -26227,8 +26358,8 @@ idris["Plugin.case[6016]case block in case block in case block in case block in 
                                                                                     __frame1[5]["tag"] = "0"
                                                                                     __frame1[5]["arg1"] = __frame1[4]
                                                                                     __frame1[5]["arg2"] = function(a)
-                                                                                      return function(__arg6794)
-                                                                                          return __arg6794
+                                                                                      return function(__arg7222)
+                                                                                          return __arg7222
                                                                                         end
                                                                                     end
                                                                                     __frame1[7] = idris["Foreign.nvimCommand"](nil)(__frame1[5])("echoe 'Bad match while processing name-at'")
@@ -26255,7 +26386,7 @@ idris["Plugin.case[6016]case block in case block in case block in case block in 
         end
     end
 end
-idris["Plugin.case[5969]case block in case block in case block in case block in process"] = function(__arg0)
+idris["Plugin.case[5628]case block in case block in case block in case block in process"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -26312,18 +26443,18 @@ idris["Plugin.case[5969]case block in case block in case block in case block in 
                                                                           __frame3[1]["tag"] = "0"
                                                                           __frame3[1]["arg1"] = function(__arg17)
                                                                             return function(__arg18)
-                                                                                return idris["Prelude.Types.+_Num__Nat"](__arg17)(__arg18)
+                                                                                return idris["Prelude.Types.+_Num_Nat"](__arg17)(__arg18)
                                                                               end
                                                                           end
                                                                           __frame3[1]["arg2"] = function(__arg17)
                                                                             return function(__arg18)
-                                                                                return idris["Prelude.Types.*_Num__Nat"](__arg17)(__arg18)
+                                                                                return idris["Prelude.Types.*_Num_Nat"](__arg17)(__arg18)
                                                                               end
                                                                           end
                                                                           __frame3[1]["arg3"] = function(__arg17)
-                                                                            return idris["Prelude.Types.fromInteger_Num__Nat"](__arg17)
+                                                                            return idris["Prelude.Types.fromInteger_Num_Nat"](__arg17)
                                                                           end
-                                                                          return idris["Plugin.case[6016]case block in case block in case block in case block in case block in process"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(__arg10)(__arg11)(__arg12)(__arg13)(__arg14)(__arg15)(__e5)(__e1)(__e4)(idris["Data.Strings.parsePositive"](nil)(__frame3[1])(__e4))
+                                                                          return idris["Plugin.case[5675]case block in case block in case block in case block in case block in process"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(__arg10)(__arg11)(__arg12)(__arg13)(__arg14)(__arg15)(__e5)(__e1)(__e4)(idris["Data.Strings.parsePositive"](nil)(__frame3[1])(__e4))
                                                                         end
                                                                         __frame2[6] = __frame2[2][__frame2[1]["tag"]]
                                                                         if __frame2[6] then
@@ -26336,7 +26467,7 @@ idris["Plugin.case[5969]case block in case block in case block in case block in 
                                                                                 return function(func)
                                                                                     return function(__arg149)
                                                                                         return function(__eta0)
-                                                                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                                           end
                                                                                       end
                                                                                   end
@@ -26389,8 +26520,8 @@ idris["Plugin.case[5969]case block in case block in case block in case block in 
                                                                           __frame2[5]["tag"] = "0"
                                                                           __frame2[5]["arg1"] = __frame2[4]
                                                                           __frame2[5]["arg2"] = function(a)
-                                                                            return function(__arg6794)
-                                                                                return __arg6794
+                                                                            return function(__arg7222)
+                                                                                return __arg7222
                                                                               end
                                                                           end
                                                                           __frame2[7] = idris["Foreign.nvimCommand"](nil)(__frame2[5])("echoe 'Bad match while processing name-at'")
@@ -26408,7 +26539,7 @@ idris["Plugin.case[5969]case block in case block in case block in case block in 
                                                                               return function(func)
                                                                                   return function(__arg149)
                                                                                       return function(__eta0)
-                                                                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                                         end
                                                                                     end
                                                                                 end
@@ -26461,8 +26592,8 @@ idris["Plugin.case[5969]case block in case block in case block in case block in 
                                                                         __frame1[5]["tag"] = "0"
                                                                         __frame1[5]["arg1"] = __frame1[4]
                                                                         __frame1[5]["arg2"] = function(a)
-                                                                          return function(__arg6794)
-                                                                              return __arg6794
+                                                                          return function(__arg7222)
+                                                                              return __arg7222
                                                                             end
                                                                         end
                                                                         __frame1[7] = idris["Foreign.nvimCommand"](nil)(__frame1[5])("echoe 'Bad match while processing name-at'")
@@ -26486,7 +26617,7 @@ idris["Plugin.case[5969]case block in case block in case block in case block in 
         end
     end
 end
-idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
+idris["Plugin.case[5264]case block in case block in process"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -26658,7 +26789,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                             return function(func)
                                                                 return function(__arg149)
                                                                     return function(__eta1)
-                                                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                       end
                                                                   end
                                                               end
@@ -26711,8 +26842,8 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                       __frame7[3]["tag"] = "0"
                                                       __frame7[3]["arg1"] = __frame7[2]
                                                       __frame7[3]["arg2"] = function(a)
-                                                        return function(__arg6794)
-                                                            return __arg6794
+                                                        return function(__arg7222)
+                                                            return __arg7222
                                                           end
                                                       end
                                                       return idris["Foreign.nvimCommand"](nil)(__frame7[3])("echoe \"Can't handle multiple absolute candidates\"")(__eta0)
@@ -26785,7 +26916,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                               return function(func)
                                                                   return function(__arg149)
                                                                       return function(__eta1)
-                                                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                         end
                                                                     end
                                                                 end
@@ -26838,8 +26969,8 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                         __frame7[5]["tag"] = "0"
                                                         __frame7[5]["arg1"] = __frame7[4]
                                                         __frame7[5]["arg2"] = function(a)
-                                                          return function(__arg6794)
-                                                              return __arg6794
+                                                          return function(__arg7222)
+                                                              return __arg7222
                                                             end
                                                         end
                                                         __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])("echoe \"Can't handle multiple relative candidates\"")(__eta0)
@@ -26857,7 +26988,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                             return function(func)
                                                                 return function(__arg149)
                                                                     return function(__eta1)
-                                                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                       end
                                                                   end
                                                               end
@@ -26910,8 +27041,8 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                       __frame6[7]["tag"] = "0"
                                                       __frame6[7]["arg1"] = __frame6[6]
                                                       __frame6[7]["arg2"] = function(a)
-                                                        return function(__arg6794)
-                                                            return __arg6794
+                                                        return function(__arg7222)
+                                                            return __arg7222
                                                           end
                                                       end
                                                       __frame6[9] = idris["Foreign.nvimCommand"](nil)(__frame6[7])("echoe \"Can't handle multiple relative candidates\"")(__eta0)
@@ -26933,7 +27064,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                         return function(func)
                                                             return function(__arg149)
                                                                 return function(__eta1)
-                                                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                   end
                                                               end
                                                           end
@@ -26986,8 +27117,8 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                   __frame6[3]["tag"] = "0"
                                                   __frame6[3]["arg1"] = __frame6[2]
                                                   __frame6[3]["arg2"] = function(a)
-                                                    return function(__arg6794)
-                                                        return __arg6794
+                                                    return function(__arg7222)
+                                                        return __arg7222
                                                       end
                                                   end
                                                   return idris["Foreign.nvimCommand"](nil)(__frame6[3])("echoe 'Candidates not found'")(__eta0)
@@ -27004,7 +27135,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                           __frame3[3]["1"] = function()
                                             local __e2 = __frame3[2]["arg1"]
                                             local __e3 = __frame3[2]["arg2"]
-                                            local fzfInput = idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(__lamc0)
+                                            local fzfInput = idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(__lamc0)
                                               local __frame5 = {
                                                 nil,
                                                 nil,
@@ -27038,7 +27169,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                 else
                                                   idris["error"]("Impossible else branch")
                                                 end
-                                                return idris["Prelude.Types.Strings.++"]("[")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Nat"](__e6))(idris["Prelude.Types.Strings.++"]("] ")(__frame6[4])))
+                                                return idris["Prelude.Types.Strings.++"]("[")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Nat"](__e6))(idris["Prelude.Types.Strings.++"]("] ")(__frame6[4])))
                                               end
                                               __frame5[3] = __frame5[2][__frame5[1]["tag"]]
                                               if __frame5[3] then
@@ -27059,7 +27190,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                       return function(func)
                                                           return function(__arg149)
                                                               return function(__eta0)
-                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                 end
                                                             end
                                                         end
@@ -27085,7 +27216,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                         end
                                                     end
                                                 end
-                                                return idris["Prelude.Interfaces.when"](nil)(__frame5[1])(idris["Prelude.EqOrd./=_Eq__String"](file)(""))(function()
+                                                return idris["Prelude.Interfaces.when"](nil)(__frame5[1])(idris["Prelude.EqOrd./=_Eq_String"](file)(""))(function()
                                                     return function(__eta0)
                                                         local __frame7 = {
                                                           nil,
@@ -27100,7 +27231,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                               return function(func)
                                                                   return function(__arg149)
                                                                       return function(__eta1)
-                                                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                         end
                                                                     end
                                                                 end
@@ -27153,8 +27284,8 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                         __frame7[3]["tag"] = "0"
                                                         __frame7[3]["arg1"] = __frame7[2]
                                                         __frame7[3]["arg2"] = function(a)
-                                                          return function(__arg6794)
-                                                              return __arg6794
+                                                          return function(__arg7222)
+                                                              return __arg7222
                                                             end
                                                         end
                                                         local __act24 = idris["Foreign.nvimCommand"](nil)(__frame7[3])(idris["Prelude.Types.Strings.++"]("echom 'file is: ")(idris["Prelude.Types.Strings.++"](file)("'")))(__eta0)
@@ -27163,7 +27294,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                                         __frame7[4]["arg1"] = __e2
                                                         __frame7[4]["arg2"] = __e3
                                                         local rest = __frame7[4]
-                                                        return idris["Plugin.case[5969]case block in case block in case block in case block in process"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__e4)(__e3)(__e2)(validated)(rest)(fzfInput)(file)(__act24)(idris["Plugin.matchlist"](file)("\\v\\[([0-9]+)\\].+"))(__eta0)
+                                                        return idris["Plugin.case[5628]case block in case block in case block in case block in process"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__e4)(__e3)(__e2)(validated)(rest)(fzfInput)(file)(__act24)(idris["Plugin.matchlist"](file)("\\v\\[([0-9]+)\\].+"))(__eta0)
                                                       end
                                                   end)
                                               end)
@@ -27203,7 +27334,7 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                               return function(func)
                                                   return function(__arg149)
                                                       return function(__eta0)
-                                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                         end
                                                     end
                                                 end
@@ -27256,11 +27387,11 @@ idris["Plugin.case[5613]case block in case block in process"] = function(__arg0)
                                         __frame2[3]["tag"] = "0"
                                         __frame2[3]["arg1"] = __frame2[2]
                                         __frame2[3]["arg2"] = function(a)
-                                          return function(__arg6794)
-                                              return __arg6794
+                                          return function(__arg7222)
+                                              return __arg7222
                                             end
                                         end
-                                        return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__arg7))("'")))
+                                        return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__arg7))("'")))
                                       end
                                       __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                                       if __frame1[3] then
@@ -27406,7 +27537,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -27459,11 +27590,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to Interpret")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to Interpret")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -27478,7 +27609,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -27531,11 +27662,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to Interpret")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to Interpret")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -27550,7 +27681,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -27603,11 +27734,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to Interpret")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to Interpret")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -27678,7 +27809,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -27731,11 +27862,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to TypeOf")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to TypeOf")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -27750,7 +27881,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -27803,11 +27934,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to TypeOf")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to TypeOf")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -27822,7 +27953,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -27875,11 +28006,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to TypeOf")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to TypeOf")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -27987,7 +28118,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(init)
                                           return function(input)
-                                              return idris["Prelude.Types.foldr_Foldable__List"](nil)(nil)(func)(init)(input)
+                                              return idris["Prelude.Types.foldr_Foldable_List"](nil)(nil)(func)(init)(input)
                                             end
                                         end
                                     end
@@ -27998,10 +28129,15 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(init)
                                           return function(input)
-                                              return idris["Prelude.Types.foldl_Foldable__List"](nil)(nil)(func)(init)(input)
+                                              return idris["Prelude.Types.foldl_Foldable_List"](nil)(nil)(func)(init)(input)
                                             end
                                         end
                                     end
+                                end
+                            end
+                            __frame9[5]["arg3"] = function(elem)
+                              return function(__arg821)
+                                  return idris["Prelude.Types.null_Foldable_List"](nil)(__arg821)
                                 end
                             end
                             __frame9[6] = {}
@@ -28010,7 +28146,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(a)
                                   return function(func)
                                       return function(__arg149)
-                                          return idris["Prelude.Types.map_Functor__List"](nil)(nil)(func)(__arg149)
+                                          return idris["Prelude.Types.map_Functor_List"](nil)(nil)(func)(__arg149)
                                         end
                                     end
                                 end
@@ -28020,9 +28156,9 @@ idris["Plugin.process"] = function(__arg0)
                               return function(a)
                                   return function(f)
                                       return function(__i_con0)
-                                          return function(__arg1362)
-                                              return function(__arg1364)
-                                                  return idris["Prelude.Types.traverse_Traversable__List"](nil)(nil)(nil)(__i_con0)(__arg1362)(__arg1364)
+                                          return function(__arg1432)
+                                              return function(__arg1434)
+                                                  return idris["Prelude.Types.traverse_Traversable_List"](nil)(nil)(nil)(__i_con0)(__arg1432)(__arg1434)
                                                 end
                                             end
                                         end
@@ -28035,21 +28171,21 @@ idris["Plugin.process"] = function(__arg0)
                               return function(a)
                                   return function(func)
                                       return function(__arg149)
-                                          return idris["Prelude.Types.map_Functor__Maybe"](nil)(nil)(func)(__arg149)
+                                          return idris["Prelude.Types.map_Functor_Maybe"](nil)(nil)(func)(__arg149)
                                         end
                                     end
                                 end
                             end
                             __frame9[7]["arg2"] = function(a)
                               return function(__arg482)
-                                  return idris["Prelude.Types.pure_Applicative__Maybe"](nil)(__arg482)
+                                  return idris["Prelude.Types.pure_Applicative_Maybe"](nil)(__arg482)
                                 end
                             end
                             __frame9[7]["arg3"] = function(b)
                               return function(a)
                                   return function(__arg483)
                                       return function(__arg485)
-                                          return idris["Prelude.Types.<*>_Applicative__Maybe"](nil)(nil)(__arg483)(__arg485)
+                                          return idris["Prelude.Types.<*>_Applicative_Maybe"](nil)(nil)(__arg483)(__arg485)
                                         end
                                     end
                                 end
@@ -28058,7 +28194,7 @@ idris["Plugin.process"] = function(__arg0)
                             __frame9[8]["tag"] = "0"
                             __frame9[8]["arg1"] = __frame9[6]
                             __frame9[8]["arg2"] = __frame9[7]
-                            return idris["Plugin.case[5613]case block in case block in process"](__e0)(__arg0)(__e8)(__e7)(__bind0)(__act25)(__e6)(res)(idris["Prelude.Interfaces.sequence"](nil)(nil)(nil)(__frame9[8])(idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(__eta1)
+                            return idris["Plugin.case[5264]case block in case block in process"](__e0)(__arg0)(__e8)(__e7)(__bind0)(__act25)(__e6)(res)(idris["Prelude.Interfaces.sequence"](nil)(nil)(nil)(__frame9[8])(idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(__eta1)
                                 return idris["Plugin.validateNameAtEntry"](__eta1)
                               end)(__e6)))(__eta0)
                           end
@@ -28073,7 +28209,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -28126,11 +28262,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -28145,7 +28281,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -28198,11 +28334,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -28217,7 +28353,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -28270,11 +28406,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -28289,7 +28425,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -28342,11 +28478,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[7]["tag"] = "0"
                       __frame5[7]["arg1"] = __frame5[6]
                       __frame5[7]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[9] = idris["Foreign.nvimCommand"](nil)(__frame5[7])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[9] = idris["Foreign.nvimCommand"](nil)(__frame5[7])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to NameAt")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[9]
                   end
@@ -28411,7 +28547,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -28464,11 +28600,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to DocsFor")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to DocsFor")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -28483,7 +28619,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -28536,11 +28672,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to DocsFor")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to DocsFor")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -28555,7 +28691,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -28608,11 +28744,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to DocsFor")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to DocsFor")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -28678,8 +28814,8 @@ idris["Plugin.process"] = function(__arg0)
                             nil
                           }
                           __frame8[2]["0"] = function()
-                            local __act25 = idris["Plugin.deleteLine"](idris["Prelude.Types.cast_Cast__Integer_Int"](__e11))(__eta0)
-                            local __act26 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Num.-_Neg__Int"](idris["Prelude.Types.cast_Cast__Integer_Int"](__e11))(bigint.tonumber(bigint:new("1"))))(__e6)(__eta0)
+                            local __act25 = idris["Plugin.deleteLine"](idris["Prelude.Types.cast_Cast_Integer_Int"](__e11))(__eta0)
+                            local __act26 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Num.-_Neg_Int"](idris["Prelude.Types.cast_Cast_Integer_Int"](__e11))(bigint.tonumber(bigint:new("1"))))(__e6)(__eta0)
                             return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                           end
                           __frame8[6] = __frame8[2][__frame8[1]["tag"]]
@@ -28693,7 +28829,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -28746,11 +28882,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -28765,7 +28901,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -28818,11 +28954,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -28837,7 +28973,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -28890,11 +29026,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -28909,7 +29045,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -28962,11 +29098,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to CaseSplit")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -29032,7 +29168,7 @@ idris["Plugin.process"] = function(__arg0)
                             nil
                           }
                           __frame8[2]["0"] = function()
-                            local __act25 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Types.cast_Cast__Integer_Int"](__e14))(__e6)(__eta0)
+                            local __act25 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Types.cast_Cast_Integer_Int"](__e14))(__e6)(__eta0)
                             return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                           end
                           __frame8[6] = __frame8[2][__frame8[1]["tag"]]
@@ -29046,7 +29182,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -29099,11 +29235,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -29118,7 +29254,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -29171,11 +29307,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -29190,7 +29326,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -29243,11 +29379,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -29262,7 +29398,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -29315,11 +29451,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to AddClause")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -29397,7 +29533,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -29450,8 +29586,8 @@ idris["Plugin.process"] = function(__arg0)
                             __frame9[3]["tag"] = "0"
                             __frame9[3]["arg1"] = __frame9[2]
                             __frame9[3]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
                             local __act25 = idris["Foreign.nvimCommand"](nil)(__frame9[3])(idris["Prelude.Types.Strings.++"]("s/")(idris["Prelude.Types.Strings.++"](idris["Prelude.Types.strCons"]("?")(__e17))(idris["Prelude.Types.Strings.++"]("/")(idris["Prelude.Types.Strings.++"](__e6)("/")))))(__eta0)
@@ -29469,7 +29605,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -29522,11 +29658,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -29541,7 +29677,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -29594,11 +29730,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -29613,7 +29749,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -29666,11 +29802,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -29685,7 +29821,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -29738,11 +29874,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -29821,7 +29957,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -29874,11 +30010,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -29893,7 +30029,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -29946,11 +30082,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -29965,7 +30101,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -30018,11 +30154,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -30037,7 +30173,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -30090,11 +30226,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -30160,7 +30296,7 @@ idris["Plugin.process"] = function(__arg0)
                             nil
                           }
                           __frame8[2]["0"] = function()
-                            local __act25 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Types.cast_Cast__Integer_Int"](__e20))(__e6)(__eta0)
+                            local __act25 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Types.cast_Cast_Integer_Int"](__e20))(__e6)(__eta0)
                             return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                           end
                           __frame8[6] = __frame8[2][__frame8[1]["tag"]]
@@ -30174,7 +30310,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -30227,11 +30363,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -30246,7 +30382,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -30299,11 +30435,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -30318,7 +30454,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -30371,11 +30507,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -30390,7 +30526,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -30443,11 +30579,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to GenerateDef")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -30526,7 +30662,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -30579,11 +30715,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -30598,7 +30734,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -30651,11 +30787,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -30670,7 +30806,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -30723,11 +30859,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -30742,7 +30878,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -30795,11 +30931,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -30878,7 +31014,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -30931,11 +31067,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -30950,7 +31086,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -31003,11 +31139,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -31022,7 +31158,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -31075,11 +31211,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -31094,7 +31230,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -31147,11 +31283,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to ExprSearch")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -31217,8 +31353,8 @@ idris["Plugin.process"] = function(__arg0)
                             nil
                           }
                           __frame8[2]["0"] = function()
-                            local __act25 = idris["Plugin.deleteLine"](idris["Prelude.Types.cast_Cast__Integer_Int"](__e24))(__eta0)
-                            local __act26 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Num.-_Neg__Int"](idris["Prelude.Types.cast_Cast__Integer_Int"](__e24))(bigint.tonumber(bigint:new("1"))))(__e6)(__eta0)
+                            local __act25 = idris["Plugin.deleteLine"](idris["Prelude.Types.cast_Cast_Integer_Int"](__e24))(__eta0)
+                            local __act26 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Num.-_Neg_Int"](idris["Prelude.Types.cast_Cast_Integer_Int"](__e24))(bigint.tonumber(bigint:new("1"))))(__e6)(__eta0)
                             return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                           end
                           __frame8[6] = __frame8[2][__frame8[1]["tag"]]
@@ -31232,7 +31368,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -31285,11 +31421,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -31304,7 +31440,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -31357,11 +31493,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -31376,7 +31512,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -31429,11 +31565,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -31448,7 +31584,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -31501,11 +31637,11 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeCase")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
@@ -31571,8 +31707,8 @@ idris["Plugin.process"] = function(__arg0)
                             nil
                           }
                           __frame8[2]["0"] = function()
-                            local __act25 = idris["Plugin.deleteLine"](idris["Prelude.Types.cast_Cast__Integer_Int"](__e26))(__eta0)
-                            local __act26 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Num.-_Neg__Int"](idris["Prelude.Types.cast_Cast__Integer_Int"](__e26))(bigint.tonumber(bigint:new("1"))))(__e6)(__eta0)
+                            local __act25 = idris["Plugin.deleteLine"](idris["Prelude.Types.cast_Cast_Integer_Int"](__e26))(__eta0)
+                            local __act26 = idris["Plugin.appendLines"](1)(1)(idris["Prelude.Num.-_Neg_Int"](idris["Prelude.Types.cast_Cast_Integer_Int"](__e26))(bigint.tonumber(bigint:new("1"))))(__e6)(__eta0)
                             return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                           end
                           __frame8[6] = __frame8[2][__frame8[1]["tag"]]
@@ -31586,7 +31722,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta1)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                             end
                                         end
                                     end
@@ -31639,11 +31775,11 @@ idris["Plugin.process"] = function(__arg0)
                             __frame8[5]["tag"] = "0"
                             __frame8[5]["arg1"] = __frame8[4]
                             __frame8[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
-                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                            __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                           end
                           return __frame8[7]
                         end
@@ -31658,7 +31794,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -31711,11 +31847,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -31730,7 +31866,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -31783,11 +31919,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -31802,7 +31938,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -31855,17 +31991,17 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to MakeWith")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
                   __frame4[2]["17"] = function()
                     local __act25 = idris["Plugin.currenttime"](__eta0)
-                    local __act25 = idris["Plugin.writeToBuffer"](1)(idris["Prelude.Types.Strings.++"]("-- ")(idris["Prelude.Types.Strings.++"](__act25)(idris["Prelude.Types.Strings.++"]("\n")(idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1)))))(__eta0)
+                    local __act25 = idris["Plugin.writeToBuffer"](1)(idris["Prelude.Types.Strings.++"]("-- ")(idris["Prelude.Types.Strings.++"](__act25)(idris["Prelude.Types.Strings.++"]("\n")(idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1)))))(__eta0)
                     return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                   end
                   __frame4[2]["20"] = function()
@@ -31929,7 +32065,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta1)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                           end
                                       end
                                   end
@@ -31982,11 +32118,11 @@ idris["Plugin.process"] = function(__arg0)
                           __frame7[5]["tag"] = "0"
                           __frame7[5]["arg1"] = __frame7[4]
                           __frame7[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
-                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to BrowseNamespace")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                          __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to BrowseNamespace")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                         end
                         return __frame7[7]
                       end
@@ -32001,7 +32137,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta1)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                         end
                                     end
                                 end
@@ -32054,11 +32190,11 @@ idris["Plugin.process"] = function(__arg0)
                         __frame6[5]["tag"] = "0"
                         __frame6[5]["arg1"] = __frame6[4]
                         __frame6[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
-                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to BrowseNamespace")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                        __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to BrowseNamespace")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                       end
                       return __frame6[7]
                     end
@@ -32073,7 +32209,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta1)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                       end
                                   end
                               end
@@ -32126,16 +32262,16 @@ idris["Plugin.process"] = function(__arg0)
                       __frame5[5]["tag"] = "0"
                       __frame5[5]["arg1"] = __frame5[4]
                       __frame5[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
-                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to BrowseNamespace")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))("'")))(__eta0)
+                      __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])(idris["Prelude.Types.Strings.++"]("echom 'Invalid response to BrowseNamespace")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))("'")))(__eta0)
                     end
                     return __frame5[7]
                   end
-                  __frame4[2]["28"] = function()
-                    local __act25 = idris["Plugin.writeToBuffer"](0)(idris["Idris.IDEMode.Commands.show_Show__SExp"](__e1))(__eta0)
+                  __frame4[2]["29"] = function()
+                    local __act25 = idris["Plugin.writeToBuffer"](0)(idris["Idris.IDEMode.Commands.show_Show_SExp"](__e1))(__eta0)
                     return idris["Foreign.deleteCmdInHistory"](__e0)(__eta0)
                   end
                   __frame4[4] = __frame4[2][__frame4[1]["tag"]]
@@ -32315,7 +32451,7 @@ idris["Plugin.process"] = function(__arg0)
                                     return function(func)
                                         return function(__arg149)
                                             return function(__eta0)
-                                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                               end
                                           end
                                       end
@@ -32368,8 +32504,8 @@ idris["Plugin.process"] = function(__arg0)
                               __frame10[5]["tag"] = "0"
                               __frame10[5]["arg1"] = __frame10[4]
                               __frame10[5]["arg2"] = function(a)
-                                return function(__arg6794)
-                                    return __arg6794
+                                return function(__arg7222)
+                                    return __arg7222
                                   end
                               end
                               __frame10[7] = idris["Foreign.nvimCommand"](nil)(__frame10[5])("echom 'Invalid message from the server'")
@@ -32387,7 +32523,7 @@ idris["Plugin.process"] = function(__arg0)
                                   return function(func)
                                       return function(__arg149)
                                           return function(__eta0)
-                                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                             end
                                         end
                                     end
@@ -32440,8 +32576,8 @@ idris["Plugin.process"] = function(__arg0)
                             __frame9[5]["tag"] = "0"
                             __frame9[5]["arg1"] = __frame9[4]
                             __frame9[5]["arg2"] = function(a)
-                              return function(__arg6794)
-                                  return __arg6794
+                              return function(__arg7222)
+                                  return __arg7222
                                 end
                             end
                             __frame9[7] = idris["Foreign.nvimCommand"](nil)(__frame9[5])("echom 'Invalid message from the server'")
@@ -32459,7 +32595,7 @@ idris["Plugin.process"] = function(__arg0)
                                 return function(func)
                                     return function(__arg149)
                                         return function(__eta0)
-                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                           end
                                       end
                                   end
@@ -32512,8 +32648,8 @@ idris["Plugin.process"] = function(__arg0)
                           __frame8[5]["tag"] = "0"
                           __frame8[5]["arg1"] = __frame8[4]
                           __frame8[5]["arg2"] = function(a)
-                            return function(__arg6794)
-                                return __arg6794
+                            return function(__arg7222)
+                                return __arg7222
                               end
                           end
                           __frame8[7] = idris["Foreign.nvimCommand"](nil)(__frame8[5])("echom 'Invalid message from the server'")
@@ -32531,7 +32667,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta0)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                         end
                                     end
                                 end
@@ -32584,8 +32720,8 @@ idris["Plugin.process"] = function(__arg0)
                         __frame7[5]["tag"] = "0"
                         __frame7[5]["arg1"] = __frame7[4]
                         __frame7[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
                         __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])("echom 'Invalid message from the server'")
@@ -32603,7 +32739,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta0)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                       end
                                   end
                               end
@@ -32656,8 +32792,8 @@ idris["Plugin.process"] = function(__arg0)
                       __frame6[5]["tag"] = "0"
                       __frame6[5]["arg1"] = __frame6[4]
                       __frame6[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
                       __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])("echom 'Invalid message from the server'")
@@ -32675,7 +32811,7 @@ idris["Plugin.process"] = function(__arg0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta0)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                     end
                                 end
                             end
@@ -32728,8 +32864,8 @@ idris["Plugin.process"] = function(__arg0)
                     __frame5[5]["tag"] = "0"
                     __frame5[5]["arg1"] = __frame5[4]
                     __frame5[5]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])("echom 'Invalid message from the server'")
@@ -32747,7 +32883,7 @@ idris["Plugin.process"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -32800,8 +32936,8 @@ idris["Plugin.process"] = function(__arg0)
                   __frame4[5]["tag"] = "0"
                   __frame4[5]["arg1"] = __frame4[4]
                   __frame4[5]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   __frame4[7] = idris["Foreign.nvimCommand"](nil)(__frame4[5])("echom 'Invalid message from the server'")
@@ -32819,7 +32955,7 @@ idris["Plugin.process"] = function(__arg0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta0)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                 end
                             end
                         end
@@ -32872,8 +33008,8 @@ idris["Plugin.process"] = function(__arg0)
                 __frame3[5]["tag"] = "0"
                 __frame3[5]["arg1"] = __frame3[4]
                 __frame3[5]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 __frame3[7] = idris["Foreign.nvimCommand"](nil)(__frame3[5])("echom 'Invalid message from the server'")
@@ -32891,7 +33027,7 @@ idris["Plugin.process"] = function(__arg0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta0)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                               end
                           end
                       end
@@ -32944,8 +33080,8 @@ idris["Plugin.process"] = function(__arg0)
               __frame2[5]["tag"] = "0"
               __frame2[5]["arg1"] = __frame2[4]
               __frame2[5]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame2[7] = idris["Foreign.nvimCommand"](nil)(__frame2[5])("echom 'Invalid message from the server'")
@@ -33017,7 +33153,7 @@ idris["Plugin.process"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -33070,8 +33206,8 @@ idris["Plugin.process"] = function(__arg0)
                   __frame4[5]["tag"] = "0"
                   __frame4[5]["arg1"] = __frame4[4]
                   __frame4[5]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   __frame4[7] = idris["Foreign.nvimCommand"](nil)(__frame4[5])("echom 'Invalid message from the server'")
@@ -33089,7 +33225,7 @@ idris["Plugin.process"] = function(__arg0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta0)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                 end
                             end
                         end
@@ -33142,8 +33278,8 @@ idris["Plugin.process"] = function(__arg0)
                 __frame3[5]["tag"] = "0"
                 __frame3[5]["arg1"] = __frame3[4]
                 __frame3[5]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 __frame3[7] = idris["Foreign.nvimCommand"](nil)(__frame3[5])("echom 'Invalid message from the server'")
@@ -33161,7 +33297,7 @@ idris["Plugin.process"] = function(__arg0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta0)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                               end
                           end
                       end
@@ -33214,8 +33350,8 @@ idris["Plugin.process"] = function(__arg0)
               __frame2[5]["tag"] = "0"
               __frame2[5]["arg1"] = __frame2[4]
               __frame2[5]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame2[7] = idris["Foreign.nvimCommand"](nil)(__frame2[5])("echom 'Invalid message from the server'")
@@ -33333,7 +33469,7 @@ idris["Plugin.process"] = function(__arg0)
                       __frame7[2]["0"] = function()
                         return function(__eta0)
                             local __act24 = idris["Plugin.currenttime"](__eta0)
-                            local msg = idris["Prelude.Types.Strings.++"](__act24)(idris["Prelude.Types.Strings.++"]("\nIdris2 IDE Mode server version ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Integer"](__e39))(idris["Prelude.Types.Strings.++"](".")(idris["Prelude.Show.show_Show__Integer"](__e43)))))
+                            local msg = idris["Prelude.Types.Strings.++"](__act24)(idris["Prelude.Types.Strings.++"]("\nIdris2 IDE Mode server version ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Integer"](__e39))(idris["Prelude.Types.Strings.++"](".")(idris["Prelude.Show.show_Show_Integer"](__e43)))))
                             return idris["Plugin.writeToBuffer"](0)(msg)(__eta0)
                           end
                       end
@@ -33348,7 +33484,7 @@ idris["Plugin.process"] = function(__arg0)
                               return function(func)
                                   return function(__arg149)
                                       return function(__eta0)
-                                          return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                          return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                         end
                                     end
                                 end
@@ -33401,8 +33537,8 @@ idris["Plugin.process"] = function(__arg0)
                         __frame7[5]["tag"] = "0"
                         __frame7[5]["arg1"] = __frame7[4]
                         __frame7[5]["arg2"] = function(a)
-                          return function(__arg6794)
-                              return __arg6794
+                          return function(__arg7222)
+                              return __arg7222
                             end
                         end
                         __frame7[7] = idris["Foreign.nvimCommand"](nil)(__frame7[5])("echom 'Invalid message from the server'")
@@ -33420,7 +33556,7 @@ idris["Plugin.process"] = function(__arg0)
                             return function(func)
                                 return function(__arg149)
                                     return function(__eta0)
-                                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                       end
                                   end
                               end
@@ -33473,8 +33609,8 @@ idris["Plugin.process"] = function(__arg0)
                       __frame6[5]["tag"] = "0"
                       __frame6[5]["arg1"] = __frame6[4]
                       __frame6[5]["arg2"] = function(a)
-                        return function(__arg6794)
-                            return __arg6794
+                        return function(__arg7222)
+                            return __arg7222
                           end
                       end
                       __frame6[7] = idris["Foreign.nvimCommand"](nil)(__frame6[5])("echom 'Invalid message from the server'")
@@ -33492,7 +33628,7 @@ idris["Plugin.process"] = function(__arg0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta0)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                     end
                                 end
                             end
@@ -33545,8 +33681,8 @@ idris["Plugin.process"] = function(__arg0)
                     __frame5[5]["tag"] = "0"
                     __frame5[5]["arg1"] = __frame5[4]
                     __frame5[5]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     __frame5[7] = idris["Foreign.nvimCommand"](nil)(__frame5[5])("echom 'Invalid message from the server'")
@@ -33564,7 +33700,7 @@ idris["Plugin.process"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -33617,8 +33753,8 @@ idris["Plugin.process"] = function(__arg0)
                   __frame4[5]["tag"] = "0"
                   __frame4[5]["arg1"] = __frame4[4]
                   __frame4[5]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   __frame4[7] = idris["Foreign.nvimCommand"](nil)(__frame4[5])("echom 'Invalid message from the server'")
@@ -33636,7 +33772,7 @@ idris["Plugin.process"] = function(__arg0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta0)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                 end
                             end
                         end
@@ -33689,8 +33825,8 @@ idris["Plugin.process"] = function(__arg0)
                 __frame3[5]["tag"] = "0"
                 __frame3[5]["arg1"] = __frame3[4]
                 __frame3[5]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 __frame3[7] = idris["Foreign.nvimCommand"](nil)(__frame3[5])("echom 'Invalid message from the server'")
@@ -33708,7 +33844,7 @@ idris["Plugin.process"] = function(__arg0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta0)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                               end
                           end
                       end
@@ -33761,8 +33897,8 @@ idris["Plugin.process"] = function(__arg0)
               __frame2[5]["tag"] = "0"
               __frame2[5]["arg1"] = __frame2[4]
               __frame2[5]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame2[7] = idris["Foreign.nvimCommand"](nil)(__frame2[5])("echom 'Invalid message from the server'")
@@ -33780,7 +33916,7 @@ idris["Plugin.process"] = function(__arg0)
                   return function(func)
                       return function(__arg149)
                           return function(__eta0)
-                              return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                              return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                             end
                         end
                     end
@@ -33833,8 +33969,8 @@ idris["Plugin.process"] = function(__arg0)
             __frame1[5]["tag"] = "0"
             __frame1[5]["arg1"] = __frame1[4]
             __frame1[5]["arg2"] = function(a)
-              return function(__arg6794)
-                  return __arg6794
+              return function(__arg7222)
+                  return __arg7222
                 end
             end
             __frame1[7] = idris["Foreign.nvimCommand"](nil)(__frame1[5])("echom 'Invalid message from the server'")
@@ -33843,7 +33979,7 @@ idris["Plugin.process"] = function(__arg0)
         end)()
     end
 end
-idris["Plugin.case[7896]case block in case block in connectIdris2"] = function(__arg0)
+idris["Plugin.case[7679]case block in case block in connectIdris2"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -33884,7 +34020,7 @@ idris["Plugin.case[7896]case block in case block in connectIdris2"] = function(_
                                                           return function(func)
                                                               return function(__arg149)
                                                                   return function(__eta0)
-                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                     end
                                                                 end
                                                             end
@@ -33937,11 +34073,11 @@ idris["Plugin.case[7896]case block in case block in connectIdris2"] = function(_
                                                     __frame2[3]["tag"] = "0"
                                                     __frame2[3]["arg1"] = __frame2[2]
                                                     __frame2[3]["arg2"] = function(a)
-                                                      return function(__arg6794)
-                                                          return __arg6794
+                                                      return function(__arg7222)
+                                                          return __arg7222
                                                         end
                                                     end
-                                                    return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'invalid response: ")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show__SExp"](__arg10))("'")))
+                                                    return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'invalid response: ")(idris["Prelude.Types.Strings.++"](idris["Idris.IDEMode.Commands.show_Show_SExp"](__arg10))("'")))
                                                   end
                                                   __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                                                   if __frame1[3] then
@@ -33963,7 +34099,7 @@ idris["Plugin.case[7896]case block in case block in connectIdris2"] = function(_
         end
     end
 end
-idris["Plugin.case[7868]case block in connectIdris2"] = function(__arg0)
+idris["Plugin.case[7651]case block in connectIdris2"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -33988,7 +34124,7 @@ idris["Plugin.case[7868]case block in connectIdris2"] = function(__arg0)
                                               }
                                               __frame1[2]["1"] = function()
                                                 local __e2 = __frame1[1]["arg1"]
-                                                return idris["Plugin.case[7896]case block in case block in connectIdris2"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(__e2)(idris["Commands.getResult"](__e2))
+                                                return idris["Plugin.case[7679]case block in case block in connectIdris2"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(__e2)(idris["Commands.getResult"](__e2))
                                               end
                                               __frame1[2]["0"] = function()
                                                 local __frame2 = {
@@ -34005,7 +34141,7 @@ idris["Plugin.case[7868]case block in connectIdris2"] = function(__arg0)
                                                       return function(func)
                                                           return function(__arg149)
                                                               return function(__eta0)
-                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                 end
                                                             end
                                                         end
@@ -34058,21 +34194,21 @@ idris["Plugin.case[7868]case block in connectIdris2"] = function(__arg0)
                                                 __frame2[3]["tag"] = "0"
                                                 __frame2[3]["arg1"] = __frame2[2]
                                                 __frame2[3]["arg2"] = function(a)
-                                                  return function(__arg6794)
-                                                      return __arg6794
+                                                  return function(__arg7222)
+                                                      return __arg7222
                                                     end
                                                 end
                                                 __frame2[4] = {}
                                                 __frame2[4]["tag"] = "0"
                                                 __frame2[4]["arg1"] = function(x)
-                                                  return idris["Parser.Lexer.Source.show_Show__Token"](x)
+                                                  return idris["Parser.Lexer.Source.show_Show_Token"](x)
                                                 end
                                                 __frame2[4]["arg2"] = function(d)
                                                   return function(x)
-                                                      return idris["Parser.Lexer.Source.showPrec_Show__Token"](d)(x)
+                                                      return idris["Parser.Lexer.Source.showPrec_Show_Token"](d)(x)
                                                     end
                                                 end
-                                                return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'invalid response: ")(idris["Prelude.Types.Strings.++"](idris["Parser.Support.show_Show__(ParseError $tok)"](nil)(__frame2[4])(__e5))("'")))
+                                                return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'invalid response: ")(idris["Prelude.Types.Strings.++"](idris["Parser.Support.show_Show_(ParseError $tok)"](nil)(__frame2[4])(__e5))("'")))
                                               end
                                               __frame1[3] = __frame1[2][__frame1[1]["tag"]]
                                               if __frame1[3] then
@@ -34122,7 +34258,7 @@ idris["Idris.IDEMode.Parser.ideTokens"] = (function()
     }
     __frame2[1] = {}
     __frame2[1]["tag"] = "2"
-    __frame2[1]["arg1"] = idris["Prelude.Types.cast_Cast__String_Integer"](x)
+    __frame2[1]["arg1"] = idris["Prelude.Types.cast_Cast_String_Integer"](x)
     return __frame2[1]
   end
   __frame1[2] = {}
@@ -34181,7 +34317,7 @@ idris["Idris.IDEMode.Parser.ideTokens"] = (function()
   __frame1[9]["tag"] = "1"
   __frame1[9]["arg1"] = __frame1[1]
   __frame1[9]["arg2"] = __frame1[8]
-  return idris["Prelude.Types.List.++"](nil)(idris["Prelude.Types.map_Functor__List"](nil)(nil)(function(x)
+  return idris["Prelude.Types.List.++"](nil)(idris["Prelude.Types.map_Functor_List"](nil)(nil)(function(x)
       local __frame2 = {
         nil
       }
@@ -34202,7 +34338,7 @@ idris["Idris.IDEMode.Parser.ideTokens"] = (function()
 end)()
 idris["Idris.IDEMode.Parser.idelex"] = function(__arg0)
   return (function()
-      return idris["Idris.IDEMode.Parser.case[405]idelex"](__arg0)(idris["Text.Lexer.Core.lex"](nil)(idris["Idris.IDEMode.Parser.ideTokens"])(__arg0))
+      return idris["Idris.IDEMode.Parser.case[495]idelex"](__arg0)(idris["Text.Lexer.Core.lex"](nil)(idris["Idris.IDEMode.Parser.ideTokens"])(__arg0))
     end)()
 end
 idris["Idris.IDEMode.Parser.ideParser"] = function(__arg0)
@@ -34210,7 +34346,7 @@ idris["Idris.IDEMode.Parser.ideParser"] = function(__arg0)
       return function(__arg2)
           return function(__arg3)
               return (function()
-                  return idris["Prelude.Types.>>=_Monad__(Either $e)"](nil)(nil)(nil)(idris["Utils.Either.mapError"](nil)(nil)(nil)(function(__eta0)
+                  return idris["Prelude.Types.>>=_Monad_(Either $e)"](nil)(nil)(nil)(idris["Utils.Either.mapError"](nil)(nil)(nil)(function(__eta0)
                       local __frame2 = {
                         nil
                       }
@@ -34219,7 +34355,7 @@ idris["Idris.IDEMode.Parser.ideParser"] = function(__arg0)
                       __frame2[1]["arg1"] = __eta0
                       return __frame2[1]
                     end)(idris["Idris.IDEMode.Parser.idelex"](__arg2)))(function(toks)
-                      return idris["Prelude.Types.>>=_Monad__(Either $e)"](nil)(nil)(nil)(idris["Utils.Either.mapError"](nil)(nil)(nil)(function(__eta0)
+                      return idris["Prelude.Types.>>=_Monad_(Either $e)"](nil)(nil)(nil)(idris["Utils.Either.mapError"](nil)(nil)(nil)(function(__eta0)
                           return idris["Parser.Support.toGenericParsingError"](nil)(__eta0)
                         end)(idris["Text.Parser.Core.parse"](nil)(nil)(__arg1)(__arg3)(toks)))(function(parsed)
                           local __frame3 = {
@@ -34255,7 +34391,7 @@ idris["Idris.IDEMode.Parser.parseSExp"] = function(__arg0)
             __frame3[1]["arg1"] = 1
             __frame3[1]["arg2"] = 1
             __frame3[1]["arg3"] = idris["Parser.Rule.Source.eoi"]
-            __frame3[1]["arg4"] = function(___704)
+            __frame3[1]["arg4"] = function(___794)
               local __frame4 = {
                 nil
               }
@@ -34270,7 +34406,7 @@ idris["Idris.IDEMode.Parser.parseSExp"] = function(__arg0)
       return idris["Idris.IDEMode.Parser.ideParser"](nil)(0)(__arg0)(__frame1[1])
     end)()
 end
-idris["Plugin.case[7817]connectIdris2"] = function(__arg0)
+idris["Plugin.case[7598]connectIdris2"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -34306,7 +34442,7 @@ idris["Plugin.case[7817]connectIdris2"] = function(__arg0)
                                                       return function(func)
                                                           return function(__arg149)
                                                               return function(__eta0)
-                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                 end
                                                             end
                                                         end
@@ -34359,14 +34495,14 @@ idris["Plugin.case[7817]connectIdris2"] = function(__arg0)
                                                 __frame2[3]["tag"] = "0"
                                                 __frame2[3]["arg1"] = __frame2[2]
                                                 __frame2[3]["arg2"] = function(a)
-                                                  return function(__arg6794)
-                                                      return __arg6794
+                                                  return function(__arg7222)
+                                                      return __arg7222
                                                     end
                                                 end
                                                 return idris["Foreign.nvimCommand"](nil)(__frame2[3])("echo 'skipped output'")
                                               end
                                               __frame1[2][1] = function()
-                                                return idris["Plugin.case[7868]case block in connectIdris2"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(idris["Idris.IDEMode.Parser.parseSExp"](__arg8))
+                                                return idris["Plugin.case[7651]case block in connectIdris2"](__arg0)(__arg1)(__arg2)(__arg3)(__arg4)(__arg5)(__arg6)(__arg7)(__arg8)(__arg9)(idris["Idris.IDEMode.Parser.parseSExp"](__arg8))
                                               end
                                               __frame1[3] = __frame1[2][__frame1[1]]
                                               if __frame1[3] then
@@ -34416,7 +34552,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -34469,8 +34605,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                   __frame1[3]["tag"] = "0"
                   __frame1[3]["arg1"] = __frame1[2]
                   __frame1[3]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   local __act24 = idris["Foreign.nvimCommand"](nil)(__frame1[3])("echom 'Starting connection...'")(__ext0)
@@ -34481,7 +34617,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -34534,8 +34670,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                   __frame1[6]["tag"] = "0"
                   __frame1[6]["arg1"] = __frame1[5]
                   __frame1[6]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   local __act25 = idris["Foreign.newTCP"](nil)(__frame1[6])(__ext0)
@@ -34546,7 +34682,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -34599,8 +34735,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                   __frame1[9]["tag"] = "0"
                   __frame1[9]["arg1"] = __frame1[8]
                   __frame1[9]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   local __act26 = idris["Foreign.nvimCommand"](nil)(__frame1[9])("echom 'Created new tcp socket...'")(__ext0)
@@ -34611,7 +34747,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -34664,8 +34800,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                   __frame1[12]["tag"] = "0"
                   __frame1[12]["arg1"] = __frame1[11]
                   __frame1[12]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   __frame1[13] = {}
@@ -34675,7 +34811,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                         return function(func)
                             return function(__arg149)
                                 return function(__eta0)
-                                    return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                    return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                   end
                               end
                           end
@@ -34728,8 +34864,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                   __frame1[15]["tag"] = "0"
                   __frame1[15]["arg1"] = __frame1[14]
                   __frame1[15]["arg2"] = function(a)
-                    return function(__arg6794)
-                        return __arg6794
+                    return function(__arg7222)
+                        return __arg7222
                       end
                   end
                   local __act27 = idris["Foreign.connect"](nil)(__frame1[12])(__act25)(__arg1)(__arg2)(idris["Foreign.readStart"](nil)(__frame1[15])(__act25)(function(recv)
@@ -34749,7 +34885,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                           return function(func)
                               return function(init)
                                   return function(input)
-                                      return idris["Prelude.Types.foldr_Foldable__List"](nil)(nil)(func)(init)(input)
+                                      return idris["Prelude.Types.foldr_Foldable_List"](nil)(nil)(func)(init)(input)
                                     end
                                 end
                             end
@@ -34760,10 +34896,15 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                           return function(func)
                               return function(init)
                                   return function(input)
-                                      return idris["Prelude.Types.foldl_Foldable__List"](nil)(nil)(func)(init)(input)
+                                      return idris["Prelude.Types.foldl_Foldable_List"](nil)(nil)(func)(init)(input)
                                     end
                                 end
                             end
+                        end
+                    end
+                    __frame2[2]["arg3"] = function(elem)
+                      return function(__arg821)
+                          return idris["Prelude.Types.null_Foldable_List"](nil)(__arg821)
                         end
                     end
                     __frame2[3] = {}
@@ -34773,7 +34914,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta0)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                     end
                                 end
                             end
@@ -34805,7 +34946,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                     __frame2[4]["arg2"] = __frame2[3]
                     return idris["Prelude.Interfaces.for_"](nil)(nil)(nil)(nil)(__frame2[4])(msgs)(function(msg)
                         local head = idris["Prelude.Types.substr"](bigint:new("0"))(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(msg)
-                        return idris["Plugin.case[7817]connectIdris2"](__arg2)(__arg1)(__arg0)(__act24)(__act25)(__act26)(recv)(msgs)(msg)(head)(idris["Prelude.EqOrd.==_Eq__String"](head)("(:out"))
+                        return idris["Plugin.case[7598]connectIdris2"](__arg2)(__arg1)(__arg0)(__act24)(__act25)(__act26)(recv)(msgs)(msg)(head)(idris["Prelude.EqOrd.==_Eq_String"](head)("(:out"))
                       end)
                   end)(function(err)
                     local __frame2 = {
@@ -34820,7 +34961,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta0)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                     end
                                 end
                             end
@@ -34873,8 +35014,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                     __frame2[3]["tag"] = "0"
                     __frame2[3]["arg1"] = __frame2[2]
                     __frame2[3]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'read err: ")(idris["Prelude.Types.Strings.++"](err)("'")))
@@ -34898,7 +35039,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta0)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                     end
                                 end
                             end
@@ -34951,8 +35092,8 @@ idris["Plugin.connectIdris2"] = function(__arg0)
                     __frame2[3]["tag"] = "0"
                     __frame2[3]["arg1"] = __frame2[2]
                     __frame2[3]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     return idris["Foreign.nvimCommand"](nil)(__frame2[3])(idris["Prelude.Types.Strings.++"]("echom 'connect error: ")(idris["Prelude.Types.Strings.++"](err)("'")))
@@ -34963,7 +35104,7 @@ idris["Plugin.connectIdris2"] = function(__arg0)
         end
     end
 end
-idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
+idris["Plugin.case[8058]case block in spawnAndConnectIdris2"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -35018,7 +35159,7 @@ idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
                                                                                       return function(func)
                                                                                           return function(__arg149)
                                                                                               return function(__eta1)
-                                                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                 end
                                                                                             end
                                                                                         end
@@ -35071,8 +35212,8 @@ idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
                                                                                 __frame3[4]["tag"] = "0"
                                                                                 __frame3[4]["arg1"] = __frame3[3]
                                                                                 __frame3[4]["arg2"] = function(a)
-                                                                                  return function(__arg6794)
-                                                                                      return __arg6794
+                                                                                  return function(__arg7222)
+                                                                                      return __arg7222
                                                                                     end
                                                                                 end
                                                                                 return idris["Foreign.readStop"](nil)(__frame3[4])(__arg10)(__eta0)
@@ -35095,7 +35236,7 @@ idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
                                                                                       return function(func)
                                                                                           return function(__arg149)
                                                                                               return function(__eta1)
-                                                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                 end
                                                                                             end
                                                                                         end
@@ -35148,8 +35289,8 @@ idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
                                                                                 __frame3[3]["tag"] = "0"
                                                                                 __frame3[3]["arg1"] = __frame3[2]
                                                                                 __frame3[3]["arg2"] = function(a)
-                                                                                  return function(__arg6794)
-                                                                                      return __arg6794
+                                                                                  return function(__arg7222)
+                                                                                      return __arg7222
                                                                                     end
                                                                                 end
                                                                                 local __act24 = idris["Foreign.nvimCommand"](nil)(__frame3[3])(idris["Prelude.Types.Strings.++"]("echom 'wrong port ")(idris["Prelude.Types.Strings.++"](__arg15)("'")))(__eta0)
@@ -35160,7 +35301,7 @@ idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
                                                                                       return function(func)
                                                                                           return function(__arg149)
                                                                                               return function(__eta1)
-                                                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                                 end
                                                                                             end
                                                                                         end
@@ -35213,8 +35354,8 @@ idris["Plugin.case[8259]case block in spawnAndConnectIdris2"] = function(__arg0)
                                                                                 __frame3[6]["tag"] = "0"
                                                                                 __frame3[6]["arg1"] = __frame3[5]
                                                                                 __frame3[6]["arg2"] = function(a)
-                                                                                  return function(__arg6794)
-                                                                                      return __arg6794
+                                                                                  return function(__arg7222)
+                                                                                      return __arg7222
                                                                                     end
                                                                                 end
                                                                                 return idris["Plugin.quitServer"](nil)(__frame3[6])(__arg2)(__eta0)
@@ -35386,7 +35527,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                   nil,
                                                   nil
                                                 }
-                                                local opts = idris["Plugin.spawnOpts"](idris["Prelude.Types.Strings.++"](__e2)(idris["Prelude.Types.Strings.++"](":")(idris["Prelude.Show.show_Show__Int"](__e3))))(stdout)
+                                                local opts = idris["Plugin.spawnOpts"](idris["Prelude.Types.Strings.++"](__e2)(idris["Prelude.Types.Strings.++"](":")(idris["Prelude.Show.show_Show_Int"](__e3))))(stdout)
                                                 __frame8[1] = __arg1
                                                 __frame8[2] = {
                                                   nil
@@ -35421,7 +35562,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                 return function(func)
                                                                     return function(__arg149)
                                                                         return function(__eta0)
-                                                                            return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                                                                            return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                                                                           end
                                                                       end
                                                                   end
@@ -35474,11 +35615,11 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                           __frame11[3]["tag"] = "0"
                                                           __frame11[3]["arg1"] = __frame11[2]
                                                           __frame11[3]["arg2"] = function(a)
-                                                            return function(__arg6794)
-                                                                return __arg6794
+                                                            return function(__arg7222)
+                                                                return __arg7222
                                                               end
                                                           end
-                                                          return idris["Foreign.nvimCommand"](nil)(__frame11[3])(idris["Prelude.Types.Strings.++"]("echom 'Idris2 process closed with code ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show__Int"](code))("'")))
+                                                          return idris["Foreign.nvimCommand"](nil)(__frame11[3])(idris["Prelude.Types.Strings.++"]("echom 'Idris2 process closed with code ")(idris["Prelude.Types.Strings.++"](idris["Prelude.Show.show_Show_Int"](code))("'")))
                                                         end
                                                     end))(function(d)
                                                       local __frame10 = {
@@ -35544,7 +35685,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                         else
                                                           idris["error"]("Impossible else branch")
                                                         end
-                                                        return __e15(nil)(nil)(__frame11[4])(function(___8194)
+                                                        return __e15(nil)(nil)(__frame11[4])(function(___7983)
                                                             return idris["Foreign.readStart"](nil)(__arg1)(stdout)(function(msg)
                                                                 return function(__eta0)
                                                                     local __frame14 = {
@@ -35560,7 +35701,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                           return function(func)
                                                                               return function(__arg149)
                                                                                   return function(__eta1)
-                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                     end
                                                                                 end
                                                                             end
@@ -35613,15 +35754,15 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                     __frame14[3]["tag"] = "0"
                                                                     __frame14[3]["arg1"] = __frame14[2]
                                                                     __frame14[3]["arg2"] = function(a)
-                                                                      return function(__arg6794)
-                                                                          return __arg6794
+                                                                      return function(__arg7222)
+                                                                          return __arg7222
                                                                         end
                                                                     end
                                                                     local __act24 = idris["Foreign.nvimCommand"](nil)(__frame14[3])(idris["Prelude.Types.Strings.++"]("echom 'server: ")(idris["Prelude.Types.Strings.++"](msg)("'")))(__eta0)
                                                                     __frame14[4] = {}
                                                                     __frame14[4]["tag"] = "0"
                                                                     local ___1 = __frame14[4]
-                                                                    return idris["Plugin.case[8259]case block in spawnAndConnectIdris2"](nil)(__arg1)(__arg3)(__arg4)(__e2)(__e3)(__e6)(__e7)(__arg2)(___1)(stdout)(opts)(d)(handle)(___8194)(msg)(__act24)(idris["Prelude.EqOrd.==_Eq__String"](idris["Data.Strings.trim"](msg))(idris["Prelude.Show.show_Show__Int"](__e3)))(__eta0)
+                                                                    return idris["Plugin.case[8058]case block in spawnAndConnectIdris2"](nil)(__arg1)(__arg3)(__arg4)(__e2)(__e3)(__e6)(__e7)(__arg2)(___1)(stdout)(opts)(d)(handle)(___7983)(msg)(__act24)(idris["Prelude.EqOrd.==_Eq_String"](idris["Data.Strings.trim"](msg))(idris["Prelude.Show.show_Show_Int"](__e3)))(__eta0)
                                                                   end
                                                               end)(function(err)
                                                                 return function(__eta0)
@@ -35640,7 +35781,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                           return function(func)
                                                                               return function(__arg149)
                                                                                   return function(__eta1)
-                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                     end
                                                                                 end
                                                                             end
@@ -35693,8 +35834,8 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                     __frame14[3]["tag"] = "0"
                                                                     __frame14[3]["arg1"] = __frame14[2]
                                                                     __frame14[3]["arg2"] = function(a)
-                                                                      return function(__arg6794)
-                                                                          return __arg6794
+                                                                      return function(__arg7222)
+                                                                          return __arg7222
                                                                         end
                                                                     end
                                                                     local __act24 = idris["Foreign.nvimCommand"](nil)(__frame14[3])(idris["Prelude.Types.Strings.++"]("echom 'err: ")(idris["Prelude.Types.Strings.++"](err)("'")))(__eta0)
@@ -35705,7 +35846,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                           return function(func)
                                                                               return function(__arg149)
                                                                                   return function(__eta1)
-                                                                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                     end
                                                                                 end
                                                                             end
@@ -35758,8 +35899,8 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                     __frame14[6]["tag"] = "0"
                                                                     __frame14[6]["arg1"] = __frame14[5]
                                                                     __frame14[6]["arg2"] = function(a)
-                                                                      return function(__arg6794)
-                                                                          return __arg6794
+                                                                      return function(__arg7222)
+                                                                          return __arg7222
                                                                         end
                                                                     end
                                                                     return idris["Plugin.quitServer"](nil)(__frame14[6])(__arg3)(__eta0)
@@ -35780,7 +35921,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                       return function(func)
                                                                           return function(__arg149)
                                                                               return function(__eta1)
-                                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                 end
                                                                             end
                                                                         end
@@ -35833,8 +35974,8 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                 __frame13[3]["tag"] = "0"
                                                                 __frame13[3]["arg1"] = __frame13[2]
                                                                 __frame13[3]["arg2"] = function(a)
-                                                                  return function(__arg6794)
-                                                                      return __arg6794
+                                                                  return function(__arg7222)
+                                                                      return __arg7222
                                                                     end
                                                                 end
                                                                 local __act24 = idris["Foreign.nvimCommand"](nil)(__frame13[3])("echom 'Idris2 stdout closed'")(__eta0)
@@ -35845,7 +35986,7 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                       return function(func)
                                                                           return function(__arg149)
                                                                               return function(__eta1)
-                                                                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                                                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                                                                 end
                                                                             end
                                                                         end
@@ -35898,8 +36039,8 @@ idris["Plugin.spawnAndConnectIdris2"] = function(__arg0)
                                                                 __frame13[6]["tag"] = "0"
                                                                 __frame13[6]["arg1"] = __frame13[5]
                                                                 __frame13[6]["arg2"] = function(a)
-                                                                  return function(__arg6794)
-                                                                      return __arg6794
+                                                                  return function(__arg7222)
+                                                                      return __arg7222
                                                                     end
                                                                 end
                                                                 return idris["Plugin.quitServer"](nil)(__frame13[6])(__arg3)(__eta0)
@@ -35989,7 +36130,7 @@ idris["Commands.buildCommand"] = function(__arg0)
           local __act25 = idris["Foreign.putCmdInHistory"](__act24)(__arg0)(__ext0)
           __frame1[1] = {}
           __frame1[1]["tag"] = "3"
-          __frame1[1]["arg1"] = idris["Prelude.Types.cast_Cast__Int_Integer"](__act24)
+          __frame1[1]["arg1"] = idris["Prelude.Types.cast_Cast_Int_Integer"](__act24)
           __frame1[2] = {}
           __frame1[2]["tag"] = "0"
           __frame1[3] = {}
@@ -35998,13 +36139,13 @@ idris["Commands.buildCommand"] = function(__arg0)
           __frame1[3]["arg2"] = __frame1[2]
           __frame1[4] = {}
           __frame1[4]["tag"] = "1"
-          __frame1[4]["arg1"] = idris["Idris.IDEMode.Commands.toSExp_SExpable__IDECommand"](__arg0)
+          __frame1[4]["arg1"] = idris["Idris.IDEMode.Commands.toSExp_SExpable_IDECommand"](__arg0)
           __frame1[4]["arg2"] = __frame1[3]
           __frame1[5] = {}
           __frame1[5]["tag"] = "0"
           __frame1[5]["arg1"] = __frame1[4]
-          local s = idris["Idris.IDEMode.Commands.show_Show__SExp"](__frame1[5])
-          return idris["Prelude.Types.Strings.++"](idris["Utils.Hex.leftPad"]("0")(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(idris["Utils.Hex.asHex"](idris["Prelude.Types.cast_Cast__Nat_Int"](idris["Prelude.Types.Strings.length"](s)))))(s)
+          local s = idris["Idris.IDEMode.Commands.show_Show_SExp"](__frame1[5])
+          return idris["Prelude.Types.Strings.++"](idris["Utils.Hex.leftPad"]("0")(bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("1") + bigint:new("0"))(idris["Utils.Hex.asHex"](idris["Prelude.Types.cast_Cast_Nat_Int"](idris["Prelude.Types.Strings.length"](s)))))(s)
         end)()
     end
 end
@@ -36030,7 +36171,7 @@ idris["Commands.loadCurrent"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36083,8 +36224,8 @@ idris["Commands.loadCurrent"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.saveBuffer"](nil)(__frame1[3])(__ext0)
@@ -36096,7 +36237,7 @@ idris["Commands.loadCurrent"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36149,8 +36290,8 @@ idris["Commands.loadCurrent"] = function(__ext0)
       __frame1[6]["tag"] = "0"
       __frame1[6]["arg1"] = __frame1[5]
       __frame1[6]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Foreign.filePath"](nil)(__frame1[6])(__ext0)
@@ -36168,7 +36309,7 @@ idris["Commands.loadCurrent"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36221,14 +36362,14 @@ idris["Commands.loadCurrent"] = function(__ext0)
       __frame1[11]["tag"] = "0"
       __frame1[11]["arg1"] = __frame1[10]
       __frame1[11]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[11])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6253]case block in loadCommands"] = function(__arg0)
+idris["Commands.case[5996]case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return (function()
           local __frame1 = {
@@ -36290,7 +36431,7 @@ idris["Commands.typeOfSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36343,8 +36484,8 @@ idris["Commands.typeOfSel"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -36355,7 +36496,7 @@ idris["Commands.typeOfSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36394,7 +36535,7 @@ idris["Commands.typeOfSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36447,8 +36588,8 @@ idris["Commands.typeOfSel"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -36456,7 +36597,7 @@ idris["Commands.typeOfSel"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -36478,7 +36619,7 @@ idris["Commands.typeOfSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36531,14 +36672,14 @@ idris["Commands.typeOfSel"] = function(__ext0)
       __frame1[12]["tag"] = "0"
       __frame1[12]["arg1"] = __frame1[11]
       __frame1[12]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[12])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6346]case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6089]case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -36606,7 +36747,7 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36659,8 +36800,8 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -36671,7 +36812,7 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36710,7 +36851,7 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36763,8 +36904,8 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -36772,7 +36913,7 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -36794,7 +36935,7 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36847,14 +36988,14 @@ idris["Commands.typeOfPrompt"] = function(__ext0)
       __frame1[12]["tag"] = "0"
       __frame1[12]["arg1"] = __frame1[11]
       __frame1[12]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[12])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6309]case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6052]case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -36920,7 +37061,7 @@ idris["Commands.typeOf"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -36973,8 +37114,8 @@ idris["Commands.typeOf"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -36985,7 +37126,7 @@ idris["Commands.typeOf"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37024,7 +37165,7 @@ idris["Commands.typeOf"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37077,8 +37218,8 @@ idris["Commands.typeOf"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -37086,7 +37227,7 @@ idris["Commands.typeOf"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -37108,7 +37249,7 @@ idris["Commands.typeOf"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37161,14 +37302,14 @@ idris["Commands.typeOf"] = function(__ext0)
       __frame1[12]["tag"] = "0"
       __frame1[12]["arg1"] = __frame1[11]
       __frame1[12]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[12])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6278]case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6021]case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return (function()
@@ -37232,7 +37373,7 @@ idris["Commands.nameAtSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37285,8 +37426,8 @@ idris["Commands.nameAtSel"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -37297,7 +37438,7 @@ idris["Commands.nameAtSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37336,7 +37477,7 @@ idris["Commands.nameAtSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37389,8 +37530,8 @@ idris["Commands.nameAtSel"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -37398,7 +37539,7 @@ idris["Commands.nameAtSel"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -37420,7 +37561,7 @@ idris["Commands.nameAtSel"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37473,14 +37614,14 @@ idris["Commands.nameAtSel"] = function(__ext0)
       __frame1[12]["tag"] = "0"
       __frame1[12]["arg1"] = __frame1[11]
       __frame1[12]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[12])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6493]case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6236]case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -37554,7 +37695,7 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37607,8 +37748,8 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -37619,7 +37760,7 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37658,7 +37799,7 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37711,8 +37852,8 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -37720,7 +37861,7 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -37742,7 +37883,7 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37795,14 +37936,14 @@ idris["Commands.nameAtPrompt"] = function(__ext0)
       __frame1[12]["tag"] = "0"
       __frame1[12]["arg1"] = __frame1[11]
       __frame1[12]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[12])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6438]case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6181]case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -37874,7 +38015,7 @@ idris["Commands.nameAt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37927,8 +38068,8 @@ idris["Commands.nameAt"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -37939,7 +38080,7 @@ idris["Commands.nameAt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -37978,7 +38119,7 @@ idris["Commands.nameAt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38031,8 +38172,8 @@ idris["Commands.nameAt"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -38040,7 +38181,7 @@ idris["Commands.nameAt"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -38062,7 +38203,7 @@ idris["Commands.nameAt"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38115,14 +38256,14 @@ idris["Commands.nameAt"] = function(__ext0)
       __frame1[12]["tag"] = "0"
       __frame1[12]["arg1"] = __frame1[11]
       __frame1[12]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[12])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6389]case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6132]case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -38188,7 +38329,7 @@ idris["Commands.metavariables"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38241,8 +38382,8 @@ idris["Commands.metavariables"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -38253,7 +38394,7 @@ idris["Commands.metavariables"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38296,7 +38437,7 @@ idris["Commands.metavariables"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38349,14 +38490,14 @@ idris["Commands.metavariables"] = function(__ext0)
       __frame1[8]["tag"] = "0"
       __frame1[8]["arg1"] = __frame1[7]
       __frame1[8]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[8])(__act25)(__act26)(__ext0)
     end)()
 end
-idris["Commands.case[7621]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[7364]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -38456,7 +38597,7 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38509,8 +38650,8 @@ idris["Commands.makeWith"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -38521,7 +38662,7 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38560,7 +38701,7 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38613,8 +38754,8 @@ idris["Commands.makeWith"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -38622,13 +38763,13 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -38637,7 +38778,7 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38690,8 +38831,8 @@ idris["Commands.makeWith"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -38699,7 +38840,7 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -38719,7 +38860,7 @@ idris["Commands.makeWith"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38772,14 +38913,14 @@ idris["Commands.makeWith"] = function(__ext0)
       __frame1[14]["tag"] = "0"
       __frame1[14]["arg1"] = __frame1[13]
       __frame1[14]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[14])(__act25)(__act28)(__ext0)
     end)()
 end
-idris["Commands.case[7494]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[7237]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -38877,7 +39018,7 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38930,8 +39071,8 @@ idris["Commands.makeLemma"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -38942,7 +39083,7 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -38981,7 +39122,7 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39034,8 +39175,8 @@ idris["Commands.makeLemma"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -39043,13 +39184,13 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -39058,7 +39199,7 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39111,8 +39252,8 @@ idris["Commands.makeLemma"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -39120,7 +39261,7 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -39140,7 +39281,7 @@ idris["Commands.makeLemma"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39193,14 +39334,14 @@ idris["Commands.makeLemma"] = function(__ext0)
       __frame1[14]["tag"] = "0"
       __frame1[14]["arg1"] = __frame1[13]
       __frame1[14]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[14])(__act25)(__act28)(__ext0)
     end)()
 end
-idris["Commands.case[7258]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[7001]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -39294,7 +39435,7 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39347,8 +39488,8 @@ idris["Commands.makeCase"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -39359,7 +39500,7 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39398,7 +39539,7 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39451,8 +39592,8 @@ idris["Commands.makeCase"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -39460,13 +39601,13 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -39475,7 +39616,7 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39528,8 +39669,8 @@ idris["Commands.makeCase"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -39537,7 +39678,7 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -39557,7 +39698,7 @@ idris["Commands.makeCase"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39610,14 +39751,14 @@ idris["Commands.makeCase"] = function(__ext0)
       __frame1[14]["tag"] = "0"
       __frame1[14]["arg1"] = __frame1[13]
       __frame1[14]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[14])(__act25)(__act28)(__ext0)
     end)()
 end
-idris["Commands.case[7373]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[7116]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -39707,7 +39848,7 @@ idris["Commands.interpret"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39760,8 +39901,8 @@ idris["Commands.interpret"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act25 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -39769,7 +39910,7 @@ idris["Commands.interpret"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -39788,7 +39929,7 @@ idris["Commands.interpret"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39841,14 +39982,14 @@ idris["Commands.interpret"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[7])(__act24)(__act26)(__ext0)
     end)()
 end
-idris["Commands.case[6234]loadCommands"] = function(__arg0)
+idris["Commands.case[5977]loadCommands"] = function(__arg0)
   return (function()
       local __frame1 = {
         nil,
@@ -39895,7 +40036,7 @@ idris["Commands.getOptions"] = function(__ext0)
       }
       local __act24 = idris["Foreign.getGlobalClient"](__ext0)
       __frame1[1] = {}
-      __frame1[1]["tag"] = "28"
+      __frame1[1]["tag"] = "29"
       local __act25 = idris["Commands.buildCommand"](__frame1[1])(__ext0)
       __frame1[2] = {}
       __frame1[2]["tag"] = "0"
@@ -39904,7 +40045,7 @@ idris["Commands.getOptions"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -39957,14 +40098,14 @@ idris["Commands.getOptions"] = function(__ext0)
       __frame1[4]["tag"] = "0"
       __frame1[4]["arg1"] = __frame1[3]
       __frame1[4]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[4])(__act24)(__act25)(__ext0)
     end)()
 end
-idris["Commands.case[7893]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[7636]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -40062,7 +40203,7 @@ idris["Commands.generateDefNext"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40115,8 +40256,8 @@ idris["Commands.generateDefNext"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -40127,7 +40268,7 @@ idris["Commands.generateDefNext"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40169,7 +40310,7 @@ idris["Commands.generateDefNext"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40222,14 +40363,14 @@ idris["Commands.generateDefNext"] = function(__ext0)
       __frame1[8]["tag"] = "0"
       __frame1[8]["arg1"] = __frame1[7]
       __frame1[8]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[8])(__act25)(__act26)(__ext0)
     end)()
 end
-idris["Commands.case[7149]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6892]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -40321,7 +40462,7 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40374,8 +40515,8 @@ idris["Commands.generateDef"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -40386,7 +40527,7 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40425,7 +40566,7 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40478,8 +40619,8 @@ idris["Commands.generateDef"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -40487,13 +40628,13 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -40502,7 +40643,7 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40555,8 +40696,8 @@ idris["Commands.generateDef"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -40564,7 +40705,7 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -40584,7 +40725,7 @@ idris["Commands.generateDef"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40637,14 +40778,14 @@ idris["Commands.generateDef"] = function(__ext0)
       __frame1[14]["tag"] = "0"
       __frame1[14]["arg1"] = __frame1[13]
       __frame1[14]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[14])(__act25)(__act28)(__ext0)
     end)()
 end
-idris["Commands.case[7046]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6789]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -40728,7 +40869,7 @@ idris["Commands.exprSearchNext"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40781,8 +40922,8 @@ idris["Commands.exprSearchNext"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -40793,7 +40934,7 @@ idris["Commands.exprSearchNext"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40835,7 +40976,7 @@ idris["Commands.exprSearchNext"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -40888,14 +41029,14 @@ idris["Commands.exprSearchNext"] = function(__ext0)
       __frame1[8]["tag"] = "0"
       __frame1[8]["arg1"] = __frame1[7]
       __frame1[8]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[8])(__act25)(__act26)(__ext0)
     end)()
 end
-idris["Commands.case[6949]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6692]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -40984,7 +41125,7 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41037,8 +41178,8 @@ idris["Commands.exprSearch"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -41049,7 +41190,7 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41088,7 +41229,7 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41141,8 +41282,8 @@ idris["Commands.exprSearch"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -41150,13 +41291,13 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -41165,7 +41306,7 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41218,8 +41359,8 @@ idris["Commands.exprSearch"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -41227,7 +41368,7 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -41251,7 +41392,7 @@ idris["Commands.exprSearch"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41304,14 +41445,14 @@ idris["Commands.exprSearch"] = function(__ext0)
       __frame1[15]["tag"] = "0"
       __frame1[15]["arg1"] = __frame1[14]
       __frame1[15]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[15])(__act25)(__act28)(__ext0)
     end)()
 end
-idris["Commands.case[6858]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6601]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -41396,7 +41537,7 @@ idris["Commands.docOverview"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41449,8 +41590,8 @@ idris["Commands.docOverview"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -41461,7 +41602,7 @@ idris["Commands.docOverview"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41500,7 +41641,7 @@ idris["Commands.docOverview"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41553,8 +41694,8 @@ idris["Commands.docOverview"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -41562,7 +41703,7 @@ idris["Commands.docOverview"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -41587,7 +41728,7 @@ idris["Commands.docOverview"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41640,14 +41781,14 @@ idris["Commands.docOverview"] = function(__ext0)
       __frame1[13]["tag"] = "0"
       __frame1[13]["arg1"] = __frame1[12]
       __frame1[13]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[13])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6554]case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6297]case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -41724,7 +41865,7 @@ idris["Commands.docFull"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41777,8 +41918,8 @@ idris["Commands.docFull"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -41789,7 +41930,7 @@ idris["Commands.docFull"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41828,7 +41969,7 @@ idris["Commands.docFull"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41881,8 +42022,8 @@ idris["Commands.docFull"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -41890,7 +42031,7 @@ idris["Commands.docFull"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -41915,7 +42056,7 @@ idris["Commands.docFull"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -41968,14 +42109,14 @@ idris["Commands.docFull"] = function(__ext0)
       __frame1[13]["tag"] = "0"
       __frame1[13]["arg1"] = __frame1[12]
       __frame1[13]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[13])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[6621]case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6364]case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -42058,7 +42199,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42111,8 +42252,8 @@ idris["Commands.caseSplit"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -42123,7 +42264,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42162,7 +42303,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42215,8 +42356,8 @@ idris["Commands.caseSplit"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -42224,13 +42365,13 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -42239,7 +42380,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42292,8 +42433,8 @@ idris["Commands.caseSplit"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -42301,13 +42442,13 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorColumn"](nil)(__frame1[10]))(__ext0)
       __frame1[11] = {}
       __frame1[11]["tag"] = "0"
@@ -42316,7 +42457,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42369,8 +42510,8 @@ idris["Commands.caseSplit"] = function(__ext0)
       __frame1[13]["tag"] = "0"
       __frame1[13]["arg1"] = __frame1[12]
       __frame1[13]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act28 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -42378,7 +42519,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -42399,7 +42540,7 @@ idris["Commands.caseSplit"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42452,14 +42593,14 @@ idris["Commands.caseSplit"] = function(__ext0)
       __frame1[17]["tag"] = "0"
       __frame1[17]["arg1"] = __frame1[16]
       __frame1[17]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[17])(__act25)(__act29)(__ext0)
     end)()
 end
-idris["Commands.case[6694]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6437]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -42538,7 +42679,7 @@ idris["Commands.browseNamespace"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42591,8 +42732,8 @@ idris["Commands.browseNamespace"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -42603,7 +42744,7 @@ idris["Commands.browseNamespace"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42642,7 +42783,7 @@ idris["Commands.browseNamespace"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42695,8 +42836,8 @@ idris["Commands.browseNamespace"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -42704,7 +42845,7 @@ idris["Commands.browseNamespace"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -42723,7 +42864,7 @@ idris["Commands.browseNamespace"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42776,14 +42917,14 @@ idris["Commands.browseNamespace"] = function(__ext0)
       __frame1[11]["tag"] = "0"
       __frame1[11]["arg1"] = __frame1[10]
       __frame1[11]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[11])(__act25)(__act27)(__ext0)
     end)()
 end
-idris["Commands.case[7754]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[7497]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -42885,7 +43026,7 @@ idris["Commands.addClause"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42938,8 +43079,8 @@ idris["Commands.addClause"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act24 = idris["Foreign.isBufferModified"](nil)(__frame1[3])(__ext0)
@@ -42950,7 +43091,7 @@ idris["Commands.addClause"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -42989,7 +43130,7 @@ idris["Commands.addClause"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -43042,8 +43183,8 @@ idris["Commands.addClause"] = function(__ext0)
       __frame1[7]["tag"] = "0"
       __frame1[7]["arg1"] = __frame1[6]
       __frame1[7]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act26 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -43051,13 +43192,13 @@ idris["Commands.addClause"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
           end
       end)(function(__eta0)
-        return idris["Prelude.Types.cast_Cast__Int_Integer"](__eta0)
+        return idris["Prelude.Types.cast_Cast_Int_Integer"](__eta0)
       end)(idris["Foreign.cursorLine"](nil)(__frame1[7]))(__ext0)
       __frame1[8] = {}
       __frame1[8]["tag"] = "0"
@@ -43066,7 +43207,7 @@ idris["Commands.addClause"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -43119,8 +43260,8 @@ idris["Commands.addClause"] = function(__ext0)
       __frame1[10]["tag"] = "0"
       __frame1[10]["arg1"] = __frame1[9]
       __frame1[10]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act27 = idris["Prelude.Interfaces.<$>"](nil)(nil)(nil)(function(__eta0)
@@ -43128,7 +43269,7 @@ idris["Commands.addClause"] = function(__ext0)
             return function(__eta2)
                 return function(__eta3)
                     return function(__eta4)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(__eta2)(__eta3)(__eta4)
                       end
                   end
               end
@@ -43148,7 +43289,7 @@ idris["Commands.addClause"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -43201,14 +43342,14 @@ idris["Commands.addClause"] = function(__ext0)
       __frame1[14]["tag"] = "0"
       __frame1[14]["arg1"] = __frame1[13]
       __frame1[14]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       return idris["Foreign.write"](nil)(__frame1[14])(__act25)(__act28)(__ext0)
     end)()
 end
-idris["Commands.case[6773]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
+idris["Commands.case[6516]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"] = function(__arg0)
   return function(__arg1)
       return function(__arg2)
           return function(__arg3)
@@ -43275,7 +43416,7 @@ idris["Commands.loadCommands"] = function(__ext0)
         nil,
         nil
       }
-      local __act24 = idris["Commands.case[6234]loadCommands"](1)(__ext0)
+      local __act24 = idris["Commands.case[5977]loadCommands"](1)(__ext0)
       __frame1[1] = __act24
       __frame1[2] = {
         nil
@@ -43292,7 +43433,7 @@ idris["Commands.loadCommands"] = function(__ext0)
         __frame2[1] = {}
         __frame2[1]["tag"] = "0"
         local ___0 = __frame2[1]
-        local __act25 = idris["Commands.case[6253]case block in loadCommands"](___0)(1)(__ext0)
+        local __act25 = idris["Commands.case[5996]case block in loadCommands"](___0)(1)(__ext0)
         __frame2[2] = {}
         __frame2[2]["tag"] = "0"
         local ___0 = __frame2[2]
@@ -43312,7 +43453,7 @@ idris["Commands.loadCommands"] = function(__ext0)
           __frame3[1] = {}
           __frame3[1]["tag"] = "0"
           local ___1 = __frame3[1]
-          local __act26 = idris["Commands.case[6278]case block in case block in loadCommands"](___0)(___1)(1)(__ext0)
+          local __act26 = idris["Commands.case[6021]case block in case block in loadCommands"](___0)(___1)(1)(__ext0)
           __frame3[2] = {}
           __frame3[2]["tag"] = "0"
           local ___1 = __frame3[2]
@@ -43332,7 +43473,7 @@ idris["Commands.loadCommands"] = function(__ext0)
             __frame4[1] = {}
             __frame4[1]["tag"] = "0"
             local ___2 = __frame4[1]
-            local __act27 = idris["Commands.case[6309]case block in case block in case block in loadCommands"](___0)(___1)(___2)(1)(__ext0)
+            local __act27 = idris["Commands.case[6052]case block in case block in case block in loadCommands"](___0)(___1)(___2)(1)(__ext0)
             __frame4[2] = {}
             __frame4[2]["tag"] = "0"
             local ___2 = __frame4[2]
@@ -43352,7 +43493,7 @@ idris["Commands.loadCommands"] = function(__ext0)
               __frame5[1] = {}
               __frame5[1]["tag"] = "0"
               local ___3 = __frame5[1]
-              local __act28 = idris["Commands.case[6346]case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(1)(__ext0)
+              local __act28 = idris["Commands.case[6089]case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(1)(__ext0)
               __frame5[2] = {}
               __frame5[2]["tag"] = "0"
               local ___3 = __frame5[2]
@@ -43372,7 +43513,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                 __frame6[1] = {}
                 __frame6[1]["tag"] = "0"
                 local ___4 = __frame6[1]
-                local __act29 = idris["Commands.case[6389]case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(1)(__ext0)
+                local __act29 = idris["Commands.case[6132]case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(1)(__ext0)
                 __frame6[2] = {}
                 __frame6[2]["tag"] = "0"
                 local ___4 = __frame6[2]
@@ -43392,7 +43533,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                   __frame7[1] = {}
                   __frame7[1]["tag"] = "0"
                   local ___5 = __frame7[1]
-                  local __act30 = idris["Commands.case[6438]case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(1)(__ext0)
+                  local __act30 = idris["Commands.case[6181]case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(1)(__ext0)
                   __frame7[2] = {}
                   __frame7[2]["tag"] = "0"
                   local ___5 = __frame7[2]
@@ -43412,7 +43553,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                     __frame8[1] = {}
                     __frame8[1]["tag"] = "0"
                     local ___6 = __frame8[1]
-                    local __act31 = idris["Commands.case[6493]case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(1)(__ext0)
+                    local __act31 = idris["Commands.case[6236]case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(1)(__ext0)
                     __frame8[2] = {}
                     __frame8[2]["tag"] = "0"
                     local ___6 = __frame8[2]
@@ -43432,7 +43573,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                       __frame9[1] = {}
                       __frame9[1]["tag"] = "0"
                       local ___7 = __frame9[1]
-                      local __act32 = idris["Commands.case[6554]case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(1)(__ext0)
+                      local __act32 = idris["Commands.case[6297]case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(1)(__ext0)
                       __frame9[2] = {}
                       __frame9[2]["tag"] = "0"
                       local ___7 = __frame9[2]
@@ -43452,7 +43593,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                         __frame10[1] = {}
                         __frame10[1]["tag"] = "0"
                         local ___8 = __frame10[1]
-                        local __act33 = idris["Commands.case[6621]case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(1)(__ext0)
+                        local __act33 = idris["Commands.case[6364]case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(1)(__ext0)
                         __frame10[2] = {}
                         __frame10[2]["tag"] = "0"
                         local ___8 = __frame10[2]
@@ -43472,7 +43613,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                           __frame11[1] = {}
                           __frame11[1]["tag"] = "0"
                           local ___9 = __frame11[1]
-                          local __act34 = idris["Commands.case[6694]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(1)(__ext0)
+                          local __act34 = idris["Commands.case[6437]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(1)(__ext0)
                           __frame11[2] = {}
                           __frame11[2]["tag"] = "0"
                           local ___9 = __frame11[2]
@@ -43492,7 +43633,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                             __frame12[1] = {}
                             __frame12[1]["tag"] = "0"
                             local ___10 = __frame12[1]
-                            local __act35 = idris["Commands.case[6773]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(1)(__ext0)
+                            local __act35 = idris["Commands.case[6516]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(1)(__ext0)
                             __frame12[2] = {}
                             __frame12[2]["tag"] = "0"
                             local ___10 = __frame12[2]
@@ -43512,7 +43653,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                               __frame13[1] = {}
                               __frame13[1]["tag"] = "0"
                               local ___11 = __frame13[1]
-                              local __act36 = idris["Commands.case[6858]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(1)(__ext0)
+                              local __act36 = idris["Commands.case[6601]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(1)(__ext0)
                               __frame13[2] = {}
                               __frame13[2]["tag"] = "0"
                               local ___11 = __frame13[2]
@@ -43532,7 +43673,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                 __frame14[1] = {}
                                 __frame14[1]["tag"] = "0"
                                 local ___12 = __frame14[1]
-                                local __act37 = idris["Commands.case[6949]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(1)(__ext0)
+                                local __act37 = idris["Commands.case[6692]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(1)(__ext0)
                                 __frame14[2] = {}
                                 __frame14[2]["tag"] = "0"
                                 local ___12 = __frame14[2]
@@ -43552,7 +43693,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                   __frame15[1] = {}
                                   __frame15[1]["tag"] = "0"
                                   local ___13 = __frame15[1]
-                                  local __act38 = idris["Commands.case[7046]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(1)(__ext0)
+                                  local __act38 = idris["Commands.case[6789]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(1)(__ext0)
                                   __frame15[2] = {}
                                   __frame15[2]["tag"] = "0"
                                   local ___13 = __frame15[2]
@@ -43572,7 +43713,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                     __frame16[1] = {}
                                     __frame16[1]["tag"] = "0"
                                     local ___14 = __frame16[1]
-                                    local __act39 = idris["Commands.case[7149]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(1)(__ext0)
+                                    local __act39 = idris["Commands.case[6892]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(1)(__ext0)
                                     __frame16[2] = {}
                                     __frame16[2]["tag"] = "0"
                                     local ___14 = __frame16[2]
@@ -43592,7 +43733,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                       __frame17[1] = {}
                                       __frame17[1]["tag"] = "0"
                                       local ___15 = __frame17[1]
-                                      local __act40 = idris["Commands.case[7258]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(1)(__ext0)
+                                      local __act40 = idris["Commands.case[7001]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(1)(__ext0)
                                       __frame17[2] = {}
                                       __frame17[2]["tag"] = "0"
                                       local ___15 = __frame17[2]
@@ -43612,7 +43753,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                         __frame18[1] = {}
                                         __frame18[1]["tag"] = "0"
                                         local ___16 = __frame18[1]
-                                        local __act41 = idris["Commands.case[7373]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(1)(__ext0)
+                                        local __act41 = idris["Commands.case[7116]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(1)(__ext0)
                                         __frame18[2] = {}
                                         __frame18[2]["tag"] = "0"
                                         local ___16 = __frame18[2]
@@ -43632,7 +43773,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                           __frame19[1] = {}
                                           __frame19[1]["tag"] = "0"
                                           local ___17 = __frame19[1]
-                                          local __act42 = idris["Commands.case[7494]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(1)(__ext0)
+                                          local __act42 = idris["Commands.case[7237]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(1)(__ext0)
                                           __frame19[2] = {}
                                           __frame19[2]["tag"] = "0"
                                           local ___17 = __frame19[2]
@@ -43652,7 +43793,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                             __frame20[1] = {}
                                             __frame20[1]["tag"] = "0"
                                             local ___18 = __frame20[1]
-                                            local __act43 = idris["Commands.case[7621]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(___18)(1)(__ext0)
+                                            local __act43 = idris["Commands.case[7364]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(___18)(1)(__ext0)
                                             __frame20[2] = {}
                                             __frame20[2]["tag"] = "0"
                                             local ___18 = __frame20[2]
@@ -43672,7 +43813,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                               __frame21[1] = {}
                                               __frame21[1]["tag"] = "0"
                                               local ___19 = __frame21[1]
-                                              local __act44 = idris["Commands.case[7754]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(___18)(___19)(1)(__ext0)
+                                              local __act44 = idris["Commands.case[7497]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(___18)(___19)(1)(__ext0)
                                               __frame21[2] = {}
                                               __frame21[2]["tag"] = "0"
                                               local ___19 = __frame21[2]
@@ -43691,7 +43832,7 @@ idris["Commands.loadCommands"] = function(__ext0)
                                                 __frame22[1] = {}
                                                 __frame22[1]["tag"] = "0"
                                                 local ___20 = __frame22[1]
-                                                local __act45 = idris["Commands.case[7893]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(___18)(___19)(___20)(1)(__ext0)
+                                                local __act45 = idris["Commands.case[7636]case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in case block in loadCommands"](___0)(___1)(___2)(___3)(___4)(___5)(___6)(___7)(___8)(___9)(___10)(___11)(___12)(___13)(___14)(___15)(___16)(___17)(___18)(___19)(___20)(1)(__ext0)
                                                 __frame22[2] = __act45
                                                 __frame22[3] = {
                                                   nil
@@ -43907,7 +44048,7 @@ idris["Plugin.main"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -43960,8 +44101,8 @@ idris["Plugin.main"] = function(__ext0)
       __frame1[3]["tag"] = "0"
       __frame1[3]["arg1"] = __frame1[2]
       __frame1[3]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       __frame1[4] = {}
@@ -43976,7 +44117,7 @@ idris["Plugin.main"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -44029,8 +44170,8 @@ idris["Plugin.main"] = function(__ext0)
       __frame1[8]["tag"] = "0"
       __frame1[8]["arg1"] = __frame1[7]
       __frame1[8]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       __frame1[9] = {}
@@ -44046,7 +44187,7 @@ idris["Plugin.main"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -44099,8 +44240,8 @@ idris["Plugin.main"] = function(__ext0)
       __frame1[13]["tag"] = "0"
       __frame1[13]["arg1"] = __frame1[12]
       __frame1[13]["arg2"] = function(a)
-        return function(__arg6794)
-            return __arg6794
+        return function(__arg7222)
+            return __arg7222
           end
       end
       local __act28 = idris["Foreign.getGlobalBoolVar"](nil)(__frame1[13])("idris2_autostart")(function()
@@ -44114,7 +44255,7 @@ idris["Plugin.main"] = function(__ext0)
             return function(func)
                 return function(__arg149)
                     return function(__eta0)
-                        return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta0)
+                        return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta0)
                       end
                   end
               end
@@ -44375,7 +44516,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -44428,8 +44569,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[3]["tag"] = "0"
               __frame3[3]["arg1"] = __frame3[2]
               __frame3[3]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act29 = idris["Foreign.nvimCommand"](nil)(__frame3[3])("set maxfuncdepth=10000")(__eta0)
@@ -44440,7 +44581,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -44493,8 +44634,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[6]["tag"] = "0"
               __frame3[6]["arg1"] = __frame3[5]
               __frame3[6]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act30 = idris["Foreign.nvimCommand"](nil)(__frame3[6])("echom 'starting idris2 ide mode plugin'")(__eta0)
@@ -44505,7 +44646,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -44558,8 +44699,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[9]["tag"] = "0"
               __frame3[9]["arg1"] = __frame3[8]
               __frame3[9]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act31 = idris["Foreign.getGlobalBoolVar"](nil)(__frame3[9])("idris2_external_server")(function()
@@ -44589,7 +44730,7 @@ idris["Plugin.main"] = function(__ext0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -44642,8 +44783,8 @@ idris["Plugin.main"] = function(__ext0)
                 __frame4[3]["tag"] = "0"
                 __frame4[3]["arg1"] = __frame4[2]
                 __frame4[3]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 local __act32 = idris["Foreign.nvimCommand"](nil)(__frame4[3])("echom 'starting with external server'")(__eta0)
@@ -44654,7 +44795,7 @@ idris["Plugin.main"] = function(__ext0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -44707,8 +44848,8 @@ idris["Plugin.main"] = function(__ext0)
                 __frame4[6]["tag"] = "0"
                 __frame4[6]["arg1"] = __frame4[5]
                 __frame4[6]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 local __act33 = idris["Foreign.getGlobalStringVar"](nil)(__frame4[6])("idris2_external_host")(function()
@@ -44721,7 +44862,7 @@ idris["Plugin.main"] = function(__ext0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -44774,8 +44915,8 @@ idris["Plugin.main"] = function(__ext0)
                 __frame4[9]["tag"] = "0"
                 __frame4[9]["arg1"] = __frame4[8]
                 __frame4[9]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 local __act34 = idris["Foreign.getGlobalIntVar"](nil)(__frame4[9])("idris2_external_port")(function()
@@ -44805,7 +44946,7 @@ idris["Plugin.main"] = function(__ext0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -44858,8 +44999,8 @@ idris["Plugin.main"] = function(__ext0)
                 __frame4[3]["tag"] = "0"
                 __frame4[3]["arg1"] = __frame4[2]
                 __frame4[3]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 local __act32 = idris["Foreign.nvimCommand"](nil)(__frame4[3])("echom 'starting server'")(__eta0)
@@ -44870,7 +45011,7 @@ idris["Plugin.main"] = function(__ext0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -44923,8 +45064,8 @@ idris["Plugin.main"] = function(__ext0)
                 __frame4[6]["tag"] = "0"
                 __frame4[6]["arg1"] = __frame4[5]
                 __frame4[6]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 local __act33 = idris["Foreign.getGlobalIntVar"](nil)(__frame4[6])("idris2_server_port")(function()
@@ -44937,7 +45078,7 @@ idris["Plugin.main"] = function(__ext0)
                       return function(func)
                           return function(__arg149)
                               return function(__eta1)
-                                  return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                  return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                                 end
                             end
                         end
@@ -44990,8 +45131,8 @@ idris["Plugin.main"] = function(__ext0)
                 __frame4[9]["tag"] = "0"
                 __frame4[9]["arg1"] = __frame4[8]
                 __frame4[9]["arg2"] = function(a)
-                  return function(__arg6794)
-                      return __arg6794
+                  return function(__arg7222)
+                      return __arg7222
                     end
                 end
                 __frame4[10] = {}
@@ -45018,7 +45159,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45071,8 +45212,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[16]["tag"] = "0"
               __frame3[16]["arg1"] = __frame3[15]
               __frame3[16]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act33 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[16])("idris2_loadCurrent_key")(function()
@@ -45085,7 +45226,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45138,8 +45279,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[19]["tag"] = "0"
               __frame3[19]["arg1"] = __frame3[18]
               __frame3[19]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[20] = {}
@@ -45155,7 +45296,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[23]["tag"] = "2"
               __frame3[23]["arg1"] = __frame3[21]
               __frame3[23]["arg2"] = __frame3[22]
-              local __act33 = idris["Foreign.nnoremap"](nil)(__frame3[19])(__act33)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[23]))("'](W)<CR>")))(__eta0)
+              local __act33 = idris["Foreign.nnoremap"](nil)(__frame3[19])(__act33)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[23]))("'](W)<CR>")))(__eta0)
               __frame3[24] = {}
               __frame3[24]["tag"] = "0"
               __frame3[24]["arg1"] = function(b)
@@ -45163,7 +45304,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45216,8 +45357,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[26]["tag"] = "0"
               __frame3[26]["arg1"] = __frame3[25]
               __frame3[26]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act34 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[26])("idris2_typeOf_key")(function()
@@ -45230,7 +45371,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45283,8 +45424,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[29]["tag"] = "0"
               __frame3[29]["arg1"] = __frame3[28]
               __frame3[29]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[30] = {}
@@ -45300,7 +45441,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[33]["tag"] = "2"
               __frame3[33]["arg1"] = __frame3[31]
               __frame3[33]["arg2"] = __frame3[32]
-              local __act34 = idris["Foreign.nnoremap"](nil)(__frame3[29])(__act34)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[33]))("'](W)<CR>")))(__eta0)
+              local __act34 = idris["Foreign.nnoremap"](nil)(__frame3[29])(__act34)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[33]))("'](W)<CR>")))(__eta0)
               __frame3[34] = {}
               __frame3[34]["tag"] = "0"
               __frame3[34]["arg1"] = function(b)
@@ -45308,7 +45449,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45361,8 +45502,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[36]["tag"] = "0"
               __frame3[36]["arg1"] = __frame3[35]
               __frame3[36]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act35 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[36])("idris2_typeOfPrompt_key")(function()
@@ -45375,7 +45516,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45428,8 +45569,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[39]["tag"] = "0"
               __frame3[39]["arg1"] = __frame3[38]
               __frame3[39]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[40] = {}
@@ -45445,7 +45586,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[43]["tag"] = "2"
               __frame3[43]["arg1"] = __frame3[41]
               __frame3[43]["arg2"] = __frame3[42]
-              local __act35 = idris["Foreign.nnoremap"](nil)(__frame3[39])(__act35)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[43]))("'](W)<CR>")))(__eta0)
+              local __act35 = idris["Foreign.nnoremap"](nil)(__frame3[39])(__act35)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[43]))("'](W)<CR>")))(__eta0)
               __frame3[44] = {}
               __frame3[44]["tag"] = "0"
               __frame3[44]["arg1"] = function(b)
@@ -45453,7 +45594,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45506,8 +45647,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[46]["tag"] = "0"
               __frame3[46]["arg1"] = __frame3[45]
               __frame3[46]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act36 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[46])("idris2_typeOf_key")(function()
@@ -45520,7 +45661,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45573,8 +45714,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[49]["tag"] = "0"
               __frame3[49]["arg1"] = __frame3[48]
               __frame3[49]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[50] = {}
@@ -45590,7 +45731,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[53]["tag"] = "2"
               __frame3[53]["arg1"] = __frame3[51]
               __frame3[53]["arg2"] = __frame3[52]
-              local __act36 = idris["Foreign.vnoremap"](nil)(__frame3[49])(__act36)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[53]))("'](W)<CR>")))(__eta0)
+              local __act36 = idris["Foreign.vnoremap"](nil)(__frame3[49])(__act36)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[53]))("'](W)<CR>")))(__eta0)
               __frame3[54] = {}
               __frame3[54]["tag"] = "0"
               __frame3[54]["arg1"] = function(b)
@@ -45598,7 +45739,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45651,8 +45792,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[56]["tag"] = "0"
               __frame3[56]["arg1"] = __frame3[55]
               __frame3[56]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act37 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[56])("idris2_docOverview_key")(function()
@@ -45665,7 +45806,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45718,8 +45859,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[59]["tag"] = "0"
               __frame3[59]["arg1"] = __frame3[58]
               __frame3[59]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[60] = {}
@@ -45735,7 +45876,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[63]["tag"] = "2"
               __frame3[63]["arg1"] = __frame3[61]
               __frame3[63]["arg2"] = __frame3[62]
-              local __act37 = idris["Foreign.nnoremap"](nil)(__frame3[59])(__act37)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[63]))("'](W)<CR>")))(__eta0)
+              local __act37 = idris["Foreign.nnoremap"](nil)(__frame3[59])(__act37)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[63]))("'](W)<CR>")))(__eta0)
               __frame3[64] = {}
               __frame3[64]["tag"] = "0"
               __frame3[64]["arg1"] = function(b)
@@ -45743,7 +45884,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45796,8 +45937,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[66]["tag"] = "0"
               __frame3[66]["arg1"] = __frame3[65]
               __frame3[66]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act38 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[66])("idris2_caseSplit_key")(function()
@@ -45810,7 +45951,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45863,8 +46004,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[69]["tag"] = "0"
               __frame3[69]["arg1"] = __frame3[68]
               __frame3[69]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[70] = {}
@@ -45880,7 +46021,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[73]["tag"] = "2"
               __frame3[73]["arg1"] = __frame3[71]
               __frame3[73]["arg2"] = __frame3[72]
-              local __act38 = idris["Foreign.nnoremap"](nil)(__frame3[69])(__act38)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[73]))("'](W)<CR>")))(__eta0)
+              local __act38 = idris["Foreign.nnoremap"](nil)(__frame3[69])(__act38)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[73]))("'](W)<CR>")))(__eta0)
               __frame3[74] = {}
               __frame3[74]["tag"] = "0"
               __frame3[74]["arg1"] = function(b)
@@ -45888,7 +46029,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -45941,8 +46082,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[76]["tag"] = "0"
               __frame3[76]["arg1"] = __frame3[75]
               __frame3[76]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act39 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[76])("idris2_exprSearch_key")(function()
@@ -45955,7 +46096,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46008,8 +46149,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[79]["tag"] = "0"
               __frame3[79]["arg1"] = __frame3[78]
               __frame3[79]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[80] = {}
@@ -46025,7 +46166,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[83]["tag"] = "2"
               __frame3[83]["arg1"] = __frame3[81]
               __frame3[83]["arg2"] = __frame3[82]
-              local __act39 = idris["Foreign.nnoremap"](nil)(__frame3[79])(__act39)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[83]))("'](W)<CR>")))(__eta0)
+              local __act39 = idris["Foreign.nnoremap"](nil)(__frame3[79])(__act39)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[83]))("'](W)<CR>")))(__eta0)
               __frame3[84] = {}
               __frame3[84]["tag"] = "0"
               __frame3[84]["arg1"] = function(b)
@@ -46033,7 +46174,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46086,8 +46227,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[86]["tag"] = "0"
               __frame3[86]["arg1"] = __frame3[85]
               __frame3[86]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act40 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[86])("idris2_exprSearchNext_key")(function()
@@ -46100,7 +46241,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46153,8 +46294,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[89]["tag"] = "0"
               __frame3[89]["arg1"] = __frame3[88]
               __frame3[89]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[90] = {}
@@ -46170,7 +46311,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[93]["tag"] = "2"
               __frame3[93]["arg1"] = __frame3[91]
               __frame3[93]["arg2"] = __frame3[92]
-              local __act40 = idris["Foreign.nnoremap"](nil)(__frame3[89])(__act40)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[93]))("'](W)<CR>")))(__eta0)
+              local __act40 = idris["Foreign.nnoremap"](nil)(__frame3[89])(__act40)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[93]))("'](W)<CR>")))(__eta0)
               __frame3[94] = {}
               __frame3[94]["tag"] = "0"
               __frame3[94]["arg1"] = function(b)
@@ -46178,7 +46319,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46231,8 +46372,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[96]["tag"] = "0"
               __frame3[96]["arg1"] = __frame3[95]
               __frame3[96]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act41 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[96])("idris2_addClause_key")(function()
@@ -46245,7 +46386,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46298,8 +46439,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[99]["tag"] = "0"
               __frame3[99]["arg1"] = __frame3[98]
               __frame3[99]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[100] = {}
@@ -46315,7 +46456,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[103]["tag"] = "2"
               __frame3[103]["arg1"] = __frame3[101]
               __frame3[103]["arg2"] = __frame3[102]
-              local __act41 = idris["Foreign.nnoremap"](nil)(__frame3[99])(__act41)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[103]))("'](W)<CR>")))(__eta0)
+              local __act41 = idris["Foreign.nnoremap"](nil)(__frame3[99])(__act41)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[103]))("'](W)<CR>")))(__eta0)
               __frame3[104] = {}
               __frame3[104]["tag"] = "0"
               __frame3[104]["arg1"] = function(b)
@@ -46323,7 +46464,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46376,8 +46517,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[106]["tag"] = "0"
               __frame3[106]["arg1"] = __frame3[105]
               __frame3[106]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act42 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[106])("idris2_generateDef_key")(function()
@@ -46390,7 +46531,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46443,8 +46584,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[109]["tag"] = "0"
               __frame3[109]["arg1"] = __frame3[108]
               __frame3[109]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[110] = {}
@@ -46460,7 +46601,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[113]["tag"] = "2"
               __frame3[113]["arg1"] = __frame3[111]
               __frame3[113]["arg2"] = __frame3[112]
-              local __act42 = idris["Foreign.nnoremap"](nil)(__frame3[109])(__act42)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[113]))("'](W)<CR>")))(__eta0)
+              local __act42 = idris["Foreign.nnoremap"](nil)(__frame3[109])(__act42)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[113]))("'](W)<CR>")))(__eta0)
               __frame3[114] = {}
               __frame3[114]["tag"] = "0"
               __frame3[114]["arg1"] = function(b)
@@ -46468,7 +46609,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46521,8 +46662,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[116]["tag"] = "0"
               __frame3[116]["arg1"] = __frame3[115]
               __frame3[116]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act43 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[116])("idris2_generateDefNext_key")(function()
@@ -46535,7 +46676,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46588,8 +46729,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[119]["tag"] = "0"
               __frame3[119]["arg1"] = __frame3[118]
               __frame3[119]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[120] = {}
@@ -46605,7 +46746,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[123]["tag"] = "2"
               __frame3[123]["arg1"] = __frame3[121]
               __frame3[123]["arg2"] = __frame3[122]
-              local __act43 = idris["Foreign.nnoremap"](nil)(__frame3[119])(__act43)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[123]))("'](W)<CR>")))(__eta0)
+              local __act43 = idris["Foreign.nnoremap"](nil)(__frame3[119])(__act43)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[123]))("'](W)<CR>")))(__eta0)
               __frame3[124] = {}
               __frame3[124]["tag"] = "0"
               __frame3[124]["arg1"] = function(b)
@@ -46613,7 +46754,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46666,8 +46807,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[126]["tag"] = "0"
               __frame3[126]["arg1"] = __frame3[125]
               __frame3[126]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act44 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[126])("idris2_makeLemma_key")(function()
@@ -46680,7 +46821,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46733,8 +46874,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[129]["tag"] = "0"
               __frame3[129]["arg1"] = __frame3[128]
               __frame3[129]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[130] = {}
@@ -46750,7 +46891,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[133]["tag"] = "2"
               __frame3[133]["arg1"] = __frame3[131]
               __frame3[133]["arg2"] = __frame3[132]
-              local __act44 = idris["Foreign.nnoremap"](nil)(__frame3[129])(__act44)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[133]))("'](W)<CR>")))(__eta0)
+              local __act44 = idris["Foreign.nnoremap"](nil)(__frame3[129])(__act44)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[133]))("'](W)<CR>")))(__eta0)
               __frame3[134] = {}
               __frame3[134]["tag"] = "0"
               __frame3[134]["arg1"] = function(b)
@@ -46758,7 +46899,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46811,8 +46952,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[136]["tag"] = "0"
               __frame3[136]["arg1"] = __frame3[135]
               __frame3[136]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act45 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[136])("idris2_makeCase_key")(function()
@@ -46825,7 +46966,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46878,8 +47019,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[139]["tag"] = "0"
               __frame3[139]["arg1"] = __frame3[138]
               __frame3[139]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[140] = {}
@@ -46895,7 +47036,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[143]["tag"] = "2"
               __frame3[143]["arg1"] = __frame3[141]
               __frame3[143]["arg2"] = __frame3[142]
-              local __act45 = idris["Foreign.nnoremap"](nil)(__frame3[139])(__act45)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[143]))("'](W)<CR>")))(__eta0)
+              local __act45 = idris["Foreign.nnoremap"](nil)(__frame3[139])(__act45)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[143]))("'](W)<CR>")))(__eta0)
               __frame3[144] = {}
               __frame3[144]["tag"] = "0"
               __frame3[144]["arg1"] = function(b)
@@ -46903,7 +47044,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -46956,8 +47097,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[146]["tag"] = "0"
               __frame3[146]["arg1"] = __frame3[145]
               __frame3[146]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act46 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[146])("idris2_makeWith_key")(function()
@@ -46970,7 +47111,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47023,8 +47164,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[149]["tag"] = "0"
               __frame3[149]["arg1"] = __frame3[148]
               __frame3[149]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[150] = {}
@@ -47040,7 +47181,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[153]["tag"] = "2"
               __frame3[153]["arg1"] = __frame3[151]
               __frame3[153]["arg2"] = __frame3[152]
-              local __act46 = idris["Foreign.nnoremap"](nil)(__frame3[149])(__act46)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[153]))("'](W)<CR>")))(__eta0)
+              local __act46 = idris["Foreign.nnoremap"](nil)(__frame3[149])(__act46)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[153]))("'](W)<CR>")))(__eta0)
               __frame3[154] = {}
               __frame3[154]["tag"] = "0"
               __frame3[154]["arg1"] = function(b)
@@ -47048,7 +47189,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47101,8 +47242,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[156]["tag"] = "0"
               __frame3[156]["arg1"] = __frame3[155]
               __frame3[156]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act47 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[156])("idris2_jumpTo_key")(function()
@@ -47115,7 +47256,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47168,8 +47309,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[159]["tag"] = "0"
               __frame3[159]["arg1"] = __frame3[158]
               __frame3[159]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[160] = {}
@@ -47185,7 +47326,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[163]["tag"] = "2"
               __frame3[163]["arg1"] = __frame3[161]
               __frame3[163]["arg2"] = __frame3[162]
-              local __act47 = idris["Foreign.nnoremap"](nil)(__frame3[159])(__act47)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[163]))("'](W)<CR>")))(__eta0)
+              local __act47 = idris["Foreign.nnoremap"](nil)(__frame3[159])(__act47)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[163]))("'](W)<CR>")))(__eta0)
               __frame3[164] = {}
               __frame3[164]["tag"] = "0"
               __frame3[164]["arg1"] = function(b)
@@ -47193,7 +47334,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47246,8 +47387,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[166]["tag"] = "0"
               __frame3[166]["arg1"] = __frame3[165]
               __frame3[166]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act48 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[166])("idris2_jumpToPrompt_key")(function()
@@ -47260,7 +47401,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47313,8 +47454,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[169]["tag"] = "0"
               __frame3[169]["arg1"] = __frame3[168]
               __frame3[169]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[170] = {}
@@ -47330,7 +47471,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[173]["tag"] = "2"
               __frame3[173]["arg1"] = __frame3[171]
               __frame3[173]["arg2"] = __frame3[172]
-              local __act48 = idris["Foreign.nnoremap"](nil)(__frame3[169])(__act48)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[173]))("'](W)<CR>")))(__eta0)
+              local __act48 = idris["Foreign.nnoremap"](nil)(__frame3[169])(__act48)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[173]))("'](W)<CR>")))(__eta0)
               __frame3[174] = {}
               __frame3[174]["tag"] = "0"
               __frame3[174]["arg1"] = function(b)
@@ -47338,7 +47479,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47391,8 +47532,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[176]["tag"] = "0"
               __frame3[176]["arg1"] = __frame3[175]
               __frame3[176]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act49 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[176])("idris2_jumpTo_key")(function()
@@ -47405,7 +47546,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47458,8 +47599,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[179]["tag"] = "0"
               __frame3[179]["arg1"] = __frame3[178]
               __frame3[179]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[180] = {}
@@ -47475,7 +47616,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[183]["tag"] = "2"
               __frame3[183]["arg1"] = __frame3[181]
               __frame3[183]["arg2"] = __frame3[182]
-              local __act49 = idris["Foreign.vnoremap"](nil)(__frame3[179])(__act49)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[183]))("'](W)<CR>")))(__eta0)
+              local __act49 = idris["Foreign.vnoremap"](nil)(__frame3[179])(__act49)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[183]))("'](W)<CR>")))(__eta0)
               __frame3[184] = {}
               __frame3[184]["tag"] = "0"
               __frame3[184]["arg1"] = function(b)
@@ -47483,7 +47624,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47536,8 +47677,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[186]["tag"] = "0"
               __frame3[186]["arg1"] = __frame3[185]
               __frame3[186]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act50 = idris["Foreign.getGlobalStringVar"](nil)(__frame3[186])("idris2_interpret_key")(function()
@@ -47550,7 +47691,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47603,8 +47744,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[189]["tag"] = "0"
               __frame3[189]["arg1"] = __frame3[188]
               __frame3[189]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               __frame3[190] = {}
@@ -47620,7 +47761,7 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[193]["tag"] = "2"
               __frame3[193]["arg1"] = __frame3[191]
               __frame3[193]["arg2"] = __frame3[192]
-              local __act50 = idris["Foreign.vnoremap"](nil)(__frame3[189])(__act50)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame3[193]))("'](W)<CR>")))(__eta0)
+              local __act50 = idris["Foreign.vnoremap"](nil)(__frame3[189])(__act50)(idris["Prelude.Types.Strings.++"](":lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame3[193]))("'](W)<CR>")))(__eta0)
               __frame3[194] = {}
               __frame3[194]["tag"] = "0"
               __frame3[194]["arg1"] = function(b)
@@ -47628,7 +47769,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47681,8 +47822,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[196]["tag"] = "0"
               __frame3[196]["arg1"] = __frame3[195]
               __frame3[196]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act51 = idris["Foreign.getGlobalBoolVar"](nil)(__frame3[196])("idris2_load_on_start")(function()
@@ -47695,7 +47836,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -47748,7 +47889,7 @@ idris["Plugin.main"] = function(__ext0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta2)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta2)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta2)
                                     end
                                 end
                             end
@@ -47801,8 +47942,8 @@ idris["Plugin.main"] = function(__ext0)
                     __frame5[3]["tag"] = "0"
                     __frame5[3]["arg1"] = __frame5[2]
                     __frame5[3]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     local __act52 = idris["Foreign.nvimCommand"](nil)(__frame5[3])("augroup IdrisLoadOnRead")(__eta1)
@@ -47813,7 +47954,7 @@ idris["Plugin.main"] = function(__ext0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta2)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta2)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta2)
                                     end
                                 end
                             end
@@ -47866,8 +48007,8 @@ idris["Plugin.main"] = function(__ext0)
                     __frame5[6]["tag"] = "0"
                     __frame5[6]["arg1"] = __frame5[5]
                     __frame5[6]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     local __act53 = idris["Foreign.nvimCommand"](nil)(__frame5[6])(" autocmd!")(__eta1)
@@ -47878,7 +48019,7 @@ idris["Plugin.main"] = function(__ext0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta2)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta2)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta2)
                                     end
                                 end
                             end
@@ -47931,8 +48072,8 @@ idris["Plugin.main"] = function(__ext0)
                     __frame5[9]["tag"] = "0"
                     __frame5[9]["arg1"] = __frame5[8]
                     __frame5[9]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     __frame5[10] = {}
@@ -47948,7 +48089,7 @@ idris["Plugin.main"] = function(__ext0)
                     __frame5[13]["tag"] = "2"
                     __frame5[13]["arg1"] = __frame5[11]
                     __frame5[13]["arg2"] = __frame5[12]
-                    local __act54 = idris["Foreign.nvimCommand"](nil)(__frame5[9])(idris["Prelude.Types.Strings.++"]("autocmd BufNewFile,BufRead *.idr ")(idris["Prelude.Types.Strings.++"]("lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show__Name"](__frame5[13]))("'](W)"))))(__eta1)
+                    local __act54 = idris["Foreign.nvimCommand"](nil)(__frame5[9])(idris["Prelude.Types.Strings.++"]("autocmd BufNewFile,BufRead *.idr ")(idris["Prelude.Types.Strings.++"]("lua idris['")(idris["Prelude.Types.Strings.++"](idris["Language.Reflection.TT.show_Show_Name"](__frame5[13]))("'](W)"))))(__eta1)
                     __frame5[14] = {}
                     __frame5[14]["tag"] = "0"
                     __frame5[14]["arg1"] = function(b)
@@ -47956,7 +48097,7 @@ idris["Plugin.main"] = function(__ext0)
                           return function(func)
                               return function(__arg149)
                                   return function(__eta2)
-                                      return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta2)
+                                      return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta2)
                                     end
                                 end
                             end
@@ -48009,8 +48150,8 @@ idris["Plugin.main"] = function(__ext0)
                     __frame5[16]["tag"] = "0"
                     __frame5[16]["arg1"] = __frame5[15]
                     __frame5[16]["arg2"] = function(a)
-                      return function(__arg6794)
-                          return __arg6794
+                      return function(__arg7222)
+                          return __arg7222
                         end
                     end
                     return idris["Foreign.nvimCommand"](nil)(__frame5[16])("augroup end")(__eta1)
@@ -48023,7 +48164,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48076,8 +48217,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[200]["tag"] = "0"
               __frame3[200]["arg1"] = __frame3[199]
               __frame3[200]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act53 = idris["Foreign.nvimCommand"](nil)(__frame3[200])("augroup IdrisSetBufType")(__eta0)
@@ -48088,7 +48229,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48141,8 +48282,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[203]["tag"] = "0"
               __frame3[203]["arg1"] = __frame3[202]
               __frame3[203]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act54 = idris["Foreign.nvimCommand"](nil)(__frame3[203])(" autocmd!")(__eta0)
@@ -48153,7 +48294,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48206,8 +48347,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[206]["tag"] = "0"
               __frame3[206]["arg1"] = __frame3[205]
               __frame3[206]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act55 = idris["Foreign.nvimCommand"](nil)(__frame3[206])(idris["Prelude.Types.Strings.++"](" autocmd BufEnter ")(idris["Prelude.Types.Strings.++"](idris["Plugin.responseBufferName"])(" set buftype=nofile|set syntax=idris2")))(__eta0)
@@ -48218,7 +48359,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48271,8 +48412,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[209]["tag"] = "0"
               __frame3[209]["arg1"] = __frame3[208]
               __frame3[209]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act56 = idris["Foreign.nvimCommand"](nil)(__frame3[209])("augroup end")(__eta0)
@@ -48283,7 +48424,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48336,8 +48477,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[212]["tag"] = "0"
               __frame3[212]["arg1"] = __frame3[211]
               __frame3[212]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act57 = idris["Foreign.nvimCommand"](nil)(__frame3[212])("vertical rightbelow split")(__eta0)
@@ -48348,7 +48489,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48401,8 +48542,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[215]["tag"] = "0"
               __frame3[215]["arg1"] = __frame3[214]
               __frame3[215]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act58 = idris["Foreign.nvimCommand"](nil)(__frame3[215])("badd idris-response")(__eta0)
@@ -48413,7 +48554,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48466,8 +48607,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[218]["tag"] = "0"
               __frame3[218]["arg1"] = __frame3[217]
               __frame3[218]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act59 = idris["Foreign.nvimCommand"](nil)(__frame3[218])("b idris-response")(__eta0)
@@ -48478,7 +48619,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48531,8 +48672,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[221]["tag"] = "0"
               __frame3[221]["arg1"] = __frame3[220]
               __frame3[221]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               local __act60 = idris["Foreign.nvimCommand"](nil)(__frame3[221])("set buftype=nofile")(__eta0)
@@ -48543,7 +48684,7 @@ idris["Plugin.main"] = function(__ext0)
                     return function(func)
                         return function(__arg149)
                             return function(__eta1)
-                                return idris["Prelude.IO.map_Functor__IO"](nil)(nil)(func)(__arg149)(__eta1)
+                                return idris["Prelude.IO.map_Functor_IO"](nil)(nil)(func)(__arg149)(__eta1)
                               end
                           end
                       end
@@ -48596,8 +48737,8 @@ idris["Plugin.main"] = function(__ext0)
               __frame3[224]["tag"] = "0"
               __frame3[224]["arg1"] = __frame3[223]
               __frame3[224]["arg2"] = function(a)
-                return function(__arg6794)
-                    return __arg6794
+                return function(__arg7222)
+                    return __arg7222
                   end
               end
               return idris["Foreign.nvimCommand"](nil)(__frame3[224])("wincmd h")(__eta0)
