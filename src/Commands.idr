@@ -1,10 +1,12 @@
 module Commands
 
 import Data.Strings
+
 import Language.Reflection
 
+import Libraries.Utils.Hex
+
 import public Idris.IDEMode.Commands
-import Utils.Hex
 
 import Foreign
 
@@ -83,7 +85,7 @@ export
 buildCommand : IDECommand -> IO String
 buildCommand cmd = do
   idx <- primIO genHistoryIndex
-  primIO $ putCmdInHistory idx cmd
+  ignore $ primIO $ putCmdInHistory idx cmd
   let s = show $ SExpList [toSExp cmd, IntegerAtom (cast idx)]
   pure $ leftPad '0' 6 (asHex $ cast $ length s) ++ s
 
