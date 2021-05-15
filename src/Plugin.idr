@@ -10,17 +10,23 @@ import System
 
 import Language.Reflection
 
+import Libraries.Utils.Hex
+import Libraries.Utils.Path
+
+-- A type-checking slowdown happens because of this
+-- import vvv
+import Core.Core
 import Idris.IDEMode.Commands
 import Idris.IDEMode.Parser
 import Parser.Lexer.Source
 import Parser.Support
-import Utils.Hex
-import Utils.Path
 
 import Commands
 import Foreign
 
 %language ElabReflection
+
+%hide Core.Ref
 
 -- TODO: Move all temporary foreign declaration to vim api module
 
@@ -43,7 +49,7 @@ namespace Parameters
   (.sourceDir) = sourceDir
 
 
-%foreign "s, h => {args={'-p', 'contrib', '--ide-mode-socket', s}, stdio={nil, h, nil}}"
+%foreign "s, h => {args={'-p', 'contrib', '-p', 'idris2', '-p', 'network', '--ide-mode-socket', s}, stdio={nil, h, nil}}"
 prim__spawnOpts : String -> OpaqueDict -> OpaqueDict
 
 spawnOpts : String
@@ -145,8 +151,8 @@ splitMessages : String -> List String -> List String
 splitMessages recv acc =
   case fromHex (reverse $ substr 0 6 recv) of
        Just 0 => acc
-       Just len => let msg = substr 6 (integerToNat $ cast len) recv
-                       rest = substr (integerToNat $ cast $ 6 + len) (length recv) recv in
+       Just len => let msg = substr 6 (integerToNat len) recv
+                       rest = substr (integerToNat $ 6 + len) (length recv) recv in
                        splitMessages rest (snoc acc msg)
        Nothing => acc
 
@@ -293,7 +299,7 @@ process (OK idx res) = do
       let SExpList [StringAtom ls] = res
         | x => nvimCommand $ "echom 'Invalid response to ExprSearch" ++ show res ++ "'"
       nvimCommand $ "s/" ++ (strCons '?' name) ++ "/" ++ ls ++ "/"
-      primIO $ putLastSearch ls
+      ignore $ primIO $ putLastSearch ls
       primIO $ deleteCmdInHistory idx
     Just ExprSearchNext => do
       -- TODO: How we rollback?

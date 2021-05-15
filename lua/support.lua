@@ -210,9 +210,9 @@ end
 
 local function toIdrisBool(bool)
     if bool then
-        return 0
-    else
         return 1
+    else
+        return 0
     end
 end
 
@@ -256,10 +256,10 @@ function module.appendToBuffer(commented)
             return function(str)
                 return function(_)
                     local ls = vim.split(str, '\n')
-                    if commented == 0 then
+                    if commented == 1 then
                         ls = vim.tbl_map(function(s) return '-- ' .. s end, ls)
                     end
-                    if last == 0 then
+                    if last == 1 then
                         table.insert(ls, '')
                     end
                     vim.fn.append(line, ls)

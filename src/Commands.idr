@@ -1,10 +1,12 @@
 module Commands
 
 import Data.Strings
+
 import Language.Reflection
 
+import Libraries.Utils.Hex
+
 import public Idris.IDEMode.Commands
-import Utils.Hex
 
 import Foreign
 
@@ -83,7 +85,7 @@ export
 buildCommand : IDECommand -> IO String
 buildCommand cmd = do
   idx <- primIO genHistoryIndex
-  primIO $ putCmdInHistory idx cmd
+  ignore $ primIO $ putCmdInHistory idx cmd
   let s = show $ SExpList [toSExp cmd, IntegerAtom (cast idx)]
   pure $ leftPad '0' 6 (asHex $ cast $ length s) ++ s
 
@@ -120,7 +122,9 @@ typeOf = do
   when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   name <- extractName <$> cursorWord
-  write client !(buildCommand $ TypeOf name Nothing)
+  line <- cast <$> cursorLine
+  col <- cast <$> cursorColumn
+  write client !(buildCommand $ TypeOf name (Just (line, col)))
 
 export
 typeOfPrompt : IO ()
@@ -136,7 +140,9 @@ typeOfSel = do
   when !isBufferModified loadCurrent
   client <- primIO getGlobalClient
   sel <- extractName <$> getSelection
-  write client !(buildCommand $ TypeOf sel Nothing)
+  line <- cast <$> cursorLine
+  col <- cast <$> cursorColumn
+  write client !(buildCommand $ TypeOf sel (Just (line, col)))
 
 export
 nameAt : IO ()
@@ -302,33 +308,36 @@ getOptions = do
   client <- primIO getGlobalClient
   write client !(buildCommand GetOptions)
 
+%foreign "_, _ => 0"
+export
+loadRef : a -> IO ()
+
 export
 loadCommands : IO ()
 loadCommands = do
-  () <- if False then interpret else pure ()
-  () <- if False then loadCurrent else pure ()
-  () <- if False then typeOf else pure ()
-  () <- if False then typeOfPrompt else pure ()
-  () <- if False then typeOfSel else pure ()
-  () <- if False then nameAt else pure ()
-  () <- if False then nameAtPrompt else pure ()
-  () <- if False then nameAtSel else pure ()
-  () <- if False then docOverview else pure ()
-  () <- if False then docFull else pure ()
-  () <- if False then caseSplit else pure ()
-  () <- if False then addClause else pure ()
-  () <- if False then exprSearch else pure ()
-  () <- if False then exprSearchNext else pure ()
-  () <- if False then generateDef else pure ()
-  () <- if False then generateDefNext else pure ()
-  () <- if False then makeLemma else pure ()
-  () <- if False then makeCase else pure ()
-  () <- if False then makeWith else pure ()
-  () <- if False then metavariables else pure ()
-  () <- if False then browseNamespace else pure ()
-  -- () <- if False then enableSyntax True else pure ()
-  () <- if False then getOptions else pure ()
-  pure ()
+  loadRef interpret
+  loadRef loadCurrent
+  loadRef typeOf
+  loadRef typeOfPrompt
+  loadRef typeOfSel
+  loadRef nameAt
+  loadRef nameAtPrompt
+  loadRef nameAtSel
+  loadRef docOverview
+  loadRef docFull
+  loadRef caseSplit
+  loadRef addClause
+  loadRef exprSearch
+  loadRef exprSearchNext
+  loadRef generateDef
+  loadRef generateDefNext
+  loadRef makeLemma
+  loadRef makeCase
+  loadRef makeWith
+  loadRef metavariables
+  loadRef browseNamespace
+  -- loadRef enableSyntax
+  loadRef getOptions
 
 export %macro
 commandBinding : Bool -> Name -> Elab String
