@@ -49,7 +49,7 @@ namespace Parameters
   (.sourceDir) = sourceDir
 
 
-%foreign "s, h => {args={'-p', 'contrib', '--ide-mode-socket', s}, stdio={nil, h, nil}}"
+%foreign "s, h => {args={'-p', 'contrib', '-p', 'idris2', '-p', 'network', '--ide-mode-socket', s}, stdio={nil, h, nil}}"
 prim__spawnOpts : String -> OpaqueDict -> OpaqueDict
 
 spawnOpts : String
