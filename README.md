@@ -1,4 +1,4 @@
-# EXPERIMENTAL: Idris2 IDE Mode for neovim in Idris2 (via Lua)
+# DEPRECATED: use [idris2-nvim](https://github.com/ShinKage/idris2-nvim) instead
 
 WARNING: Plugin is still in experimental phase and requires nightly releases.
 
